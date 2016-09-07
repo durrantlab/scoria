@@ -1,3 +1,6 @@
+import numpy
+from scipy.spatial.distance import cdist
+
 class OtherMolecules():
     """A class for characterizing the relationships between multiple
     pymolecule."""
@@ -355,10 +358,12 @@ class OtherMolecules():
         )
 
     def get_rmsd_heuristic(self, other_mol):
-        """Caluclates the RMSD between two structures, per the definition
-        given in "AutoDock Vina: Improving the speed and accuracy of docking
-        with a new scoring function, efficient optimization, and
-        multithreading,"" by Oleg Trott and Arthur J. Olson.
+        """Caluclates the RMSD between two identical molecules with different
+        conformations, per the definition given in "AutoDock Vina: Improving
+        the speed and accuracy of docking with a new scoring function,
+        efficient optimization, and multithreading,"" by Oleg Trott and Arthur
+        J. Olson. Note: Identical means the order of the atoms is the same as
+        well.
         
             Args:
                 other_mol -- The other pymolecule.Molecule object.
@@ -367,4 +372,61 @@ class OtherMolecules():
                 A float, the RMSD between self and other_mol.
         """
 
-        return 0
+        # Group the other_mol atoms by element (atom type in pdbqt speak)
+        atom_inf = self.__parent_molecule.get_atom_information()
+        self_atom_coors = self.__parent_molecule.get_coordinates()
+        other_atom_coors = other_mol.get_coordinates()
+
+        self_atom_grps = {}
+        other_atom_grps = {}
+
+        for i, atm in enumerate(atom_inf):
+            element_stripped = atm["element_stripped"]
+            if not element_stripped in self_atom_grps.keys():
+                self_atom_grps[element_stripped] = []
+                other_atom_grps[element_stripped] = []
+            self_atom_grps[element_stripped].append(self_atom_coors[i])
+            other_atom_grps[element_stripped].append(other_atom_coors[i])
+        
+        for element in self_atom_grps.keys():
+            self_atom_grps[element] = numpy.array(self_atom_grps[element])
+            other_atom_grps[element] = numpy.array(other_atom_grps[element])
+        
+        # Calculate the rmsds going both ways
+        rmsd1 = self._get_rmsd_heuristic_helper_func(self_atom_grps, other_atom_grps)
+        rmsd2 = self._get_rmsd_heuristic_helper_func(other_atom_grps, self_atom_grps)
+        
+        return numpy.max((rmsd1, rmsd2))
+
+    def _get_rmsd_heuristic_helper_func(self, atom_grp1, atom_grp2):
+        """A helper function for calculating heuristic RMSD.
+        
+            Args:
+                atom_grp1: A dictionary, where the keys are atom types
+                    and the values are numpy arrays of the coordinates.
+                atom_grp2: The same, but now given the atoms of the
+                    other molecule.
+            
+            Returns:
+                A float, the heuristic RMSD between the two molecules
+                    (atom_grp1 to atom_grp2)
+        
+        """
+        
+        # Go through each of the element types
+        tot_sum_min_dists_sqrd = 0
+        num_heavy_atms = 0
+        for element in atom_grp1.keys():
+            if element[:1] != "H":  # Because only heavy atoms
+                coor1 = atom_grp1[element]
+                coor2 = atom_grp2[element]
+                
+                dists = cdist(coor1, coor2)
+                dists_sqr = dists * dists
+                min_dists_sqr = numpy.min(dists_sqr, axis = 0)
+
+                tot_sum_min_dists_sqrd = tot_sum_min_dists_sqrd + numpy.sum(min_dists_sqr) 
+                num_heavy_atms = num_heavy_atms + len(coor1)
+        rmsd = numpy.sqrt(tot_sum_min_dists_sqrd / num_heavy_atms)
+        return rmsd
+

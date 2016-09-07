@@ -55,6 +55,53 @@ class FileIO():
                 numpy.load(filename + "coordinates_undo_point.npz")['arr_0']
             )
 
+    def load_pdbqt_into(self, filename, bonds_by_distance = False,
+                      serial_reindex = True, resseq_reindex = False):
+        """Loads the molecular data contained in a pdbqt file into the current
+        pymolecule.Molecule object. Note that this implementation is
+        incomplete. It doesn't save atomic charges, for example. The atom
+        types are stored in the "element" and "element_stripped" columns.
+
+            Args:
+                filename -- A string, the filename of the pdbqt file.
+                bonds_by_distance -- An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. False by
+                    default, unlike for PDB.
+                serial_reindex -- An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+                resseq_reindex -- An optional boolean, whether or not to
+                    reindex the pdbqt resseq field. False by default.
+
+        """
+
+        self.__parent_molecule.set_filename(filename)
+
+        # open/read the file
+        # Treat PDBQT just like PDB, but merge last two columns.
+        afile = open(filename, "r")
+        self.load_pdb_into_using_file_object(afile, bonds_by_distance,
+                                             serial_reindex, resseq_reindex)
+        afile.close()
+
+        # Now merge the last two columns.
+        atom_inf = self.__parent_molecule.get_atom_information()
+         
+        atom_types = numpy.core.defchararray.add(
+            atom_inf["element_stripped"], atom_inf["charge"]
+        )
+
+        atom_inf["element_stripped"] = numpy.core.defchararray.strip(
+            atom_types
+        )
+
+        atom_inf["charge"] = "\n"
+
+        atom_inf["element"] = numpy.core.defchararray.rjust(
+            atom_inf["element_stripped"], 2
+        )
+
+        self.__parent_molecule.set_atom_information(atom_inf)
+
     def load_pdb_into(self, filename, bonds_by_distance = True,
                       serial_reindex = True, resseq_reindex = False):
         """Loads the molecular data contained in a pdb file into the current
@@ -209,7 +256,7 @@ class FileIO():
         for f in fields_to_strip:
             self.__parent_molecule.set_atom_information(
                 append_fields(
-                    self.__parent_molecule.get_atom_information(),
+                    self.__parent_molecule.get_atom_information().copy(),
                     f + '_stripped',
                     data = numpy.core.defchararray.strip(atom_inf[f])
                 )

@@ -129,6 +129,14 @@ class Molecule: # here's the actual Molecule class
             file_obj, bonds_by_distance, serial_reindex, resseq_reindex
         )
 
+    def load_pdbqt_into(self, filename, bonds_by_distance = False,
+                      serial_reindex = True, resseq_reindex = False):
+
+        self.fileio.load_pdbqt_into(
+            filename, bonds_by_distance, serial_reindex, resseq_reindex
+        )
+
+
     def save_pym(self, filename, save_bonds = False, save_filename = False,
                  save_remarks = False, save_hierarchy = False,
                  save_coordinates_undo_point = False):
@@ -312,6 +320,9 @@ class Molecule: # here's the actual Molecule class
 
     def get_rmsd_order_dependent(self, other_mol):
         return self.other_molecule.get_rmsd_order_dependent(other_mol)
+
+    def get_rmsd_heuristic(self, other_mol):
+        return self.other_molecule.get_rmsd_heuristic(other_mol)
 
     def steric_clash_with_another_molecule(self, other_mol, cutoff,
                                            pairwise_comparison = True):
