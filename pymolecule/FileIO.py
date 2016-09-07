@@ -167,6 +167,7 @@ class FileIO():
         self.__parent_molecule.set_atom_information(atom_inf.astype(new_types))
 
         # remove some of the fields that just contain empty data
+        atom_inf = self.__parent_molecule.get_atom_information()
         self.__parent_molecule.set_atom_information(
             self.__parent_molecule.numpy_structured_array_remove_field(
                 atom_inf, ['empty', 'empty2']
@@ -175,6 +176,7 @@ class FileIO():
 
         # the coordinates need to be placed in their own special numpy array to
         # facilitate later manipulation
+        atom_inf = self.__parent_molecule.get_atom_information()
         self.__parent_molecule.set_coordinates(
             numpy.vstack([atom_inf['x'], atom_inf['y'], atom_inf['z']]).T
         )

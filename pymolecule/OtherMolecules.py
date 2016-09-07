@@ -353,3 +353,18 @@ class OtherMolecules():
             other_mol,
             (self_index_in_order, other_index_in_order)
         )
+
+    def get_rmsd_heuristic(self, other_mol):
+        """Caluclates the RMSD between two structures, per the definition
+        given in "AutoDock Vina: Improving the speed and accuracy of docking
+        with a new scoring function, efficient optimization, and
+        multithreading,"" by Oleg Trott and Arthur J. Olson.
+        
+            Args:
+                other_mol -- The other pymolecule.Molecule object.
+            
+            Returns:
+                A float, the RMSD between self and other_mol.
+        """
+
+        return 0
