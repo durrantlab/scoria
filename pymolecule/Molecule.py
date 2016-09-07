@@ -136,6 +136,14 @@ class Molecule: # here's the actual Molecule class
             filename, bonds_by_distance, serial_reindex, resseq_reindex
         )
 
+    def load_pdbqt_into_using_file_object(self, file_obj,
+                                        bonds_by_distance = True,
+                                        serial_reindex = True,
+                                        resseq_reindex = False):
+
+        self.fileio.load_pdbqt_into_using_file_object(
+            file_obj, bonds_by_distance, serial_reindex, resseq_reindex
+        )
 
     def save_pym(self, filename, save_bonds = False, save_filename = False,
                  save_remarks = False, save_hierarchy = False,

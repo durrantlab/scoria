@@ -95,9 +95,35 @@ class FileIO():
         # open/read the file
         # Treat PDBQT just like PDB, but merge last two columns.
         afile = open(filename, "r")
-        self.load_pdb_into_using_file_object(afile, bonds_by_distance,
-                                             serial_reindex, resseq_reindex)
+        self.load_pdbqt_into_using_file_object(afile, bonds_by_distance,
+                                               serial_reindex, resseq_reindex)
         afile.close()
+
+    def load_pdbqt_into_using_file_object(self, file_obj,
+                                          bonds_by_distance = False,
+                                          serial_reindex = True,
+                                          resseq_reindex = False):
+        """Loads molecular data from a python file object (pdbqt formatted)
+        into the current pymolecule.Molecule object. Note that most users will
+        want to use the load_pdb_into() function instead, which is identical
+        except that it accepts a filename string instead of a python file
+        object.
+
+            Args:
+                file_obj -- A python file object, containing pdb-formatted
+                    data.
+                bonds_by_distance -- An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. False by
+                    default, unlike for PDB.
+                serial_reindex -- An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+                resseq_reindex -- An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+
+            """
+
+        self.load_pdb_into_using_file_object(file_obj, bonds_by_distance,
+                                             serial_reindex, resseq_reindex)
 
         # Now merge the last two columns.
         atom_inf = self.__parent_molecule.get_atom_information()
