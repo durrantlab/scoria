@@ -1,3 +1,5 @@
+import numpy
+
 class Information():
     """A class for storing and accessing information about the elements of a
     pymolecule.Molecule object."""
@@ -21,7 +23,6 @@ class Information():
                                                               'MN']
 
         #SHORTEN LENGTH OF BOND_LENGTH_DICT
-
         self.__constants['bond_length_dict'] = {
             'C-C': 1.53, 'N-N': 1.425, 'O-O': 1.469, 'S-S': 2.048,
             'C-H': 1.059, 'H-C': 1.059, 'C-N': 1.469, 'N-C': 1.469,
