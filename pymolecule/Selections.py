@@ -1,4 +1,6 @@
 import numpy
+import sys
+from scipy.spatial.distance import cdist
 
 class Selections():
     """A class for selecting atoms"""
@@ -32,6 +34,11 @@ class Selections():
             Returns:
                 A numpy.array containing the indices of the atoms of the
                     selection.
+
+            >>> _sample_selection().select_atoms(
+            ...     {'element_stripped':'C'}
+            ... )
+            array([1, 2, 4, 5, 6])
 
         """
 
@@ -97,6 +104,15 @@ class Selections():
                 A numpy.array containing the indices of the atoms that are
                     within the bounding box.
 
+            >>> _sample_selection().select_atoms_in_bounding_box(
+            ...     numpy.array([
+            ...         [-2.1, 66.0, 75.6], 
+            ...         [-1.5, 68.0, 79.0]
+            ...     ])
+            ... )
+            array([3, 4])
+
+
         """
 
         min_pt = bounding_box[0]
@@ -128,6 +144,13 @@ class Selections():
                 bound to the user-specified selection. Note that this new
                 selection does not necessarily include the indices of the
                 original user-specified selection.
+
+            >>> _sample_selection().select_all_atoms_bound_to_selection(
+            ...     _sample_selection().select_atoms(
+            ...         {'name_stripped':'CA'}
+            ...     )    
+            ... )
+            array([0, 2, 4])
 
         """
 
@@ -234,6 +257,13 @@ class Selections():
                 A numpy.array containing the indices of the atoms belonging to
                     the same molecules as the atoms of the user-defined
                     selection.
+
+            >>> _sample_selection().select_atoms_from_same_molecule(
+            ...     _sample_selection().select_atoms(
+            ...         {'name_stripped':'CA'}
+            ...     )    
+            ... )
+            array([0, 1, 2, 3, 4, 5, 6])
 
         """
 
@@ -350,6 +380,14 @@ class Selections():
                     user-defined selection, not including the atoms of the
                     user-defined selection themselves.
 
+            >>> _sample_selection().select_atoms_near_other_selection(
+            ...     _sample_selection().select_atoms(
+            ...         {'name_stripped':'CA'}
+            ...     ),
+            ...     2.0
+            ... )
+            array([0, 2, 4])
+
         """
 
         # note that this does not return a selection that includes the input
@@ -381,6 +419,13 @@ class Selections():
             Returns:
                 A numpy.array containing the indices of all atoms in the same
                     residue as any of the atoms of the user-defined selection.
+
+            >>> _sample_selection().select_atoms_in_same_residue(
+            ...     _sample_selection().select_atoms(
+            ...         {'name_stripped':'CA'}
+            ...     )
+            ... )
+            array([0, 1, 2, 3, 4, 5, 6])
 
         """
 
@@ -430,6 +475,13 @@ class Selections():
                 A numpy.array containing the indices of all atoms that are not
                     in the user-defined seleciton.
 
+            >>> _sample_selection().invert_selection(
+            ...     _sample_selection().select_atoms(
+            ...         {'name_stripped':'CA'}
+            ...     )
+            ... )
+            array([0, 2, 3, 4, 5, 6])
+
         """
 
         # selection is a list of atom indices
@@ -447,6 +499,9 @@ class Selections():
             Returns:
                 A numpy.array containing the indices of all atoms in the
                     pymolecule.Molecule object.
+
+            >>> _sample_selection().select_all()
+            array([0, 1, 2, 3, 4, 5, 6])
 
         """
 
@@ -676,6 +731,14 @@ class Selections():
                 A pymolecule.Molecule object containing the atoms of the
                     user-defined selection.
 
+            >>> _sample_selection().get_molecule_from_selection(
+            ...     _sample_selection().select_atoms(
+            ...         {'name_stripped':'CA'}
+            ...     ),
+            ...     False, False
+            ... ).get_atom_information()
+            array([0, 2, 3, 4, 5, 6])
+
             """
 
         new_mol = Molecule()
@@ -743,6 +806,9 @@ class Selections():
                     unique resname-resseq-chainid residue identifiers, and the
                     values are numpy.array objects containing the indices of
                     the associated residue atoms.
+
+            >>> _sample_selection().selections_of_residues()
+            {'VAL-1-A': array([0, 1, 2, 3, 4, 5, 6])}
 
             """
 
@@ -875,3 +941,23 @@ class Selections():
             )
 
         return paths
+
+
+########## For unit testing ############
+
+test_selection = None;
+
+def _sample_selection():
+    """A helper function that loads an example selection for testing."""
+
+    global test_selection
+
+    if test_selection is None:
+        import Molecule as molecule
+        import Selections as selections
+        m = molecule.Molecule()
+        m.load_pdb_into("./sample_structures/amino_acid_1.pdb", True, True, True)
+        test_selection = selections.Selections(m)
+    
+    return test_selection
+

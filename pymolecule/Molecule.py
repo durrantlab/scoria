@@ -137,7 +137,7 @@ class Molecule: # here's the actual Molecule class
         )
 
     def load_pdbqt_into_using_file_object(self, file_obj,
-                                        bonds_by_distance = True,
+                                        bonds_by_distance = False,
                                         serial_reindex = True,
                                         resseq_reindex = False):
 

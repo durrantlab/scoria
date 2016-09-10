@@ -28,14 +28,10 @@ class FileIO():
 
             >>> import Molecule as molecule
             >>> import os
-            >>> m1 = molecule.Molecule()
-            >>> m1.load_pdb_into("./sample_structures/single_line.pdb", True, True, True)
-            >>> if os.path.exists("./sample_structures/tmp.pym"): shutil.rmtree("./sample_structures/tmp.pym")
-            >>> m1.save_pym("./sample_structures/tmp.pym", True, True, True, True, True)
-            >>> m2 = molecule.Molecule()
-            >>> m2.load_pym_into("./sample_structures/tmp.pym")
-            >>> inf = m2.get_atom_information()
-            >>> coor = m2.get_coordinates()
+            >>> m = molecule.Molecule()
+            >>> m.load_pym_into("./sample_structures/single_line.pym")
+            >>> inf = m.get_atom_information()
+            >>> coor = m.get_coordinates()
             >>> print str(zip(list(inf["name_stripped"]), list(coor[:, 1].astype("S3"))))
             [('N', '0.0'), ('C', '1.0')]
 
@@ -87,6 +83,15 @@ class FileIO():
                     reindex the pdb serial field. True by default.
                 resseq_reindex -- An optional boolean, whether or not to
                     reindex the pdbqt resseq field. False by default.
+
+            >>> import Molecule as molecule
+            >>> import os
+            >>> m = molecule.Molecule()
+            >>> m.load_pdbqt_into("./sample_structures/single_line.pdbqt")
+            >>> inf = m.get_atom_information()
+            >>> coor = m.get_coordinates()
+            >>> print str(zip(list(inf["name_stripped"]), list(coor[:, 1].astype("S3"))))
+            [('N', '0.0'), ('C', '1.0')]
 
         """
 
@@ -383,12 +388,14 @@ class FileIO():
             >>> import Molecule as molecule
             >>> import os
             >>> import glob
+            >>> import shutil
             >>> m = molecule.Molecule()
             >>> m.load_pdb_into("./sample_structures/single_line.pdb", True, True, True)
             >>> if os.path.exists("./sample_structures/tmp.pym"): shutil.rmtree("./sample_structures/tmp.pym")
             >>> m.save_pym("./sample_structures/tmp.pym", True, True, True, True, True)
             >>> print str(glob.glob("./sample_structures/tmp.pym/*"))  # Weak test.
             ['./sample_structures/tmp.pym/atom_information', './sample_structures/tmp.pym/bonds.npz', './sample_structures/tmp.pym/coordinates.npz', './sample_structures/tmp.pym/coordinates_undo_point.npz', './sample_structures/tmp.pym/filename', './sample_structures/tmp.pym/hierarchy', './sample_structures/tmp.pym/remarks']
+            >>> shutil.rmtree("./sample_structures/tmp.pym")
         """
 
         # Why not just pickle self.parent.information? Because it's a huge

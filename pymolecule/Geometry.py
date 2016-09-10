@@ -1,3 +1,5 @@
+import numpy
+
 class Geometry():
     """A class containing a few gemoetry functions. Note that numpy should be
     used for most geometry functions."""
@@ -28,6 +30,15 @@ class Geometry():
             Returns:
                 A float containing the angle between the three points, in
                     radians
+
+            >>> import Molecule as molecule
+            >>> import Geometry as geometry
+            >>> geo = geometry.Geometry(molecule.Molecule())
+            >>> pt1 = numpy.array([0, 1, 0])
+            >>> pt2 = numpy.array([0, 0, 0])
+            >>> pt3 = numpy.array([1, 0, 0])
+            >>> geo.get_angle_between_three_points(pt1, pt2, pt3)
+            1.5707963267948966
 
             """
 
@@ -71,6 +82,16 @@ class Geometry():
                 A float containing the dihedral angle between the four points,
                     in radians.
 
+            >>> import Molecule as molecule
+            >>> import Geometry as geometry
+            >>> geo = geometry.Geometry(molecule.Molecule())
+            >>> pt1 = numpy.array([0, 1, 0])
+            >>> pt2 = numpy.array([0, 0, 0])
+            >>> pt3 = numpy.array([1, 0, 0])
+            >>> pt4 = numpy.array([1, 1, 0])
+            >>> geo.get_dihedral_angle(pt1, pt2, pt3, pt4)
+            0.0
+
             """
 
         b1 = pt2 - pt1
@@ -100,6 +121,19 @@ class Geometry():
             Returns:
                 A boolean, whether the 4 points can be considered planar.
 
+            >>> import Molecule as molecule
+            >>> import Geometry as geometry
+            >>> geo = geometry.Geometry(molecule.Molecule())
+            >>> pt1 = numpy.array([0, 1, 0])
+            >>> pt2 = numpy.array([0, 0, 0])
+            >>> pt3 = numpy.array([1, 0, 0])
+            >>> pt4 = numpy.array([1, 1, 0])
+            >>> geo.is_planar(pt1, pt2, pt3, pt4)
+            True
+            >>> pt4 = numpy.array([1, 1, 25])
+            >>> geo.is_planar(pt1, pt2, pt3, pt4)
+            False
+
             """
 
         return (self.get_planarity_deviation(pt1, pt2, pt3, pt4) <
@@ -118,6 +152,20 @@ class Geometry():
             Returns:
                 A float, the minimum distance between one point and the plane
                     formed by the other three.
+
+            >>> import Molecule as molecule
+            >>> import Geometry as geometry
+            >>> import math
+            >>> geo = geometry.Geometry(molecule.Molecule())
+            >>> pt1 = numpy.array([0, 1, 0])
+            >>> pt2 = numpy.array([0, 0, 0])
+            >>> pt3 = numpy.array([1, 0, 0])
+            >>> pt4 = numpy.array([1, 1, 0])
+            >>> geo.get_planarity_deviation(pt1, pt2, pt3, pt4)
+            0.0
+            >>> pt4 = numpy.array([1, 1, 0.3])
+            >>> math.fabs(geo.get_planarity_deviation(pt1, pt2, pt3, pt4) - 0.3) < 0.03
+            True
 
             """
 
