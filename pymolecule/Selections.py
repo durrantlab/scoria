@@ -1,6 +1,7 @@
 import numpy
 import sys
 from scipy.spatial.distance import cdist
+import Molecule
 
 class Selections():
     """A class for selecting atoms"""
@@ -741,6 +742,7 @@ class Selections():
 
             """
 
+        from pymolecule import Molecule
         new_mol = Molecule()
         new_mol.set_coordinates(
             self.__parent_molecule.get_coordinates()[selection]
