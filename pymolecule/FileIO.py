@@ -58,6 +58,9 @@ class FileIO():
 
         if os.path.exists(filename + 'filename'):
             prnt.set_filename(pickle.load(open(filename + 'filename', "rb")))
+        
+        if prnt.get_filename() == "":  # If still no filename, set it to the one used as a parameter.
+            prnt.set_filename(filename)
 
         if os.path.exists(filename + "bonds.npz"):
             prnt.set_bonds(numpy.load(filename + "bonds.npz")['arr_0'])
@@ -66,7 +69,7 @@ class FileIO():
             prnt.set_coordinates_undo_point(
                 numpy.load(filename + "coordinates_undo_point.npz")['arr_0']
             )
-
+        
     def load_pdbqt_into(self, filename, bonds_by_distance = False,
                       serial_reindex = True, resseq_reindex = False):
         """Loads the molecular data contained in a pdbqt file into the current

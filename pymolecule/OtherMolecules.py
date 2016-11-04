@@ -1,5 +1,7 @@
 import numpy
 from scipy.spatial.distance import cdist
+from Quaternion import Quaternion
+
 
 class OtherMolecules():
     """A class for characterizing the relationships between multiple
@@ -30,8 +32,13 @@ class OtherMolecules():
                     So, for example, if (atom 1, self = atom 3, other) and
                     (atom2, self = atom6, other) than the tethers would be
                     (numpy.array([1, 2]), numpy.array([3, 6])).
+            
+            Returns:
+                The new molecule.
 
             """
+        
+        tethers = numpy.array(tethers).T
 
         # Adapted from Itzhack Y. Bar-Itzhack. New Method for Extracting the
         # Quaternion from a Rotation Matrix. Journal of Guidance, Control, and
@@ -41,8 +48,9 @@ class OtherMolecules():
         elif tethers.shape[0] != 2:
             raise Exception('Tethers should have only 2 rows')
 
-        #If weight_matrix isn't specified, then treat all atoms equally
-        if weight_mat is None: weight_mat = numpy.identity(tethers.shape[1])
+        # If weight_matrix isn't specified, then treat all atoms equally
+        if weight_mat is None: 
+            weight_mat = numpy.identity(tethers.shape[1])
 
         # get the atoms corresponding to the tethers, in tether order
         self_static_atom_coordinates = (

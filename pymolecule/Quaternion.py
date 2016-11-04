@@ -1,3 +1,5 @@
+import numpy
+
 class Quaternion:
     """A class supporting quaternion arithmetic"""
 

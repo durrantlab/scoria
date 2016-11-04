@@ -1,3 +1,5 @@
 # List files you want to ignore here
 *.pym
 *.pyc
+pymolecule_tests_tmp
+rsync_htc.bash

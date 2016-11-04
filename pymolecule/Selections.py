@@ -1,7 +1,6 @@
 import numpy
 import sys
 from scipy.spatial.distance import cdist
-import Molecule
 
 class Selections():
     """A class for selecting atoms"""
@@ -742,7 +741,7 @@ class Selections():
 
             """
 
-        from pymolecule import Molecule
+        from Molecule import Molecule
         new_mol = Molecule()
         new_mol.set_coordinates(
             self.__parent_molecule.get_coordinates()[selection]
@@ -852,98 +851,6 @@ class Selections():
                 )
 
         return prnt.get_hierarchy()['residues']['indices']
-
-    def in_same_ring(self, index1, index2):
-        """Determines if two atoms in a Molecule are in the same ring.
-
-        Args:
-            index1 -- index of the first atom to see if it is in the ring.
-            index2 -- index of the second atom to see if it is in the ring.
-
-        Returns:
-            A set of vertices of a path that has been traversed.
-
-        """
-
-        if index1 == index2: return True
-
-        paths = []
-
-        paths = self.__ring_recursive_walk(index1, index2, [], 0)
-
-        if len(paths) == 0:
-            print "No paths found between two indices"
-            return False
-
-        #Remove paths that do not start or end at the correct location
-        for path in paths:
-            if not (index2 in path and index1 in path): paths.remove(path)
-
-        #Now need to find the intersection between each combination of paths
-        for path1, path2 in itertools.combinations(paths, 2):
-            intersection = set(path1).intersection(set(path2))
-
-            #Only two elements are in index1 and index2
-            if (len(intersection) == 2 and
-                index1 in intersection and
-                index2 in intersection):
-
-                return True
-
-        return False
-
-    def __ring_recursive_walk(self, start, end, already_crossed, ringsize):
-        """Recursive helper method to traverse a graph to search for a circular
-        subgraph.
-
-        Args:
-            start -- graph vertex that is currently being traversed
-            end -- vertex to be reached
-            alreadyCrossed -- list of vertices already processed
-            ringsize - counts number of vertices traversed
-
-        Returns:
-            A set of vertices of a path that has been traversed
-
-        """
-
-        paths = []
-
-        ring_size += 1
-        already_crossed.append(start)
-
-        #Base case 1: Second point is reached
-        if start == end:
-            paths.append(already_crossed)
-            return paths
-
-        #Base case 2: Max ring size is reached
-        if ring_size >= self.__max_ring_size():
-            paths.append(already_crossed)
-            return paths
-
-        # Base case 3: No new neighbors
-        # Get a list of all the atoms that atom:index is connected to that
-        # haven't been previously evaluated
-        sel = self.self.__parent_molecule.select_all_atoms_bound_to_selection
-        neighbors = sel(numpy.array([start]))[:]
-
-        for neighbor_index in neighbors:
-            if neighbor_index in already_crossed:
-                neighbors.remove(neighbor_index)
-
-        if len(neighbors) == 0:
-            paths.append(already_crossed)
-            return paths
-
-        for neighbor in neighbors:
-            paths.extend(
-                self.__ring_recursive_walk(neighbor, end,
-                                           already_crossed[:], ring_size)
-            )
-
-        return paths
-
 
 ########## For unit testing ############
 

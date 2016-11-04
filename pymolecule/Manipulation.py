@@ -1,3 +1,5 @@
+import numpy
+
 class Manipulation():
     """A class for translating and rotating the atomic coordinates of a
     pymolecule.Molecule object"""

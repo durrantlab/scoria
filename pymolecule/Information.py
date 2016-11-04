@@ -1,4 +1,6 @@
 import numpy
+from scipy.spatial.distance import cdist
+from numpy.lib.recfunctions import append_fields
 
 class Information():
     """A class for storing and accessing information about the elements of a
@@ -16,13 +18,13 @@ class Information():
         self.__parent_molecule = parent_molecule_object
 
         self.__constants = {}
-        #Removed HG from this list to avoid capturing gamma hydrogens
+        # Removed HG from this list to avoid capturing gamma hydrogens
         self.__constants['element_names_with_two_letters'] = ['BR', 'CL', 'BI',
                                                               'AS', 'AG', 'LI',
                                                               'MG', 'RH', 'ZN',
                                                               'MN']
 
-        #SHORTEN LENGTH OF BOND_LENGTH_DICT
+        # SHORTEN LENGTH OF BOND_LENGTH_DICT
         self.__constants['bond_length_dict'] = {
             'C-C': 1.53, 'N-N': 1.425, 'O-O': 1.469, 'S-S': 2.048,
             'C-H': 1.059, 'H-C': 1.059, 'C-N': 1.469, 'N-C': 1.469,
@@ -437,7 +439,7 @@ class Information():
         else:
             return len(self.__coordinates[selection])
 
-    def get_total_number_of_heavy_atoms(self):
+    def get_total_number_of_heavy_atoms(self, selection = None):
         """Counts the number of heavy atoms (i.e., atoms that are not
         hydrogens).
 
@@ -451,11 +453,14 @@ class Information():
 
         """
 
+        if selection is None:
+            selection = self.__parent_molecule.select_all()
+
         if self.__coordinates is None:
             return 0
 
         all_hydrogens = self.__parent_molecule.select_atoms({
-            'element_stripped':'H'
+            'element_stripped': 'H'
         })
 
         return self.get_total_number_of_atoms() - len(all_hydrogens)
@@ -476,10 +481,11 @@ class Information():
 
             """
 
-        if selection is None: selection = self.__parent_molecule.select_all()
+        if selection is None: 
+            selection = self.__parent_molecule.select_all()
 
-        return numpy.vstack((numpy.min(self.__coordinates[selection], 0),
-                             numpy.max(self.__coordinates[selection], 0)))
+        return numpy.vstack((numpy.min(self.__coordinates[selection], 0) - padding,
+                             numpy.max(self.__coordinates[selection], 0) + padding))
 
     def get_bounding_sphere(self, selection = None, padding = 0.0):
         """Calculates a sphere that bounds (encompasses) a set of atoms.
