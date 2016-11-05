@@ -1,6 +1,5 @@
-import numpy
-from scipy.spatial.distance import cdist
-from numpy.lib.recfunctions import append_fields
+from pymolecule import dumbpy as numpy
+
 
 class Information():
     """A class for storing and accessing information about the elements of a
@@ -244,7 +243,7 @@ class Information():
                 mass = self.__constants['mass_dict'][element]
                 masses[i] = mass
 
-            self.__atom_information = append_fields(self.__atom_information,
+            self.__atom_information = numpy.append_fields(self.__atom_information,
                                                     'mass', data = masses)
 
     def assign_elements_from_atom_names(self, selection = None):
@@ -272,7 +271,7 @@ class Information():
             self.__atom_information['name'][selection]
         )
 
-        fix_element_names = numpy.core.defchararray.strip(fix_element_names)
+        fix_element_names = numpy.defchararray_strip(fix_element_names)
 
         # first remove any numbers at the begining of these names
         fix_element_names = numpy.core.defchararray.lstrip(fix_element_names,
@@ -328,12 +327,12 @@ class Information():
         # element_stripped also needs to be updated try:
         # self.__parent_molecule.information.get_atom_information()
         # ['element_stripped'][selection] =
-        # numpy.core.defchararray.strip(fix_element_names) except: # so
+        # numpy.defchararray_strip(fix_element_names) except: # so
         # element_stripped hasn't been defined yet
         #    self.__parent_molecule.information.get_atom_information() =
         #    append_fields(self.__parent_molecule.
         #    information.get_atom_information(), 'element_stripped',
-        #    data = numpy.core.defchararray.strip(
+        #    data = numpy.defchararray_strip(
         #    self.__parent_molecule.information.
         #    get_atom_information()['element']))
 
@@ -515,7 +514,7 @@ class Information():
         # get distance to farthest point in selection
         return (center_of_selection[0],
                 numpy.max(
-                    cdist(center_of_selection,
+                    numpy.cdist(center_of_selection,
                           self.__coordinates[selection])[0])
                 )
 

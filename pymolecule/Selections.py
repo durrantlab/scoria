@@ -1,6 +1,5 @@
-import numpy
+from pymolecule import dumbpy as numpy
 import sys
-from scipy.spatial.distance import cdist
 
 class Selections():
     """A class for selecting atoms"""
@@ -134,6 +133,12 @@ class Selections():
             print ("You need to define the bonds to use" +
                    "select_all_atoms_bound_to_selection().")
             return
+
+        #print 1, self
+        #print 2, self.__parent_molecule
+        #print 3, self.__parent_molecule.get_bonds()
+        #print 4, selection
+        #import pdb; pdb.set_trace()
 
         bonds_to_consider = self.__parent_molecule.get_bonds()[selection]
 
@@ -361,7 +366,7 @@ class Selections():
         inversion_coors = prnt.get_coordinates()[invert_selection]
 
         indices_of_nearby = invert_selection[numpy.unique(
-            numpy.nonzero(cdist(inversion_coors, selection_coors) < cutoff)[0]
+            numpy.nonzero(numpy.cdist(inversion_coors, selection_coors) < cutoff)[0]
         )]
 
         return indices_of_nearby
@@ -476,7 +481,7 @@ class Selections():
 
         if pairwise_comparison == True:
 
-            dists = cdist(self.__parent_molecule.get_coordinates(),
+            dists = numpy.cdist(self.__parent_molecule.get_coordinates(),
                           other_mol.get_coordinates())
             close_ones = numpy.nonzero(dists < cutoff)
             close_ones_from_mol_parent_molecule = numpy.unique(close_ones[0])
@@ -537,7 +542,7 @@ class Selections():
                 return (numpy.array([]), numpy.array([]))
 
             # check the chains
-            chain_distances = cdist(
+            chain_distances = numpy.cdist(
                 slf_hrachy['spheres']['chains']['centers'],
                 other_mol.get_hierarchy()['spheres']['chains']['centers']
             )
@@ -570,7 +575,7 @@ class Selections():
                 return (numpy.array([]), numpy.array([]))
 
             # check the residues
-            residue_distances = cdist(
+            residue_distances = numpy.cdist(
                 slf_hrachy['spheres']['residues']['centers'],
                 other_mol.get_hierarchy()['spheres']['residues']['centers']
             )
@@ -630,7 +635,7 @@ class Selections():
                 other_coors = other_coordinates[other_res_indicies]
 
                 some_self_indices, some_other_indices = numpy.nonzero(
-                    cdist(self_coors, other_coors) < cutoff
+                    numpy.cdist(self_coors, other_coors) < cutoff
                 )
 
                 if len(some_self_indices) != 0 or len(some_other_indices) != 0:

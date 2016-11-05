@@ -1,5 +1,4 @@
-import numpy
-from scipy.spatial.distance import cdist
+from pymolecule import dumbpy as numpy
 from Quaternion import Quaternion
 
 
@@ -265,7 +264,7 @@ class OtherMolecules():
             """
 
         if pairwise_comparison == True:
-            return numpy.amin(cdist(
+            return numpy.amin(numpy.cdist(
                 self.__parent_molecule.get_coordinates(),
                 other_molecule.get_coordinates()
             ))
@@ -287,7 +286,7 @@ class OtherMolecules():
                                                 len(oth_gt_crs) / 10.0,
                                                 dtype = int)]
 
-            cutoff = numpy.amin(cdist(self_tmp, other_tmp))
+            cutoff = numpy.amin(numpy.cdist(self_tmp, other_tmp))
 
             # now get all the indices that come within that cutoff
             prnt = self.__parent_molecule
@@ -302,7 +301,7 @@ class OtherMolecules():
             self_coors = self.__parent_molecule.get_coordinates()[self_indices]
             self_other = other_molecule.get_coordinates()[other_indices]
 
-            return numpy.amin(cdist(self_coors, self_other))
+            return numpy.amin(numpy.cdist(self_coors, self_other))
 
     def get_rmsd_equivalent_atoms_specified(self, other_mol, tethers):
         """Calculates the RMSD between this pymolecule.Molecle object and
@@ -429,7 +428,7 @@ class OtherMolecules():
                 coor1 = atom_grp1[element]
                 coor2 = atom_grp2[element]
                 
-                dists = cdist(coor1, coor2)
+                dists = numpy.cdist(coor1, coor2)
                 dists_sqr = dists * dists
                 min_dists_sqr = numpy.min(dists_sqr, axis = 0)
 

@@ -1,5 +1,4 @@
-import numpy
-from numpy.lib.recfunctions import append_fields
+from pymolecule import dumbpy as numpy
 import os
 import cPickle as pickle
 import shutil
@@ -120,9 +119,7 @@ class FileIO():
             atom_inf["element_stripped"], atom_inf["charge"]
         )
 
-        atom_inf["element_stripped"] = numpy.core.defchararray.strip(
-            atom_types
-        )
+        atom_inf["element_stripped"] = numpy.defchararray_strip(atom_types)
 
         atom_inf["charge"] = "\n"
 
@@ -225,7 +222,9 @@ class FileIO():
         for field in (self.__parent_molecule.get_constants()['i8_fields'] +
                       self.__parent_molecule.get_constants()['f8_fields']):
             check_fields = atom_inf[field]
-            check_fields = numpy.core.defchararray.strip(check_fields)
+            print check_fields
+            check_fields = numpy.defchararray_strip(check_fields)
+            print check_fields
             indices_of_empty = numpy.nonzero(check_fields == '')[0]
             atom_inf[field][indices_of_empty] = '0'
 
@@ -270,7 +269,7 @@ class FileIO():
         # used to overwrite this and assign elements based on the atom name
         # only.
         indicies_where_element_is_not_defined = numpy.nonzero(
-            numpy.core.defchararray.strip(atom_inf['element']) == ''
+            numpy.defchararray_strip(atom_inf['element']) == ''
         )[0]
 
         self.__parent_molecule.assign_elements_from_atom_names(
@@ -283,10 +282,10 @@ class FileIO():
         fields_to_strip = ['name', 'resname', 'chainid', 'element']
         for f in fields_to_strip:
             self.__parent_molecule.set_atom_information(
-                append_fields(
+                numpy.append_fields(
                     self.__parent_molecule.get_atom_information().copy(),
                     f + '_stripped',
-                    data = numpy.core.defchararray.strip(atom_inf[f])
+                    data = numpy.defchararray_strip(atom_inf[f])
                 )
             )
 

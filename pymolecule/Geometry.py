@@ -1,4 +1,4 @@
-import numpy
+from pymolecule import dumbpy as numpy
 
 class Geometry():
     """A class containing a few gemoetry functions. Note that numpy should be

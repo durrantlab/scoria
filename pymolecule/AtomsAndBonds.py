@@ -1,7 +1,4 @@
-import numpy
-import scipy
-from scipy.spatial.distance import squareform
-from scipy.spatial.distance import pdist
+from pymolecule import dumbpy as numpy
 
 
 class AtomsAndBonds():
@@ -50,7 +47,7 @@ class AtomsAndBonds():
         ])
 
         # which ones could possibly be bound (less than the max_bond_length)
-        distances = squareform(pdist(self.__parent_molecule.get_coordinates()))
+        distances = numpy.squareform(numpy.pdist(self.__parent_molecule.get_coordinates()))
         ones_to_consider = numpy.nonzero(distances < max_bond_length * 1.2)
 
         for index in range(len(ones_to_consider[0])):

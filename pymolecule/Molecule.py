@@ -1,4 +1,4 @@
-import numpy
+from pymolecule import dumbpy as numpy
 from FileIO import FileIO
 from AtomsAndBonds import AtomsAndBonds
 from Selections import Selections
