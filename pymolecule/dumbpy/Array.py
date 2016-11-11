@@ -44,6 +44,15 @@ class Array:
 
         return array(new_lst)
     
+    def __setitem__(self, key, item):
+        try:
+            # Assume the selection (key) is iterable.
+            for i in key:
+                self.lst[i] = item
+        except:
+            # selection must not be iterable. Just a number?
+            self.lst[key] = item
+    
     def __len__(self):
         return len(self.lst)
 
@@ -78,6 +87,7 @@ class Array2D(Array):
 
 class DType:
     names = []
+    descr = []
 
 
 class DictArray:
@@ -86,12 +96,17 @@ class DictArray:
     dtype = DType()
     ndim = 1  # I think for a DictArray this is always 1?
 
-    def __init__(self, dict):
+    def __init__(self, dict, dtypes = []):
         # dict maps keys to arrays.
         for key in dict:
             self.dict[key] = array(dict[key])
         
         self.dtype.names = dict.keys()
+        for i, key in enumerate(dict.keys()):
+            try:
+                self.dtype.descr.append((key, "|" + dtypes[i]))
+            except:
+                pass
     
     def __repr__(Self):
         return "dictarray(" + self.__str__() + ")"

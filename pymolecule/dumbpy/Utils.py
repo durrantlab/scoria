@@ -27,7 +27,7 @@ def genfromtxt(fname, dtype = "", names = [], delimiter = []):
         if "float" in dtype[i] or dtype[i][:1] == "f":
             data[name] = [float(l) for l in data[name]]
     
-    return DictArray(data)
+    return DictArray(data, dtype)
 
 def nonzero(arr):
     if len(arr.shape) == 1:

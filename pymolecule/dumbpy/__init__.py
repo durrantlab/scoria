@@ -1,7 +1,7 @@
 # A numpy replacement. Basically numpy, with non-numpy as a backup.
 try:
     # Try to load traditional numpy
-    sdf
+    #sdf
     from numpy import array
     from numpy.core.defchararray import strip as defchararray_strip 
     from numpy.lib.recfunctions import append_fields
