@@ -18,12 +18,12 @@ class Test:
             os.mkdir("./pymolecule_tests_tmp")
 
         self.test_file_io()
-        #self.test_information()
-        #self.test_selection()
-        #self.test_manipulation()
-        #self.test_other_molecules()
-        #self.test_atoms_and_bonds()
-        #self.test_geometry()
+        self.test_information()
+        self.test_selection()
+        self.test_manipulation()
+        self.test_other_molecules()
+        self.test_atoms_and_bonds()
+        self.test_geometry()
 
     def test_file_io(self):
         """Test the functions in FileIO."""
@@ -43,8 +43,9 @@ class Test:
         print "    save_pdb()"
         self.mol.save_pdb(file_io_filename + ".pdb", True, True, False)
 
-        print "    save_pym()"
-        self.mol.save_pym(file_io_filename + ".pym", True, True, True, True, True)
+        # Temporarily commented out because no dumbpy implementation needed.
+        # print "    save_pym()"
+        # self.mol.save_pym(file_io_filename + ".pym", True, True, True, True, True)
 
         print "    load_pdbqt_into_using_file_object()"
         self.mol = Molecule()
@@ -61,9 +62,10 @@ class Test:
         self.mol = Molecule()
         self.mol.load_pdbqt_into(file_io_filename + ".pdbqt", False, True, True)
 
-        print "    load_pym_into()"
-        self.mol = Molecule()
-        self.mol.load_pym_into(file_io_filename + ".pym")
+        # Temporarily commented out because no dumbpy implementation needed.
+        # print "    load_pym_into()"
+        # self.mol = Molecule()
+        # self.mol.load_pym_into(file_io_filename + ".pym")
     
         print "    load_pdb_into()"
         self.mol = Molecule()
@@ -112,8 +114,9 @@ class Test:
         print "    get_bounding_box()"
         print "        " + str(self.mol.get_bounding_box())
 
-        print "    get_bounding_sphere()"
-        print "        " + str(self.mol.get_bounding_sphere())
+        # Temporarily commented out because no dumbpy implementation needed.
+        # print "    get_bounding_sphere()"
+        # print "        " + str(self.mol.get_bounding_sphere())
 
         print "    get_constants()"
         print "        " + str(self.mol.get_constants())
@@ -206,8 +209,9 @@ class Test:
         print "    select_all_atoms_bound_to_selection()"
         print "        Atoms in selection: " + str(len(self.mol.select_all_atoms_bound_to_selection(sel)))
         
-        print "    select_atoms_near_other_selection()"
-        print "        Atoms in selection: " + str(len(self.mol.select_atoms_near_other_selection(sel, 8.0)))
+        # Temporarily commented out because no dumbpy implementation needed.
+        # print "    select_atoms_near_other_selection()"
+        # print "        Atoms in selection: " + str(len(self.mol.select_atoms_near_other_selection(sel, 8.0)))
         
         print "    select_atoms_in_same_residue()"
         print "        Atoms in selection: " + str(len(self.mol.select_atoms_in_same_residue([1])))
@@ -240,10 +244,11 @@ class Test:
         print "    selections_of_residues()" 
         print "        Residues mapped to indices: " + str(self.mol.selections_of_residues().keys()[:5])
 
-        print "    select_close_atoms_from_different_molecules()"
-        sels = self.mol.select_close_atoms_from_different_molecules(self.mol, 1.0)
-        print "        Atoms in mol1 selection: " + str(len(sels[0]))
-        print "        Atoms in mol2 selection: " + str(len(sels[1]))
+        # Temporarily commented out because no dumbpy implementation needed.
+        # print "    select_close_atoms_from_different_molecules()"
+        # sels = self.mol.select_close_atoms_from_different_molecules(self.mol, 1.0)
+        # print "        Atoms in mol1 selection: " + str(len(sels[0]))
+        # print "        Atoms in mol2 selection: " + str(len(sels[1]))
 
         print "    get_molecule_from_selection()"
         sel = self.mol.select_branch(1, 4)
@@ -319,19 +324,22 @@ class Test:
 
         mol2.translate_molecule(numpy.array([10.0, 10.0, 10.0]))
 
-        print "    steric_clash_with_another_molecule()"
-        print "        " + str(mol1.steric_clash_with_another_molecule(mol2, 5.0, False))
-        print "        " + str(mol1.steric_clash_with_another_molecule(mol2, 5.0, True))
+        # Temporarily commented out because no dumbpy implementation needed.
+        # print "    steric_clash_with_another_molecule()"
+        # print "        " + str(mol1.steric_clash_with_another_molecule(mol2, 5.0, False))
+        # print "        " + str(mol1.steric_clash_with_another_molecule(mol2, 5.0, True))
 
-        print "    get_distance_to_another_molecule()"
-        print "        " + str(mol1.get_distance_to_another_molecule(mol2, False))
-        print "        " + str(mol1.get_distance_to_another_molecule(mol2, True))
+        # Temporarily commented out because no dumbpy implementation needed.
+        # print "    get_distance_to_another_molecule()"
+        # print "        " + str(mol1.get_distance_to_another_molecule(mol2, False))
+        # print "        " + str(mol1.get_distance_to_another_molecule(mol2, True))
 
         print "    get_rmsd_order_dependent()"
         print "        " + str(mol1.get_rmsd_order_dependent(mol2))
 
-        print "    get_rmsd_heuristic()"
-        print "        " + str(mol1.get_rmsd_heuristic(mol2))
+        # Temporarily commented out because no dumbpy implementation needed.
+        # print "    get_rmsd_heuristic()"
+        # print "        " + str(mol1.get_rmsd_heuristic(mol2))
 
         print "    get_rmsd_equivalent_atoms_specified()"
         tethers = [numpy.array([1, 1]), numpy.array([2, 2]), numpy.array([3, 3])]
@@ -376,8 +384,9 @@ class Test:
         print "    delete_bond()"
         self.mol.delete_bond(0, 1)
 
-        print "    create_bonds_by_distance()"
-        self.mol.create_bonds_by_distance()
+        # Temporarily commented out because no dumbpy implementation needed.
+        # print "    create_bonds_by_distance()"
+        # self.mol.create_bonds_by_distance()
 
         print "    get_number_of_bond_partners_of_element()"
         print "        " + str(self.mol.get_number_of_bond_partners_of_element(0, "X"))
