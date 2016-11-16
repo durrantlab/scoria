@@ -239,10 +239,10 @@ class FileIO():
             index = atom_inf.dtype.names.index(field)
             descr[index] = (descr[index][0], 'f8')
         print descr
-        # You need to create this descr object. strings are prefixed with |, and int and float with <
+        # You need to create this descr object. strings are prefixed with |, 
+        # and int and float with <
         new_types = numpy.dtype(descr)
         print new_types
-        sdf
         self.__parent_molecule.set_atom_information(atom_inf.astype(new_types))
 
         # remove some of the fields that just contain empty data

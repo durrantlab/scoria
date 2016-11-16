@@ -384,9 +384,8 @@ class Test:
         print "    delete_bond()"
         self.mol.delete_bond(0, 1)
 
-        # Temporarily commented out because no dumbpy implementation needed.
-        # print "    create_bonds_by_distance()"
-        # self.mol.create_bonds_by_distance()
+        print "    create_bonds_by_distance()"
+        self.mol.create_bonds_by_distance()
 
         print "    get_number_of_bond_partners_of_element()"
         print "        " + str(self.mol.get_number_of_bond_partners_of_element(0, "X"))
