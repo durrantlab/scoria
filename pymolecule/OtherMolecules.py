@@ -153,6 +153,9 @@ class OtherMolecules():
 
             """
 
+        if not numpy.class_dependency("calculate the steric clashes with another molecule", "NUMPY"):
+            return
+
         prnt = self.__parent_molecule
 
         sel_cls_aatms_frm_diff_mols = (
@@ -262,6 +265,9 @@ class OtherMolecules():
                 specified molecular models (self and other_molecule).
 
             """
+
+        if not numpy.class_dependency("calculate the distance to another molecule", "NUMPY"):
+            return
 
         if pairwise_comparison == True:
             return numpy.amin(numpy.cdist(
@@ -378,6 +384,9 @@ class OtherMolecules():
             Returns:
                 A float, the RMSD between self and other_mol.
         """
+
+        if not numpy.class_dependency("calculate an RMSD using a heuritical alborithm", "NUMPY"):
+            return
 
         # Group the other_mol atoms by element (atom type in pdbqt speak)
         atom_inf = self.__parent_molecule.get_atom_information()

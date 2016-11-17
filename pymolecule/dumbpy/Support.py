@@ -14,6 +14,14 @@ def var_type(var):
         # a number perhaps?
         return "number"
 
-print var_type("moo")
-print var_type([1,2,3])
-print var_type(6)
+def to_list(arr):
+    # return a list regardless of whether arr is a list or array.
+    typ = var_type(arr) 
+    if typ in ["1D", "2D"]:
+        return arr.lst[:]
+    elif typ == "list":
+        # already a python list
+        return arr[:]
+    else:
+        # a number or string
+        return arr

@@ -29,6 +29,9 @@ class AtomsAndBonds():
 
             """
 
+        if not numpy.class_dependency("calculate bonds by distance", "NUMPY"):
+            return
+
         atom_inf = self.__parent_molecule.information.get_atom_information()
         consts = self.__parent_molecule.get_constants()
 
@@ -60,14 +63,14 @@ class AtomsAndBonds():
             if index1 != index2:
                 # so an atom is not bound to itself.__parent_molecule
                 key = (atom_inf['element_stripped'][index1] + '-' +
-                       atom_inf['element_stripped'][index2])
+                    atom_inf['element_stripped'][index2])
 
                 try: bond_dist = consts['bond_length_dict'][key]
                 except:
                     print ("ERROR: Unknown bond distance between elements " +
-                           atom_inf['element_stripped'][index1] + ' and ' +
-                           atom_inf['element_stripped'][index2] +
-                           '. Assuming ' + str(max_bond_length) + '.')
+                        atom_inf['element_stripped'][index1] + ' and ' +
+                        atom_inf['element_stripped'][index2] +
+                        '. Assuming ' + str(max_bond_length) + '.')
                     bond_dist = max_bond_length
 
                 if (distances[index1][index2] < bond_dist * 1.2 and
@@ -124,7 +127,7 @@ class AtomsAndBonds():
                         # discard the extra bonds
                         for throw_out_index in indx_2_thrw_out:
                             self.__parent_molecule.delete_bond(index,
-                                                               throw_out_index)
+                                                                throw_out_index)
 
                 except: pass # element probably wasn't in the dictionary
 
@@ -181,8 +184,8 @@ class AtomsAndBonds():
         the_element = the_element.strip()
         bond_partners_selection = sel_func(numpy.array([atom_index]))
         elements = atom_inf['element_stripped'][bond_partners_selection]
-        return bond_partners_selection[numpy.nonzero(elements ==
-                                                     the_element)[0]][0]
+
+        return bond_partners_selection[numpy.nonzero(elements == the_element)[0]][0]
 
     def delete_bond(self, index1, index2):
         """Deletes a bond.
@@ -216,6 +219,7 @@ class AtomsAndBonds():
         bonds = self.__parent_molecule.get_bonds()
         bonds[index1][index2] = order
         bonds[index2][index1] = order
+        self.__parent_molecule.set_bonds(bonds)
 
     def delete_atom(self, index):
         """Deletes an atom.

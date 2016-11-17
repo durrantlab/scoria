@@ -508,7 +508,8 @@ class Molecule: # here's the actual Molecule class
         # now remove the coordinates from the atom_information object to save
         # memory
         names = list(narray.dtype.names)
-        for f in field_names: names.remove(f)
+        for f in field_names:
+            names.remove(f)
         return narray[names]
 
     def __is_number(self, s):

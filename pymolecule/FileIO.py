@@ -26,6 +26,9 @@ class FileIO():
                 filename -- A string, the filename of the pym file.
         """
 
+        if not numpy.class_dependency("load pym files", "NUMPY"):
+            return
+
         if filename[-1:] != os.sep: filename = filename + os.sep
 
         # first, get the files that must exist
@@ -115,7 +118,7 @@ class FileIO():
         # Now merge the last two columns.
         atom_inf = self.__parent_molecule.get_atom_information()
          
-        atom_types = numpy.core.defchararray.add(
+        atom_types = numpy.defchararray_add(
             atom_inf["element_stripped"], atom_inf["charge"]
         )
 
@@ -123,7 +126,7 @@ class FileIO():
 
         atom_inf["charge"] = "\n"
 
-        atom_inf["element"] = numpy.core.defchararray.rjust(
+        atom_inf["element"] = numpy.defchararray_rjust(
             atom_inf["element_stripped"], 2
         )
 
@@ -199,6 +202,7 @@ class FileIO():
         remarks = []
         for index in remark_indices:
             astr = ""
+            import pdb; pdb.set_trace()
             for name in source_data.dtype.names[1:]:
                 astr = astr + source_data[name][index]
             remarks.append(astr.rstrip())
@@ -222,15 +226,13 @@ class FileIO():
         for field in (self.__parent_molecule.get_constants()['i8_fields'] +
                       self.__parent_molecule.get_constants()['f8_fields']):
             check_fields = atom_inf[field]
-            print check_fields
             check_fields = numpy.defchararray_strip(check_fields)
-            print check_fields
             indices_of_empty = numpy.nonzero(check_fields == '')[0]
             atom_inf[field][indices_of_empty] = '0'
 
         # now actually change the type
         old_types = atom_inf.dtype
-        descr = old_types.descr
+        descr = old_types.signature
 
         for field in self.__parent_molecule.get_constants()['i8_fields']:
             index = atom_inf.dtype.names.index(field)
@@ -238,11 +240,15 @@ class FileIO():
         for field in self.__parent_molecule.get_constants()['f8_fields']:
             index = atom_inf.dtype.names.index(field)
             descr[index] = (descr[index][0], 'f8')
-        print descr
+
         # You need to create this descr object. strings are prefixed with |, and int and float with <
-        new_types = numpy.dtype(descr)
-        print new_types
-        sdf
+        new_types = numpy.dtype(signature)
+        print "Examine if after 1)"
+        t = self.__parent_molecule.get_atom_information()
+        t = self.__parent_molecule.get_constants()['i8_fields']
+        t2 = self.__parent_molecule.get_constants()['f8_fields']
+        import pdb; pdb.set_trace()
+
         self.__parent_molecule.set_atom_information(atom_inf.astype(new_types))
 
         # remove some of the fields that just contain empty data
@@ -256,6 +262,7 @@ class FileIO():
         # the coordinates need to be placed in their own special numpy array to
         # facilitate later manipulation
         atom_inf = self.__parent_molecule.get_atom_information()
+
         self.__parent_molecule.set_coordinates(
             numpy.vstack([atom_inf['x'], atom_inf['y'], atom_inf['z']]).T
         )
@@ -362,6 +369,9 @@ class FileIO():
                     not to save the last coordinate undo point. False by
                     default.
         """
+
+        if not numpy.class_dependency("save pym files", "NUMPY"):
+            return
 
         # Why not just pickle self.parent.information? Because it's a huge
         # file, can't selectively not save bonds, for example, and numpy.save
@@ -475,71 +485,71 @@ class FileIO():
             atom_information = self.__parent_molecule.get_atom_information()
             coordinates = self.__parent_molecule.get_coordinates()
 
-            printout = numpy.core.defchararray.add(
+            printout = numpy.defchararray_add(
                 atom_information['record_name'],
-                numpy.core.defchararray.rjust(
+                numpy.defchararray_rjust(
                     atom_information['serial'].astype('|S5'), 5
                 )
             )
 
-            printout = numpy.core.defchararray.add(printout,
+            printout = numpy.defchararray_add(printout,
                                                    atom_information['name'])
 
-            printout = numpy.core.defchararray.add(printout,
+            printout = numpy.defchararray_add(printout,
                                                    atom_information['resname'])
 
-            printout = numpy.core.defchararray.add(printout,
+            printout = numpy.defchararray_add(printout,
                                                    atom_information['chainid'])
 
-            printout = numpy.core.defchararray.add(
-                printout, numpy.core.defchararray.rjust(
+            printout = numpy.defchararray_add(
+                printout, numpy.defchararray_rjust(
                     atom_information['resseq'].astype('|S4'), 4
                 )
             )
 
-            printout = numpy.core.defchararray.add(printout, '    ')
+            printout = numpy.defchararray_add(printout, '    ')
 
-            printout = numpy.core.defchararray.add(
-                printout, numpy.core.defchararray.rjust(
-                    numpy.array(["%.3f" % t for t in coordinates[:, 0]]), 8
+            printout = numpy.defchararray_add(
+                printout, numpy.defchararray_rjust(
+                    numpy.array(["%.3f" % t for t in numpy.get_col(coordinates, 0)]), 8
                 )
             )
 
-            printout = numpy.core.defchararray.add(
-                printout, numpy.core.defchararray.rjust(
-                    numpy.array(["%.3f" % t for t in coordinates[:, 1]]), 8
+            printout = numpy.defchararray_add(
+                printout, numpy.defchararray_rjust(
+                    numpy.array(["%.3f" % t for t in numpy.get_col(coordinates, 1)]), 8
                 )
             )
 
-            printout = numpy.core.defchararray.add(
-                printout, numpy.core.defchararray.rjust(
-                    numpy.array(["%.3f" % t for t in coordinates[:, 2]]), 8
+            printout = numpy.defchararray_add(
+                printout, numpy.defchararray_rjust(
+                    numpy.array(["%.3f" % t for t in numpy.get_col(coordinates, 2)]), 8
                 )
             )
 
-            printout = numpy.core.defchararray.add(
-                printout, numpy.core.defchararray.rjust(
+            printout = numpy.defchararray_add(
+                printout, numpy.defchararray_rjust(
                     numpy.array(["%.2f" % t
                                  for t in atom_information['occupancy']]),
                     6
                 )
             )
 
-            printout = numpy.core.defchararray.add(
-                printout, numpy.core.defchararray.rjust(
+            printout = numpy.defchararray_add(
+                printout, numpy.defchararray_rjust(
                     numpy.array(["%.2f" % t
                                  for t in atom_information['tempfactor']]),
                     6
                 )
             )
 
-            printout = numpy.core.defchararray.add(printout, '          ')
+            printout = numpy.defchararray_add(printout, '          ')
 
-            printout = numpy.core.defchararray.add(
+            printout = numpy.defchararray_add(
                 printout, atom_information['element']
             )
 
-            printout = numpy.core.defchararray.add(
+            printout = numpy.defchararray_add(
                 printout, atom_information['charge']
             )
 
@@ -591,3 +601,4 @@ class FileIO():
         else:
             print ("ERROR: Cannot save a Molecule with no atoms " +
                    "(file name \"" + filename + "\")")
+

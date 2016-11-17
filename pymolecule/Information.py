@@ -267,21 +267,21 @@ class Information():
             return
 
         # get the atom names
-        fix_element_names = numpy.core.defchararray.upper(
+        fix_element_names = numpy.defchararray_upper(
             self.__atom_information['name'][selection]
         )
 
         fix_element_names = numpy.defchararray_strip(fix_element_names)
 
         # first remove any numbers at the begining of these names
-        fix_element_names = numpy.core.defchararray.lstrip(fix_element_names,
+        fix_element_names = numpy.defchararray_lstrip(fix_element_names,
                                                            '0123456789')
 
         # remove any thing, letters or numbers, that follows a number,
         # including the number itself. so C2L becomes C, not CL.
         for num in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']:
             # I wish there was a more numpified way of doing this. :(
-            tmp = numpy.core.defchararray.split(fix_element_names, num)
+            tmp = numpy.defchararray_split(fix_element_names, num)
             fix_element_names = numpy.empty(len(fix_element_names),
                                             dtype = "S5")
             for i, item in enumerate(tmp):
@@ -312,14 +312,14 @@ class Information():
 
         # get ones that are one-letter elements
         fix_element_names[indices_of_one_letter_elements] = (
-            numpy.core.defchararray.rjust(numpy.array(
+            numpy.defchararray_rjust(numpy.array(
                 fix_element_names[indices_of_one_letter_elements],
                 dtype = "|S1"
             ), 2)
         )
 
         # they should be capitalized for consistency
-        fix_element_names = numpy.core.defchararray.upper(fix_element_names)
+        fix_element_names = numpy.defchararray_upper(fix_element_names)
 
         # now map missing element names back
         self.__atom_information['element'][selection] = fix_element_names
@@ -351,7 +351,11 @@ class Information():
 
             """
 
-        if selection is None: selection = self.__parent_molecule.select_all()
+        if selection is None: 
+            selection = self.__parent_molecule.select_all()
+
+        t = self.get_coordinates()
+        import pdb; pdb.set_trace()
 
         # make sure the masses have been asigned
         self.assign_masses()
@@ -503,6 +507,9 @@ class Information():
 
             """
 
+        if not numpy.class_dependency("calculate a sphere that bounds a set of atoms", "NUMPY"):
+            return
+
         if selection is None:
             selection = self.__parent_molecule.select_all()
 
@@ -603,18 +610,18 @@ class Information():
         """Reindexes the resseq field of the atoms in the molecule, starting
         with 1."""
 
-        keys = numpy.core.defchararray.add(
+        keys = numpy.defchararray_add(
             self.__atom_information['resname_stripped'], '-'
         )
 
-        keys = numpy.core.defchararray.add(
+        keys = numpy.defchararray_add(
             keys,
             numpy.array([str(t) for t in self.__atom_information['resseq']])
         )
 
-        keys = numpy.core.defchararray.add(keys, '-')
+        keys = numpy.defchararray_add(keys, '-')
 
-        keys = numpy.core.defchararray.add(
+        keys = numpy.defchararray_add(
             keys, self.__atom_information['chainid_stripped']
         )
 

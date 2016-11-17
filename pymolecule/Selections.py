@@ -138,11 +138,14 @@ class Selections():
         #print 2, self.__parent_molecule
         #print 3, self.__parent_molecule.get_bonds()
         #print 4, selection
-        #import pdb; pdb.set_trace()
 
+        # t = self.__parent_molecule.get_bonds()
         bonds_to_consider = self.__parent_molecule.get_bonds()[selection]
-
-        return numpy.unique(numpy.nonzero(bonds_to_consider)[1])
+        t = numpy.nonzero(bonds_to_consider)
+        if len(t) > 1:
+            return numpy.unique(t[1])
+        else:
+            return numpy.array([])
 
     def select_branch(self, root_atom_index, directionality_atom_index):
         """Identify an isolated "branch" of a molecular model. Assumes the
@@ -354,6 +357,9 @@ class Selections():
                     user-defined selection themselves.
         """
 
+        if not numpy.class_dependency("select atoms near another selection", "NUMPY"):
+            return
+
         # note that this does not return a selection that includes the input
         # selection. merge selections as required to get a selection that also
         # includes the input.
@@ -388,15 +394,15 @@ class Selections():
         # get string ids representing the residues of all atoms
         atm_inf = self.__parent_molecule.get_atom_information()
 
-        keys = numpy.core.defchararray.add(atm_inf['resname_stripped'], '-')
+        keys = numpy.defchararray_add(atm_inf['resname_stripped'], '-')
 
-        keys = numpy.core.defchararray.add(
+        keys = numpy.defchararray_add(
             keys, numpy.array([str(t) for t in atm_inf['resseq']])
         )
 
-        keys = numpy.core.defchararray.add(keys, '-')
+        keys = numpy.defchararray_add(keys, '-')
 
-        keys = numpy.core.defchararray.add(keys, atm_inf['chainid_stripped'])
+        keys = numpy.defchararray_add(keys, atm_inf['chainid_stripped'])
 
         # get the unique keys of the selection
         unique_keys_of_selection = numpy.unique(keys[selection])
@@ -478,6 +484,9 @@ class Selections():
                     the other molecule.
 
         """
+
+        if not numpy.class_dependency("select close atoms from a different molecule", "NUMPY"):
+            return
 
         if pairwise_comparison == True:
 
@@ -750,17 +759,17 @@ class Selections():
         if not 'residues' in prnt.get_hierarchy().keys() :
             # so it hasn't already been calculated
 
-            keys = numpy.core.defchararray.add(
+            keys = numpy.defchararray_add(
                 atm_inf['resname_stripped'], '-'
             )
 
-            keys = numpy.core.defchararray.add(
+            keys = numpy.defchararray_add(
                 keys, numpy.array([str(t) for t in atm_inf['resseq']])
             )
 
-            keys = numpy.core.defchararray.add(keys, '-')
+            keys = numpy.defchararray_add(keys, '-')
 
-            keys = numpy.core.defchararray.add(
+            keys = numpy.defchararray_add(
                 keys, atm_inf['chainid_stripped']
             )
 
