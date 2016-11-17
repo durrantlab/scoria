@@ -124,49 +124,114 @@ class Information():
     #### Aliases ####
     # Gets
     def get_filename(self):
+        """Exposes the __filename variable."""
+
         return self.__filename
 
     def get_remarks(self):
+        """Exposes the __remarks variable."""
+
         return self.__remarks
 
     def get_atom_information(self):
+        """Exposes the __atom_information variable."""
+
         return self.__atom_information
 
     def get_coordinates(self):
+        """Exposes the __coordinates variable."""
+
         return self.__coordinates
 
     def get_coordinates_undo_point(self):
+        """Exposes the __coordinates_undo_point variable."""
+
         return self.__coordinates_undo_point
 
     def get_bonds(self):
+        """Exposes the __bonds variable."""
+
         return self.__bonds
 
     def get_hierarchy(self):
+        """Exposes the __hierarchy variable."""
+
         return self.__hierarchy
 
     def get_constants(self):
+        """Exposes the __constants variable."""
+
         return self.__constants
 
     # Sets
     def set_filename(self, filename):
+        """Sets the __filename variable.
+        
+            Args: 
+                filename -- String representation of the filename.
+
+            """
+
         self.__filename = filename
 
     def set_remarks(self, remarks):
+        """Sets the __remarks variable.
+
+            Args:
+                remarkes -- Array containing remarks.
+        
+            """
+
         self.__remarks = remarks
 
     def set_atom_information(self, atom_information):
+        """Sets the __atom_information variable.
+
+            Args:
+                atom_information -- NEED TO CONFIRM A numpy.array containing information on each atom.
+
+            """
+
         self.__atom_information = atom_information
 
     def set_coordinates(self, coordinates):
+        """Sets the __coordinates variable.
+        
+            Args:
+                coordinates -- NEED TO CONFIRM
+
+            """
+
         self.__coordinates = coordinates
 
     def set_coordinates_undo_point(self, coordinates_undo_point):
+        """Sets the __coordinates_undo_point variable.
+        
+            Args:
+                coordinates_undo_point -- NEED TO CONFIRM
+
+            """
+
         self.__coordinates_undo_point = coordinates_undo_point
 
     def set_bonds(self, bonds):
+        """Sets the __bonds variable.
+        
+            Args:
+                bonds -- NEED TO CONFIRM
+
+            """
+
         self.__bonds = bonds
 
     def set_hierarchy(self, hierarchy):
+        """Sets the __hierarchy variable.
+        
+            Args:
+                hierarchy -- NEED TO CONFIRM A dictionary that contains ???
+
+            """
+            
         self.__hierarchy = hierarchy
 
     def belongs_to_protein(self, atom_index):
