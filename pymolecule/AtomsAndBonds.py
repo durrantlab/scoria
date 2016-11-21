@@ -385,11 +385,13 @@ class AtomsAndBonds():
         if self.__parent_molecule.get_coordinates() is None:
             self.__parent_molecule.set_coordinates(numpy.array([coordinates]))
         else:
-            self.__parent_molecule.set_coordinates(
-                numpy.vstack((
-                    self.__parent_molecule.get_coordinates(), coordinates
-                ))
-            )
+            for frame in range(0, len(self.__parent_molecule.get_trajectory())):
+                self.__parent_molecule.set_coordinates(
+                    numpy.vstack((
+                        self.__parent_molecule.get_coordinates(frame), coordinates
+                    )),
+                    frame
+                )
 
         tot_atoms = self.__parent_molecule.get_total_number_of_atoms()
 

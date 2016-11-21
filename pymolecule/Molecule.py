@@ -27,10 +27,15 @@ class Molecule: # here's the actual Molecule class
     # Information methods
     ### Aliases ###
     # Gets
-    def get_coordinates(self):
+    def get_coordinates(self, frame = 0):
         """Alias function for Information.get_coordinates()"""
         
-        return self.information.get_coordinates()
+        return self.information.get_coordinates(frame)
+
+    def get_trajectory(self):
+        """Alias function from Information.get_trajectory()"""
+
+        return self.information.get_trajectory()
 
     def get_filename(self):
         """Alias function for Information.get_filename()"""
@@ -118,10 +123,15 @@ class Molecule: # here's the actual Molecule class
         
         self.information.set_atom_information(atom_information)
 
-    def set_coordinates(self, coordinates):
+    def set_coordinates(self, coordinates, frame = 0):
         """Alias function for Information.set_coordinates()"""
         
-        self.information.set_coordinates(coordinates)
+        self.information.set_coordinates(coordinates, frame)
+
+    def set_trajectory(self, trajectory):
+        """Alias function for Information.set_trajectory()"""
+
+        self.information.set_trajectory(trajectory)
 
     def set_coordinates_undo_point(self, coordinates_undo_point):
         """Alias function for Information.set_coordinates_undo_point()"""
@@ -238,6 +248,11 @@ class Molecule: # here's the actual Molecule class
         self.fileio.save_pdb(
             filename, serial_reindex, resseq_reindex, return_text
         )
+
+    def load_via_MDAnalysis(self, *args):
+        """Alias function for FileIO.load_via_MDAnalysis()"""
+
+        self.fileio.load_via_MDAnalysis(*args)
 
     # Atoms and Bonds class methods
     def get_number_of_bond_partners_of_element(self, atom_index, the_element):

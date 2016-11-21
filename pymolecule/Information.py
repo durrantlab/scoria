@@ -115,7 +115,7 @@ class Information():
         self.__filename = ""
         self.__remarks = []
         self.__atom_information = None
-        self.__coordinates = None
+        self.__trajectory = None
         self.__coordinates_undo_point = None
         self.__bonds = None
         self.__hierarchy = {}
@@ -138,10 +138,18 @@ class Information():
 
         return self.__atom_information
 
-    def get_coordinates(self):
-        """Exposes the __coordinates variable."""
+    def get_trajectory(self):
+        """Exposes the __trajectory variable."""
 
-        return self.__coordinates
+        return self.__trajectory
+
+    def get_coordinates(self, frame = 0):
+        """Retreives a frame of the __trajectory variable."""
+
+        if (self.__trajectory is None) or (len(self.__trajectory) == 0):
+            return None
+        else:
+            return self.__trajectory[frame]
 
     def get_coordinates_undo_point(self):
         """Exposes the __coordinates_undo_point variable."""
@@ -189,20 +197,31 @@ class Information():
 
             Args:
                 atom_information -- NEED TO CONFIRM A numpy.array containing information on each atom.
-
             """
 
         self.__atom_information = atom_information
 
-    def set_coordinates(self, coordinates):
-        """Sets the __coordinates variable.
+    def set_trajectory(self, trajectory):
+        """Sets the __trajectory variable.
+
+            Args:
+                trajectory -- An array of numpy.array containing 
+            """
+
+        self.__trajectory = trajectory
+
+    def set_coordinates(self, coordinates, frame = 0 ):
+        """Sets a frame of the __trajectory variable.
         
             Args:
                 coordinates -- NEED TO CONFIRM
-
+                frame -- An integer represeting the frame of the trajectory to be modified
             """
 
-        self.__coordinates = coordinates
+        if (self.__trajectory is None) or (len(self.__trajectory) == 0):
+            self.__trajectory = [coordinates]
+        else:
+            self.__trajectory[frame] = coordinates
 
     def set_coordinates_undo_point(self, coordinates_undo_point):
         """Sets the __coordinates_undo_point variable.
@@ -401,7 +420,7 @@ class Information():
         #    self.__parent_molecule.information.
         #    get_atom_information()['element']))
 
-    def get_center_of_mass(self, selection = None):
+    def get_center_of_mass(self, selection = None, frame = 0):
         """Determines the center of mass.
 
             Args:
@@ -409,6 +428,9 @@ class Information():
                     the atoms to consider when calculating the center of mass.
                     If ommitted, all atoms of the pymolecule.Molecule object
                     will be considered.
+                frame -- An integer indicating at which timestep the center of
+                    mass should be calculated. If ommitted, it defaults to the 
+                    first frame of the trajectory.
 
             Returns:
                 A numpy.array containing to the x, y, and z coordinates of the
@@ -424,7 +446,7 @@ class Information():
         # calculate the center of mass
 
         # multiply each coordinate by its mass
-        center_of_mass = self.__coordinates[selection] * numpy.vstack((
+        center_of_mass = self.__trajectory[frame][selection] * numpy.vstack((
             self.__atom_information['mass'][selection],
             self.__atom_information['mass'][selection],
             self.__atom_information['mass'][selection]
@@ -438,7 +460,7 @@ class Information():
 
         return center_of_mass
 
-    def get_geometric_center(self, selection = None):
+    def get_geometric_center(self, selection = None, frame = 0):
         """Determines the geometric center.
 
             Args:
@@ -446,6 +468,9 @@ class Information():
                     the atoms to consider when calculating the geometric
                     center. If ommitted, all atoms of the pymolecule.Molecule
                     object will be considered.
+                frame -- An integer indicating at which timestep the center of
+                    mass should be calculated. If ommitted, it defaults to the 
+                    first frame of the trajectory.
 
             Returns:
                 A numpy.array containing to the x, y, and z coordinates of the
@@ -456,7 +481,7 @@ class Information():
         if selection is None:
             selection = self.__parent_molecule.select_all()
 
-        return (numpy.sum(self.__coordinates[selection], 0) /
+        return (numpy.sum(self.__trajectory[frame][selection], 0) /
                 self.get_total_number_of_atoms(selection))
 
     def get_total_mass(self, selection = None):
@@ -482,13 +507,16 @@ class Information():
         # return total mass
         return numpy.sum(self.__atom_information['mass'][selection])
 
-    def get_total_number_of_atoms(self, selection = None):
+    def get_total_number_of_atoms(self, selection = None, frame = 0):
         """Counts the number of atoms.
 
             Args:
                 selection -- An optional numpy.array containing the indices of
                     the atoms to count. If ommitted, all atoms of the
                     pymolecule.Molecule object will be considered.
+                frame -- An integer indicating at which timestep the center of
+                    mass should be calculated. If ommitted, it defaults to the 
+                    first frame of the trajectory.
 
             Returns:
                 An int, the total number of atoms.
@@ -498,10 +526,11 @@ class Information():
         if selection is None:
             selection = self.__parent_molecule.select_all()
 
-        if self.__coordinates is None:
+
+        if (self.__trajectory is None) or (len(self.__trajectory) == 0):
             return 0
         else:
-            return len(self.__coordinates[selection])
+            return len(self.__trajectory[frame][selection])
 
     def get_total_number_of_heavy_atoms(self, selection = None):
         """Counts the number of heavy atoms (i.e., atoms that are not
@@ -520,7 +549,7 @@ class Information():
         if selection is None:
             selection = self.__parent_molecule.select_all()
 
-        if self.__coordinates is None:
+        if self.__trajectory is []:
             return 0
 
         all_hydrogens = self.__parent_molecule.select_atoms({
@@ -529,7 +558,7 @@ class Information():
 
         return self.get_total_number_of_atoms() - len(all_hydrogens)
 
-    def get_bounding_box(self, selection = None, padding = 0.0):
+    def get_bounding_box(self, selection = None, padding = 0.0, frame = 0):
         """Calculates a box that bounds (encompasses) a set of atoms.
 
             Args:
@@ -538,6 +567,9 @@ class Information():
                     pymolecule.Molecule object will be considered.
                 padding -- An optional float. The bounding box will extend this
                     many angstroms beyond the atoms being considered.
+                frame -- An integer indicating at which timestep the center of
+                    mass should be calculated. If ommitted, it defaults to the 
+                    first frame of the trajectory.
 
             Returns:
                 A numpy array representing two 3D points, (min_x, min_y, min_z)
@@ -548,16 +580,20 @@ class Information():
         if selection is None: 
             selection = self.__parent_molecule.select_all()
 
-        return numpy.vstack((numpy.min(self.__coordinates[selection], 0) - padding,
-                             numpy.max(self.__coordinates[selection], 0) + padding))
+        return numpy.vstack(
+            (numpy.min(self.__trajectory[frame][selection], 0) - padding,
+             numpy.max(self.__trajectory[frame][selection], 0) + padding))
 
-    def get_bounding_sphere(self, selection = None, padding = 0.0):
+    def get_bounding_sphere(self, selection = None, padding = 0.0, frame = 0):
         """Calculates a sphere that bounds (encompasses) a set of atoms.
 
             Args:
                 selection -- An optional numpy.array containing the indices of
                     the atoms to consider. If ommitted, all atoms of the
                     pymolecule.Molecule object will be considered.
+                frame -- An integer indicating at which timestep the center of
+                    mass should be calculated. If ommitted, it defaults to the 
+                    first frame of the trajectory.
                 padding -- An optional float. The bounding sphere will extend
                     this many angstroms beyond the atoms being considered.
 
@@ -580,7 +616,7 @@ class Information():
         return (center_of_selection[0],
                 numpy.max(
                     numpy.cdist(center_of_selection,
-                          self.__coordinates[selection])[0])
+                          self.__trajectory[frame][selection])[0])
                 )
 
     def define_molecule_chain_residue_spherical_boundaries(self):
