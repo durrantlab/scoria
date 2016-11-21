@@ -233,13 +233,14 @@ class AtomsAndBonds():
             )
         )
 
-        # remove the coordinates
-        self.__parent_molecule.set_coordinates(
-            numpy.delete(
-                self.__parent_molecule.get_coordinates(),
-                index, axis = 0
+        # remove the coordinates from all timesteps
+        for frame in range(0, len(self.__parent_molecule.get_trajectory)):
+            self.__parent_molecule.set_coordinates(
+                numpy.delete(
+                    self.__parent_molecule.get_coordinates(frame),
+                    index, axis = 0
+                ), frame
             )
-        )
 
         try:
             self.__parent_molecule.set_coordinates_undo_point(
