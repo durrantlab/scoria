@@ -549,7 +549,7 @@ class Information():
         if selection is None:
             selection = self.__parent_molecule.select_all()
 
-        if self.__trajectory is []:
+        if (self.__trajectory is None) or (len(self.__trajectory) == 0):
             return 0
 
         all_hydrogens = self.__parent_molecule.select_atoms({
@@ -734,3 +734,30 @@ class Information():
             )] = count
 
             count = count + 1
+
+    def insert_trajectory_frame(self, index, coordinates):
+        """Inserts a new coordinate frame at the end of the trajectory.
+
+            Args:
+                coordinates -- A single frame of coordinates to append.
+                index -- The location where the frame should be added.
+        """
+
+        self.__trajectory.insert(index, coordinates)
+
+    def delete_trajectory_frame(self, index):
+        """Removes a given frame from the trajectory.abs
+
+            Args:
+                index -- Integer of the frame to remove.
+        """
+
+        del self.__trajectory[index]
+
+    def get_trajectory_frame_count(self):
+        """Returns the number of frames in __trajectory."""
+
+        if self.__trajectory is None:
+            return 0
+        else:
+            return len(self.__trajectory)
