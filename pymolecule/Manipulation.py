@@ -74,7 +74,8 @@ class Manipulation():
             self.__parent_molecule.get_coordinates() + delta
         )
 
-        if 'spheres' in self.__parent_molecule.get_hierarchy().keys():
+        hierarchy = self.__parent_molecule.get_hierarchy()
+        if hierarchy is not None and 'spheres' in hierarchy.keys():
             gt_hrchy_sph = self.__parent_molecule.get_hierarchy()['spheres']
 
             # so update location of hierarchical elements
@@ -131,20 +132,22 @@ class Manipulation():
         cos = numpy.cos(rotate)
         sin = numpy.sin(rotate)
 
+        coordinates = self.__parent_molecule.get_coordinates()
+
         ux_plus_vy_plus_wz = numpy.sum(
-            self.__parent_molecule.get_coordinates() * delta, 1
+            coordinates * delta, 1
         )
 
-        # Now rotate molecule. In a perform world, I'd have an awesome better
+        # Now rotate molecule. In a perfect world, I'd have an awesome better
         # numpified version of this, perhaps with tensor or matrix
         # multiplication
 
-        for t in range(len(self.__parent_molecule.get_coordinates())):
+        for t in range(len(coordinates)):
             # so t is an atom index
-            x_not, y_not, z_not = self.__parent_molecule.get_coordinates()[t]
+            x_not, y_not, z_not = coordinates[t]
             ux_plus_vy_plus_wz = u * x_not + v * y_not + w * z_not
 
-            self.__parent_molecule.get_coordinates()[t][0] = (
+            coordinates[t][0] = (
                 a * v_2_plus_w_2 + u * (-b * v - c * w + ux_plus_vy_plus_wz) +
                 (
                     -a * v_2_plus_w_2 +
@@ -155,7 +158,7 @@ class Manipulation():
                 (-c * v + b * w - w * y_not + v * z_not) * sin
             ) # /u_2_plus_v_2_plus_w_2
 
-            self.__parent_molecule.get_coordinates()[t][1] = (
+            coordinates[t][1] = (
                 b * u_2_plus_w_2 + v * (-a * u - c * w + ux_plus_vy_plus_wz) +
                 (
                     -b * u_2_plus_w_2 +
@@ -166,7 +169,7 @@ class Manipulation():
                 (c * u - a * w + w * x_not - u * z_not) * sin
             ) # /u_2_plus_v_2_plus_w_2
 
-            self.__parent_molecule.get_coordinates()[t][2] = (
+            coordinates[t][2] = (
                 c * u_2_plus_v_2 + w * (-a * u - b * v + ux_plus_vy_plus_wz) +
                 (
                     -c * u_2_plus_v_2 +
@@ -177,9 +180,10 @@ class Manipulation():
                 (-b * u + a * v - v * x_not + u * y_not) * sin
             ) # /u_2_plus_v_2_plus_w_2
 
+        coordinates = coordinates * (1.0 / u_2_plus_v_2_plus_w_2)
+
         self.__parent_molecule.set_coordinates(
-            self.__parent_molecule.get_coordinates() *
-            (1.0 / u_2_plus_v_2_plus_w_2)
+            coordinates
         )
 
         # here I'm going to just delete the hierarchical info because I'm lazy.
@@ -228,6 +232,9 @@ class Manipulation():
                     in radians.
 
             """
+
+        if not numpy.class_dependency("rotate the molecule about a point. Missing the dot-product function", "NUMPY"):
+            return
 
         if pivot.shape == (3,): pivot = numpy.array([pivot])
 
@@ -286,6 +293,9 @@ class Manipulation():
                     in radians.
 
             """
+
+        if not numpy.class_dependency("rotate the molecule about an atom. Missing the dot-product function", "NUMPY"):
+            return
 
         pivot = self.__parent_molecule.get_coordinates()[pivot_index]
         self.rotate_molecule_around_pivot_point(pivot, thetax, thetay, thetaz)

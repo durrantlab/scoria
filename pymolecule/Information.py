@@ -151,10 +151,17 @@ class Information():
     def get_bonds(self):
         """Exposes the __bonds variable."""
 
+        #if self.__bonds is None:
+        #    dim = len(self.get_coordinates())
+        #     self.set_bonds(numpy.zeros((dim, dim)))
+
         return self.__bonds
 
     def get_hierarchy(self):
         """Exposes the __hierarchy variable."""
+
+        if not numpy.class_dependency("create a hierarchical organization of the molecule", "NUMPY"):
+            return
 
         return self.__hierarchy
 
@@ -231,7 +238,7 @@ class Information():
                 hierarchy -- NEED TO CONFIRM A dictionary that contains ???
 
             """
-            
+
         self.__hierarchy = hierarchy
 
     def belongs_to_protein(self, atom_index):
@@ -419,20 +426,21 @@ class Information():
         if selection is None: 
             selection = self.__parent_molecule.select_all()
 
-        t = self.get_coordinates()
-        import pdb; pdb.set_trace()
-
         # make sure the masses have been asigned
         self.assign_masses()
 
         # calculate the center of mass
 
         # multiply each coordinate by its mass
-        center_of_mass = self.__coordinates[selection] * numpy.vstack((
+
+        coors = self.__coordinates[selection]
+        masses = numpy.vstack((
             self.__atom_information['mass'][selection],
             self.__atom_information['mass'][selection],
             self.__atom_information['mass'][selection]
         )).T
+
+        center_of_mass = coors * masses
 
         # now sum all that
         center_of_mass = numpy.sum(center_of_mass, 0)
@@ -575,6 +583,9 @@ class Information():
         if not numpy.class_dependency("calculate a sphere that bounds a set of atoms", "NUMPY"):
             return
 
+        if not numpy.class_dependency("calculate a sphere that bounds a set of atoms", "SCIPY"):
+            return
+
         if selection is None:
             selection = self.__parent_molecule.select_all()
 
@@ -594,6 +605,12 @@ class Information():
         """Identifies spheres that bound (encompass) the entire molecule, the
         chains, and the residues. This information is stored in
         pymolecule.Molecule.information.hierarchy."""
+
+        if not numpy.class_dependency("calculate the spherical boundaries around molecules, chains, and residues", "NUMPY"):
+            return
+
+        if not numpy.class_dependency("calculate the spherical boundaries around molecules, chains, and residues", "SCIPY"):
+            return
 
         # first, check to see if it's already been defined
         if 'spheres' in self.__hierarchy.keys():

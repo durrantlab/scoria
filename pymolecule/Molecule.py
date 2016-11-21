@@ -510,6 +510,7 @@ class Molecule: # here's the actual Molecule class
         names = list(narray.dtype.names)
         for f in field_names:
             names.remove(f)
+        
         return narray[names]
 
     def __is_number(self, s):

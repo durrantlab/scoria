@@ -1,4 +1,13 @@
 def var_type(var):
+    """A helper function to identify a variable's type.
+
+        Args:
+            var  -- The variable.
+
+        Returns:
+            A string, the variable type.
+    """
+
     if isinstance(var, basestring):
         return "string"
     
@@ -7,14 +16,22 @@ def var_type(var):
     except: pass
 
     # see if it's a list
-    try:
-        var[0] # must be a list or something like it
+    if type(var) is list:
         return "list"
-    except:
+    else:
         # a number perhaps?
         return "number"
 
 def to_list(arr):
+    """Convert an array to a list.
+
+        Args:
+            arr  -- A 1D or 2D array.
+
+        Returns:
+            The list.
+    """
+
     # return a list regardless of whether arr is a list or array.
     typ = var_type(arr) 
     if typ in ["1D", "2D"]:

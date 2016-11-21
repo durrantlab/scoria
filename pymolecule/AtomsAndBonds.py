@@ -32,6 +32,9 @@ class AtomsAndBonds():
         if not numpy.class_dependency("calculate bonds by distance", "NUMPY"):
             return
 
+        if not numpy.class_dependency("calculate bonds by distance", "SCIPY"):
+            return
+
         atom_inf = self.__parent_molecule.information.get_atom_information()
         consts = self.__parent_molecule.get_constants()
 
@@ -146,6 +149,9 @@ class AtomsAndBonds():
 
             """
 
+        if not numpy.class_dependency("count the number of bond partners of a given element", "NUMPY"):
+            return
+
         # this function is really here for historical reasons. it's similar to
         # the old number_of_neighors_of_element function. it could be done
         # pretty easily with numpy
@@ -174,6 +180,12 @@ class AtomsAndBonds():
 
         """
 
+        if not numpy.class_dependency("get the index of a bond partner of element X", "NUMPY"):
+            return
+
+        if not numpy.class_dependency("get the index of a bond partner of element X", "SCIPY"):
+            return
+
         # this function is really here for historical reasons. it's similar to
         # the old index_of_neighbor_of_element function. it could be done
         # pretty easily with numpy
@@ -197,6 +209,10 @@ class AtomsAndBonds():
                     pair.
 
             """
+
+        if not numpy.class_dependency("delete bonds", "NUMPY"):
+            return
+
         bonds = self.__parent_molecule.get_bonds()
         try:
             bonds[index1][index2] = 0
@@ -216,6 +232,9 @@ class AtomsAndBonds():
 
             """
 
+        if not numpy.class_dependency("add bonds", "NUMPY"):
+            return
+
         bonds = self.__parent_molecule.get_bonds()
         bonds[index1][index2] = order
         bonds[index2][index1] = order
@@ -228,6 +247,9 @@ class AtomsAndBonds():
                 index -- An int, the index of the atom to delete.
 
             """
+
+        if not numpy.class_dependency("delete atoms", "NUMPY"):
+            return
 
         # remove the atom information
         self.__parent_molecule.set_atom_information(
@@ -304,6 +326,9 @@ class AtomsAndBonds():
                     the default.
 
             """
+
+        if not numpy.class_dependency("add atoms", "NUMPY"):
+            return
 
         # add the atom information
 

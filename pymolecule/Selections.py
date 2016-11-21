@@ -35,53 +35,55 @@ class Selections():
                     selection.
         """
 
-        try:
-            # start assuming everything is selected
-            selection = numpy.ones(
-                len(self.__parent_molecule.get_atom_information()),
-                dtype = bool
+        #try:
+        # start assuming everything is selected
+        selection = numpy.ones(
+            len(self.__parent_molecule.get_atom_information()),
+            dtype = bool
+        )
+
+        for key in selection_criteria.keys():
+
+            vals = selection_criteria[key]
+
+            # make sure the vals are in a list
+            # if it's a single value, put it in a list
+            if not type(vals) is list and not type(vals) is tuple:
+                vals = [vals]
+
+            # make sure the vals are in the right format
+            const = self.__parent_molecule.get_constants()
+            if key in const['f8_fields']:
+                vals = [float(v) for v in vals]
+            elif key in const['i8_fields']:
+                vals = [int(v) for v in vals]
+            else:
+                vals = [v.strip() for v in vals]
+
+            # "or" all the vals together
+            # start assuming nothing is selected
+            atm_inf = self.__parent_molecule.get_atom_information()
+            subselection = numpy.zeros(
+                len(atm_inf), dtype = bool
             )
 
-            for key in selection_criteria.keys():
-
-                vals = selection_criteria[key]
-
-                # make sure the vals are in a list
-                # if it's a single value, put it in a list
-                if not type(vals) is list and not type(vals) is tuple:
-                    vals = [vals]
-
-                # make sure the vals are in the right format
-                const = self.__parent_molecule.get_constants()
-                if key in const['f8_fields']:
-                    vals = [float(v) for v in vals]
-                elif key in const['i8_fields']:
-                    vals = [int(v) for v in vals]
-                else:
-                    vals = [v.strip() for v in vals]
-
-                # "or" all the vals together
-                # start assuming nothing is selected
-                atm_inf = self.__parent_molecule.get_atom_information()
-                subselection = numpy.zeros(
-                    len(atm_inf), dtype = bool
+            for val in vals:
+                subselection = numpy.logical_or(
+                    subselection,
+                    (atm_inf[key] == val)
                 )
 
-                for val in vals:
-                    subselection = numpy.logical_or(
-                        subselection,
-                        (atm_inf[key] == val)
-                    )
+            # now "and" that with everything else
+            selection = numpy.logical_and(selection, subselection)
 
-                # now "and" that with everything else
-                selection = numpy.logical_and(selection, subselection)
-
-            # now get the indices of the selection
-            return numpy.nonzero(selection)[0]
-        except:
-            print "ERROR: Could not make the selection. Existing fields:"
-            print "\t" + ", ".join(atm_inf.dtype.names)
-            sys.exit(0)
+        # now get the indices of the selection
+        return numpy.nonzero(selection)[0]
+        #except:
+        #    print "ERROR: Could not make the selection:"
+        #    print "\t" + str(selection_criteria)
+        #    print "Existing fields:"
+        #    print "\t" + ", ".join(atm_inf.dtype.names)
+        #    sys.exit(0)
 
     def select_atoms_in_bounding_box(self, bounding_box):
         """Selects all the atoms that are within a bounding box.
@@ -97,6 +99,9 @@ class Selections():
                 A numpy.array containing the indices of the atoms that are
                     within the bounding box.
         """
+
+        if not numpy.class_dependency("select atoms in bounding box", "NUMPY"):
+            return
 
         min_pt = bounding_box[0]
         max_pt = bounding_box[1]
@@ -128,6 +133,9 @@ class Selections():
                 selection does not necessarily include the indices of the
                 original user-specified selection.
         """
+
+        if not numpy.class_dependency("select all atoms bound to a selection", "NUMPY"):
+            return
 
         if self.__parent_molecule.information.get_bonds() is None:
             print ("You need to define the bonds to use" +
@@ -163,6 +171,9 @@ class Selections():
             A numpy array containing the indices of the atoms of the branch.
 
         """
+
+        if not numpy.class_dependency("select a branch", "NUMPY"):
+            return
 
         # note that this function is mostly retained for legacy reasons. the
         # old version of pymolecule had a branch-identification function.
@@ -243,6 +254,9 @@ class Selections():
                     selection.
         """
 
+        if not numpy.class_dependency("select atoms from the same molecule", "NUMPY"):
+            return
+
         # If your "Molecule" object actually contains several molecules, this
         # one selects all the atoms from any molecule containing any atom in
         # the selection note that bonds must be defined
@@ -318,6 +332,9 @@ class Selections():
 
         """
 
+        if not numpy.class_dependency("select atoms of constituent molecules", "NUMPY"):
+            return
+
         # If your pymolecule.Molecule object contains multiple molecules (e.g.,
         # several chains), this will return a list of selections corresponding
         # to the atoms of each molecule.
@@ -360,6 +377,9 @@ class Selections():
         if not numpy.class_dependency("select atoms near another selection", "NUMPY"):
             return
 
+        if not numpy.class_dependency("select atoms near another selection", "SCIPY"):
+            return
+
         # note that this does not return a selection that includes the input
         # selection. merge selections as required to get a selection that also
         # includes the input.
@@ -390,6 +410,7 @@ class Selections():
                 A numpy.array containing the indices of all atoms in the same
                     residue as any of the atoms of the user-defined selection.
         """
+
 
         # get string ids representing the residues of all atoms
         atm_inf = self.__parent_molecule.get_atom_information()
@@ -486,6 +507,9 @@ class Selections():
         """
 
         if not numpy.class_dependency("select close atoms from a different molecule", "NUMPY"):
+            return
+
+        if not numpy.class_dependency("select close atoms from a different molecule", "SCIPY"):
             return
 
         if pairwise_comparison == True:
@@ -726,6 +750,9 @@ class Selections():
 
         """
 
+        if not numpy.class_dependency("select chains", "NUMPY"):
+            return
+
         prnt = self.__parent_molecule
 
         if not 'chains' in prnt.get_hierarchy().keys():
@@ -752,6 +779,9 @@ class Selections():
                     values are numpy.array objects containing the indices of
                     the associated residue atoms.
             """
+
+        if not numpy.class_dependency("select residues", "NUMPY"):
+            return
 
         prnt = self.__parent_molecule
         atm_inf = prnt.get_atom_information()

@@ -1,19 +1,20 @@
-def var_type(var):
-    if isinstance(var, basestring):
-        return "string"
-    
-    # See if it's one of your dumbpy array objects
-    try: return var.type
-    except: pass
+import pymolecule.dumbpy as numpy
 
-    # see if it's a list
-    try:
-        var[0] # must be a list or something like it
-        return "list"
-    except:
-        # a number perhaps?
-        return "number"
+print "make a1"
+a1 = numpy.array([1,2,3])
 
-print var_type("moo")
-print var_type([1,2,3])
-print var_type(6)
+print "make a2"
+a2 = numpy.array([1,2,3])
+
+print "make a3"
+a3 = numpy.array([[1,2,3], [1,2,3]])
+
+print "make a4"
+a4 = numpy.array([[2,2,2], [2,2,2]])
+
+numpy.vstack((a1, a2))
+
+a5 = numpy.array([a1])
+print "moo", a4 + a5
+
+import pdb; pdb.set_trace()

@@ -202,10 +202,11 @@ class FileIO():
         remarks = []
         for index in remark_indices:
             astr = ""
-            import pdb; pdb.set_trace()
+
             for name in source_data.dtype.names[1:]:
                 astr = astr + source_data[name][index]
             remarks.append(astr.rstrip())
+
         self.__parent_molecule.set_remarks(remarks)
 
         # in case the pdb file has only one line
@@ -216,6 +217,7 @@ class FileIO():
         or_matrix = numpy.logical_or((source_data['record_name'] == "ATOM  "),
                                      (source_data['record_name'] == "HETATM"))
         indices_of_atom_or_hetatom = numpy.nonzero(or_matrix)[0]
+
         self.__parent_molecule.set_atom_information(
             source_data[indices_of_atom_or_hetatom]
         )
@@ -232,7 +234,8 @@ class FileIO():
 
         # now actually change the type
         old_types = atom_inf.dtype
-        descr = old_types.signature
+
+        descr = old_types.descr
 
         for field in self.__parent_molecule.get_constants()['i8_fields']:
             index = atom_inf.dtype.names.index(field)
@@ -242,12 +245,7 @@ class FileIO():
             descr[index] = (descr[index][0], 'f8')
 
         # You need to create this descr object. strings are prefixed with |, and int and float with <
-        new_types = numpy.dtype(signature)
-        print "Examine if after 1)"
-        t = self.__parent_molecule.get_atom_information()
-        t = self.__parent_molecule.get_constants()['i8_fields']
-        t2 = self.__parent_molecule.get_constants()['f8_fields']
-        import pdb; pdb.set_trace()
+        new_types = numpy.dtype(descr)
 
         self.__parent_molecule.set_atom_information(atom_inf.astype(new_types))
 
@@ -300,7 +298,7 @@ class FileIO():
                     data = numpy.defchararray_strip(atom_inf[f])
                 )
             )
-
+        
         # now, if there's conect data, load it. this part of the code is not
         # that "numpyic"
         conect_indices = numpy.nonzero(
@@ -508,7 +506,6 @@ class FileIO():
             )
 
             printout = numpy.defchararray_add(printout, '    ')
-
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
                     numpy.array(["%.3f" % t for t in numpy.get_col(coordinates, 0)]), 8
