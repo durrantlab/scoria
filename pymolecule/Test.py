@@ -25,12 +25,12 @@ class Test:
             os.mkdir("./pymolecule_tests_tmp")
 
         self.test_file_io()
-        self.test_information()
-        self.test_selection()
-        self.test_manipulation()
-        self.test_other_molecules()
-        self.test_atoms_and_bonds()
-        self.test_geometry()
+        #self.test_information()
+        #self.test_selection()
+        #self.test_manipulation()
+        #self.test_other_molecules()
+        #self.test_atoms_and_bonds()
+        #self.test_geometry()
 
     def test_file_io(self):
         """Test the functions in FileIO."""
@@ -73,14 +73,15 @@ class Test:
         print "    load_pym_into()"
         self.mol = Molecule()
         self.mol.load_pym_into(file_io_filename + ".pym")
-    
-#        print "    load_via_MDAnalysis()"
-#        self.mol = Molecule()
-#        self.mol.load_via_MDAnalysis(PSF, DCD)
 
         print "    load_pdb_into()"
         self.mol = Molecule()
         self.mol.load_pdb_into(file_io_filename + ".pdb", True, True, True)
+
+        print "    load_via_MDAnalysis()"
+        self.mol = Molecule()
+        self.mol.load_via_MDAnalysis(PSF, DCD)
+        print self.mol.get_trajectory_frame_count()
 
     def test_information(self):
         """Test the functions in Information"""

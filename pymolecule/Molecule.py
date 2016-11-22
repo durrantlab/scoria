@@ -189,6 +189,21 @@ class Molecule: # here's the actual Molecule class
         
         return self.information.belongs_to_dna(atom_index)
 
+    def insert_trajectory_frame(self, index, coordinates):
+        """Alias function for Information.insert_trajectory_frame()"""
+
+        return self.information.insert_trajectory_frame(index, coordinates)
+    
+    def delete_trajectory_frame(self, index):
+        """Alias function for Information.delete_trajectory_frame()"""
+
+        return self.information.delete_trajectory_frame(index)
+
+    def get_trajectory_frame_count(self):
+        """Alias function for Information.get_trajectory_frame_count()"""
+
+        return self.information.get_trajectory_frame_count()
+
     # File I/O class methods
     def load_pym_into(self, filename):
         """Alias function for FileIO.load_pym_into(filename)"""

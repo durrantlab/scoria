@@ -205,14 +205,14 @@ class Information():
         """Sets the __trajectory variable.
 
             Args:
-                trajectory -- An array of numpy.array containing 
+                trajectory -- An array of numpy.array containing
             """
 
         self.__trajectory = trajectory
 
-    def set_coordinates(self, coordinates, frame = 0 ):
+    def set_coordinates(self, coordinates, frame = 0):
         """Sets a frame of the __trajectory variable.
-        
+
             Args:
                 coordinates -- NEED TO CONFIRM
                 frame -- An integer represeting the frame of the trajectory to be modified
@@ -742,8 +742,10 @@ class Information():
                 coordinates -- A single frame of coordinates to append.
                 index -- The location where the frame should be added.
         """
-
-        self.__trajectory.insert(index, coordinates)
+        if self.__trajectory is None:
+            self.__trajectory = [coordinates]
+        else:
+            self.__trajectory.insert(index, coordinates)
 
     def delete_trajectory_frame(self, index):
         """Removes a given frame from the trajectory.abs

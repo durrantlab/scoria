@@ -234,7 +234,7 @@ class AtomsAndBonds():
         )
 
         # remove the coordinates from all timesteps
-        for frame in range(0, len(self.__parent_molecule.get_trajectory)):
+        for frame in range(0, self.__parent_molecule.get_trajectory_frame_count() ):
             self.__parent_molecule.set_coordinates(
                 numpy.delete(
                     self.__parent_molecule.get_coordinates(frame),

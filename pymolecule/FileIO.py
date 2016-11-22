@@ -1,5 +1,6 @@
 from pymolecule import dumbpy as numpy
 import os
+import sys
 import cPickle as pickle
 import shutil
 
@@ -17,6 +18,7 @@ class FileIO():
         """
 
         self.__parent_molecule = parent_molecule_object
+        self.__u = None
 
     def load_pym_into(self, filename):
         """Loads the molecular data contained in a pym file into the current
@@ -222,9 +224,9 @@ class FileIO():
         for field in (self.__parent_molecule.get_constants()['i8_fields'] +
                       self.__parent_molecule.get_constants()['f8_fields']):
             check_fields = atom_inf[field]
-            print check_fields
+            #print check_fields
             check_fields = numpy.defchararray_strip(check_fields)
-            print check_fields
+            #print check_fields
             indices_of_empty = numpy.nonzero(check_fields == '')[0]
             atom_inf[field][indices_of_empty] = '0'
 
@@ -238,11 +240,11 @@ class FileIO():
         for field in self.__parent_molecule.get_constants()['f8_fields']:
             index = atom_inf.dtype.names.index(field)
             descr[index] = (descr[index][0], 'f8')
-        print descr
+        #print descr
         # You need to create this descr object. strings are prefixed with |, 
         # and int and float with <
         new_types = numpy.dtype(descr)
-        print new_types
+        #print new_types
         self.__parent_molecule.set_atom_information(atom_inf.astype(new_types))
 
         # remove some of the fields that just contain empty data
@@ -258,7 +260,7 @@ class FileIO():
         atom_inf = self.__parent_molecule.get_atom_information()
         self.__parent_molecule.set_coordinates(
             numpy.vstack([atom_inf['x'], atom_inf['y'], atom_inf['z']]).T
-        )
+            )
 
         # now remove the coordinates from the atom_information object to save
         # memory
@@ -591,3 +593,21 @@ class FileIO():
         else:
             print ("ERROR: Cannot save a Molecule with no atoms " +
                    "(file name \"" + filename + "\")")
+
+    def load_via_MDAnalysis(self, *args):
+        """Allows import of molecular structure with MDAnalysis
+
+            Args:
+                file_list - List of file names
+        """
+
+        # Throwing an informative error for missing module.
+        if 'MDAnalysis' not in sys.modules:
+            raise ImportError("The MDAnalysis Module is not available.")
+
+        # Initializing the MDAnalysis universe
+        self.__u = numpy.mda.Universe(*args)
+
+        self.__parent_molecule.set_trajectory(self.__u.trajectory)
+        print self.__u.atoms.names
+

@@ -57,10 +57,15 @@ except:
 
 try:
     # Try to load traditional scipy
-    sdf
+    # sdf
     from scipy.spatial.distance import squareform
     from scipy.spatial.distance import pdist
     from scipy.spatial.distance import cdist
 except:
     # Use cheap replacement instead.
+    pass
+
+try: 
+    import MDAnalysis as mda
+except:
     pass
