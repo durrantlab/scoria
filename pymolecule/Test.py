@@ -74,6 +74,7 @@ class Test:
         self.mol = Molecule()
         self.mol.load_pym_into(file_io_filename + ".pym")
 
+        #import pdb;pdb.set_trace()
         print "    load_pdb_into()"
         self.mol = Molecule()
         self.mol.load_pdb_into(file_io_filename + ".pdb", True, True, True)
@@ -85,6 +86,7 @@ class Test:
 
     def test_information(self):
         """Test the functions in Information"""
+
 
         print "Information Functions"
         print "    get_filename()"
@@ -109,7 +111,9 @@ class Test:
         print "        " + str(self.mol.get_coordinates()[0])
 
         print "    get_bonds()"
-        print "        " + str(self.mol.get_bonds()[0][:10])
+        if numpy.class_dependency("test get_bonds()", "NUMPY"):
+            if numpy.class_dependency("test set_bonds()", "SCIPY"):
+                print "        " + str(self.mol.get_bonds()[0][:10])
 
         print "    get_geometric_center()"
         print "        " + str(self.mol.get_geometric_center())
@@ -127,8 +131,8 @@ class Test:
         print "        " + str(self.mol.get_bounding_box())
 
         # Temporarily commented out because no dumbpy implementation needed.
-        # print "    get_bounding_sphere()"
-        # print "        " + str(self.mol.get_bounding_sphere())
+        print "    get_bounding_sphere()"
+        print "        " + str(self.mol.get_bounding_sphere())
 
         print "    get_constants()"
         print "        " + str(self.mol.get_constants())
@@ -152,7 +156,10 @@ class Test:
 
         print "    set_coordinates()"
         coors = self.mol.get_coordinates()
-        coors[:,0] = 999.999
+        
+        for i in range(len(coors)):  # Doing it this way instead of coors[:,0] = 999.999
+            coors[i][0] = 999.999    # so dumbpy will pass
+        
         self.mol.set_coordinates(coors)
         print "        " + str(self.mol.get_coordinates()[0])
 
@@ -163,10 +170,12 @@ class Test:
         print "        " + str(self.mol.get_atom_information()[0])
 
         print "    set_bonds()"
-        bnds = self.mol.get_bonds()
-        bnds[:,:10] = 1
-        self.mol.set_bonds(bnds)
-        print "        " + str(self.mol.get_bonds()[0][:10])
+        if numpy.class_dependency("test set_bonds()", "NUMPY"):
+            if numpy.class_dependency("test set_bonds()", "SCIPY"):
+                bnds = self.mol.get_bonds()
+                bnds[:,:10] = 1
+                self.mol.set_bonds(bnds)
+                print "        " + str(self.mol.get_bonds()[0][:10])
 
         print "    serial_reindex()"
         self.mol.serial_reindex()
@@ -183,12 +192,15 @@ class Test:
         self.mol.define_molecule_chain_residue_spherical_boundaries()
         
         print "    get_hierarchy()"
-        print "        " + str(self.mol.get_hierarchy()['residues']['indices']['VAL-32-A'])
+        if numpy.class_dependency("test the get_hierarchy() function", "NUMPY"):
+            if numpy.class_dependency("test the get_hierarchy() function", "SCIPY"):
+                print "        " + str(self.mol.get_hierarchy()['residues']['indices']['VAL-32-A'])
 
         print "    set_hierarchy()"
-        self.mol.set_hierarchy(
-            self.mol.get_hierarchy()
-        )
+        if numpy.class_dependency("test the set_hierarchy() function", "NUMPY"):
+            self.mol.set_hierarchy(
+                self.mol.get_hierarchy()
+            )
 
     def test_selection(self):
         """Test the functions in Selections."""
@@ -196,6 +208,7 @@ class Test:
         print "Selection Functions"
 
         # Get new molecule... clean slate.
+        #import pdb; pdb.set_trace()
         self.mol = Molecule()
         self.mol.load_pdb_into_using_file_object(
             StringIO.StringIO(self.testFiles.pdb_file_str()),
@@ -219,51 +232,62 @@ class Test:
         print "        Atoms in selection: " + str(len(self.mol.invert_selection(sel)))
         
         print "    select_all_atoms_bound_to_selection()"
-        print "        Atoms in selection: " + str(len(self.mol.select_all_atoms_bound_to_selection(sel)))
+        if numpy.class_dependency("test select_all_atoms_bound_to_selection()", "NUMPY"):
+            if numpy.class_dependency("test select_all_atoms_bound_to_selection()", "SCIPY"):
+                print "        Atoms in selection: " + str(len(self.mol.select_all_atoms_bound_to_selection(sel)))
         
         # Temporarily commented out because no dumbpy implementation needed.
-        # print "    select_atoms_near_other_selection()"
-        # print "        Atoms in selection: " + str(len(self.mol.select_atoms_near_other_selection(sel, 8.0)))
+        print "    select_atoms_near_other_selection()"
+        if numpy.class_dependency("test select_atoms_near_other_selection()", "NUMPY"):
+            if numpy.class_dependency("test select_atoms_near_other_selection()", "SCIPY"):
+                print "        Atoms in selection: " + str(len(self.mol.select_atoms_near_other_selection(sel, 8.0)))
         
         print "    select_atoms_in_same_residue()"
         print "        Atoms in selection: " + str(len(self.mol.select_atoms_in_same_residue([1])))
         
         print "    select_atoms_from_same_molecule()"
-        print "        Atoms in selection: " + str(len(self.mol.select_atoms_from_same_molecule([1])))
+        if numpy.class_dependency("test select_atoms_from_same_molecule()", "NUMPY"):        
+            if numpy.class_dependency("test select_atoms_from_same_molecule()", "SCIPY"):        
+                print "        Atoms in selection: " + str(len(self.mol.select_atoms_from_same_molecule([1])))
         
-        print "    select_atoms_from_same_molecule()"
-        print "        Atoms in selection: " + str(len(self.mol.select_atoms_from_same_molecule([1])))
-        
-
         print "    select_atoms_in_bounding_box()"
-        print "        Atoms in selection: " + str(
-            len(
-                self.mol.select_atoms_in_bounding_box(
-                    self.mol.get_bounding_box(range(15), 5.0)
+        if numpy.class_dependency("test select_atoms_in_bounding_box()", "NUMPY"):        
+            print "        Atoms in selection: " + str(
+                len(
+                    self.mol.select_atoms_in_bounding_box(
+                        self.mol.get_bounding_box(range(15), 5.0)
+                    )
                 )
             )
-        )
 
         print "    select_branch()"  # Get a side chain.
-        print "        Atoms in selection: " + str(len(self.mol.select_branch(1, 4)))
+        if numpy.class_dependency("test select_branch()", "NUMPY"):        
+            if numpy.class_dependency("test select_branch()", "SCIPY"):        
+                print "        Atoms in selection: " + str(len(self.mol.select_branch(1, 4)))
 
         print "    selections_of_constituent_molecules()" 
-        print "        Atoms in selection: " + str(self.mol.selections_of_constituent_molecules())
+        if numpy.class_dependency("test select_branch()", "NUMPY"):
+            if numpy.class_dependency("test select_branch()", "SCIPY"):
+                print "        Atoms in selection: " + str(self.mol.selections_of_constituent_molecules())
 
-        print "    selections_of_chains()" 
-        print "        Chains mapped to indices: " + str(self.mol.selections_of_chains().keys())
+        print "    selections_of_chains()"
+        if numpy.class_dependency("test selections_of_chains()", "NUMPY"):
+            print "        Chains mapped to indices: " + str(self.mol.selections_of_chains().keys())
 
-        print "    selections_of_residues()" 
-        print "        Residues mapped to indices: " + str(self.mol.selections_of_residues().keys()[:5])
+        print "    selections_of_residues()"
+        if numpy.class_dependency("test selections_of_residues()", "NUMPY"):
+            print "        Residues mapped to indices: " + str(self.mol.selections_of_residues().keys()[:5])
 
         # Temporarily commented out because no dumbpy implementation needed.
-        # print "    select_close_atoms_from_different_molecules()"
-        # sels = self.mol.select_close_atoms_from_different_molecules(self.mol, 1.0)
-        # print "        Atoms in mol1 selection: " + str(len(sels[0]))
-        # print "        Atoms in mol2 selection: " + str(len(sels[1]))
+        print "    select_close_atoms_from_different_molecules()"
+        if numpy.class_dependency("test select_close_atoms_from_different_molecules()", "NUMPY"):
+            if numpy.class_dependency("test select_close_atoms_from_different_molecules()", "SCIPY"):
+                sels = self.mol.select_close_atoms_from_different_molecules(self.mol, 1.0)
+                print "        Atoms in mol1 selection: " + str(len(sels[0]))
+                print "        Atoms in mol2 selection: " + str(len(sels[1]))
 
         print "    get_molecule_from_selection()"
-        sel = self.mol.select_branch(1, 4)
+        sel = [1,2,3,4,5]
         print "        Atoms in selection: " + str(len(sel))
         mol2 = self.mol.get_molecule_from_selection(sel)
         mol2.save_pdb("./pymolecule_tests_tmp/save_selection.pdb", True, True, False)
@@ -301,12 +325,14 @@ class Test:
         self.mol.save_pdb(manip_filename + "4.pdb", False, False, False)
         
         print "    rotate_molecule_around_pivot_point()"
-        self.mol.rotate_molecule_around_pivot_point(numpy.array([0.0, 0.0, 0.0]), 45, 45, 45)
-        self.mol.save_pdb(manip_filename + "5.pdb", False, False, False)
+        if numpy.class_dependency("test rotate_molecule_around_pivot_point(). Missing the dot-product function", "NUMPY"):
+            self.mol.rotate_molecule_around_pivot_point(numpy.array([0.0, 0.0, 0.0]), 45, 45, 45)
+            self.mol.save_pdb(manip_filename + "5.pdb", False, False, False)
         
         print "    rotate_molecule_around_pivot_atom()"
-        self.mol.rotate_molecule_around_pivot_atom(5, 45, 45, 45)
-        self.mol.save_pdb(manip_filename + "6.pdb", False, False, False)
+        if numpy.class_dependency("test rotate_molecule_around_pivot_atom(). Missing the dot-product function", "NUMPY"):
+            self.mol.rotate_molecule_around_pivot_atom(5, 45, 45, 45)
+            self.mol.save_pdb(manip_filename + "6.pdb", False, False, False)
         
         print "    coordinate_undo()"
         self.mol.coordinate_undo()
@@ -337,33 +363,35 @@ class Test:
         mol2.translate_molecule(numpy.array([10.0, 10.0, 10.0]))
 
         # Temporarily commented out because no dumbpy implementation needed.
-        # print "    steric_clash_with_another_molecule()"
-        # print "        " + str(mol1.steric_clash_with_another_molecule(mol2, 5.0, False))
-        # print "        " + str(mol1.steric_clash_with_another_molecule(mol2, 5.0, True))
+        print "    steric_clash_with_another_molecule()"
+        print "        " + str(mol1.steric_clash_with_another_molecule(mol2, 5.0, False))
+        print "        " + str(mol1.steric_clash_with_another_molecule(mol2, 5.0, True))
 
         # Temporarily commented out because no dumbpy implementation needed.
-        # print "    get_distance_to_another_molecule()"
-        # print "        " + str(mol1.get_distance_to_another_molecule(mol2, False))
-        # print "        " + str(mol1.get_distance_to_another_molecule(mol2, True))
+        print "    get_distance_to_another_molecule()"
+        print "        " + str(mol1.get_distance_to_another_molecule(mol2, False))
+        print "        " + str(mol1.get_distance_to_another_molecule(mol2, True))
 
         print "    get_rmsd_order_dependent()"
         print "        " + str(mol1.get_rmsd_order_dependent(mol2))
 
         # Temporarily commented out because no dumbpy implementation needed.
-        # print "    get_rmsd_heuristic()"
-        # print "        " + str(mol1.get_rmsd_heuristic(mol2))
+        print "    get_rmsd_heuristic()"
+        print "        " + str(mol1.get_rmsd_heuristic(mol2))
 
         print "    get_rmsd_equivalent_atoms_specified()"
         tethers = [numpy.array([1, 1]), numpy.array([2, 2]), numpy.array([3, 3])]
         print "        " + str(mol1.get_rmsd_equivalent_atoms_specified(mol2, tethers))
 
         print "    merge_with_another_molecule()"
+        print "WHAT IS numpy.lib.recfunctions.stack_arrays?"
         merged_mol = mol1.merge_with_another_molecule(mol2)
         merged_mol.save_pdb("./pymolecule_tests_tmp/merged.pdb", False, False, False)
 
         print "    get_other_molecule_aligned_to_this()"
-        aligned_mol = mol1.get_other_molecule_aligned_to_this(mol2, tethers)
-        print "        New RMSD: " + str(mol1.get_rmsd_order_dependent(aligned_mol))
+        if numpy.class_dependency("test get_other_molecule_aligned_to_this(). Missing the dot-product function", "NUMPY"):
+            aligned_mol = mol1.get_other_molecule_aligned_to_this(mol2, tethers)
+            print "        New RMSD: " + str(mol1.get_rmsd_order_dependent(aligned_mol))
 
     def test_atoms_and_bonds(self):
         """Test the functions in AtomsAndBonds."""
@@ -396,6 +424,7 @@ class Test:
         print "    delete_bond()"
         self.mol.delete_bond(0, 1)
 
+        # Temporarily commented out because no dumbpy implementation needed.
         print "    create_bonds_by_distance()"
         self.mol.create_bonds_by_distance()
 

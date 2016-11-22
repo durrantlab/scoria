@@ -36,6 +36,9 @@ class OtherMolecules():
                 The new molecule.
 
             """
+
+        if not numpy.class_dependency("align molecules. Missing the dot-product function", "NUMPY"):
+            return
         
         tethers = numpy.array(tethers).T
 
@@ -153,6 +156,12 @@ class OtherMolecules():
 
             """
 
+        if not numpy.class_dependency("calculate the steric clashes with another molecule", "NUMPY"):
+            return
+
+        if not numpy.class_dependency("calculate the steric clashes with another molecule", "SCIPY"):
+            return
+
         prnt = self.__parent_molecule
 
         sel_cls_aatms_frm_diff_mols = (
@@ -200,7 +209,7 @@ class OtherMolecules():
         merged.get_remarks().extend(other_molecule.get_remarks())
 
         merged.set_atom_information(
-            numpy.lib.recfunctions.stack_arrays(
+            numpy.stack_arrays(
                 (
                     merged.get_atom_information(),
                     other_molecule.get_atom_information()
@@ -262,6 +271,12 @@ class OtherMolecules():
                 specified molecular models (self and other_molecule).
 
             """
+
+        if not numpy.class_dependency("calculate the distance to another molecule", "NUMPY"):
+            return
+
+        if not numpy.class_dependency("calculate the distance to another molecule", "SCIPY"):
+            return
 
         if pairwise_comparison == True:
             return numpy.amin(numpy.cdist(
@@ -335,7 +350,7 @@ class OtherMolecules():
         other_coors_in_order = other_mol.get_coordinates()[tethers[1]]
 
         delta = self_coors_in_order - other_coors_in_order
-        norm_squared = numpy.sum(delta**2, axis = -1)
+        norm_squared = numpy.sum(delta * delta, axis = -1)
         rmsd = numpy.power(numpy.sum(norm_squared) / len(norm_squared), 0.5)
         return rmsd
 
@@ -379,6 +394,9 @@ class OtherMolecules():
                 A float, the RMSD between self and other_mol.
         """
 
+        if not numpy.class_dependency("calculate an RMSD using a heuristical algorithm", "NUMPY"):
+            return
+
         # Group the other_mol atoms by element (atom type in pdbqt speak)
         atom_inf = self.__parent_molecule.get_atom_information()
         self_atom_coors = self.__parent_molecule.get_coordinates()
@@ -420,6 +438,9 @@ class OtherMolecules():
         
         """
         
+        if not numpy.class_dependency("use this helper function", "SCIPY"):
+            return
+
         # Go through each of the element types
         tot_sum_min_dists_sqrd = 0
         num_heavy_atms = 0

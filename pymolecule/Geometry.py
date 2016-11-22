@@ -32,11 +32,14 @@ class Geometry():
                     radians
             """
 
+        if not numpy.class_dependency("calculate the angle between three points. Missing the dot-product function", "NUMPY"):
+            return
+        
         vector1 = pt1 - pt2
         vector2 = pt3 - pt2
 
-        vector1_mag = numpy.linalg.norm(vector1)
-        vector2_mag = numpy.linalg.norm(vector2)
+        vector1_mag = numpy.norm(vector1)
+        vector2_mag = numpy.norm(vector2)
 
         #Make sure vectors aren't <0, 0, 0>
         if vector1_mag < 1e-10 or vector2_mag < 1e-10:
@@ -72,6 +75,9 @@ class Geometry():
                 A float containing the dihedral angle between the four points,
                     in radians.
             """
+
+        if not numpy.class_dependency("calculate the angle between three points. Missing the cross-product function", "NUMPY"):
+            return
 
         b1 = pt2 - pt1
         b2 = pt3 - pt2
@@ -147,7 +153,7 @@ class Geometry():
         if denom == 0:
             # implies straight line
             return 0
-
+        
         distance1 = numpy.fabs((A * x4) + (B * y4) + (C * z4) + D) / denom
 
         A1 = (y1 * (z2 - z4)) + (y2 * (z4 - z1)) + (y4 * (z1 - z2))
