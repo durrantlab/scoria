@@ -136,6 +136,12 @@ except:
     # through dumbpy.
     pass
 
+try:
+    # Try to load MD analysis
+    import MDAnalysis as mda
+except:
+    pass
+
 def class_dependency(action, dependency):
     """Determines whether or not a given dependency is available.
 

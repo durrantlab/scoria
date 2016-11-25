@@ -477,7 +477,7 @@ class FileIO():
                 if return_text == False:
                     afile.write(remark)
                 else:
-                    return_string = return_string + remark
+                    return_string += remark
 
             # print out coordinates
             atom_information = self.__parent_molecule.get_atom_information()

@@ -260,7 +260,7 @@ class Molecule: # here's the actual Molecule class
                  resseq_reindex = False, return_text = False):
         """Alias function for FileIO.save_pdb()"""
 
-        self.fileio.save_pdb(
+        return self.fileio.save_pdb(
             filename, serial_reindex, resseq_reindex, return_text
         )
 

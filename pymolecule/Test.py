@@ -1,20 +1,13 @@
 from Molecule import Molecule
-from TestFiles import TestFiles
 import cStringIO as StringIO
 import os
 from pymolecule import dumbpy as numpy
-from MDAnalysis.tests.datafiles import PSF, DCD
-
-
+import inspect
 
 class Test:
     """A class for testing all pymolecule functions."""
 
     mol = None
-    def __init__(self):
-        """Initializes the Test object."""
-
-        self.testFiles = TestFiles()
 
     def test_all(self):
         """Test all pymolecule functions."""
@@ -25,23 +18,32 @@ class Test:
             os.mkdir("./pymolecule_tests_tmp")
 
         self.test_file_io()
-        #self.test_information()
-        #self.test_selection()
-        #self.test_manipulation()
-        #self.test_other_molecules()
-        #self.test_atoms_and_bonds()
-        #self.test_geometry()
+        self.test_information()
+        self.test_selection()
+        self.test_manipulation()
+        self.test_other_molecules()
+        self.test_atoms_and_bonds()
+        self.test_geometry()
 
     def test_file_io(self):
         """Test the functions in FileIO."""
 
         file_io_filename = "./pymolecule_tests_tmp/file_io_test"
+        sample_structures_dir = os.path.dirname(inspect.stack()[0][1]) + os.sep + "sample_files" + os.sep
 
         print "FileIO Functions"
+        print "    load_pdb_into()"
+        self.mol = Molecule()
+        self.mol.load_pdb_into(sample_structures_dir + "single_frame.pdb", True, True, True)
+
+        pdb_str = self.mol.save_pdb("", False, False, True)
+        print "        Initial part of PDB string:"
+        print pdb_str[:500]
+
         print "    load_pdb_into_using_file_object()"
         self.mol = Molecule()
         self.mol.load_pdb_into_using_file_object(
-            StringIO.StringIO(self.testFiles.pdb_file_str()),
+            StringIO.StringIO(pdb_str),
             True,
             True,
             True
@@ -50,43 +52,38 @@ class Test:
         print "    save_pdb()"
         self.mol.save_pdb(file_io_filename + ".pdb", True, True, False)
 
-        # Temporarily commented out because no dumbpy implementation needed.
         print "    save_pym()"
         self.mol.save_pym(file_io_filename + ".pym", True, True, True, True, True)
+
+        print "    load_pdbqt_into()"
+        self.mol = Molecule()
+        self.mol.load_pdbqt_into(sample_structures_dir + "single_frame.pdbqt", False, True, True)
+
+        pdbqt_str = self.mol.save_pdb("", False, False, True)
+        print "        Initial part of PDBQT string:"
+        print pdbqt_str[:500]
 
         print "    load_pdbqt_into_using_file_object()"
         self.mol = Molecule()
         self.mol.load_pdb_into_using_file_object(
-            StringIO.StringIO(self.testFiles.pdbqt_file_str()),
+            StringIO.StringIO(pdbqt_str),
             False,  # no bonds by distance, because pdbqt file has unrecognized atom types.
             True,
             True
         )
 
-        open(file_io_filename + ".pdbqt", 'w').write(self.testFiles.pdbqt_file_str())
-
-        print "    load_pdbqt_into()"
+        print "    load_via_MDAnalysis()"
         self.mol = Molecule()
-        self.mol.load_pdbqt_into(file_io_filename + ".pdbqt", False, True, True)
+        self.mol.load_via_MDAnalysis("M2_traj.psf", "M2_traj.dcd")
+        print self.mol.get_trajectory_frame_count()
 
         # Temporarily commented out because no dumbpy implementation needed.
         print "    load_pym_into()"
         self.mol = Molecule()
         self.mol.load_pym_into(file_io_filename + ".pym")
 
-        #import pdb;pdb.set_trace()
-        print "    load_pdb_into()"
-        self.mol = Molecule()
-        self.mol.load_pdb_into(file_io_filename + ".pdb", True, True, True)
-
-        print "    load_via_MDAnalysis()"
-        self.mol = Molecule()
-        self.mol.load_via_MDAnalysis(PSF, DCD)
-        print self.mol.get_trajectory_frame_count()
-
     def test_information(self):
         """Test the functions in Information"""
-
 
         print "Information Functions"
         print "    get_filename()"
@@ -208,10 +205,9 @@ class Test:
         print "Selection Functions"
 
         # Get new molecule... clean slate.
-        #import pdb; pdb.set_trace()
         self.mol = Molecule()
         self.mol.load_pdb_into_using_file_object(
-            StringIO.StringIO(self.testFiles.pdb_file_str()),
+            StringIO.StringIO(sample_structures_dir + "single_frame.pdb"),
             True,
             True,
             True
@@ -346,7 +342,7 @@ class Test:
         # Make two molecules to play with.
         mol1 = Molecule()
         mol1.load_pdb_into_using_file_object(
-            StringIO.StringIO(self.testFiles.pdb_file_str()),
+            StringIO.StringIO(sample_structures_dir + "single_frame.pdb"),
             True,
             True,
             True
@@ -354,7 +350,7 @@ class Test:
 
         mol2 = Molecule()
         mol2.load_pdb_into_using_file_object(
-            StringIO.StringIO(self.testFiles.pdb_file_str()),
+            StringIO.StringIO(sample_structures_dir + "single_frame.pdb"),
             True,
             True,
             True
@@ -384,7 +380,6 @@ class Test:
         print "        " + str(mol1.get_rmsd_equivalent_atoms_specified(mol2, tethers))
 
         print "    merge_with_another_molecule()"
-        print "WHAT IS numpy.lib.recfunctions.stack_arrays?"
         merged_mol = mol1.merge_with_another_molecule(mol2)
         merged_mol.save_pdb("./pymolecule_tests_tmp/merged.pdb", False, False, False)
 
