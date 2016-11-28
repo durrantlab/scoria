@@ -3,6 +3,7 @@ import os
 import sys
 import cPickle as pickle
 import shutil
+import tempfile
 
 class FileIO():
     """A class for saving and loading molecular data into a pymolecule.Molecule
@@ -491,13 +492,13 @@ class FileIO():
             )
 
             printout = numpy.defchararray_add(printout,
-                                                   atom_information['name'])
+                                              atom_information['name'])
 
             printout = numpy.defchararray_add(printout,
-                                                   atom_information['resname'])
+                                              atom_information['resname'])
 
             printout = numpy.defchararray_add(printout,
-                                                   atom_information['chainid'])
+                                              atom_information['chainid'])
 
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
@@ -608,12 +609,27 @@ class FileIO():
         """
 
         # Throwing an informative error for missing module.
-        if 'MDAnalysis' not in sys.modules:
+        if "MDAnalysis" not in sys.modules:
             raise ImportError("The MDAnalysis Module is not available.")
 
-        # Initializing the MDAnalysis universe
+        # Initializing the MDAnalysis universe with the suppplied args
         self.__u = numpy.mda.Universe(*args)
 
-        self.__parent_molecule.set_trajectory(self.__u.trajectory)
-        print self.__u.atoms.names
+        # Writing to and reading from a temporary PDB file for atom information
+        fileDescriptor, tempPDB = tempfile.mkstemp(".PDB")
+        try:
+            self.__u.atoms.write(tempPDB)
+            self.load_pdb_into(tempPDB)
+        finally:
+            os.remove(tempPDB)
 
+        # Converting the MDA.trajectory data structure to our structure
+        trajectoryList = []
+        for frame in self.__u.trajectory:
+            frameList = []
+            for coord in frame:
+                coordList = numpy.vstack(coord).T
+                frameList.append(coordList)
+            trajectoryList.append(numpy.vstack(frameList))
+
+        self.__parent_molecule.set_trajectory(trajectoryList)

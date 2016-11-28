@@ -18,12 +18,12 @@ class Test:
             os.mkdir("./pymolecule_tests_tmp")
 
         self.test_file_io()
-        self.test_information()
-        self.test_selection()
-        self.test_manipulation()
-        self.test_other_molecules()
-        self.test_atoms_and_bonds()
-        self.test_geometry()
+        #self.test_information()
+        #self.test_selection()
+        #self.test_manipulation()
+        #self.test_other_molecules()
+        #self.test_atoms_and_bonds()
+        #self.test_geometry()
 
     def test_file_io(self):
         """Test the functions in FileIO."""
@@ -74,9 +74,9 @@ class Test:
 
         print "    load_via_MDAnalysis()"
         self.mol = Molecule()
-        self.mol.load_via_MDAnalysis("M2_traj.psf", "M2_traj.dcd")
-        print self.mol.get_trajectory_frame_count()
-
+        self.mol.load_via_MDAnalysis(sample_structures_dir + "M2_traj.psf",
+                                     sample_structures_dir + "M2_traj.dcd")
+    
         # Temporarily commented out because no dumbpy implementation needed.
         print "    load_pym_into()"
         self.mol = Molecule()
