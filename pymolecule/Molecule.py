@@ -10,11 +10,21 @@ import copy
 
 
 class Molecule: # here's the actual Molecule class
-    """Loads, saves, and manupulates molecuar models. The main pymolecule
-    class."""
+    """
+    Loads, saves, and manupulates molecuar models. The main pymolecule
+    class.
+
+    Examples assume::
+
+        >>> import pymolecule
+        >>> mol = pymolecule.Molecule()
+        >>> mol.load_pdb_into("test_file.pdb")
+    """
 
     def __init__ (self):
-        """Initializes the variables of the Molecule class."""
+        """
+        Initializes the variables of the Molecule class.
+        """
 
         self.fileio = FileIO(self)
         self.atoms_and_bonds = AtomsAndBonds(self)
@@ -28,59 +38,172 @@ class Molecule: # here's the actual Molecule class
     ### Aliases ###
     # Gets
     def get_coordinates(self, frame = 0):
-        """Alias function for Information.get_coordinates()"""
+        """
+        Returns a coordinate set from the desired trajectory frame. 
+        Alias of Information.get_coordinates()
+        
+        :param int frame: An integer representing the frame to fetch 
+                      coordinates from. Defaults to 0.
+        
+        :returns: A set of coordinates, [[x1, y1, z1], ... [xn, yn, zn]]
+
+        :rtype: *numpy.array*
+        ::
+
+            >>> print mol.get_coordinates(0)
+            [[ 42.237  16.8    35.823]
+             [ 41.667  17.015  34.477]
+             [ 40.148  17.01   34.446]
+             ..., 
+             [ 31.047  32.897  46.46 ]
+             [ 29.909  32.403  46.292]
+             [ 31.67   32.656  47.515]]
+ 
+        """
         
         return self.information.get_coordinates(frame)
 
     def get_trajectory(self):
-        """Alias function from Information.get_trajectory()"""
+        """
+        Returns the trajectory of the molecule. 
+        Alias of Information.get_trajectory()
+        
+        :returns: A trajectory as an array of coordinate sets.
+
+        :rtype: *numpy.array*
+
+        ::
+
+            >>> print mol.get_trajectory()
+            [array([[ 42.237,  16.8  ,  35.823],
+                    [ 41.667,  17.015,  34.477],
+                    [ 40.148,  17.01 ,  34.446],
+                    ..., 
+                    [ 31.047,  32.897,  46.46 ],
+                    [ 29.909,  32.403,  46.292],
+                    [ 31.67 ,  32.656,  47.515]])]
+        """
 
         return self.information.get_trajectory()
 
     def get_filename(self):
-        """Alias function for Information.get_filename()"""
+        """
+        Returns the filename the molecule is loaded from. 
+        Alias of Information.get_filename()
+        
+        :returns: The filename as a string.
+        """
         
         return self.information.get_filename()
 
     def get_remarks(self):
-        """Alias function for Information.get_remarks()"""
+        """
+        Returns the remarks for the molecule. 
+        Alias of Information.get_remarks()
+        
+        :returns: The remarks as a string.
+        """
         
         return self.information.get_remarks()
 
     def get_atom_information(self):
-        """Alias function for Information.get_atom_information()"""
+        """
+        Returns an array containing atomic information. 
+        Alias of Information.get_atom_information()
+        
+        :returns: Set of atom information as a numpy.array.
+        """
         
         return self.information.get_atom_information()
 
     def get_coordinates_undo_point(self):
-        """Alias function for Information.get_coordinates_undo_point()"""
+        """
+        Returns a previously saved set of coordinates to revert to. 
+        Alias of Information.get_coordinates_undo_point()
+        
+        :returns: A coordinate set as a numpy.array.
+        """
         
         return self.information.get_coordinates_undo_point()
 
     def get_bonds(self):
-        """Alias function for Information.get_bonds()"""
+        """
+        Returns the bonds within the molecule. 
+        Alias of Information.get_bonds()
+
+        :returns: The set of bonds as a numpy.array.
+        """
         
         return self.information.get_bonds()
 
     def get_hierarchy(self):
-        """Alias function for Information.get_hierarchy()"""
+        """
+        Returns the heirarchy for the molecule. PLEASE EXPAND. 
+        Alias of Information.get_hierarchy()
+
+        :returns: The hierarchy as a dictionary.
+        """
         
         return self.information.get_hierarchy()
 
     def get_constants(self):
-        """Alias function for Information.get_constants()"""
+        """
+        Returns the assumed constants of the molecule. 
+        Alias of Information.get_constants()
+        
+        :returns: The molecular constants as a numpy.array.
+        """
         
         return self.information.get_constants()
 
-    def get_center_of_mass(self, selection = None):
-        """Alias function for Information.get_center_of_mass()"""
+    def get_center_of_mass(self, selection = None, frame = 0):
+        """
+        Determines the center of mass. 
+        Alias of Information.get_center_of_mass()
         
-        return self.information.get_center_of_mass(selection)
+        :param selection: An optional numpy.array containing the indices of
+                          the atoms to consider when calculating the center of mass.
+                          If ommitted, all atoms of the pymolecule.Molecule object
+                          will be considered.
+        
+        :param frame: An integer indicating at which timestep the center of
+                      mass should be calculated. If ommitted, it defaults to the 
+                      first frame of the trajectory.
+        
+        :returns: A numpy.array containing to the x, y, and z coordinates of the
+                    center of mass.
+        """
+        
+        return self.information.get_center_of_mass(selection, frame)
 
-    def get_geometric_center(self, selection = None):
-        """Alias function for Information.get_geometric_center()"""
+    def get_geometric_center(self, selection = None, frame = 0):
+        """
+        Determines the geometric center of the molecule.
+        Alias function for Information.get_geometric_center()
+
+        :param numpy.array selection: The indices of
+                          the atoms to consider when calculating the geometric. 
+                          If ommitted, all atoms of the pymolecule.Molecule object 
+                          will be considered.
+
+        :param int frame: The timestep at which the geometric center 
+                      should be calculated. If ommitted, it defaults to the first 
+                      frame of the trajectory.
         
-        return self.information.get_geometric_center(selection)
+        :returns: The x, y, and z coordinates of the geometric center.
+
+        :rtype: *numpy.array*
+
+        ::
+
+            >>> mol = pymolecule.Molecule()
+
+            >>> mol.load_pdb_into("single_frame.pdb")
+            
+            >>> print mol.get_geometric_center()
+            [ 33.09860848  19.1221197   16.0426808 ]
+        """
+        return self.information.get_geometric_center(selection, frame)
 
     def get_total_mass(self, selection = None):
         """Alias function for Information.get_total_mass()"""
@@ -89,12 +212,12 @@ class Molecule: # here's the actual Molecule class
 
     def get_total_number_of_atoms(self, selection = None):
         """Alias function for Information.get_total_number_of_atoms()"""
-        
+
         return self.information.get_total_number_of_atoms(selection)
 
     def get_total_number_of_heavy_atoms(self, selection = None):
         """Alias function for Information.get_total_number_of_heavy_atoms()"""
-        
+
         return self.information.get_total_number_of_heavy_atoms(selection)
 
     def get_bounding_box(self, selection = None, padding = 0.0):
