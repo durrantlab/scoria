@@ -1,0 +1,27 @@
+pymolecule package
+==================
+
+Subpackages
+-----------
+
+.. toctree::
+
+
+Submodules
+----------
+
+pymolecule.Molecule module
+--------------------------
+
+.. automodule:: pymolecule.Molecule
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: pymolecule
+    :members:
+    :undoc-members:
+    :show-inheritance:

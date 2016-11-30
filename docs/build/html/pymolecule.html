@@ -1,0 +1,1045 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pymolecule package &#8212; PyMolecule 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to PyMolecule’s documentation!" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to PyMolecule’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pymolecule-package">
+<h1>pymolecule package<a class="headerlink" href="#pymolecule-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pymolecule.Molecule">
+<span id="pymolecule-molecule-module"></span><h2>pymolecule.Molecule module<a class="headerlink" href="#module-pymolecule.Molecule" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pymolecule.Molecule.Molecule">
+<em class="property">class </em><code class="descclassname">pymolecule.Molecule.</code><code class="descname">Molecule</code><a class="headerlink" href="#pymolecule.Molecule.Molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads, saves, and manupulates molecuar models. The main pymolecule
+class. Contains alias functions for subclasses.</p>
+<p>Examples assume:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pymolecule</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">PSF</span> <span class="o">=</span> <span class="s2">&quot;./test_file.psf&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">DCD</span> <span class="o">=</span> <span class="s2">&quot;./test_file.dcd&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">pymolecule</span><span class="o">.</span><span class="n">Molecule</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">load_via_MDAnalysis</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.add_atom">
+<code class="descname">add_atom</code><span class="sig-paren">(</span><em>record_name='ATOM'</em>, <em>serial=1</em>, <em>name='X'</em>, <em>resname='XXX'</em>, <em>chainid='X'</em>, <em>resseq=1</em>, <em>occupancy=0.0</em>, <em>tempfactor=0.0</em>, <em>charge=''</em>, <em>element='X'</em>, <em>coordinates=array([ 0.</em>, <em>0.</em>, <em>0.])</em>, <em>autoindex=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.add_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for AtomsAndBonds.add_atom()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.add_bond">
+<code class="descname">add_bond</code><span class="sig-paren">(</span><em>index1</em>, <em>index2</em>, <em>order=1</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.add_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for AtomsAndBonds.add_bond()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.assign_elements_from_atom_names">
+<code class="descname">assign_elements_from_atom_names</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.assign_elements_from_atom_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.assign_elements_from_atom_names()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.assign_masses">
+<code class="descname">assign_masses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.assign_masses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.assign_masses()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.belongs_to_dna">
+<code class="descname">belongs_to_dna</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.belongs_to_dna" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.belongs_to_dna()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.belongs_to_protein">
+<code class="descname">belongs_to_protein</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.belongs_to_protein" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.belongs_to_protein()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.belongs_to_rna">
+<code class="descname">belongs_to_rna</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.belongs_to_rna" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.belongs_to_rna()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.coordinate_undo">
+<code class="descname">coordinate_undo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.coordinate_undo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Manipulation.coordinate_undo()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an exact copy (pymolecule.Molecule) of this Molecule object.
+Undo points are NOT copied.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A pymolecule.Molecule, containing to the same atomic</dt>
+<dd>information as this pymolecule.Molecule object.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.create_bonds_by_distance">
+<code class="descname">create_bonds_by_distance</code><span class="sig-paren">(</span><em>remove_old_bond_data=True</em>, <em>delete_excessive_bonds=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.create_bonds_by_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for AtomsAndBonds.create_bonds_by_distance()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries">
+<code class="descname">define_molecule_chain_residue_spherical_boundaries</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.define_molecule_chain_residue_spherical_boundaries()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.delete_atom">
+<code class="descname">delete_atom</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.delete_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for AtomsAndBonds.delete_atom()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.delete_bond">
+<code class="descname">delete_bond</code><span class="sig-paren">(</span><em>index1</em>, <em>index2</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.delete_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for AtomsAndBonds.delete_bond()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.delete_trajectory_frame">
+<code class="descname">delete_trajectory_frame</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.delete_trajectory_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.delete_trajectory_frame()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_angle_between_three_points">
+<code class="descname">get_angle_between_three_points</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_angle_between_three_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Geometry.get_angle_between_three_points()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_atom_information">
+<code class="descname">get_atom_information</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_atom_information" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retreives the atomic information for the molecule.
+Alias function for Information.get_atom_information()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A masked array containing the atom information.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>numpy.ma</em></td>
+</tr>
+</tbody>
+</table>
+<p>The contents of the array are as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="7%" />
+<col width="25%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">member name</th>
+<th class="head">dtype</th>
+<th class="head">Full Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>record_name</td>
+<td>S6</td>
+<td>six char string</td>
+<td>What the atom belongs to</td>
+</tr>
+<tr class="row-odd"><td>serial</td>
+<td>&lt;i8</td>
+<td>64-bit integer</td>
+<td>The index of the atom</td>
+</tr>
+<tr class="row-even"><td>name</td>
+<td>S5</td>
+<td>five char string</td>
+<td>The atom name</td>
+</tr>
+<tr class="row-odd"><td>resname</td>
+<td>S5</td>
+<td>five char string</td>
+<td>The residue name</td>
+</tr>
+<tr class="row-even"><td>chainid</td>
+<td>S1</td>
+<td>one char string</td>
+<td>The chain identifier</td>
+</tr>
+<tr class="row-odd"><td>resseq</td>
+<td>&lt;i8</td>
+<td>64-bit integer</td>
+<td>The Residue sequence number</td>
+</tr>
+<tr class="row-even"><td>occupancy</td>
+<td>&lt;f8</td>
+<td>64-bit float</td>
+<td>Occupancy of atom</td>
+</tr>
+<tr class="row-odd"><td>tempfactor</td>
+<td>&lt;f8</td>
+<td>64-bit float</td>
+<td>Tempature Factor</td>
+</tr>
+<tr class="row-even"><td>element</td>
+<td>S2</td>
+<td>two char string</td>
+<td>The element symbol</td>
+</tr>
+<tr class="row-odd"><td>charge</td>
+<td>S3</td>
+<td>three char string</td>
+<td>Charge on the atom</td>
+</tr>
+<tr class="row-even"><td>name_stripped</td>
+<td>S5</td>
+<td>five char string</td>
+<td>Atom name without space</td>
+</tr>
+<tr class="row-odd"><td>resname_stripped</td>
+<td>S5</td>
+<td>five char string</td>
+<td>Residue name without space</td>
+</tr>
+<tr class="row-even"><td>chainid_stripped</td>
+<td>S1</td>
+<td>one char string</td>
+<td>Chain identifier without space</td>
+</tr>
+<tr class="row-odd"><td>element_stripped</td>
+<td>S2</td>
+<td>two char string</td>
+<td>Element symbol without space</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>An example for printing the elemental symbols of the first five atoms:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">atom_info</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_atom_information</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">atom_info</span><span class="p">[</span><span class="s1">&#39;element_stripped&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="go">[&#39;N&#39; &#39;C&#39; &#39;C&#39; &#39;O&#39; &#39;C&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_bonds">
+<code class="descname">get_bonds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_bonds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retreives the bonds beteween atoms as a n x n matrix.
+Alias function for Information.get_bonds()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A binary n x n matrix, where bonds are represented by 1.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>numpy.array</em></td>
+</tr>
+</tbody>
+</table>
+<p>An example for finding all atoms bonded with atom 153:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bonds</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_bonds</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">bonds</span><span class="p">)):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">bonds</span><span class="p">[</span><span class="mi">153</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="nb">print</span> <span class="mi">153</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">i</span>
+<span class="go">153 - 152</span>
+<span class="go">153 - 154</span>
+<span class="go">153 - 155</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_bounding_box">
+<code class="descname">get_bounding_box</code><span class="sig-paren">(</span><em>selection=None</em>, <em>padding=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_bounding_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.get_bounding_box()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_bounding_sphere">
+<code class="descname">get_bounding_sphere</code><span class="sig-paren">(</span><em>selection=None</em>, <em>padding=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_bounding_sphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.get_bounding_sphere()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_center_of_mass">
+<code class="descname">get_center_of_mass</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_center_of_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.get_center_of_mass()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>selection</strong> (<em>numpy.array</em>) &#8211; The indices of
+the atoms to consider when calculating the center of mass. 
+If ommitted, all atoms of the pymolecule.Molecule object 
+will be considered.</li>
+<li><strong>frame</strong> (<em>int</em>) &#8211; The timestep at which the geometric center 
+should be calculated. If ommitted, it defaults to the first 
+frame of the trajectory.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The x, y, and z coordinates of the geometric center.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>numpy.array</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">pymolecule</span><span class="o">.</span><span class="n">Molecule</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">load_pdb_into</span><span class="p">(</span><span class="s2">&quot;single_frame.pdb&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_geometric_center</span><span class="p">()</span>
+<span class="go">[ 33.09860848  19.1221197   16.0426808 ]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_constants">
+<code class="descname">get_constants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary containing the constants assumed for the molecular model.
+Alias function for Information.get_constants()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The constants assumed by the model.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>dict</em></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="20%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Dictionary Keys</th>
+<th class="head">Value Type</th>
+<th class="head">Contains</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mass_dict</td>
+<td>dict{str:float}</td>
+<td>The mass of elements</td>
+</tr>
+<tr class="row-odd"><td>rna_residues</td>
+<td>list(str)</td>
+<td>RNA residue names</td>
+</tr>
+<tr class="row-even"><td>f8_fields</td>
+<td>list(str)</td>
+<td>Atom Information floats</td>
+</tr>
+<tr class="row-odd"><td>vdw_dict</td>
+<td>dict{str:float}</td>
+<td>Van der Waals force of elements</td>
+</tr>
+<tr class="row-even"><td>i8_fields</td>
+<td>list(str)</td>
+<td>Atom Information integers</td>
+</tr>
+<tr class="row-odd"><td>protein_residues</td>
+<td>list(str)</td>
+<td>Protein residue names</td>
+</tr>
+<tr class="row-even"><td>bond_length_dict</td>
+<td>dict{str:float}</td>
+<td>Element-pair bond length</td>
+</tr>
+<tr class="row-odd"><td>element_names_with_two_letters</td>
+<td>list(str)</td>
+<td>Element symbols with 2 letters</td>
+</tr>
+<tr class="row-even"><td>max_number_of_bonds_permitted</td>
+<td>dict{str:int}</td>
+<td>Max bonds per element</td>
+</tr>
+<tr class="row-odd"><td>dna_residues</td>
+<td>list(str)</td>
+<td>DNA reside names</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_coordinates">
+<code class="descname">get_coordinates</code><span class="sig-paren">(</span><em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the set of coordinates from the specified frame.
+Alias function for Information.get_coordinates().</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>frame</strong> (<em>int</em>) &#8211; The timestep from which the coordinates shoule be 
+returned. If ommitted, it defaults to the first 
+frame of the trajectory.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The set of coordinates from the specified frame.<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">],</span> <span class="o">...</span> <span class="p">[</span><span class="n">xn</span><span class="p">,</span> <span class="n">yn</span><span class="p">,</span> <span class="n">zn</span><span class="p">]]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><em>numpy.array</em></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_coordinates</span><span class="p">()</span>
+<span class="go">[[ -30.85199928  -81.45800018  365.05499268]</span>
+<span class="go"> [ -31.99500084  -80.69300079  365.66900635]</span>
+<span class="go"> [ -32.0530014   -81.13200378  367.18200684]</span>
+<span class="go"> ..., </span>
+<span class="go"> [ -27.54199982  -96.25099945  402.83700562]</span>
+<span class="go"> [ -23.54199982  -94.7539978   400.41900635]</span>
+<span class="go"> [ -22.86100006  -93.72499847  400.55300903]]</span>
+<span class="go"> </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_coordinates</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">[[ -28.88899994  -80.45700073  365.51699829]</span>
+<span class="go"> [ -30.20000076  -79.73699951  365.99700928]</span>
+<span class="go"> [ -30.90699959  -80.5510025   367.13000488]</span>
+<span class="go"> ..., </span>
+<span class="go"> [ -26.0189991   -97.28099823  403.52600098]</span>
+<span class="go"> [ -23.2140007   -94.73999786  400.94699097]</span>
+<span class="go"> [ -22.52899933  -93.73300171  400.81399536]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_coordinates_undo_point">
+<code class="descname">get_coordinates_undo_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_coordinates_undo_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>NEEDS CLARIFICATION.
+Retreives a previously save set of coordinates to revert to.
+Alias function for Information.get_coordinates_undo_point()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A set of coordinates from which to return to.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>numpy.array</em> or <em>None</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_dihedral_angle">
+<code class="descname">get_dihedral_angle</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_dihedral_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Geometry.get_dihedral_angle()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_distance_to_another_molecule">
+<code class="descname">get_distance_to_another_molecule</code><span class="sig-paren">(</span><em>other_molecule</em>, <em>pairwise_comparison=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_distance_to_another_molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for OtherMolecules.get_distance_to_another_molecule()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_filename">
+<code class="descname">get_filename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the filename that the molecule was originally loaded from.
+Alias function for Information.get_filename()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The name of the file.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>str</em></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">pymolecule</span><span class="o">.</span><span class="n">Molecule</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">load_pdb_into</span><span class="p">(</span><span class="s2">&quot;single_frame.pdb&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_filename</span><span class="p">()</span>
+<span class="go">single_frame.pdb</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_geometric_center">
+<code class="descname">get_geometric_center</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_geometric_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the geometric center of the molecule.
+Alias function for Information.get_geometric_center()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>selection</strong> (<em>numpy.array</em>) &#8211; The indices of
+the atoms to consider when calculating the geometric. 
+If ommitted, all atoms of the pymolecule.Molecule object 
+will be considered.</li>
+<li><strong>frame</strong> (<em>int</em>) &#8211; The timestep at which the geometric center 
+should be calculated. If ommitted, it defaults to the first 
+frame of the trajectory.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The x, y, and z coordinates of the geometric center.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>numpy.array</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">pymolecule</span><span class="o">.</span><span class="n">Molecule</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">load_pdb_into</span><span class="p">(</span><span class="s2">&quot;single_frame.pdb&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_geometric_center</span><span class="p">()</span>
+<span class="go">[ 33.09860848  19.1221197   16.0426808 ]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_hierarchy">
+<code class="descname">get_hierarchy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_hierarchy" title="Permalink to this definition">¶</a></dt>
+<dd><p>NEEDS CLARIFICATION.
+Alias function for Information.get_hierarchy()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary?</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>dict</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element">
+<code class="descname">get_index_of_first_bond_partner_of_element</code><span class="sig-paren">(</span><em>atom_index</em>, <em>the_element</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for AtomsAndBonds.get_index_of_first_bond_partner_of_element()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_molecule_from_selection">
+<code class="descname">get_molecule_from_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_molecule_from_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.get_molecule_from_selection()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element">
+<code class="descname">get_number_of_bond_partners_of_element</code><span class="sig-paren">(</span><em>atom_index</em>, <em>the_element</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for AtomsAndBonds.get_number_of_bond_partners_of_element()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this">
+<code class="descname">get_other_molecule_aligned_to_this</code><span class="sig-paren">(</span><em>other_mol</em>, <em>tethers</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for OtherMolecules.get_other_molecule_aligned_to_this()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_planarity_deviation">
+<code class="descname">get_planarity_deviation</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_planarity_deviation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Geometry.get_planarity_deviation()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_remarks">
+<code class="descname">get_remarks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_remarks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the remarks from the file the molecule was loaded from.
+Alias function for Information.get_remarks()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The remarks from the file an a list of strings.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>list</em></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">pymolecule</span><span class="o">.</span><span class="n">Molecule</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">load_pdb_into</span><span class="p">(</span><span class="s2">&quot;single_frame.pdb&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_remarks</span><span class="p">()</span>
+<span class="go">[&#39; This is a remark.&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified">
+<code class="descname">get_rmsd_equivalent_atoms_specified</code><span class="sig-paren">(</span><em>other_mol</em>, <em>tethers</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for OtherMolecules.get_rmsd_equivalent_atoms_specified()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_rmsd_heuristic">
+<code class="descname">get_rmsd_heuristic</code><span class="sig-paren">(</span><em>other_mol</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_rmsd_heuristic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for OtherMolecules.get_rmsd_heuristic()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_rmsd_order_dependent">
+<code class="descname">get_rmsd_order_dependent</code><span class="sig-paren">(</span><em>other_mol</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_rmsd_order_dependent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for OtherMolecules.get_rmsd_order_dependent()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_total_mass">
+<code class="descname">get_total_mass</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_total_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.get_total_mass()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_total_number_of_atoms">
+<code class="descname">get_total_number_of_atoms</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_total_number_of_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.get_total_number_of_atoms()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_total_number_of_heavy_atoms">
+<code class="descname">get_total_number_of_heavy_atoms</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_total_number_of_heavy_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.get_total_number_of_heavy_atoms()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_trajectory">
+<code class="descname">get_trajectory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the trajectory for the molecule.
+Alias function for Information.get_trajectory().</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The set of all coordinates.<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[[[</span><span class="n">x11</span><span class="p">,</span> <span class="n">y11</span><span class="p">,</span> <span class="n">z11</span><span class="p">],</span> <span class="o">...</span> <span class="p">[</span><span class="n">x1n</span><span class="p">,</span> <span class="n">y1n</span><span class="p">,</span> <span class="n">z1n</span><span class="p">]],</span>
+ <span class="o">...</span><span class="p">,</span>
+ <span class="p">[[</span><span class="n">xm1</span><span class="p">,</span> <span class="n">ym1</span><span class="p">,</span> <span class="n">zm1</span><span class="p">],</span> <span class="o">...</span> <span class="p">[</span><span class="n">xmn</span><span class="p">,</span> <span class="n">ymn</span><span class="p">,</span> <span class="n">zmn</span><span class="p">]]]</span> 
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>numpy.array</em></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_trajectory</span><span class="p">():</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span> <span class="n">coord</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span>
+<span class="go">[[ -30.85199928  -81.45800018  365.05499268]</span>
+<span class="go"> [ -31.99500084  -80.69300079  365.66900635]</span>
+<span class="go"> [ -32.0530014   -81.13200378  367.18200684]</span>
+<span class="go"> ..., </span>
+<span class="go"> [ -27.54199982  -96.25099945  402.83700562]</span>
+<span class="go"> [ -23.54199982  -94.7539978   400.41900635]</span>
+<span class="go"> [ -22.86100006  -93.72499847  400.55300903]]</span>
+
+<span class="go">[[ -30.6779995   -81.32499695  365.73199463]</span>
+<span class="go"> [ -31.88100052  -80.38600159  366.0289917 ]</span>
+<span class="go"> [ -32.40399933  -80.62799835  367.45700073]</span>
+<span class="go"> ..., </span>
+<span class="go"> [ -27.44400024  -96.71099854  402.64700317]</span>
+<span class="go"> [ -23.79199982  -94.58899689  400.63598633]</span>
+<span class="go"> [ -23.10700035  -93.56300354  400.79598999]]</span>
+<span class="go"> &lt;more&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.get_trajectory_frame_count">
+<code class="descname">get_trajectory_frame_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_trajectory_frame_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.get_trajectory_frame_count()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.insert_trajectory_frame">
+<code class="descname">insert_trajectory_frame</code><span class="sig-paren">(</span><em>index</em>, <em>coordinates</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.insert_trajectory_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.insert_trajectory_frame()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.invert_selection">
+<code class="descname">invert_selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.invert_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.invert_selection()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.is_planar">
+<code class="descname">is_planar</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em>, <em>planarity_cutoff=0.2</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.is_planar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Geometry.is_planar()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.load_pdb_into">
+<code class="descname">load_pdb_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.load_pdb_into" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for FileIO.load_pdb_into(</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.load_pdb_into_using_file_object">
+<code class="descname">load_pdb_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.load_pdb_into_using_file_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for FileIO.load_pdb_into_using_file_object()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.load_pdbqt_into">
+<code class="descname">load_pdbqt_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=False</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.load_pdbqt_into" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for FileIO.load_pdbqt_into()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object">
+<code class="descname">load_pdbqt_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=False</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for FileIO.load_pdbqt_into_using_file_object()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.load_pym_into">
+<code class="descname">load_pym_into</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.load_pym_into" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for FileIO.load_pym_into(filename)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.load_via_MDAnalysis">
+<code class="descname">load_via_MDAnalysis</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.load_via_MDAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for FileIO.load_via_MDAnalysis()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.merge_with_another_molecule">
+<code class="descname">merge_with_another_molecule</code><span class="sig-paren">(</span><em>other_molecule</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.merge_with_another_molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for OtherMolecules.merge_with_another_molecule()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.numpy_structured_array_remove_field">
+<code class="descname">numpy_structured_array_remove_field</code><span class="sig-paren">(</span><em>narray</em>, <em>field_names</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.numpy_structured_array_remove_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a specific field name from a structured numpy array.</p>
+<dl class="docutils">
+<dt>Args::</dt>
+<dd><p class="first">narray &#8211; A structured numpy array.
+field_names &#8211; A list of strings, where each string is one of</p>
+<blockquote class="last">
+<div>the field names of narray.</div></blockquote>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A structured numpy array identical to narray, but with the</dt>
+<dd>field names in field_names removed.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.resseq_reindex">
+<code class="descname">resseq_reindex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.resseq_reindex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.resseq_reindex()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_atoms">
+<code class="descname">rotate_molecule_around_a_line_between_atoms</code><span class="sig-paren">(</span><em>line_point1_index</em>, <em>line_point2_index</em>, <em>rotate</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Manipulation.rotate_molecule_around_a_line_between_atoms()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_points">
+<code class="descname">rotate_molecule_around_a_line_between_points</code><span class="sig-paren">(</span><em>line_point1</em>, <em>line_point2</em>, <em>rotate</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Manipulation.rotate_molecule_around_a_line_between_points()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_atom">
+<code class="descname">rotate_molecule_around_pivot_atom</code><span class="sig-paren">(</span><em>pivot_index</em>, <em>thetax</em>, <em>thetay</em>, <em>thetaz</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Manipulation.rotate_molecule_around_pivot_atom()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_point">
+<code class="descname">rotate_molecule_around_pivot_point</code><span class="sig-paren">(</span><em>pivot</em>, <em>thetax</em>, <em>thetay</em>, <em>thetaz</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Manipulation.rotate_molecule_around_pivot_point()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.save_pdb">
+<code class="descname">save_pdb</code><span class="sig-paren">(</span><em>filename=''</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>return_text=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.save_pdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for FileIO.save_pdb()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.save_pym">
+<code class="descname">save_pym</code><span class="sig-paren">(</span><em>filename</em>, <em>save_bonds=False</em>, <em>save_filename=False</em>, <em>save_remarks=False</em>, <em>save_hierarchy=False</em>, <em>save_coordinates_undo_point=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.save_pym" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for FileIO.save_pym()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.select_all">
+<code class="descname">select_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.select_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.select_all()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection">
+<code class="descname">select_all_atoms_bound_to_selection</code><span class="sig-paren">(</span><em>selections</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.select_all_atoms_bound_to_selection()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.select_atoms">
+<code class="descname">select_atoms</code><span class="sig-paren">(</span><em>selection_criteria</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.select_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.select_atoms()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.select_atoms_from_same_molecule">
+<code class="descname">select_atoms_from_same_molecule</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.select_atoms_from_same_molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.select_atoms_from_same_molecule()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.select_atoms_in_bounding_box">
+<code class="descname">select_atoms_in_bounding_box</code><span class="sig-paren">(</span><em>bounding_box</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.select_atoms_in_bounding_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.select_atoms_in_bounding_box()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.select_atoms_in_same_residue">
+<code class="descname">select_atoms_in_same_residue</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.select_atoms_in_same_residue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.select_atoms_in_same_residue()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.select_atoms_near_other_selection">
+<code class="descname">select_atoms_near_other_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>cutoff</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.select_atoms_near_other_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.select_atoms_near_other_selection()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.select_branch">
+<code class="descname">select_branch</code><span class="sig-paren">(</span><em>root_atom_index</em>, <em>directionality_atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.select_branch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.select_branch()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.select_close_atoms_from_different_molecules">
+<code class="descname">select_close_atoms_from_different_molecules</code><span class="sig-paren">(</span><em>other_mol</em>, <em>cutoff</em>, <em>pairwise_comparison=True</em>, <em>terminate_early=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.select_close_atoms_from_different_molecules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.select_close_atoms_from_different_molecules()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.selections_of_chains">
+<code class="descname">selections_of_chains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.selections_of_chains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.selections_of_chains()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.selections_of_constituent_molecules">
+<code class="descname">selections_of_constituent_molecules</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.selections_of_constituent_molecules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.selections_of_constituent_molecules()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.selections_of_residues">
+<code class="descname">selections_of_residues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.selections_of_residues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Selections.selections_of_residues()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.serial_reindex">
+<code class="descname">serial_reindex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.serial_reindex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.serial_reindex()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.set_atom_information">
+<code class="descname">set_atom_information</code><span class="sig-paren">(</span><em>atom_information</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_atom_information" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.set_atom_information()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.set_atom_location">
+<code class="descname">set_atom_location</code><span class="sig-paren">(</span><em>atom_index</em>, <em>new_location</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_atom_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Manipulation.set_atom_location()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.set_bonds">
+<code class="descname">set_bonds</code><span class="sig-paren">(</span><em>bonds</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_bonds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.set_bonds()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.set_coordinates">
+<code class="descname">set_coordinates</code><span class="sig-paren">(</span><em>coordinates</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.set_coordinates()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.set_coordinates_undo_point">
+<code class="descname">set_coordinates_undo_point</code><span class="sig-paren">(</span><em>coordinates_undo_point</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_coordinates_undo_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.set_coordinates_undo_point()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.set_filename">
+<code class="descname">set_filename</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.set_filename()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.set_hierarchy">
+<code class="descname">set_hierarchy</code><span class="sig-paren">(</span><em>hierarchy</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_hierarchy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.set_hierarchy()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.set_remarks">
+<code class="descname">set_remarks</code><span class="sig-paren">(</span><em>remarks</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_remarks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.set_remarks()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.set_trajectory">
+<code class="descname">set_trajectory</code><span class="sig-paren">(</span><em>trajectory</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Information.set_trajectory()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.steric_clash_with_another_molecule">
+<code class="descname">steric_clash_with_another_molecule</code><span class="sig-paren">(</span><em>other_mol</em>, <em>cutoff</em>, <em>pairwise_comparison=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.steric_clash_with_another_molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for OtherMolecules.steric_clash_with_another_molecule()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Molecule.Molecule.translate_molecule">
+<code class="descname">translate_molecule</code><span class="sig-paren">(</span><em>delta</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.translate_molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias function for Manipulation.translate_molecule()</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pymolecule package</a><ul>
+<li><a class="reference internal" href="#module-pymolecule.Molecule">pymolecule.Molecule module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to PyMolecule&#8217;s documentation!</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pymolecule.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to PyMolecule’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Jacob Durrant.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>
