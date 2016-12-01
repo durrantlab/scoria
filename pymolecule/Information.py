@@ -261,7 +261,8 @@ class Information():
         self.__hierarchy = hierarchy
 
     def belongs_to_protein(self, atom_index):
-        """Checks if the atom is part of a protein. Taken primarily from Amber
+        """
+        Checks if the atom is part of a protein. Taken primarily from Amber
         residue names.
 
             Args:
@@ -301,7 +302,8 @@ class Information():
         return False
 
     def belongs_to_rna(self, atom_index):
-        """Checks if the atom is part of RNA.
+        """
+        Checks if the atom is part of RNA.
 
             Args:
                 atom_index -- An int, the index of the atom to consider.
@@ -338,7 +340,8 @@ class Information():
                                                     'mass', data = masses)
 
     def assign_elements_from_atom_names(self, selection = None):
-        """Determines the elements of all atoms from the atom names. Note that
+        """
+        Determines the elements of all atoms from the atom names. Note that
         this will overwrite any existing element assignments, including those
         explicitly specified in loaded files. Note that this doesn't populate
         elements_stripped.
@@ -637,9 +640,11 @@ class Information():
                 )
 
     def define_molecule_chain_residue_spherical_boundaries(self):
-        """Identifies spheres that bound (encompass) the entire molecule, the
+        """
+        Identifies spheres that bound (encompass) the entire molecule, the
         chains, and the residues. This information is stored in
-        pymolecule.Molecule.information.hierarchy."""
+        pymolecule.Molecule.information.hierarchy.
+        """
 
         if not numpy.class_dependency("calculate the spherical boundaries around molecules, chains, and residues", "NUMPY"):
             return
@@ -717,15 +722,19 @@ class Information():
             hrchy['spheres']['residues']['radii'][index] = asphere[1]
 
     def serial_reindex(self):
-        """Reindexes the serial field of the atoms in the molecule, starting
-        with 1."""
+        """
+        Reindexes the serial field of the atoms in the molecule, starting
+        with 1.
+        """
 
         for i in range(len(self.__atom_information['serial'])):
             self.__atom_information['serial'][i] = i + 1
 
     def resseq_reindex(self):
-        """Reindexes the resseq field of the atoms in the molecule, starting
-        with 1."""
+        """
+        Reindexes the resseq field of the atoms in the molecule, starting
+        with 1.
+        """
 
         keys = numpy.defchararray_add(
             self.__atom_information['resname_stripped'], '-'
@@ -771,7 +780,8 @@ class Information():
             self.__trajectory.insert(index, coordinates)
 
     def delete_trajectory_frame(self, index):
-        """Removes a given frame from the trajectory.abs
+        """
+        Removes a given frame from the trajectory.
 
             Args:
                 index -- Integer of the frame to remove.
@@ -780,7 +790,12 @@ class Information():
         del self.__trajectory[index]
 
     def get_trajectory_frame_count(self):
-        """Returns the number of frames in __trajectory."""
+        """
+        Returns the number of frames in __trajectory.
+        
+        :returns: Number of frames in trajectory.
+        :rtype: *int*
+        """
 
         if self.__trajectory is None:
             return 0

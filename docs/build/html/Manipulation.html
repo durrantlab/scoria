@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pymolecule.Manipulation module &#8212; PyMolecule 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pymolecule-manipulation-module">
+<h1>pymolecule.Manipulation module<a class="headerlink" href="#pymolecule-manipulation-module" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-pymolecule.Manipulation"></span><dl class="class">
+<dt id="pymolecule.Manipulation.Manipulation">
+<em class="property">class </em><code class="descclassname">pymolecule.Manipulation.</code><code class="descname">Manipulation</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Manipulation.Manipulation" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class for translating and rotating the atomic coordinates of a
+pymolecule.Molecule object</p>
+<dl class="method">
+<dt id="pymolecule.Manipulation.Manipulation.coordinate_undo">
+<code class="descname">coordinate_undo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Manipulation.Manipulation.coordinate_undo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the coordinates of all atoms to those saved using the
+set_coordinate_undo_point function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms">
+<code class="descname">rotate_molecule_around_a_line_between_atoms</code><span class="sig-paren">(</span><em>line_point1_index</em>, <em>line_point2_index</em>, <em>rotate</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate the molecular model about a line segment. The end points of
+the line segment are atoms of specified indices.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>line_point1_index &#8211; An int, the index of the first atom at one</dt>
+<dd>end of the line segment.</dd>
+<dt>line_point2_index &#8211; An int, the index of the second atom at</dt>
+<dd>the other end of the line segment.</dd>
+</dl>
+<p class="last">rotate &#8211; A float, the angle of rotation, in radians.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points">
+<code class="descname">rotate_molecule_around_a_line_between_points</code><span class="sig-paren">(</span><em>line_point1</em>, <em>line_point2</em>, <em>rotate</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate the molecular model about a line segment. The end points of
+the line segment are explicitly specified coordinates.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>line_point1 &#8211; A numpy.array (x, y, z) corresponding to one end</dt>
+<dd>of the line segment.</dd>
+<dt>line_point2 &#8211; A numpy.array (x, y, z) corresponding to the</dt>
+<dd>other end of the line segment.</dd>
+</dl>
+<p class="last">rotate &#8211; A float, the angle of rotation, in radians.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_atom">
+<code class="descname">rotate_molecule_around_pivot_atom</code><span class="sig-paren">(</span><em>pivot_index</em>, <em>thetax</em>, <em>thetay</em>, <em>thetaz</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate the molecular model around a specified atom.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>pivot_index &#8211; An int, the index of the atom about which the</dt>
+<dd>molecular model will be rotated.</dd>
+<dt>thetax &#8211; A float, the angle to rotate relative to the x axis,</dt>
+<dd>in radians.</dd>
+<dt>thetay &#8211; A float, the angle to rotate relative to the y axis,</dt>
+<dd>in radians.</dd>
+<dt>thetaz &#8211; A float, the angle to rotate relative to the z axis,</dt>
+<dd>in radians.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_point">
+<code class="descname">rotate_molecule_around_pivot_point</code><span class="sig-paren">(</span><em>pivot</em>, <em>thetax</em>, <em>thetay</em>, <em>thetaz</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate the molecular model around a specified atom.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>pivot &#8211; A numpy.array, the (x, y, z) coordinate about which</dt>
+<dd>the molecular model will be rotated.</dd>
+<dt>thetax &#8211; A float, the angle to rotate relative to the x axis,</dt>
+<dd>in radians.</dd>
+<dt>thetay &#8211; A float, the angle to rotate relative to the y axis,</dt>
+<dd>in radians.</dd>
+<dt>thetaz &#8211; A float, the angle to rotate relative to the z axis,</dt>
+<dd>in radians.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Manipulation.Manipulation.set_atom_location">
+<code class="descname">set_atom_location</code><span class="sig-paren">(</span><em>atom_index</em>, <em>new_location</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Manipulation.Manipulation.set_atom_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translates the entire molecular model (without rotating) so that the
+atom with the specified index is located at the specified coordinate.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">atom_index &#8211; An int, the index of the target atom.
+new_location &#8211; A numpy.array specifying the new (x, y, z)</p>
+<blockquote class="last">
+<div>coordinate of the specified atom.</div></blockquote>
+</dd>
+<dt>Returns:</dt>
+<dd>A numpy.array specifying the (delta_x, delta_y, delta_z) vector
+by which the pmolecule.Molecule was translated.</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Manipulation.Manipulation.set_coordinate_undo_point">
+<code class="descname">set_coordinate_undo_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Manipulation.Manipulation.set_coordinate_undo_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets (&#8220;saves&#8221;) the undo point of the atom coordinates. Any
+subsequent manipulations of atomic coordinates can be &#8220;undone&#8221; by
+reseting to this configuration via the coordinate_undo function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Manipulation.Manipulation.translate_molecule">
+<code class="descname">translate_molecule</code><span class="sig-paren">(</span><em>delta</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Manipulation.Manipulation.translate_molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate all the atoms of the molecular model by a specified
+vector.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>delta &#8211; A numpy.array (delta_x, delta_y, delta_z) specifying the
+amount to move each atom along the x, y, and z coordinates.</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Manipulation.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Jacob Durrant.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

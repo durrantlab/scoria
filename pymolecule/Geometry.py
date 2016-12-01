@@ -1,7 +1,7 @@
 from pymolecule import dumbpy as numpy
 
 class Geometry():
-    """A class containing a few gemoetry functions. Note that numpy should be
+    """A class containing a few geometry functions. Note that numpy should be
     used for most geometry functions."""
 
     def __init__(self, parent_molecule_object):
@@ -16,7 +16,8 @@ class Geometry():
         self.__parent_molecule = parent_molecule_object
 
     def get_angle_between_three_points(self, pt1, pt2, pt3):
-        """Computes the angle (in radians) formed by three points (numpy.array
+        """
+        Computes the angle (in radians) formed by three points (numpy.array
         objects).
 
             Args
@@ -29,7 +30,7 @@ class Geometry():
 
             Returns:
                 A float containing the angle between the three points, in
-                    radians
+                    radians.
             """
 
         if not numpy.class_dependency("calculate the angle between three points. Missing the dot-product function", "NUMPY"):
@@ -58,7 +59,8 @@ class Geometry():
         return numpy.arccos(dot_prod)
 
     def get_dihedral_angle(self, pt1, pt2, pt3, pt4):
-        """Calculates the dihedral angle formed by four points (numpy.array
+        """
+        Calculates the dihedral angle formed by four points (numpy.array
         objects).
 
             Args:
@@ -92,7 +94,8 @@ class Geometry():
                              numpy.dot(b1Xb2, b2Xb3))
 
     def is_planar(self, pt1, pt2, pt3, pt4, planarity_cutoff = 0.2):
-        """Checks whether four points (numpy.array) lie in a common plane.
+        """
+        Checks whether four points (numpy.array) lie in a common plane.
 
             Args:
                 pt1 -- A numpy.array (x, y, z) representing a 3D point.
@@ -111,7 +114,8 @@ class Geometry():
                 planarity_cutoff)
 
     def get_planarity_deviation(self, pt1, pt2, pt3, pt4):
-        """Determines how close four points (numpy.array objects) come to lying
+        """
+        Determines how close four points (numpy.array objects) come to lying
         in a common plane.
 
             Args:

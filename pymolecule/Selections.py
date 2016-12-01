@@ -17,7 +17,8 @@ class Selections():
         self.__parent_molecule = parent_molecule_object
 
     def select_atoms(self, selection_criteria):
-        """Select a set of atoms based on user-specified criteria.
+        """
+        Select a set of atoms based on user-specified criteria.
 
             Args:
                 selection_criteria -- An dictionary, where the keys correspond
@@ -86,7 +87,8 @@ class Selections():
         #    sys.exit(0)
 
     def select_atoms_in_bounding_box(self, bounding_box):
-        """Selects all the atoms that are within a bounding box.
+        """
+        Selects all the atoms that are within a bounding box.
 
             Args:
                 bounding_box -- A 2x3 numpy.array containing the minimum and
@@ -121,7 +123,8 @@ class Selections():
         return sel
 
     def select_all_atoms_bound_to_selection(self, selection):
-        """Selects all the atoms that are bound to a user-specified selection.
+        """
+        Selects all the atoms that are bound to a user-specified selection.
 
             Args:
                 selection -- A numpy.array containing the indices of the
@@ -156,7 +159,8 @@ class Selections():
             return numpy.array([])
 
     def select_branch(self, root_atom_index, directionality_atom_index):
-        """Identify an isolated "branch" of a molecular model. Assumes the
+        """
+        Identify an isolated "branch" of a molecular model. Assumes the
         atoms with indices root_atom_index and directionality_atom_index are
         bound to one another and that the branch starts at root_atom_index one
         and "points" in the direction of directionality_atom_index.
@@ -239,7 +243,8 @@ class Selections():
         return numpy.array(indices_of_this_branch)
 
     def select_atoms_from_same_molecule(self, selection):
-        """Selects all the atoms that belong to the same molecule as a
+        """
+        Selects all the atoms that belong to the same molecule as a
         user-defined selection, assuming that the pymolecule.Molecule object
         actually contains multiple physically distinct molecules that are not
         bound to each other via covalent bonds.
@@ -320,7 +325,8 @@ class Selections():
         return numpy.unique(numpy.hstack(indices))
 
     def selections_of_constituent_molecules(self):
-        """Identifies the indices of atoms belonging to separate molecules,
+        """
+        Identifies the indices of atoms belonging to separate molecules,
         assuming that the pymolecule.Molecule object actually contains multiple
         physically distinct molecules that are not bound to each other via
         covalent bonds.
@@ -360,7 +366,8 @@ class Selections():
         return selections
 
     def select_atoms_near_other_selection(self, selection, cutoff):
-        """Selects all atoms that are near the atoms of a user-defined
+        """
+        Selects all atoms that are near the atoms of a user-defined
         selection.
 
             Args:
@@ -398,7 +405,8 @@ class Selections():
         return indices_of_nearby
 
     def select_atoms_in_same_residue(self, selection):
-        """Selects all atoms that are in the same residue as any of the atoms
+        """
+        Selects all atoms that are in the same residue as any of the atoms
         of a user-defined seleciton. Residues are considered unique if they
         have a unique combination of resname, resseq, and chainid fields.
 
@@ -447,7 +455,8 @@ class Selections():
         return new_selection
 
     def invert_selection(self, selection):
-        """Inverts a user-defined selection (i.e., identifies all atoms that
+        """
+        Inverts a user-defined selection (i.e., identifies all atoms that
         are not in the seleciton).
 
             Args:
@@ -469,7 +478,8 @@ class Selections():
         return remaining_indicies
 
     def select_all(self):
-        """Selects all the atoms in a pymolecule.Molecule object.
+        """
+        Selects all the atoms in a pymolecule.Molecule object.
 
             Returns:
                 A numpy.array containing the indices of all atoms in the
@@ -481,7 +491,8 @@ class Selections():
     def select_close_atoms_from_different_molecules(self, other_mol, cutoff,
                                                     pairwise_comparison = True,
                                                     terminate_early = False):
-        """Effectively detects steric clashes between self and another
+        """
+        Effectively detects steric clashes between self and another
         pymolecule.Molecule.
 
             Args:
@@ -694,7 +705,8 @@ class Selections():
 
     def get_molecule_from_selection(self, selection, serial_reindex = True,
                                     resseq_reindex = False):
-        """Creates a pymolecule.Molecule from a user-defined atom selection.
+        """
+        Creates a pymolecule.Molecule from a user-defined atom selection.
 
             Args:
                 selection -- A numpy.array containing the indices of the atoms
@@ -741,7 +753,8 @@ class Selections():
         return new_mol
 
     def selections_of_chains(self):
-        """Identifies the atom selections of each chain.
+        """
+        Identifies the atom selections of each chain.
 
             Returns:
                 A dictionary. The keys of the dictionary correspond to the
@@ -771,7 +784,8 @@ class Selections():
         return prnt.get_hierarchy()['chains']['indices']
 
     def selections_of_residues(self):
-        """Identifies the atom selections of each residue.
+        """
+        Identifies the atom selections of each residue.
 
             Returns:
                 A dictionary. The keys of this dictionary correspond to the

@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pymolecule.Selections module &#8212; PyMolecule 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pymolecule-selections-module">
+<h1>pymolecule.Selections module<a class="headerlink" href="#pymolecule-selections-module" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-pymolecule.Selections"></span><dl class="class">
+<dt id="pymolecule.Selections.Selections">
+<em class="property">class </em><code class="descclassname">pymolecule.Selections.</code><code class="descname">Selections</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class for selecting atoms</p>
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.get_molecule_from_selection">
+<code class="descname">get_molecule_from_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.get_molecule_from_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a pymolecule.Molecule from a user-defined atom selection.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection &#8211; A numpy.array containing the indices of the atoms</dt>
+<dd>in the user-defined selection.</dd>
+<dt>serial_reindex &#8211; An optional boolean, whether or not to</dt>
+<dd>reindex the atom serial fields. Default is True.</dd>
+<dt>resseq_reindex &#8211; An optional boolean, whether or not to</dt>
+<dd>reindex the atom resseq fields. Default is False.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A pymolecule.Molecule object containing the atoms of the</dt>
+<dd>user-defined selection.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.invert_selection">
+<code class="descname">invert_selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.invert_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverts a user-defined selection (i.e., identifies all atoms that
+are not in the seleciton).</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection &#8211; A numpy.array containing the indices of the</dt>
+<dd>user-defined selection.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A numpy.array containing the indices of all atoms that are not</dt>
+<dd>in the user-defined seleciton.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.select_all">
+<code class="descname">select_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects all the atoms in a pymolecule.Molecule object.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A numpy.array containing the indices of all atoms in the</dt>
+<dd>pymolecule.Molecule object.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.select_all_atoms_bound_to_selection">
+<code class="descname">select_all_atoms_bound_to_selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_all_atoms_bound_to_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects all the atoms that are bound to a user-specified selection.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection &#8211; A numpy.array containing the indices of the</dt>
+<dd>user-specified selection.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd>A numpy.array containing the indices of the atoms that are
+bound to the user-specified selection. Note that this new
+selection does not necessarily include the indices of the
+original user-specified selection.</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.select_atoms">
+<code class="descname">select_atoms</code><span class="sig-paren">(</span><em>selection_criteria</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select a set of atoms based on user-specified criteria.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection_criteria &#8211; An dictionary, where the keys correspond</dt>
+<dd>to keys in the
+self.__parent_molecule.information.get_atom_information()
+structured numpy array, and the values are lists of
+acceptable matches. The selection is a logical &#8220;AND&#8221;
+between dictionary entries, but &#8220;OR&#8221; within the value lists
+themselves. For example: {&#8216;atom&#8217;:[&#8216;CA&#8217;, &#8216;O&#8217;], &#8216;chain&#8217;:&#8217;A&#8217;,
+&#8216;resname&#8217;:&#8217;PRO&#8217;} would select all atoms with the names CA
+or O that are located in the PRO residues of chain A.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A numpy.array containing the indices of the atoms of the</dt>
+<dd>selection.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.select_atoms_from_same_molecule">
+<code class="descname">select_atoms_from_same_molecule</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_atoms_from_same_molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects all the atoms that belong to the same molecule as a
+user-defined selection, assuming that the pymolecule.Molecule object
+actually contains multiple physically distinct molecules that are not
+bound to each other via covalent bonds.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection &#8211; A numpy.array containing the indices of the</dt>
+<dd>user-defined selection.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A numpy.array containing the indices of the atoms belonging to</dt>
+<dd>the same molecules as the atoms of the user-defined
+selection.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.select_atoms_in_bounding_box">
+<code class="descname">select_atoms_in_bounding_box</code><span class="sig-paren">(</span><em>bounding_box</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_atoms_in_bounding_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects all the atoms that are within a bounding box.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>bounding_box &#8211; A 2x3 numpy.array containing the minimum and</dt>
+<dd><p class="first">maximum points of the bounding box. Example:
+numpy.array(</p>
+<blockquote>
+<div>[[min_x, min_y, min_z], [max_x, max_y, max_z]]</div></blockquote>
+<p class="last">).</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A numpy.array containing the indices of the atoms that are</dt>
+<dd>within the bounding box.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.select_atoms_in_same_residue">
+<code class="descname">select_atoms_in_same_residue</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_atoms_in_same_residue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects all atoms that are in the same residue as any of the atoms
+of a user-defined seleciton. Residues are considered unique if they
+have a unique combination of resname, resseq, and chainid fields.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection &#8211; A numpy.array containing the indices of the</dt>
+<dd>user-defined selection.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A numpy.array containing the indices of all atoms in the same</dt>
+<dd>residue as any of the atoms of the user-defined selection.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.select_atoms_near_other_selection">
+<code class="descname">select_atoms_near_other_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>cutoff</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_atoms_near_other_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects all atoms that are near the atoms of a user-defined
+selection.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>selection &#8211; A numpy.array containing the indices of the</dt>
+<dd>user-defined selection.</dd>
+</dl>
+<p class="last">cutoff &#8211; A float, the distance cutoff (in Angstroms).</p>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A numpy.array containing the indices of all atoms near the</dt>
+<dd>user-defined selection, not including the atoms of the
+user-defined selection themselves.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.select_branch">
+<code class="descname">select_branch</code><span class="sig-paren">(</span><em>root_atom_index</em>, <em>directionality_atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_branch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identify an isolated &#8220;branch&#8221; of a molecular model. Assumes the
+atoms with indices root_atom_index and directionality_atom_index are
+bound to one another and that the branch starts at root_atom_index one
+and &#8220;points&#8221; in the direction of directionality_atom_index.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>root_atom_index &#8211; An int, the index of the first atom in the</dt>
+<dd>branch (the &#8220;root&#8221;).</dd>
+<dt>directionality_atom_index &#8211; An int, the index of the second atom</dt>
+<dd>in the branch, used to establish directionality</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd>A numpy array containing the indices of the atoms of the branch.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.select_close_atoms_from_different_molecules">
+<code class="descname">select_close_atoms_from_different_molecules</code><span class="sig-paren">(</span><em>other_mol</em>, <em>cutoff</em>, <em>pairwise_comparison=True</em>, <em>terminate_early=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_close_atoms_from_different_molecules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Effectively detects steric clashes between self and another
+pymolecule.Molecule.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>other_mol &#8211; A pymolecule.Molecule object of the other</dt>
+<dd>molecule.</dd>
+<dt>cutoff &#8211; A float, the user-defined distance cutoff in</dt>
+<dd>Angstroms.</dd>
+<dt>pairwise_comparison &#8211; An optional boolean, whether or not to</dt>
+<dd>perform a simple pairwise distance comparison (if True) or
+to use a more sophisitcated method (if False). True by
+default.</dd>
+<dt>terminate_early = An optional boolean, whether or not to stop</dt>
+<dd>looking for steric clashes once one is found. False by
+default.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A tuple containing two elements. The first is a numpy.array</dt>
+<dd>containing the indices of all nearby atoms from this
+pymolecule.Molecule object (self). The second is a
+numpy.array containing the indices of all nearby atoms from
+the other molecule.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.selections_of_chains">
+<code class="descname">selections_of_chains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.selections_of_chains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the atom selections of each chain.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A dictionary. The keys of the dictionary correspond to the</dt>
+<dd>chainids, and the values are numpy.array objects containing
+the indices of the associated chain atoms.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.selections_of_constituent_molecules">
+<code class="descname">selections_of_constituent_molecules</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.selections_of_constituent_molecules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the indices of atoms belonging to separate molecules,
+assuming that the pymolecule.Molecule object actually contains multiple
+physically distinct molecules that are not bound to each other via
+covalent bonds.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A python list of numpy.array objects containing the indices of</dt>
+<dd>the atoms belonging to each molecule of the composite
+pymolecule.Molecule object.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Selections.Selections.selections_of_residues">
+<code class="descname">selections_of_residues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.selections_of_residues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the atom selections of each residue.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A dictionary. The keys of this dictionary correspond to the</dt>
+<dd>unique resname-resseq-chainid residue identifiers, and the
+values are numpy.array objects containing the indices of
+the associated residue atoms.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Selections.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Jacob Durrant.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

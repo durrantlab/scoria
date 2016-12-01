@@ -17,7 +17,8 @@ class AtomsAndBonds():
 
     def create_bonds_by_distance(self, remove_old_bond_data = True,
                                  delete_excessive_bonds = True):
-        """Determines which atoms are bound to each other based on their
+        """
+        Determines which atoms are bound to each other based on their
         proximity.
 
             Args:
@@ -135,7 +136,8 @@ class AtomsAndBonds():
                 except: pass # element probably wasn't in the dictionary
 
     def get_number_of_bond_partners_of_element(self, atom_index, the_element):
-        """Counts the number of atoms of a given element bonded to a specified
+        """
+        Counts the number of atoms of a given element bonded to a specified
         atom of interest.
 
             Args:
@@ -146,7 +148,6 @@ class AtomsAndBonds():
             Returns:
                 An int, the number of neighboring atoms of the specified
                 element.
-
             """
 
         if not numpy.class_dependency("count the number of bond partners of a given element", "NUMPY"):
@@ -166,7 +167,8 @@ class AtomsAndBonds():
 
     def get_index_of_first_bond_partner_of_element(self, atom_index,
                                                    the_element):
-        """For a given atom of interest, returns the index of the first
+        """
+        For a given atom of interest, returns the index of the first
         neighbor of a specified element.
 
             Args:
@@ -200,7 +202,8 @@ class AtomsAndBonds():
         return bond_partners_selection[numpy.nonzero(elements == the_element)[0]][0]
 
     def delete_bond(self, index1, index2):
-        """Deletes a bond.
+        """
+        Deletes a bond.
 
             Args:
                 index1 -- An int, the index of the first atom of the bonded
@@ -221,7 +224,8 @@ class AtomsAndBonds():
                        " and " + str(index2) + ".")
 
     def add_bond(self, index1, index2, order = 1):
-        """Adds a bond.
+        """
+        Adds a bond.
 
             Args:
                 index1 -- An int, the index of the first atom of the bonded
@@ -241,7 +245,8 @@ class AtomsAndBonds():
         self.__parent_molecule.set_bonds(bonds)
 
     def delete_atom(self, index):
-        """Deletes an atom.
+        """
+        Deletes an atom.
 
             Args:
                 index -- An int, the index of the atom to delete.
@@ -299,7 +304,8 @@ class AtomsAndBonds():
                  resname = "XXX", chainid = "X", resseq = 1, occupancy = 0.0,
                  tempfactor = 0.0, charge = '', element = "X",
                  coordinates = numpy.array([0.0, 0.0, 0.0]), autoindex = True):
-        """Adds an atom.
+        """
+        Adds an atom.
 
             Args:
                 record_name -- An optional string, the record name of the atom.

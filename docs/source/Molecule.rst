@@ -1,8 +1,5 @@
-pymolecule package
-==================
-
 pymolecule.Molecule module
---------------------------
+==========================
 
 .. automodule:: pymolecule.Molecule
     :members:

@@ -25,15 +25,18 @@ class Manipulation():
         )
 
     def coordinate_undo(self):
-        """Resets the coordinates of all atoms to those saved using the
-        set_coordinate_undo_point function."""
+        """
+        Resets the coordinates of all atoms to those saved using the
+        set_coordinate_undo_point function.
+        """
 
         self.__parent_molecule.set_coordinates(
             self.__parent_molecule.get_coordinates_undo_point().copy()
         )
 
     def set_atom_location(self, atom_index, new_location):
-        """Translates the entire molecular model (without rotating) so that the
+        """
+        Translates the entire molecular model (without rotating) so that the
         atom with the specified index is located at the specified coordinate.
 
             Args:
@@ -58,7 +61,8 @@ class Manipulation():
         return delta
 
     def translate_molecule(self, delta):
-        """Translate all the atoms of the molecular model by a specified
+        """
+        Translate all the atoms of the molecular model by a specified
         vector.
 
         Args:
@@ -93,7 +97,8 @@ class Manipulation():
 
     def rotate_molecule_around_a_line_between_points(self, line_point1,
                                                      line_point2, rotate):
-        """Rotate the molecular model about a line segment. The end points of
+        """
+        Rotate the molecular model about a line segment. The end points of
         the line segment are explicitly specified coordinates.
 
             Args:
@@ -195,7 +200,8 @@ class Manipulation():
 
     def rotate_molecule_around_a_line_between_atoms(self, line_point1_index,
                                                     line_point2_index, rotate):
-        """Rotate the molecular model about a line segment. The end points of
+        """
+        Rotate the molecular model about a line segment. The end points of
         the line segment are atoms of specified indices.
 
             Args:
@@ -219,7 +225,8 @@ class Manipulation():
 
     def rotate_molecule_around_pivot_point(self, pivot, thetax,
                                            thetay, thetaz):
-        """Rotate the molecular model around a specified atom.
+        """
+        Rotate the molecular model around a specified atom.
 
             Args:
                 pivot -- A numpy.array, the (x, y, z) coordinate about which
@@ -231,7 +238,7 @@ class Manipulation():
                 thetaz -- A float, the angle to rotate relative to the z axis,
                     in radians.
 
-            """
+        """
 
         if not numpy.class_dependency("rotate the molecule about a point. Missing the dot-product function", "NUMPY"):
             return
@@ -280,7 +287,8 @@ class Manipulation():
 
     def rotate_molecule_around_pivot_atom(self, pivot_index, thetax,
                                           thetay, thetaz):
-        """Rotate the molecular model around a specified atom.
+        """
+        Rotate the molecular model around a specified atom.
 
             Args:
                 pivot_index -- An int, the index of the atom about which the
@@ -292,7 +300,7 @@ class Manipulation():
                 thetaz -- A float, the angle to rotate relative to the z axis,
                     in radians.
 
-            """
+        """
 
         if not numpy.class_dependency("rotate the molecule about an atom. Missing the dot-product function", "NUMPY"):
             return

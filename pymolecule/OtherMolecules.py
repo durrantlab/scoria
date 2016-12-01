@@ -19,7 +19,8 @@ class OtherMolecules():
 
     def get_other_molecule_aligned_to_this(self, other_mol, tethers,
                                            weight_mat = None):
-        """Aligns a molecule to self (this pymolecule.Molecule object) using a
+        """
+        Aligns a molecule to self (this pymolecule.Molecule object) using a
         quaternion RMSD alignment.
 
             Args:
@@ -137,7 +138,8 @@ class OtherMolecules():
 
     def steric_clash_with_another_molecule(self, other_mol, cutoff,
                                            pairwise_comparison = True):
-        """Detects steric clashes between the pymolecule.Molecule (self) and
+        """
+        Detects steric clashes between the pymolecule.Molecule (self) and
         another pymolecule.Molecule.
 
             Args:
@@ -183,7 +185,8 @@ class OtherMolecules():
             return True
 
     def merge_with_another_molecule(self, other_molecule):
-        """Merges two molecular models into a single model.
+        """
+        Merges two molecular models into a single model.
 
             Args:
                 other_molecule -- A molecular model (pymolecule.Molecule
@@ -255,7 +258,8 @@ class OtherMolecules():
 
     def get_distance_to_another_molecule(self, other_molecule,
                                          pairwise_comparison = True):
-        """Computes the minimum distance between any of the atoms of this
+        """
+        Computes the minimum distance between any of the atoms of this
         molecular model and any of the atoms of a second specified model.
 
             Args:
@@ -319,7 +323,8 @@ class OtherMolecules():
             return numpy.amin(numpy.cdist(self_coors, self_other))
 
     def get_rmsd_equivalent_atoms_specified(self, other_mol, tethers):
-        """Calculates the RMSD between this pymolecule.Molecle object and
+        """
+        Calculates the RMSD between this pymolecule.Molecle object and
         another, where equivalent atoms are explicitly specified.
 
             Args:
@@ -355,7 +360,8 @@ class OtherMolecules():
         return rmsd
 
     def get_rmsd_order_dependent(self, other_mol):
-        """Calculates the RMSD between two structures, where equivalent atoms
+        """
+        Calculates the RMSD between two structures, where equivalent atoms
         are listed in the same order.
 
             Args:
@@ -380,7 +386,8 @@ class OtherMolecules():
         )
 
     def get_rmsd_heuristic(self, other_mol):
-        """Caluclates the RMSD between two identical molecules with different
+        """
+        Caluclates the RMSD between two identical molecules with different
         conformations, per the definition given in "AutoDock Vina: Improving
         the speed and accuracy of docking with a new scoring function,
         efficient optimization, and multithreading,"" by Oleg Trott and Arthur

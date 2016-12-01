@@ -67,7 +67,8 @@ class FileIO():
         
     def load_pdbqt_into(self, filename, bonds_by_distance = False,
                       serial_reindex = True, resseq_reindex = False):
-        """Loads the molecular data contained in a pdbqt file into the current
+        """
+        Loads the molecular data contained in a pdbqt file into the current
         pymolecule.Molecule object. Note that this implementation is
         incomplete. It doesn't save atomic charges, for example. The atom
         types are stored in the "element" and "element_stripped" columns.
@@ -96,7 +97,8 @@ class FileIO():
                                           bonds_by_distance = False,
                                           serial_reindex = True,
                                           resseq_reindex = False):
-        """Loads molecular data from a python file object (pdbqt formatted)
+        """
+        Loads molecular data from a python file object (pdbqt formatted)
         into the current pymolecule.Molecule object. Note that most users will
         want to use the load_pdb_into() function instead, which is identical
         except that it accepts a filename string instead of a python file
@@ -442,7 +444,8 @@ class FileIO():
 
     def save_pdb(self, filename = "", serial_reindex = True,
                  resseq_reindex = False, return_text = False):
-        """Saves the molecular data contained in a pymolecule.Molecule object
+        """
+        Saves the molecular data contained in a pymolecule.Molecule object
         to a pdb file.
 
             Args:
@@ -602,10 +605,11 @@ class FileIO():
 
 
     def load_via_MDAnalysis(self, *args):
-        """Allows import of molecular structure with MDAnalysis
+        """
+        Allows import of molecular structure with MDAnalysis
 
             Args:
-                file_list - List of file names
+                *args - Filename, filenames, or list of file names
         """
 
         # Throwing an informative error for missing module.

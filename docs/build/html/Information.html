@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pymolecule.Information module &#8212; PyMolecule 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pymolecule-information-module">
+<h1>pymolecule.Information module<a class="headerlink" href="#pymolecule-information-module" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-pymolecule.Information"></span><dl class="class">
+<dt id="pymolecule.Information.Information">
+<em class="property">class </em><code class="descclassname">pymolecule.Information.</code><code class="descname">Information</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class for storing and accessing information about the elements of a
+pymolecule.Molecule object.</p>
+<dl class="method">
+<dt id="pymolecule.Information.Information.assign_elements_from_atom_names">
+<code class="descname">assign_elements_from_atom_names</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.assign_elements_from_atom_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the elements of all atoms from the atom names. Note that
+this will overwrite any existing element assignments, including those
+explicitly specified in loaded files. Note that this doesn&#8217;t populate
+elements_stripped.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection &#8211; An optional numpy.array containing the indices of</dt>
+<dd>the atoms to consider when calculating the center of mass.
+If ommitted, all atoms of the pymolecule.Molecule object
+will be considered.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.assign_masses">
+<code class="descname">assign_masses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.assign_masses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns masses to the atoms of the pymolecule.Molecule object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.belongs_to_dna">
+<code class="descname">belongs_to_dna</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.belongs_to_dna" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the atom is part of DNA.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>atom_index &#8211; An int, the index of the atom to consider.</dd>
+<dt>Returns:</dt>
+<dd>A boolean. True if part of dna, False if not.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.belongs_to_protein">
+<code class="descname">belongs_to_protein</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.belongs_to_protein" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the atom is part of a protein. Taken primarily from Amber
+residue names.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd>atom_index &#8211; An int, the index of the atom to consider.</dd>
+<dt>Returns:</dt>
+<dd>A boolean. True if part of protein, False if not.</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.belongs_to_rna">
+<code class="descname">belongs_to_rna</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.belongs_to_rna" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the atom is part of RNA.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd>atom_index &#8211; An int, the index of the atom to consider.</dd>
+<dt>Returns:</dt>
+<dd>A boolean. True if part of rna, False if not.</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.define_molecule_chain_residue_spherical_boundaries">
+<code class="descname">define_molecule_chain_residue_spherical_boundaries</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.define_molecule_chain_residue_spherical_boundaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies spheres that bound (encompass) the entire molecule, the
+chains, and the residues. This information is stored in
+pymolecule.Molecule.information.hierarchy.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.delete_trajectory_frame">
+<code class="descname">delete_trajectory_frame</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.delete_trajectory_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a given frame from the trajectory.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd>index &#8211; Integer of the frame to remove.</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_atom_information">
+<code class="descname">get_atom_information</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_atom_information" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exposes the __atom_information variable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_bonds">
+<code class="descname">get_bonds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_bonds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exposes the __bonds variable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_bounding_box">
+<code class="descname">get_bounding_box</code><span class="sig-paren">(</span><em>selection=None</em>, <em>padding=0.0</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_bounding_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates a box that bounds (encompasses) a set of atoms.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection &#8211; An optional numpy.array containing the indices of</dt>
+<dd>the atoms to consider. If ommitted, all atoms of the
+pymolecule.Molecule object will be considered.</dd>
+<dt>padding &#8211; An optional float. The bounding box will extend this</dt>
+<dd>many angstroms beyond the atoms being considered.</dd>
+<dt>frame &#8211; An integer indicating at which timestep the center of</dt>
+<dd>mass should be calculated. If ommitted, it defaults to the 
+first frame of the trajectory.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A numpy array representing two 3D points, (min_x, min_y, min_z)</dt>
+<dd>and (max_x, max_y, max_z), that bound the molecule.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_bounding_sphere">
+<code class="descname">get_bounding_sphere</code><span class="sig-paren">(</span><em>selection=None</em>, <em>padding=0.0</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_bounding_sphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates a sphere that bounds (encompasses) a set of atoms.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection &#8211; An optional numpy.array containing the indices of</dt>
+<dd>the atoms to consider. If ommitted, all atoms of the
+pymolecule.Molecule object will be considered.</dd>
+<dt>frame &#8211; An integer indicating at which timestep the center of</dt>
+<dd>mass should be calculated. If ommitted, it defaults to the 
+first frame of the trajectory.</dd>
+<dt>padding &#8211; An optional float. The bounding sphere will extend</dt>
+<dd>this many angstroms beyond the atoms being considered.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A tuple containing two elements. The first is a numpy.array</dt>
+<dd>representing a 3D point, the (x, y, z) center of the
+sphere. The second is a float, the radius of the sphere.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_center_of_mass">
+<code class="descname">get_center_of_mass</code><span class="sig-paren">(</span><em>selection=None</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_center_of_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the center of mass.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection &#8211; An optional numpy.array containing the indices of</dt>
+<dd>the atoms to consider when calculating the center of mass.
+If ommitted, all atoms of the pymolecule.Molecule object
+will be considered.</dd>
+<dt>frame &#8211; An integer indicating at which timestep the center of</dt>
+<dd>mass should be calculated. If ommitted, it defaults to the 
+first frame of the trajectory.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A numpy.array containing to the x, y, and z coordinates of the</dt>
+<dd>center of mass.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_constants">
+<code class="descname">get_constants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exposes the __constants variable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_coordinates">
+<code class="descname">get_coordinates</code><span class="sig-paren">(</span><em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retreives a frame of the __trajectory variable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_coordinates_undo_point">
+<code class="descname">get_coordinates_undo_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_coordinates_undo_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exposes the __coordinates_undo_point variable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_filename">
+<code class="descname">get_filename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exposes the __filename variable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_geometric_center">
+<code class="descname">get_geometric_center</code><span class="sig-paren">(</span><em>selection=None</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_geometric_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the geometric center.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection &#8211; An optional numpy.array containing the indices of</dt>
+<dd>the atoms to consider when calculating the geometric
+center. If ommitted, all atoms of the pymolecule.Molecule
+object will be considered.</dd>
+<dt>frame &#8211; An integer indicating at which timestep the center of</dt>
+<dd>mass should be calculated. If ommitted, it defaults to the 
+first frame of the trajectory.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>A numpy.array containing to the x, y, and z coordinates of the</dt>
+<dd>geometric center.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_hierarchy">
+<code class="descname">get_hierarchy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_hierarchy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exposes the __hierarchy variable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_remarks">
+<code class="descname">get_remarks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_remarks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exposes the __remarks variable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_total_mass">
+<code class="descname">get_total_mass</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_total_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the total atomic mass.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection &#8211; An optional numpy.array containing the indices of</dt>
+<dd>the atoms to consider when calculating the total mass. If
+ommitted, all atoms of the pymolecule.Molecule object will
+be considered.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd>A double, the total mass.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_total_number_of_atoms">
+<code class="descname">get_total_number_of_atoms</code><span class="sig-paren">(</span><em>selection=None</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_total_number_of_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts the number of atoms.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection &#8211; An optional numpy.array containing the indices of</dt>
+<dd>the atoms to count. If ommitted, all atoms of the
+pymolecule.Molecule object will be considered.</dd>
+<dt>frame &#8211; An integer indicating at which timestep the center of</dt>
+<dd>mass should be calculated. If ommitted, it defaults to the 
+first frame of the trajectory.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd>An int, the total number of atoms.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_total_number_of_heavy_atoms">
+<code class="descname">get_total_number_of_heavy_atoms</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_total_number_of_heavy_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts the number of heavy atoms (i.e., atoms that are not
+hydrogens).</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>selection &#8211; An optional numpy.array containing the indices of</dt>
+<dd>the atoms to count. If ommitted, all atoms of the
+pymolecule.Molecule object will be considered.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd>An int, the total number of heavy (non-hydrogen) atoms.</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_trajectory">
+<code class="descname">get_trajectory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exposes the __trajectory variable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.get_trajectory_frame_count">
+<code class="descname">get_trajectory_frame_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_trajectory_frame_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of frames in __trajectory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Number of frames in trajectory.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>int</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.insert_trajectory_frame">
+<code class="descname">insert_trajectory_frame</code><span class="sig-paren">(</span><em>index</em>, <em>coordinates</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.insert_trajectory_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts a new coordinate frame at the end of the trajectory.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>coordinates &#8211; A single frame of coordinates to append.
+index &#8211; The location where the frame should be added.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.resseq_reindex">
+<code class="descname">resseq_reindex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.resseq_reindex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reindexes the resseq field of the atoms in the molecule, starting
+with 1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.serial_reindex">
+<code class="descname">serial_reindex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.serial_reindex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reindexes the serial field of the atoms in the molecule, starting
+with 1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.set_atom_information">
+<code class="descname">set_atom_information</code><span class="sig-paren">(</span><em>atom_information</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.set_atom_information" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the __atom_information variable.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>atom_information &#8211; NEED TO CONFIRM A numpy.array containing information on each atom.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.set_bonds">
+<code class="descname">set_bonds</code><span class="sig-paren">(</span><em>bonds</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.set_bonds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the __bonds variable.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>bonds &#8211; NEED TO CONFIRM</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.set_coordinates">
+<code class="descname">set_coordinates</code><span class="sig-paren">(</span><em>coordinates</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.set_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a frame of the __trajectory variable.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>coordinates &#8211; NEED TO CONFIRM
+frame &#8211; An integer represeting the frame of the trajectory to be modified</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.set_coordinates_undo_point">
+<code class="descname">set_coordinates_undo_point</code><span class="sig-paren">(</span><em>coordinates_undo_point</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.set_coordinates_undo_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the __coordinates_undo_point variable.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>coordinates_undo_point &#8211; NEED TO CONFIRM</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.set_filename">
+<code class="descname">set_filename</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.set_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the __filename variable.</p>
+<dl class="docutils">
+<dt>Args: </dt>
+<dd>filename &#8211; String representation of the filename.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.set_hierarchy">
+<code class="descname">set_hierarchy</code><span class="sig-paren">(</span><em>hierarchy</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.set_hierarchy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the __hierarchy variable.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>hierarchy &#8211; NEED TO CONFIRM A dictionary that contains ???</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.set_remarks">
+<code class="descname">set_remarks</code><span class="sig-paren">(</span><em>remarks</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.set_remarks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the __remarks variable.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>remarkes &#8211; Array containing remarks.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.Information.Information.set_trajectory">
+<code class="descname">set_trajectory</code><span class="sig-paren">(</span><em>trajectory</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.set_trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the __trajectory variable.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>trajectory &#8211; An array of numpy.array containing</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Information.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Jacob Durrant.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>
