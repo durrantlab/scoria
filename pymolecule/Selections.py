@@ -2,16 +2,18 @@ from pymolecule import dumbpy as numpy
 import sys
 
 class Selections():
-    """A class for selecting atoms"""
+    """
+    A class for selecting atoms. Subclass to the
+    :py:class:`pymolecule.Molecule` class.
+    """
 
     ######## selections ########
     def __init__(self, parent_molecule_object):
-        """Initializes the pymolecule.Selections class.
+        """
+        Initializes the pymolecule.Selections class.
 
-            Args:
-                parent_molecule_object -- The pymolecule.Molecule object
+        :param pymolecule.Molecule parent_molecule_object: The pymolecule.Molecule object
                     associated with this class.
-
         """
 
         self.__parent_molecule = parent_molecule_object
@@ -20,10 +22,11 @@ class Selections():
         """
         Select a set of atoms based on user-specified criteria.
 
-            Args:
-                selection_criteria -- An dictionary, where the keys correspond
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.select_atoms`.
+
+        :param dict selection_criteria: A dictionary, where the keys correspond
                     to keys in the
-                    self.__parent_molecule.information.get_atom_information()
+                    self.__parent_Information.Information.get_atom_information()
                     structured numpy array, and the values are lists of
                     acceptable matches. The selection is a logical "AND"
                     between dictionary entries, but "OR" within the value lists
@@ -31,8 +34,7 @@ class Selections():
                     'resname':'PRO'} would select all atoms with the names CA
                     or O that are located in the PRO residues of chain A.
 
-            Returns:
-                A numpy.array containing the indices of the atoms of the
+        :returns: A numpy.array containing the indices of the atoms of the
                     selection.
         """
 
@@ -90,15 +92,15 @@ class Selections():
         """
         Selects all the atoms that are within a bounding box.
 
-            Args:
-                bounding_box -- A 2x3 numpy.array containing the minimum and
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.select_atoms_in_bounding_box`.
+    
+        :param numpy.array bounding_box: A 2x3 numpy.array containing the minimum and
                     maximum points of the bounding box. Example:
                     numpy.array(
                         [[min_x, min_y, min_z], [max_x, max_y, max_z]]
                     ).
 
-            Returns:
-                A numpy.array containing the indices of the atoms that are
+        :returns: A numpy.array containing the indices of the atoms that are
                     within the bounding box.
         """
 
@@ -126,12 +128,13 @@ class Selections():
         """
         Selects all the atoms that are bound to a user-specified selection.
 
-            Args:
-                selection -- A numpy.array containing the indices of the
+        Should be called via the wrapper function 
+        :meth:`pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection`.
+        
+        :param numpy.array selection: A numpy.array containing the indices of the
                     user-specified selection.
 
-            Returns:
-                A numpy.array containing the indices of the atoms that are
+        :returns: A numpy.array containing the indices of the atoms that are
                 bound to the user-specified selection. Note that this new
                 selection does not necessarily include the indices of the
                 original user-specified selection.
@@ -165,15 +168,14 @@ class Selections():
         bound to one another and that the branch starts at root_atom_index one
         and "points" in the direction of directionality_atom_index.
 
-        Args:
-            root_atom_index -- An int, the index of the first atom in the
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.select_branch`.
+
+        :param int root_atom_index: An int, the index of the first atom in the
                 branch (the "root").
-            directionality_atom_index -- An int, the index of the second atom
+        :param int directionality_atom_index: An int, the index of the second atom
                 in the branch, used to establish directionality
 
-        Returns:
-            A numpy array containing the indices of the atoms of the branch.
-
+        :returns: A numpy array containing the indices of the atoms of the branch.
         """
 
         if not numpy.class_dependency("select a branch", "NUMPY"):
@@ -249,12 +251,12 @@ class Selections():
         actually contains multiple physically distinct molecules that are not
         bound to each other via covalent bonds.
 
-            Args:
-                selection -- A numpy.array containing the indices of the
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.select_atoms_from_same_molecule`.
+        
+        :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
 
-            Returns:
-                A numpy.array containing the indices of the atoms belonging to
+        :returns: A numpy.array containing the indices of the atoms belonging to
                     the same molecules as the atoms of the user-defined
                     selection.
         """
@@ -331,11 +333,11 @@ class Selections():
         physically distinct molecules that are not bound to each other via
         covalent bonds.
 
-            Returns:
-                A python list of numpy.array objects containing the indices of
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.selections_of_constituent_molecules`.
+        
+        :Returns: A python list of numpy.array objects containing the indices of
                     the atoms belonging to each molecule of the composite
                     pymolecule.Molecule object.
-
         """
 
         if not numpy.class_dependency("select atoms of constituent molecules", "NUMPY"):
@@ -370,13 +372,13 @@ class Selections():
         Selects all atoms that are near the atoms of a user-defined
         selection.
 
-            Args:
-                selection -- A numpy.array containing the indices of the
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.select_atoms_near_other_selection`.
+        
+        :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
-                cutoff -- A float, the distance cutoff (in Angstroms).
+        :param float cutoff: A float, the distance cutoff (in Angstroms).
 
-            Returns:
-                A numpy.array containing the indices of all atoms near the
+        :returns: A numpy.array containing the indices of all atoms near the
                     user-defined selection, not including the atoms of the
                     user-defined selection themselves.
         """
@@ -410,12 +412,12 @@ class Selections():
         of a user-defined seleciton. Residues are considered unique if they
         have a unique combination of resname, resseq, and chainid fields.
 
-            Args:
-                selection -- A numpy.array containing the indices of the
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.select_atoms_in_same_residue`.
+        
+        :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
 
-            Returns:
-                A numpy.array containing the indices of all atoms in the same
+        :returns: A numpy.array containing the indices of all atoms in the same
                     residue as any of the atoms of the user-defined selection.
         """
 
@@ -459,12 +461,12 @@ class Selections():
         Inverts a user-defined selection (i.e., identifies all atoms that
         are not in the seleciton).
 
-            Args:
-                selection -- A numpy.array containing the indices of the
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.invert_selection`.
+        
+        :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
 
-            Returns:
-                A numpy.array containing the indices of all atoms that are not
+        :returns: A numpy.array containing the indices of all atoms that are not
                     in the user-defined seleciton.
         """
 
@@ -481,8 +483,9 @@ class Selections():
         """
         Selects all the atoms in a pymolecule.Molecule object.
 
-            Returns:
-                A numpy.array containing the indices of all atoms in the
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.select_all`.
+        
+        :returns: A numpy.array containing the indices of all atoms in the
                     pymolecule.Molecule object.
         """
 
@@ -495,26 +498,25 @@ class Selections():
         Effectively detects steric clashes between self and another
         pymolecule.Molecule.
 
-            Args:
-                other_mol -- A pymolecule.Molecule object of the other
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.select_close_atoms_from_different_molecules`.
+        
+        :param pymolecule.Molecule other_mol: A pymolecule.Molecule object of the other
                     molecule.
-                cutoff -- A float, the user-defined distance cutoff in
+        :param float cutoff: A float, the user-defined distance cutoff in
                     Angstroms.
-                pairwise_comparison -- An optional boolean, whether or not to
+        :param bool pairwise_comparison: An optional boolean, whether or not to
                     perform a simple pairwise distance comparison (if True) or
                     to use a more sophisitcated method (if False). True by
                     default.
-                terminate_early = An optional boolean, whether or not to stop
+        :param bool terminate_early: An optional boolean, whether or not to stop
                     looking for steric clashes once one is found. False by
                     default.
 
-            Returns:
-                A tuple containing two elements. The first is a numpy.array
+        :returns: A tuple containing two elements. The first is a numpy.array
                     containing the indices of all nearby atoms from this
                     pymolecule.Molecule object (self). The second is a
                     numpy.array containing the indices of all nearby atoms from
                     the other molecule.
-
         """
 
         if not numpy.class_dependency("select close atoms from a different molecule", "NUMPY"):
@@ -708,18 +710,18 @@ class Selections():
         """
         Creates a pymolecule.Molecule from a user-defined atom selection.
 
-            Args:
-                selection -- A numpy.array containing the indices of the atoms
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.get_molecule_from_selection`.
+
+        :param numpy.array selection: A numpy.array containing the indices of the atoms
                     in the user-defined selection.
-                serial_reindex -- An optional boolean, whether or not to
+        :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the atom serial fields. Default is True.
-                resseq_reindex -- An optional boolean, whether or not to
+        :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the atom resseq fields. Default is False.
 
-            Returns:
-                A pymolecule.Molecule object containing the atoms of the
+        :returns: A pymolecule.Molecule object containing the atoms of the
                     user-defined selection.
-            """
+        """
 
         from Molecule import Molecule
         new_mol = Molecule()
@@ -756,11 +758,11 @@ class Selections():
         """
         Identifies the atom selections of each chain.
 
-            Returns:
-                A dictionary. The keys of the dictionary correspond to the
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.selections_of_chains`.
+        
+        :returns: A dictionary. The keys of the dictionary correspond to the
                     chainids, and the values are numpy.array objects containing
                     the indices of the associated chain atoms.
-
         """
 
         if not numpy.class_dependency("select chains", "NUMPY"):
@@ -786,13 +788,14 @@ class Selections():
     def selections_of_residues(self):
         """
         Identifies the atom selections of each residue.
-
-            Returns:
-                A dictionary. The keys of this dictionary correspond to the
+    
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.selections_of_residues`.
+        
+        :returns: A dictionary. The keys of this dictionary correspond to the
                     unique resname-resseq-chainid residue identifiers, and the
                     values are numpy.array objects containing the indices of
                     the associated residue atoms.
-            """
+        """
 
         if not numpy.class_dependency("select residues", "NUMPY"):
             return

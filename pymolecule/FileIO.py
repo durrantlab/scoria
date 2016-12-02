@@ -10,23 +10,24 @@ class FileIO():
     object."""
 
     def __init__(self, parent_molecule_object):
-        """Initializes the pymolecule.FileIO class.
+        """
+        Initializes the pymolecule.FileIO class.
 
-            Args:
-                parent_molecule_object -- The pymolecule.Molecule object
+        :param pymolecule.Molecule parent_molecule_object: The pymolecule.Molecule object
                     associated with this class.
-
         """
 
         self.__parent_molecule = parent_molecule_object
         self.__u = None
 
     def load_pym_into(self, filename):
-        """Loads the molecular data contained in a pym file into the current
+        """
+        Loads the molecular data contained in a pym file into the current
         pymolecule.Molecule object.
 
-            Args:
-                filename -- A string, the filename of the pym file.
+        Wrapper function for :meth:`pymolecule.FileIO.FileIO.load_pym_into`
+
+        :param str filename: A string, the filename of the pym file.
         """
 
         if not numpy.class_dependency("load pym files", "NUMPY"):

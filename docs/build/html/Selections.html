@@ -49,31 +49,33 @@
 <span class="target" id="module-pymolecule.Selections"></span><dl class="class">
 <dt id="pymolecule.Selections.Selections">
 <em class="property">class </em><code class="descclassname">pymolecule.Selections.</code><code class="descname">Selections</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class for selecting atoms</p>
+<dd><p>A class for selecting atoms. Subclass to the
+<a class="reference internal" href="Molecule.html#module-pymolecule.Molecule" title="pymolecule.Molecule"><code class="xref py py-class docutils literal"><span class="pre">pymolecule.Molecule</span></code></a> class.</p>
 <dl class="method">
 <dt id="pymolecule.Selections.Selections.get_molecule_from_selection">
 <code class="descname">get_molecule_from_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.get_molecule_from_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a pymolecule.Molecule from a user-defined atom selection.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>selection &#8211; A numpy.array containing the indices of the atoms</dt>
-<dd>in the user-defined selection.</dd>
-<dt>serial_reindex &#8211; An optional boolean, whether or not to</dt>
-<dd>reindex the atom serial fields. Default is True.</dd>
-<dt>resseq_reindex &#8211; An optional boolean, whether or not to</dt>
-<dd>reindex the atom resseq fields. Default is False.</dd>
-</dl>
-</dd>
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>A pymolecule.Molecule object containing the atoms of the</dt>
-<dd>user-defined selection.</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_molecule_from_selection" title="pymolecule.Molecule.Molecule.get_molecule_from_selection"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_molecule_from_selection()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>selection</strong> (<em>numpy.array</em>) &#8211; A numpy.array containing the indices of the atoms
+in the user-defined selection.</li>
+<li><strong>serial_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+reindex the atom serial fields. Default is True.</li>
+<li><strong>resseq_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+reindex the atom resseq fields. Default is False.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A pymolecule.Molecule object containing the atoms of the
+user-defined selection.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -81,88 +83,83 @@
 <code class="descname">invert_selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.invert_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inverts a user-defined selection (i.e., identifies all atoms that
 are not in the seleciton).</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>selection &#8211; A numpy.array containing the indices of the</dt>
-<dd>user-defined selection.</dd>
-</dl>
-</dd>
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>A numpy.array containing the indices of all atoms that are not</dt>
-<dd>in the user-defined seleciton.</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.invert_selection" title="pymolecule.Molecule.Molecule.invert_selection"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.invert_selection()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<em>numpy.array</em>) &#8211; A numpy.array containing the indices of the
+user-defined selection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of all atoms that are not
+in the user-defined seleciton.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pymolecule.Selections.Selections.select_all">
 <code class="descname">select_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all the atoms in a pymolecule.Molecule object.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>A numpy.array containing the indices of all atoms in the</dt>
-<dd>pymolecule.Molecule object.</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_all" title="pymolecule.Molecule.Molecule.select_all"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_all()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of all atoms in the
+pymolecule.Molecule object.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pymolecule.Selections.Selections.select_all_atoms_bound_to_selection">
 <code class="descname">select_all_atoms_bound_to_selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_all_atoms_bound_to_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all the atoms that are bound to a user-specified selection.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>selection &#8211; A numpy.array containing the indices of the</dt>
-<dd>user-specified selection.</dd>
-</dl>
-</dd>
-<dt>Returns:</dt>
-<dd>A numpy.array containing the indices of the atoms that are
+<p>Should be called via the wrapper function 
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection" title="pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<em>numpy.array</em>) &#8211; A numpy.array containing the indices of the
+user-specified selection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of the atoms that are
 bound to the user-specified selection. Note that this new
 selection does not necessarily include the indices of the
-original user-specified selection.</dd>
-</dl>
-</div></blockquote>
+original user-specified selection.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pymolecule.Selections.Selections.select_atoms">
 <code class="descname">select_atoms</code><span class="sig-paren">(</span><em>selection_criteria</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select a set of atoms based on user-specified criteria.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>selection_criteria &#8211; An dictionary, where the keys correspond</dt>
-<dd>to keys in the
-self.__parent_molecule.information.get_atom_information()
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms" title="pymolecule.Molecule.Molecule.select_atoms"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_atoms()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection_criteria</strong> (<a class="reference internal" href="pymolecule.dumbpy.html#pymolecule.dumbpy.Array.RecArray.dict" title="pymolecule.dumbpy.Array.RecArray.dict"><em>dict</em></a>) &#8211; A dictionary, where the keys correspond
+to keys in the
+self.__parent_Information.Information.get_atom_information()
 structured numpy array, and the values are lists of
 acceptable matches. The selection is a logical &#8220;AND&#8221;
 between dictionary entries, but &#8220;OR&#8221; within the value lists
 themselves. For example: {&#8216;atom&#8217;:[&#8216;CA&#8217;, &#8216;O&#8217;], &#8216;chain&#8217;:&#8217;A&#8217;,
 &#8216;resname&#8217;:&#8217;PRO&#8217;} would select all atoms with the names CA
-or O that are located in the PRO residues of chain A.</dd>
-</dl>
-</dd>
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>A numpy.array containing the indices of the atoms of the</dt>
-<dd>selection.</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+or O that are located in the PRO residues of chain A.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of the atoms of the
+selection.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -172,50 +169,44 @@ or O that are located in the PRO residues of chain A.</dd>
 user-defined selection, assuming that the pymolecule.Molecule object
 actually contains multiple physically distinct molecules that are not
 bound to each other via covalent bonds.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>selection &#8211; A numpy.array containing the indices of the</dt>
-<dd>user-defined selection.</dd>
-</dl>
-</dd>
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>A numpy.array containing the indices of the atoms belonging to</dt>
-<dd>the same molecules as the atoms of the user-defined
-selection.</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_from_same_molecule" title="pymolecule.Molecule.Molecule.select_atoms_from_same_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_atoms_from_same_molecule()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<em>numpy.array</em>) &#8211; A numpy.array containing the indices of the
+user-defined selection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of the atoms belonging to
+the same molecules as the atoms of the user-defined
+selection.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pymolecule.Selections.Selections.select_atoms_in_bounding_box">
 <code class="descname">select_atoms_in_bounding_box</code><span class="sig-paren">(</span><em>bounding_box</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_atoms_in_bounding_box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all the atoms that are within a bounding box.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>bounding_box &#8211; A 2x3 numpy.array containing the minimum and</dt>
-<dd><p class="first">maximum points of the bounding box. Example:
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_in_bounding_box" title="pymolecule.Molecule.Molecule.select_atoms_in_bounding_box"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_atoms_in_bounding_box()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bounding_box</strong> (<em>numpy.array</em>) &#8211; <p>A 2x3 numpy.array containing the minimum and
+maximum points of the bounding box. Example:
 numpy.array(</p>
 <blockquote>
 <div>[[min_x, min_y, min_z], [max_x, max_y, max_z]]</div></blockquote>
-<p class="last">).</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>A numpy.array containing the indices of the atoms that are</dt>
-<dd>within the bounding box.</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+<p>).</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of the atoms that are
+within the bounding box.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -224,22 +215,19 @@ numpy.array(</p>
 <dd><p>Selects all atoms that are in the same residue as any of the atoms
 of a user-defined seleciton. Residues are considered unique if they
 have a unique combination of resname, resseq, and chainid fields.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>selection &#8211; A numpy.array containing the indices of the</dt>
-<dd>user-defined selection.</dd>
-</dl>
-</dd>
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>A numpy.array containing the indices of all atoms in the same</dt>
-<dd>residue as any of the atoms of the user-defined selection.</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_in_same_residue" title="pymolecule.Molecule.Molecule.select_atoms_in_same_residue"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_atoms_in_same_residue()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<em>numpy.array</em>) &#8211; A numpy.array containing the indices of the
+user-defined selection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of all atoms in the same
+residue as any of the atoms of the user-defined selection.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -247,24 +235,25 @@ have a unique combination of resname, resseq, and chainid fields.</p>
 <code class="descname">select_atoms_near_other_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>cutoff</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_atoms_near_other_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all atoms that are near the atoms of a user-defined
 selection.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first docutils">
-<dt>selection &#8211; A numpy.array containing the indices of the</dt>
-<dd>user-defined selection.</dd>
-</dl>
-<p class="last">cutoff &#8211; A float, the distance cutoff (in Angstroms).</p>
-</dd>
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>A numpy.array containing the indices of all atoms near the</dt>
-<dd>user-defined selection, not including the atoms of the
-user-defined selection themselves.</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_near_other_selection" title="pymolecule.Molecule.Molecule.select_atoms_near_other_selection"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_atoms_near_other_selection()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>selection</strong> (<em>numpy.array</em>) &#8211; A numpy.array containing the indices of the
+user-defined selection.</li>
+<li><strong>cutoff</strong> (<em>float</em>) &#8211; A float, the distance cutoff (in Angstroms).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A numpy.array containing the indices of all atoms near the
+user-defined selection, not including the atoms of the
+user-defined selection themselves.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -274,18 +263,24 @@ user-defined selection themselves.</dd>
 atoms with indices root_atom_index and directionality_atom_index are
 bound to one another and that the branch starts at root_atom_index one
 and &#8220;points&#8221; in the direction of directionality_atom_index.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>root_atom_index &#8211; An int, the index of the first atom in the</dt>
-<dd>branch (the &#8220;root&#8221;).</dd>
-<dt>directionality_atom_index &#8211; An int, the index of the second atom</dt>
-<dd>in the branch, used to establish directionality</dd>
-</dl>
-</dd>
-<dt>Returns:</dt>
-<dd>A numpy array containing the indices of the atoms of the branch.</dd>
-</dl>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_branch" title="pymolecule.Molecule.Molecule.select_branch"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_branch()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>root_atom_index</strong> (<em>int</em>) &#8211; An int, the index of the first atom in the
+branch (the &#8220;root&#8221;).</li>
+<li><strong>directionality_atom_index</strong> (<em>int</em>) &#8211; An int, the index of the second atom
+in the branch, used to establish directionality</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A numpy array containing the indices of the atoms of the branch.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -293,51 +288,52 @@ and &#8220;points&#8221; in the direction of directionality_atom_index.</p>
 <code class="descname">select_close_atoms_from_different_molecules</code><span class="sig-paren">(</span><em>other_mol</em>, <em>cutoff</em>, <em>pairwise_comparison=True</em>, <em>terminate_early=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_close_atoms_from_different_molecules" title="Permalink to this definition">¶</a></dt>
 <dd><p>Effectively detects steric clashes between self and another
 pymolecule.Molecule.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>other_mol &#8211; A pymolecule.Molecule object of the other</dt>
-<dd>molecule.</dd>
-<dt>cutoff &#8211; A float, the user-defined distance cutoff in</dt>
-<dd>Angstroms.</dd>
-<dt>pairwise_comparison &#8211; An optional boolean, whether or not to</dt>
-<dd>perform a simple pairwise distance comparison (if True) or
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_close_atoms_from_different_molecules" title="pymolecule.Molecule.Molecule.select_close_atoms_from_different_molecules"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_close_atoms_from_different_molecules()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>other_mol</strong> (<a class="reference internal" href="Molecule.html#module-pymolecule.Molecule" title="pymolecule.Molecule"><em>pymolecule.Molecule</em></a>) &#8211; A pymolecule.Molecule object of the other
+molecule.</li>
+<li><strong>cutoff</strong> (<em>float</em>) &#8211; A float, the user-defined distance cutoff in
+Angstroms.</li>
+<li><strong>pairwise_comparison</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+perform a simple pairwise distance comparison (if True) or
 to use a more sophisitcated method (if False). True by
-default.</dd>
-<dt>terminate_early = An optional boolean, whether or not to stop</dt>
-<dd>looking for steric clashes once one is found. False by
-default.</dd>
-</dl>
-</dd>
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>A tuple containing two elements. The first is a numpy.array</dt>
-<dd>containing the indices of all nearby atoms from this
+default.</li>
+<li><strong>terminate_early</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to stop
+looking for steric clashes once one is found. False by
+default.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A tuple containing two elements. The first is a numpy.array
+containing the indices of all nearby atoms from this
 pymolecule.Molecule object (self). The second is a
 numpy.array containing the indices of all nearby atoms from
-the other molecule.</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+the other molecule.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pymolecule.Selections.Selections.selections_of_chains">
 <code class="descname">selections_of_chains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.selections_of_chains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the atom selections of each chain.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>A dictionary. The keys of the dictionary correspond to the</dt>
-<dd>chainids, and the values are numpy.array objects containing
-the indices of the associated chain atoms.</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.selections_of_chains" title="pymolecule.Molecule.Molecule.selections_of_chains"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.selections_of_chains()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary. The keys of the dictionary correspond to the
+chainids, and the values are numpy.array objects containing
+the indices of the associated chain atoms.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -347,35 +343,35 @@ the indices of the associated chain atoms.</dd>
 assuming that the pymolecule.Molecule object actually contains multiple
 physically distinct molecules that are not bound to each other via
 covalent bonds.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>A python list of numpy.array objects containing the indices of</dt>
-<dd>the atoms belonging to each molecule of the composite
-pymolecule.Molecule object.</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.selections_of_constituent_molecules" title="pymolecule.Molecule.Molecule.selections_of_constituent_molecules"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.selections_of_constituent_molecules()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A python list of numpy.array objects containing the indices of
+the atoms belonging to each molecule of the composite
+pymolecule.Molecule object.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pymolecule.Selections.Selections.selections_of_residues">
 <code class="descname">selections_of_residues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.selections_of_residues" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the atom selections of each residue.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>A dictionary. The keys of this dictionary correspond to the</dt>
-<dd>unique resname-resseq-chainid residue identifiers, and the
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.selections_of_residues" title="pymolecule.Molecule.Molecule.selections_of_residues"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.selections_of_residues()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary. The keys of this dictionary correspond to the
+unique resname-resseq-chainid residue identifiers, and the
 values are numpy.array objects containing the indices of
-the associated residue atoms.</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+the associated residue atoms.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

@@ -1011,7 +1011,7 @@ class Molecule: # here's the actual Molecule class
 
         Wrapper function for :meth:`pymolecule.Selections.Selections.get_molecule_from_selection`
 
-        :params numpy.array selection: A numpy.array containing the indices of the atoms
+        :param numpy.array selection: A numpy.array containing the indices of the atoms
                     in the user-defined selection.
         :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the atom serial fields. Default is True.
