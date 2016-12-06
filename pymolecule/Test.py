@@ -3,6 +3,8 @@ import cStringIO as StringIO
 import os
 from pymolecule import dumbpy as numpy
 import inspect
+from time import time
+import shutil
 
 class Test:
     """A class for testing all pymolecule functions."""
@@ -447,3 +449,97 @@ class Test:
 
         print "    get_planarity_deviation()"
         print "        " + str(self.mol.get_planarity_deviation(coors[0], coors[1], coors[2], coors[3]))
+
+class FileIOBenchmarks:
+    """A class for testing the load and save times of multiple
+    PyMolecule-supported file formats."""
+
+    molecule = None
+    times = []
+    sample_structures_dir = os.path.dirname(inspect.stack()[0][1]) + os.sep + "sample_files" + os.sep
+    load_filename = ""
+    save_filename = ""
+
+    def __init__(self):
+        import numpy  # numpy required for benchmarks
+
+        self.load_filename = self.sample_structures_dir + "single_frame.pdb"
+        self.save_filename = "tmptmp.pdb"
+
+        # First, test PDB loading.
+        print "Load PDB, no Bonds by Distance"
+        self.timeit(self.load_pdb_no_bonds_by_distance, self.reset_test_vars_standard, self.new_molecule)
+        print
+
+        print "Load PDB, with Bonds by Distance"
+        self.timeit(self.load_pdb_with_bonds_by_distance, self.reset_test_vars_standard, self.new_molecule)
+        print
+
+        print "Save PDB"
+        self.timeit(self.save_pdb, self.reset_test_vars_before_saving, self.nothing)
+        print
+
+        print "Save PYM"
+        self.save_filename = "tmptmp.pym"
+        self.timeit(self.save_pym, self.reset_test_vars_before_saving, self.nothing)
+        print
+
+        print "Load PYM"
+        self.load_filename = "tmptmp.pym"
+        self.timeit(self.load_pym, self.reset_test_vars_standard, self.new_molecule)
+        print
+
+        print "Load DCD"
+        print "Need to implement this!"
+
+        # Clean up
+        if os.path.exists("tmptmp.pdb"):
+            os.unlink("tmptmp.pdb")
+        if os.path.exists("tmptmp.pym"):
+            shutil.rmtree("tmptmp.pym")
+        
+    def timeit(self, func, reset_test_vars, before_each_timing):
+        reset_test_vars()
+        for i in range(100):
+            before_each_timing()
+            t1 = time()
+            func()
+            t2 = time()
+            self.times.append(t2 - t1)
+        print numpy.mean(self.times), "+/-", numpy.std(self.times)
+
+    def reset_test_vars_standard(self):
+        self.times = []
+
+    def reset_test_vars_before_saving(self):
+        self.times = []
+        self.molecule = Molecule()
+        self.molecule.load_pdb_into(self.load_filename, False, False, False)
+        #if os.path.exists(self.load_filename):
+        #    os.unlink(self.load_filename)
+        if os.path.exists(self.save_filename):
+            try:
+                shutil.rmtree(self.save_filename)
+            except:
+                os.unlink(self.save_filename)
+    
+    def new_molecule(self):
+        self.molecule = Molecule()
+
+    def nothing(self): pass
+
+    def load_pdb_no_bonds_by_distance(self):
+        self.molecule.load_pdb_into(self.load_filename, False, False, False)
+        
+    def load_pdb_with_bonds_by_distance(self):
+        self.molecule.load_pdb_into(self.load_filename, True, False, False)
+    
+    def save_pdb(self):
+        self.molecule.save_pdb("tmptmp.pdb", False, False, False)
+    
+    def save_pym(self):
+        self.molecule.save_pym("tmptmp.pym", False, False, False, False, False)
+
+    def load_pym(self):
+        self.molecule.load_pym_into(self.load_filename)
+    

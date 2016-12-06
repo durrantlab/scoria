@@ -5,6 +5,7 @@ import textwrap
 
 # A list of the available dependencies.
 dependencies_available = []
+missing_dependency_throws_error = True
 
 # Try to load numpy.
 force_dumbpy = False  # True for debugging.
@@ -76,6 +77,7 @@ try:
     from numpy.linalg import norm
     from numpy import fabs
     from numpy.lib.recfunctions import stack_arrays
+    from numpy import std  # Note that there is no dumbpy equivalent yet.
 
     def get_col(arr, num):
         return arr[:, num]
