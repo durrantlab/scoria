@@ -24,7 +24,9 @@ class Molecule: # here's the actual Molecule class
     """
 
     def __init__ (self):
-        """Initializes the variables of the Molecule class."""
+        """
+        Initializes the variables of the Molecule class.
+        """
 
         self.fileio = FileIO(self)
         self.atoms_and_bonds = AtomsAndBonds(self)
