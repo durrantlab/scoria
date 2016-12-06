@@ -3,17 +3,18 @@ from Quaternion import Quaternion
 
 
 class OtherMolecules():
-    """A class for characterizing the relationships between multiple
-    pymolecule."""
+    """
+    A class for characterizing the relationships between multiple
+    pymolecule.Molecule objects.
+    """
 
     def __init__(self, parent_molecule_object):
-        """Initializes the pymolecule.OtherMolecules class.
+        """
+        Initializes the pymolecule.OtherMolecules class.
 
-            Args:
-                parent_molecule_object -- The pymolecule.Molecule object
+        :param pymolecule.Molecule parent_molecule_object: The pymolecule.Molecule object
                 associated with this class.
-
-            """
+        """
 
         self.__parent_molecule = parent_molecule_object
 
@@ -23,20 +24,19 @@ class OtherMolecules():
         Aligns a molecule to self (this pymolecule.Molecule object) using a
         quaternion RMSD alignment.
 
-            Args:
-                other_mol -- A pymolecule.Molecule that is to be aligned to
+        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this`
+                
+        :param pymolecule.Molecule other_mol: A pymolecule.Molecule that is to be aligned to
                     this one.
-                tethers -- A tuple of two numpy.array objects, where each array
+        :param tuple tethers: A tuple of two numpy.array objects, where each array
                     contains the indices of self and other_mol, respectively,
                     such that equivalent atoms are listed in the same order.
                     So, for example, if (atom 1, self = atom 3, other) and
                     (atom2, self = atom6, other) than the tethers would be
                     (numpy.array([1, 2]), numpy.array([3, 6])).
-            
-            Returns:
-                The new molecule.
 
-            """
+        :returns: The new molecule.
+        """
 
         if not numpy.class_dependency("align molecules. Missing the dot-product function", "NUMPY"):
             return
@@ -141,22 +141,21 @@ class OtherMolecules():
         """
         Detects steric clashes between the pymolecule.Molecule (self) and
         another pymolecule.Molecule.
-
-            Args:
-                other_mol -- The pymolecule.Molecule object that will be
+        
+        Wrapper function for :meth:`pymolecule.Molecule.Molecule.steric_clash_with_another_molecule`
+        
+        :param pymolecule.Molecule other_mol: The pymolecule.Molecule object that will be
                     evaluated for steric clashes.
-                cutoff -- A float, the user-defined distance cutoff in
+        :param float cutoff: A float, the user-defined distance cutoff in
                     Angstroms.
-                pairwise_comparison -- An optional boolean, whether or not to
+        :param bool pairwise_comparison: An optional boolean, whether or not to
                     perform a simple pairwise distance comparison (if True) or
                     to use a more sophisitcated method (if False). True by
                     default.
 
-            Returns:
-                A boolean. True if steric clashes are present, False if they
+        :returns: A boolean. True if steric clashes are present, False if they
                     are not.
-
-            """
+        """
 
         if not numpy.class_dependency("calculate the steric clashes with another molecule", "NUMPY"):
             return
@@ -188,15 +187,14 @@ class OtherMolecules():
         """
         Merges two molecular models into a single model.
 
-            Args:
-                other_molecule -- A molecular model (pymolecule.Molecule
+        Wrapper function for :meth:`pymolecule.Molecule.Molecule.merge_with_another_molecule`
+        
+        :param pymolecule.Molecule other_molecule: A molecular model (pymolecule.Molecule
                     object).
 
-            Returns:
-                A single pymolecule.Molecule object containing the atoms of
+        :returns: A single pymolecule.Molecule object containing the atoms of
                     this model combined with the atoms of other_molecule.
-
-            """
+        """
 
         merged = self.__parent_molecule.copy()
 
@@ -262,19 +260,18 @@ class OtherMolecules():
         Computes the minimum distance between any of the atoms of this
         molecular model and any of the atoms of a second specified model.
 
-            Args:
-                other_molecule -- a pymolecule.Molecule, the other molecular
+        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_distance_to_another_molecule`
+        
+        :param pymolecule.Molecule other_molecule: a pymolecule.Molecule, the other molecular
                     model.
-                pairwise_comparison -- An optional boolean, whether or not to
+        :param bool pairwise_comparison: An optional boolean, whether or not to
                     perform a simple pairwise distance comparison (if True) or
                     to use a more sophisitcated method (if False). True by
                     default.
 
-            Returns:
-                A float, the minimum distance between any two atoms of the two
+        :returns: A float, the minimum distance between any two atoms of the two
                 specified molecular models (self and other_molecule).
-
-            """
+        """
 
         if not numpy.class_dependency("calculate the distance to another molecule", "NUMPY"):
             return
@@ -327,18 +324,17 @@ class OtherMolecules():
         Calculates the RMSD between this pymolecule.Molecle object and
         another, where equivalent atoms are explicitly specified.
 
-            Args:
-                other_mol -- The other pymolecule.Molecule object.
-                tethers -- A tuple of two numpy.array objects, where each array
+        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified`
+        
+        :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
+        :param tuple tethers: A tuple of two numpy.array objects, where each array
                     contains the indices of self and other_mol, respectively,
                     such that equivalent atoms are listed in the same order.
                     So, for example, if (atom 1, self = atom 3, other) and
                     (atom2, self = atom6, other) than the tethers would be
                     (numpy.array([1, 2]), numpy.array([3, 6])).
 
-            Returns:
-                A float, the RMSD between self and other_mol.
-
+        :returns: A float, the RMSD between self and other_mol.
         """
 
         slf_gt_crs = self.__parent_molecule.get_coordinates()
@@ -364,12 +360,11 @@ class OtherMolecules():
         Calculates the RMSD between two structures, where equivalent atoms
         are listed in the same order.
 
-            Args:
-                other_mol -- The other pymolecule.Molecule object.
+        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_rmsd_order_dependent`
+        
+        :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
 
-            Returns:
-                A float, the RMSD between self and other_mol.
-
+        :returns: A float, the RMSD between self and other_mol.
         """
 
         self_index_in_order = numpy.arange(
@@ -394,11 +389,11 @@ class OtherMolecules():
         J. Olson. Note: Identical means the order of the atoms is the same as
         well.
         
-            Args:
-                other_mol -- The other pymolecule.Molecule object.
+        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_rmsd_heuristic`
+        
+        :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
             
-            Returns:
-                A float, the RMSD between self and other_mol.
+        :returns: A float, the RMSD between self and other_mol.
         """
 
         if not numpy.class_dependency("calculate an RMSD using a heuristical algorithm", "NUMPY"):
@@ -431,18 +426,16 @@ class OtherMolecules():
         return numpy.max((rmsd1, rmsd2))
 
     def _get_rmsd_heuristic_helper_func(self, atom_grp1, atom_grp2):
-        """A helper function for calculating heuristic RMSD.
+        """
+        A helper function for calculating heuristic RMSD.
         
-            Args:
-                atom_grp1: A dictionary, where the keys are atom types
+        :param dict atom_grp1: A dictionary, where the keys are atom types
                     and the values are numpy arrays of the coordinates.
-                atom_grp2: The same, but now given the atoms of the
+        :param dict atom_grp2: The same, but now given the atoms of the
                     other molecule.
             
-            Returns:
-                A float, the heuristic RMSD between the two molecules
+        :returns: A float, the heuristic RMSD between the two molecules
                     (atom_grp1 to atom_grp2)
-        
         """
         
         if not numpy.class_dependency("use this helper function", "SCIPY"):

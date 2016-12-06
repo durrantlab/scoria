@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>pymolecule.Molecule module &#8212; PyMolecule 2.0 documentation</title>
+    <title>1. pymolecule.Molecule module &#8212; PyMolecule 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" /> 
+    <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" />
+    <link rel="next" title="2. pymolecule.FileIO module" href="FileIO.html" />
+    <link rel="prev" title="Welcome to PyMolecule’s documentation!" href="index.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -35,6 +37,12 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="FileIO.html" title="2. pymolecule.FileIO module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to PyMolecule’s documentation!"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -45,7 +53,7 @@
           <div class="body" role="main">
             
   <div class="section" id="module-pymolecule.Molecule">
-<span id="pymolecule-molecule-module"></span><h1>pymolecule.Molecule module<a class="headerlink" href="#module-pymolecule.Molecule" title="Permalink to this headline">¶</a></h1>
+<span id="pymolecule-molecule-module"></span><h1>1. pymolecule.Molecule module<a class="headerlink" href="#module-pymolecule.Molecule" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="pymolecule.Molecule.Molecule">
 <em class="property">class </em><code class="descclassname">pymolecule.Molecule.</code><code class="descname">Molecule</code><a class="headerlink" href="#pymolecule.Molecule.Molecule" title="Permalink to this definition">¶</a></dt>
@@ -69,27 +77,27 @@ class. Contains Wrapper functions for subclasses.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>record_name</strong> (<em>str</em>) &#8211; An optional string, the record name of the atom.
+<li><strong>record_name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the record name of the atom.
 &#8220;ATOM&#8221; is the default.</li>
-<li><strong>serial</strong> (<em>int</em>) &#8211; An optional int, the serial field of the atom. 1 is
+<li><strong>serial</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An optional int, the serial field of the atom. 1 is
 the default.</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; An optional string, the name of the atom. &#8216;X&#8217; is the
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the name of the atom. &#8216;X&#8217; is the
 default.</li>
-<li><strong>resname</strong> (<em>str</em>) &#8211; An optional string, the resname of the atom. &#8216;XXX&#8217;
+<li><strong>resname</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the resname of the atom. &#8216;XXX&#8217;
 is the default.</li>
-<li><strong>chainid</strong> (<em>str</em>) &#8211; An optional string, chainid of the atom. &#8216;X&#8217; is the
+<li><strong>chainid</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, chainid of the atom. &#8216;X&#8217; is the
 default.</li>
-<li><strong>resseq</strong> (<em>int</em>) &#8211; An optional int, the resseq field of the atom. 1 is
+<li><strong>resseq</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An optional int, the resseq field of the atom. 1 is
 the default.</li>
-<li><strong>occupancy</strong> (<em>float</em>) &#8211; An optional float, the occupancy of the atom. 0.0
+<li><strong>occupancy</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; An optional float, the occupancy of the atom. 0.0
 is the default.</li>
-<li><strong>tempfactor</strong> (<em>float</em>) &#8211; An optional float, the tempfactor of the atom.
+<li><strong>tempfactor</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; An optional float, the tempfactor of the atom.
 0.0 is the default.</li>
-<li><strong>charge</strong> (<em>str</em>) &#8211; An optional string, the charge of the atom. &#8216;&#8217; is the
+<li><strong>charge</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the charge of the atom. &#8216;&#8217; is the
 default.</li>
-<li><strong>element</strong> (<em>str</em>) &#8211; An optional string, the element of the atom. &#8216;X&#8217; is
+<li><strong>element</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the element of the atom. &#8216;X&#8217; is
 the default.</li>
-<li><strong>coordinates</strong> (<em>numpy.array</em>) &#8211; An optional numpy.array, the (x, y, z)
+<li><strong>coordinates</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; An optional numpy.array, the (x, y, z)
 coordinates of the atom. numpy.array([0.0, 0.0, 0.0]) is
 the default.</li>
 </ul>
@@ -109,11 +117,11 @@ the default.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>index1</strong> (<em>int</em>) &#8211; An int, the index of the first atom of the bonded
+<li><strong>index1</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the first atom of the bonded
 pair.</li>
-<li><strong>index2</strong> (<em>int</em>) &#8211; An int, the index of the second atom of the bonded
+<li><strong>index2</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the second atom of the bonded
 pair.</li>
-<li><strong>order</strong> (<em>int</em>) &#8211; An optional int, the order of the bond. 1 by default.</li>
+<li><strong>order</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An optional int, the order of the bond. 1 by default.</li>
 </ul>
 </td>
 </tr>
@@ -128,12 +136,12 @@ pair.</li>
 this will overwrite any existing element assignments, including those
 explicitly specified in loaded files. Note that this doesn&#8217;t populate
 elements_stripped.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.assign_elements_from_atom_names()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.assign_elements_from_atom_names" title="pymolecule.Information.Information.assign_elements_from_atom_names"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.assign_elements_from_atom_names()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<em>numpy.array</em>) &#8211; An optional numpy.array containing the indices of
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; An optional numpy.array containing the indices of
 the atoms to consider when calculating the center of mass.
 If ommitted, all atoms of the pymolecule.Molecule object
 will be considered.</td>
@@ -146,8 +154,8 @@ will be considered.</td>
 <dt id="pymolecule.Molecule.Molecule.assign_masses">
 <code class="descname">assign_masses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.assign_masses" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assigns masses to the atoms of the pymolecule.Molecule object.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.assign_masses()</span></code></p>
-<p><strong>Note</strong>:
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.assign_masses" title="pymolecule.Information.Information.assign_masses"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.assign_masses()</span></code></a></p>
+<p><code class="docutils literal"><span class="pre">Note</span></code>:
 This will autopopulate the masses according to their element 
 identification and takes no input.</p>
 </dd></dl>
@@ -156,12 +164,12 @@ identification and takes no input.</p>
 <dt id="pymolecule.Molecule.Molecule.belongs_to_dna">
 <code class="descname">belongs_to_dna</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.belongs_to_dna" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if the atom is part of DNA.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.belongs_to_dna()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.belongs_to_dna" title="pymolecule.Information.Information.belongs_to_dna"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.belongs_to_dna()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>atom_index</strong> (<em>int</em>) &#8211; An int, the index of the atom to consider.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>atom_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the atom to consider.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A boolean. True if part of dna, False if not.</td>
 </tr>
@@ -174,12 +182,12 @@ identification and takes no input.</p>
 <code class="descname">belongs_to_protein</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.belongs_to_protein" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if the atom is part of a protein. Taken primarily from Amber
 residue names.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.belongs_to_protein()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.belongs_to_protein" title="pymolecule.Information.Information.belongs_to_protein"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.belongs_to_protein()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>atom_index</strong> (<em>int</em>) &#8211; An int, the index of the atom to consider.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>atom_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the atom to consider.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A boolean. True if part of protein, False if not.</td>
 </tr>
@@ -191,12 +199,12 @@ residue names.</p>
 <dt id="pymolecule.Molecule.Molecule.belongs_to_rna">
 <code class="descname">belongs_to_rna</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.belongs_to_rna" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if the atom is part of RNA.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.belongs_to_rna()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.belongs_to_rna" title="pymolecule.Information.Information.belongs_to_rna"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.belongs_to_rna()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>atom_index</strong> (<em>int</em>) &#8211; An int, the index of the atom to consider.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>atom_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the atom to consider.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A boolean. True if part of rna, False if not.</td>
 </tr>
@@ -209,7 +217,7 @@ residue names.</p>
 <code class="descname">coordinate_undo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.coordinate_undo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets the coordinates of all atoms to those saved using the
 set_coordinate_undo_point function.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.coordinate_undo()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Manipulation.html#pymolecule.Manipulation.Manipulation.coordinate_undo" title="pymolecule.Manipulation.Manipulation.coordinate_undo"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.coordinate_undo()</span></code></a></p>
 </dd></dl>
 
 <dl class="method">
@@ -239,10 +247,10 @@ proximity.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>remove_old_bond_data</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>remove_old_bond_data</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 discard old bond data before adding in bonds determined by
 distance. True by default.</li>
-<li><strong>delete_excessive_bonds</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not
+<li><strong>delete_excessive_bonds</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not
 to check for and delete excessive bonds. True by default.</li>
 </ul>
 </td>
@@ -258,7 +266,7 @@ to check for and delete excessive bonds. True by default.</li>
 chains, and the residues. This information is stored in
 pymolecule.Information.Information.hierarchy.</p>
 <p>Wrapper function for 
-<code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.define_molecule_chain_residue_spherical_boundaries()</span></code></p>
+<a class="reference internal" href="Information.html#pymolecule.Information.Information.define_molecule_chain_residue_spherical_boundaries" title="pymolecule.Information.Information.define_molecule_chain_residue_spherical_boundaries"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.define_molecule_chain_residue_spherical_boundaries()</span></code></a></p>
 </dd></dl>
 
 <dl class="method">
@@ -270,7 +278,7 @@ pymolecule.Information.Information.hierarchy.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) &#8211; An int, the index of the atom to delete.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the atom to delete.</td>
 </tr>
 </tbody>
 </table>
@@ -286,9 +294,9 @@ pymolecule.Information.Information.hierarchy.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>index1</strong> (<em>int</em>) &#8211; An int, the index of the first atom of the bonded
+<li><strong>index1</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the first atom of the bonded
 pair.</li>
-<li><strong>index2</strong> (<em>int</em>) &#8211; An int, the index of the second atom of the bonded
+<li><strong>index2</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the second atom of the bonded
 pair.</li>
 </ul>
 </td>
@@ -301,12 +309,12 @@ pair.</li>
 <dt id="pymolecule.Molecule.Molecule.delete_trajectory_frame">
 <code class="descname">delete_trajectory_frame</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.delete_trajectory_frame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a given frame from the trajectory.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.delete_trajectory_frame()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.delete_trajectory_frame" title="pymolecule.Information.Information.delete_trajectory_frame"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.delete_trajectory_frame()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) &#8211; Integer of the frame to remove.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Integer of the frame to remove.</td>
 </tr>
 </tbody>
 </table>
@@ -317,17 +325,17 @@ pair.</li>
 <code class="descname">get_angle_between_three_points</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_angle_between_three_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the angle (in radians) formed by three points (numpy.array
 objects).</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Geometry.Geometry.get_angle_between_three_points()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Geometry.html#pymolecule.Geometry.Geometry.get_angle_between_three_points" title="pymolecule.Geometry.Geometry.get_angle_between_three_points"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Geometry.Geometry.get_angle_between_three_points()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>pt1</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing the first of the
+<li><strong>pt1</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing the first of the
 three 3D points.</li>
-<li><strong>pt2</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing the second of the
+<li><strong>pt2</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing the second of the
 three 3D points.</li>
-<li><strong>pt3</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing the third of the
+<li><strong>pt3</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing the third of the
 three 3D points.</li>
 </ul>
 </td>
@@ -344,14 +352,14 @@ radians.</p>
 <dt id="pymolecule.Molecule.Molecule.get_atom_information">
 <code class="descname">get_atom_information</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_atom_information" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retreives the atomic information for the molecule.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_atom_information()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_atom_information" title="pymolecule.Information.Information.get_atom_information"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_atom_information()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A masked array containing the atom information.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>numpy.ma</em></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/maskedarray.baseclass.html#numpy.ma.MaskedArray" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy.ma.MaskedArray</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -458,14 +466,14 @@ radians.</p>
 <dt id="pymolecule.Molecule.Molecule.get_bonds">
 <code class="descname">get_bonds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_bonds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retreives the bonds beteween atoms as a n x n matrix.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_bonds()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_bonds" title="pymolecule.Information.Information.get_bonds"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_bonds()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A binary n x n matrix, where bonds are represented by 1.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>numpy.array</em></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy.array</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -485,18 +493,18 @@ radians.</p>
 <dt id="pymolecule.Molecule.Molecule.get_bounding_box">
 <code class="descname">get_bounding_box</code><span class="sig-paren">(</span><em>selection=None</em>, <em>padding=0.0</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_bounding_box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates a box that bounds (encompasses) a set of atoms.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_bounding_box()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_bounding_box" title="pymolecule.Information.Information.get_bounding_box"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_bounding_box()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>selection</strong> (<em>numpy.array</em>) &#8211; An optional numpy.array containing the indices of
+<li><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; An optional numpy.array containing the indices of
 the atoms to consider. If ommitted, all atoms of the
 pymolecule.Molecule object will be considered.</li>
-<li><strong>padding</strong> (<em>float</em>) &#8211; An optional float. The bounding box will extend this
+<li><strong>padding</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; An optional float. The bounding box will extend this
 many angstroms beyond the atoms being considered.</li>
-<li><strong>frame</strong> (<em>int</em>) &#8211; An integer indicating at which timestep the center of
+<li><strong>frame</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An integer indicating at which timestep the center of
 mass should be calculated. If ommitted, it defaults to the 
 first frame of the trajectory.</li>
 </ul>
@@ -506,7 +514,7 @@ first frame of the trajectory.</li>
 and (max_x, max_y, max_z), that bound the molecule.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>numpy.array</em></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy.array</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -517,18 +525,18 @@ and (max_x, max_y, max_z), that bound the molecule.</p>
 <dt id="pymolecule.Molecule.Molecule.get_bounding_sphere">
 <code class="descname">get_bounding_sphere</code><span class="sig-paren">(</span><em>selection=None</em>, <em>padding=0.0</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_bounding_sphere" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates a sphere that bounds (encompasses) a set of atoms.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_bounding_sphere()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_bounding_sphere" title="pymolecule.Information.Information.get_bounding_sphere"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_bounding_sphere()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>selection</strong> (<em>numpy.array</em>) &#8211; An optional numpy.array containing the indices of
+<li><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; An optional numpy.array containing the indices of
 the atoms to consider. If ommitted, all atoms of the
 pymolecule.Molecule object will be considered.</li>
-<li><strong>padding</strong> (<em>float</em>) &#8211; An optional float. The bounding sphere will extend
+<li><strong>padding</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; An optional float. The bounding sphere will extend
 this many angstroms beyond the atoms being considered.</li>
-<li><strong>frame</strong> (<em>int</em>) &#8211; An integer indicating at which timestep the center of
+<li><strong>frame</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An integer indicating at which timestep the center of
 mass should be calculated. If ommitted, it defaults to the 
 first frame of the trajectory.</li>
 </ul>
@@ -539,7 +547,7 @@ representing a 3D point, the (x, y, z) center of the
 sphere. The second is a float, the radius of the sphere.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>tuple</em> (<em>numpy.array</em>, <em>float</em>)</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/numpy/glossary.html#term-tuple" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">tuple</span></code></a> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy.array</span></code></a>, <a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref any docutils literal"><span class="pre">float</span></code></a>)</p>
 </td>
 </tr>
 </tbody>
@@ -550,17 +558,17 @@ sphere. The second is a float, the radius of the sphere.</p>
 <dt id="pymolecule.Molecule.Molecule.get_center_of_mass">
 <code class="descname">get_center_of_mass</code><span class="sig-paren">(</span><em>selection=None</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_center_of_mass" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines the center of mass.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_center_of_mass()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_center_of_mass" title="pymolecule.Information.Information.get_center_of_mass"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_center_of_mass()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>selection</strong> (<em>numpy.array</em>) &#8211; The indices of
+<li><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; The indices of
 the atoms to consider when calculating the center of mass. 
 If ommitted, all atoms of the pymolecule.Molecule object 
 will be considered.</li>
-<li><strong>frame</strong> (<em>int</em>) &#8211; The timestep at which the center of mass
+<li><strong>frame</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The timestep at which the center of mass
 should be calculated. If ommitted, it defaults to the first 
 frame of the trajectory.</li>
 </ul>
@@ -569,7 +577,7 @@ frame of the trajectory.</li>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The x, y, and z coordinates of the center of mass.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>numpy.ma</em></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/maskedarray.baseclass.html#numpy.ma.MaskedArray" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy.ma.MaskedArray</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -586,14 +594,14 @@ frame of the trajectory.</li>
 <dt id="pymolecule.Molecule.Molecule.get_constants">
 <code class="descname">get_constants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_constants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary containing the constants assumed for the molecular model.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_constants()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_constants" title="pymolecule.Information.Information.get_constants"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_constants()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The constants assumed by the model.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>dict</em></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="pymolecule.dumbpy.html#pymolecule.dumbpy.Array.RecArray.dict" title="pymolecule.dumbpy.Array.RecArray.dict"><code class="xref any py py-attr docutils literal"><span class="pre">dict</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -658,12 +666,12 @@ frame of the trajectory.</li>
 <dt id="pymolecule.Molecule.Molecule.get_coordinates">
 <code class="descname">get_coordinates</code><span class="sig-paren">(</span><em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_coordinates" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the set of coordinates from the specified frame.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_coordinates()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_coordinates" title="pymolecule.Information.Information.get_coordinates"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_coordinates()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>frame</strong> (<em>int</em>) &#8211; The timestep from which the coordinates shoule be 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>frame</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The timestep from which the coordinates shoule be 
 returned. If ommitted, it defaults to the first 
 frame of the trajectory.</td>
 </tr>
@@ -672,7 +680,7 @@ frame of the trajectory.</td>
 </div>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><em>numpy.array</em></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy.array</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -702,14 +710,14 @@ frame of the trajectory.</td>
 <code class="descname">get_coordinates_undo_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_coordinates_undo_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>NEEDS CLARIFICATION.
 Retreives a previously save set of coordinates to revert to.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_coordinates_undo_point()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_coordinates_undo_point" title="pymolecule.Information.Information.get_coordinates_undo_point"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_coordinates_undo_point()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A set of coordinates from which to return to.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>numpy.array</em> or <em>None</em></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy.array</span></code></a> or <a class="reference external" href="https://docs.python.org/2/library/constants.html#None" title="(in Python v2.7)"><code class="xref any docutils literal"><span class="pre">None</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -720,19 +728,19 @@ Retreives a previously save set of coordinates to revert to.</p>
 <code class="descname">get_dihedral_angle</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_dihedral_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the dihedral angle formed by four points (numpy.array
 objects).</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Geometry.Geometry.get_dihedral_angle()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Geometry.html#pymolecule.Geometry.Geometry.get_dihedral_angle" title="pymolecule.Geometry.Geometry.get_dihedral_angle"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Geometry.Geometry.get_dihedral_angle()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>pt1</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing the first 3D
+<li><strong>pt1</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing the first 3D
 point.</li>
-<li><strong>pt2</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing the second 3D
+<li><strong>pt2</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing the second 3D
 point.</li>
-<li><strong>pt3</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing the third 3D
+<li><strong>pt3</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing the third 3D
 point.</li>
-<li><strong>pt4</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing the fourth 3D
+<li><strong>pt4</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing the fourth 3D
 point.</li>
 </ul>
 </td>
@@ -750,7 +758,7 @@ in radians.</p>
 <code class="descname">get_distance_to_another_molecule</code><span class="sig-paren">(</span><em>other_molecule</em>, <em>pairwise_comparison=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_distance_to_another_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the minimum distance between any of the atoms of this
 molecular model and any of the atoms of a second specified model.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.get_distance_to_another_molecule()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="OtherMolecules.html#pymolecule.OtherMolecules.OtherMolecules.get_distance_to_another_molecule" title="pymolecule.OtherMolecules.OtherMolecules.get_distance_to_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.get_distance_to_another_molecule()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -758,7 +766,7 @@ molecular model and any of the atoms of a second specified model.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>other_molecule</strong> (<a class="reference internal" href="#module-pymolecule.Molecule" title="pymolecule.Molecule"><em>pymolecule.Molecule</em></a>) &#8211; a pymolecule.Molecule, the other molecular
 model.</li>
-<li><strong>pairwise_comparison</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>pairwise_comparison</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 perform a simple pairwise distance comparison (if True) or
 to use a more sophisitcated method (if False). True by
 default.</li>
@@ -777,14 +785,14 @@ specified molecular models (self and other_molecule).</p>
 <dt id="pymolecule.Molecule.Molecule.get_filename">
 <code class="descname">get_filename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_filename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the filename that the molecule was originally loaded from.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_filename()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_filename" title="pymolecule.Information.Information.get_filename"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_filename()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The name of the file.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>str</em></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><code class="xref any docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -800,17 +808,17 @@ specified molecular models (self and other_molecule).</p>
 <dt id="pymolecule.Molecule.Molecule.get_geometric_center">
 <code class="descname">get_geometric_center</code><span class="sig-paren">(</span><em>selection=None</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_geometric_center" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines the geometric center of the molecule.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_geometric_center()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_geometric_center" title="pymolecule.Information.Information.get_geometric_center"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_geometric_center()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>selection</strong> (<em>numpy.array</em>) &#8211; The indices of
+<li><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; The indices of
 the atoms to consider when calculating the geometric. 
 If ommitted, all atoms of the pymolecule.Molecule object 
 will be considered.</li>
-<li><strong>frame</strong> (<em>int</em>) &#8211; The timestep at which the geometric center 
+<li><strong>frame</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The timestep at which the geometric center 
 should be calculated. If ommitted, it defaults to the first 
 frame of the trajectory.</li>
 </ul>
@@ -819,7 +827,7 @@ frame of the trajectory.</li>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The x, y, and z coordinates of the geometric center.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>numpy.array</em></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy.array</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -836,14 +844,14 @@ frame of the trajectory.</li>
 <dt id="pymolecule.Molecule.Molecule.get_hierarchy">
 <code class="descname">get_hierarchy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_hierarchy" title="Permalink to this definition">¶</a></dt>
 <dd><p>NEEDS CLARIFICATION.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_hierarchy()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_hierarchy" title="pymolecule.Information.Information.get_hierarchy"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_hierarchy()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary?</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>dict</em></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="pymolecule.dumbpy.html#pymolecule.dumbpy.Array.RecArray.dict" title="pymolecule.dumbpy.Array.RecArray.dict"><code class="xref any py py-attr docutils literal"><span class="pre">dict</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -860,8 +868,8 @@ neighbor of a specified element.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>atom_index</strong> (<em>int</em>) &#8211; An int, the index of the atom of interest.</li>
-<li><strong>the_element</strong> (<em>str</em>) &#8211; A string specifying the desired element of the
+<li><strong>atom_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the atom of interest.</li>
+<li><strong>the_element</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; A string specifying the desired element of the
 neighbor.</li>
 </ul>
 </td>
@@ -870,7 +878,7 @@ neighbor.</li>
 element. If no such neighbor exists, returns -1.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>int</em></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref any docutils literal"><span class="pre">int</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -887,11 +895,11 @@ element. If no such neighbor exists, returns -1.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>selection</strong> (<em>numpy.array</em>) &#8211; A numpy.array containing the indices of the atoms
+<li><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array containing the indices of the atoms
 in the user-defined selection.</li>
-<li><strong>serial_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>serial_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the atom serial fields. Default is True.</li>
-<li><strong>resseq_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>resseq_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the atom resseq fields. Default is False.</li>
 </ul>
 </td>
@@ -916,8 +924,8 @@ atom of interest.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>atom_index</strong> (<em>int</em>) &#8211; An int, the index of the atom of interest.</li>
-<li><strong>the_element</strong> (<em>str</em>) &#8211; A string describing the element of the neighbors
+<li><strong>atom_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the atom of interest.</li>
+<li><strong>the_element</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; A string describing the element of the neighbors
 to be counted.</li>
 </ul>
 </td>
@@ -926,7 +934,7 @@ to be counted.</li>
 element.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>int</em></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref any docutils literal"><span class="pre">int</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -938,7 +946,7 @@ element.</p>
 <code class="descname">get_other_molecule_aligned_to_this</code><span class="sig-paren">(</span><em>other_mol</em>, <em>tethers</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this" title="Permalink to this definition">¶</a></dt>
 <dd><p>Aligns a molecule to self (this pymolecule.Molecule object) using a
 quaternion RMSD alignment.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.get_other_molecule_aligned_to_this()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="OtherMolecules.html#pymolecule.OtherMolecules.OtherMolecules.get_other_molecule_aligned_to_this" title="pymolecule.OtherMolecules.OtherMolecules.get_other_molecule_aligned_to_this"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.get_other_molecule_aligned_to_this()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -946,7 +954,7 @@ quaternion RMSD alignment.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>other_mol</strong> (<a class="reference internal" href="#module-pymolecule.Molecule" title="pymolecule.Molecule"><em>pymolecule.Molecule</em></a>) &#8211; A pymolecule.Molecule that is to be aligned to
 this one.</li>
-<li><strong>tethers</strong> (<em>tuple</em>) &#8211; A tuple of two numpy.array objects, where each array
+<li><strong>tethers</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; A tuple of two numpy.array objects, where each array
 contains the indices of self and other_mol, respectively,
 such that equivalent atoms are listed in the same order.
 So, for example, if (atom 1, self = atom 3, other) and
@@ -967,16 +975,16 @@ So, for example, if (atom 1, self = atom 3, other) and
 <code class="descname">get_planarity_deviation</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_planarity_deviation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines how close four points (numpy.array objects) come to lying
 in a common plane.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Geometry.Geometry.get_planarity_deviation()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Geometry.html#pymolecule.Geometry.Geometry.get_planarity_deviation" title="pymolecule.Geometry.Geometry.get_planarity_deviation"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Geometry.Geometry.get_planarity_deviation()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>pt1</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
-<li><strong>pt2</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
-<li><strong>pt3</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
-<li><strong>pt4</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
+<li><strong>pt1</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
+<li><strong>pt2</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
+<li><strong>pt3</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
+<li><strong>pt4</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
 </ul>
 </td>
 </tr>
@@ -992,14 +1000,14 @@ formed by the other three.</p>
 <dt id="pymolecule.Molecule.Molecule.get_remarks">
 <code class="descname">get_remarks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_remarks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the remarks from the file the molecule was loaded from.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_remarks()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_remarks" title="pymolecule.Information.Information.get_remarks"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_remarks()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The remarks from the file an a list of strings.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>list</em></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/glossary.html#term-list" title="(in Python v2.7)"><code class="xref any docutils literal"><span class="pre">list</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1016,14 +1024,14 @@ formed by the other three.</p>
 <code class="descname">get_rmsd_equivalent_atoms_specified</code><span class="sig-paren">(</span><em>other_mol</em>, <em>tethers</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the RMSD between this pymolecule.Molecle object and
 another, where equivalent atoms are explicitly specified.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.get_rmsd_equivalent_atoms_specified()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="OtherMolecules.html#pymolecule.OtherMolecules.OtherMolecules.get_rmsd_equivalent_atoms_specified" title="pymolecule.OtherMolecules.OtherMolecules.get_rmsd_equivalent_atoms_specified"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.get_rmsd_equivalent_atoms_specified()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>other_mol</strong> (<a class="reference internal" href="#module-pymolecule.Molecule" title="pymolecule.Molecule"><em>pymolecule.Molecule</em></a>) &#8211; The other pymolecule.Molecule object.</li>
-<li><strong>tethers</strong> (<em>tuple</em>) &#8211; A tuple of two numpy.array objects, where each array
+<li><strong>tethers</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; A tuple of two numpy.array objects, where each array
 contains the indices of self and other_mol, respectively,
 such that equivalent atoms are listed in the same order.
 So, for example, if (atom 1, self = atom 3, other) and
@@ -1048,7 +1056,7 @@ the speed and accuracy of docking with a new scoring function,
 efficient optimization, and multithreading,&#8221;&#8221; by Oleg Trott and Arthur
 J. Olson. Note: Identical means the order of the atoms is the same as
 well.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.get_rmsd_heuristic()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="OtherMolecules.html#pymolecule.OtherMolecules.OtherMolecules.get_rmsd_heuristic" title="pymolecule.OtherMolecules.OtherMolecules.get_rmsd_heuristic"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.get_rmsd_heuristic()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1066,7 +1074,7 @@ well.</p>
 <code class="descname">get_rmsd_order_dependent</code><span class="sig-paren">(</span><em>other_mol</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_rmsd_order_dependent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the RMSD between two structures, where equivalent atoms
 are listed in the same order.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.get_rmsd_order_dependent()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="OtherMolecules.html#pymolecule.OtherMolecules.OtherMolecules.get_rmsd_order_dependent" title="pymolecule.OtherMolecules.OtherMolecules.get_rmsd_order_dependent"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.get_rmsd_order_dependent()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1084,19 +1092,19 @@ are listed in the same order.</p>
 <code class="descname">get_total_mass</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_total_mass" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the total mass of all atoms within the molecule, or of a given 
 selection.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_total_mass()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_total_mass" title="pymolecule.Information.Information.get_total_mass"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_total_mass()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<em>numpy.array</em>) &#8211; The indices of
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; The indices of
 the atoms to consider when calculating the geometric. 
 If ommitted, all atoms of the pymolecule.Molecule object
 will be considered.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The total mass of the atom or selection</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><em>float</em></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><code class="xref any docutils literal"><span class="pre">float</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1111,16 +1119,16 @@ will be considered.</td>
 <code class="descname">get_total_number_of_atoms</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_total_number_of_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Counts the number of atoms.</p>
 <p>Wrapper function for 
-<code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_total_number_of_atoms()</span></code></p>
+<a class="reference internal" href="Information.html#pymolecule.Information.Information.get_total_number_of_atoms" title="pymolecule.Information.Information.get_total_number_of_atoms"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_total_number_of_atoms()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>selection</strong> (<em>numpy.array</em>) &#8211; An optional numpy.array containing the indices of
+<li><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; An optional numpy.array containing the indices of
 the atoms to count. If ommitted, all atoms of the
 pymolecule.Molecule object will be considered.</li>
-<li><strong>frame</strong> (<em>int</em>) &#8211; An integer indicating at which timestep the center of
+<li><strong>frame</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An integer indicating at which timestep the center of
 mass should be calculated. If ommitted, it defaults to the 
 first frame of the trajectory.</li>
 </ul>
@@ -1129,7 +1137,7 @@ first frame of the trajectory.</li>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The total number of atoms.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>int</em></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref any docutils literal"><span class="pre">int</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -1142,18 +1150,18 @@ first frame of the trajectory.</li>
 <dd><p>Counts the number of heavy atoms (i.e., atoms that are not
 hydrogens).</p>
 <p>Wrapper function for 
-<code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_total_number_of_heavy_atoms()</span></code></p>
+<a class="reference internal" href="Information.html#pymolecule.Information.Information.get_total_number_of_heavy_atoms" title="pymolecule.Information.Information.get_total_number_of_heavy_atoms"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_total_number_of_heavy_atoms()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<em>numpy.array</em>) &#8211; An optional numpy.array containing the indices of
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; An optional numpy.array containing the indices of
 the atoms to count. If ommitted, all atoms of the
 pymolecule.Molecule object will be considered.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The total number of heavy (non-hydrogen) atoms.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><em>int</em></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref any docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1163,7 +1171,7 @@ pymolecule.Molecule object will be considered.</td>
 <dt id="pymolecule.Molecule.Molecule.get_trajectory">
 <code class="descname">get_trajectory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_trajectory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the trajectory for the molecule.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_trajectory()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_trajectory" title="pymolecule.Information.Information.get_trajectory"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_trajectory()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1175,7 +1183,7 @@ pymolecule.Molecule object will be considered.</td>
 </div>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>numpy.array</em></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy.array</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1206,14 +1214,14 @@ pymolecule.Molecule object will be considered.</td>
 <dt id="pymolecule.Molecule.Molecule.get_trajectory_frame_count">
 <code class="descname">get_trajectory_frame_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.get_trajectory_frame_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the number of frames in __trajectory.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_trajectory_frame_count()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.get_trajectory_frame_count" title="pymolecule.Information.Information.get_trajectory_frame_count"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.get_trajectory_frame_count()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The number of frames in the trajectory.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>int</em></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><code class="xref any docutils literal"><span class="pre">int</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1223,14 +1231,14 @@ pymolecule.Molecule object will be considered.</td>
 <dt id="pymolecule.Molecule.Molecule.insert_trajectory_frame">
 <code class="descname">insert_trajectory_frame</code><span class="sig-paren">(</span><em>index</em>, <em>coordinates</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.insert_trajectory_frame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inserts a new coordinate frame at the end of the trajectory.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.insert_trajectory_frame()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.insert_trajectory_frame" title="pymolecule.Information.Information.insert_trajectory_frame"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.insert_trajectory_frame()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>coordinates</strong> (<em>numpy.array</em>) &#8211; A single frame of coordinates to append.</li>
-<li><strong>index</strong> (<em>int</em>) &#8211; The location where the frame should be added.</li>
+<li><strong>coordinates</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A single frame of coordinates to append.</li>
+<li><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The location where the frame should be added.</li>
 </ul>
 </td>
 </tr>
@@ -1248,7 +1256,7 @@ are not in the seleciton).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<em>numpy.array</em>) &#8211; A numpy.array containing the indices of the
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array containing the indices of the
 user-defined selection.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of all atoms that are not
@@ -1262,17 +1270,17 @@ in the user-defined seleciton.</td>
 <dt id="pymolecule.Molecule.Molecule.is_planar">
 <code class="descname">is_planar</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em>, <em>planarity_cutoff=0.2</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.is_planar" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks whether four points (numpy.array) lie in a common plane.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Geometry.Geometry.is_planar()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Geometry.html#pymolecule.Geometry.Geometry.is_planar" title="pymolecule.Geometry.Geometry.is_planar"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Geometry.Geometry.is_planar()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>pt1</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
-<li><strong>pt2</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
-<li><strong>pt3</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
-<li><strong>pt4</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
-<li><strong>planarity_cutoff</strong> (<em>float</em>) &#8211; An optional float. How much the points can
+<li><strong>pt1</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
+<li><strong>pt2</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
+<li><strong>pt3</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
+<li><strong>pt4</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) representing a 3D point.</li>
+<li><strong>planarity_cutoff</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; An optional float. How much the points can
 deviate (in Angstroms) and still be considered planar. The
 default is 0.2.</li>
 </ul>
@@ -1290,19 +1298,19 @@ default is 0.2.</li>
 <code class="descname">load_pdb_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.load_pdb_into" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the molecular data contained in a pdb file into the current
 pymolecule.Molecule object.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.load_pdb_into()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="FileIO.html#pymolecule.FileIO.FileIO.load_pdb_into" title="pymolecule.FileIO.FileIO.load_pdb_into"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.load_pdb_into()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>filename</strong> (<em>str</em>) &#8211; A string, the filename of the pdb file.</li>
-<li><strong>bonds_by_distance</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; A string, the filename of the pdb file.</li>
+<li><strong>bonds_by_distance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 determine atomic bonds based on atom proximity. True by
 default.</li>
-<li><strong>serial_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>serial_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the pdb serial field. True by default.</li>
-<li><strong>resseq_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>resseq_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the pdb resseq field. False by default.</li>
 </ul>
 </td>
@@ -1318,20 +1326,20 @@ reindex the pdb resseq field. False by default.</li>
 the current pymolecule.Molecule object. Note that most users will want
 to use the load_pdb_into() function instead, which is identical except
 that it accepts a filename string instead of a python file object.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.load_pdb_into_using_file_object()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="FileIO.html#pymolecule.FileIO.FileIO.load_pdb_into_using_file_object" title="pymolecule.FileIO.FileIO.load_pdb_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.load_pdb_into_using_file_object()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>file_obj</strong> (<em>file</em>) &#8211; A python file object, containing pdb-formatted
+<li><strong>file_obj</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#file" title="(in Python v2.7)"><em>file</em></a>) &#8211; A python file object, containing pdb-formatted
 data.</li>
-<li><strong>bonds_by_distance</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>bonds_by_distance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 determine atomic bonds based on atom proximity. True by
 default.</li>
-<li><strong>serial_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>serial_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the pdb serial field. True by default.</li>
-<li><strong>resseq_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>resseq_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the pdb resseq field. False by default.</li>
 </ul>
 </td>
@@ -1347,19 +1355,19 @@ reindex the pdb resseq field. False by default.</li>
 pymolecule.Molecule object. Note that this implementation is
 incomplete. It doesn&#8217;t save atomic charges, for example. The atom
 types are stored in the &#8220;element&#8221; and &#8220;element_stripped&#8221; columns.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.load_pdbqt_into()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="FileIO.html#pymolecule.FileIO.FileIO.load_pdbqt_into" title="pymolecule.FileIO.FileIO.load_pdbqt_into"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.load_pdbqt_into()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>filename</strong> (<em>str</em>) &#8211; A string, the filename of the pdbqt file.</li>
-<li><strong>bonds_by_distance</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; A string, the filename of the pdbqt file.</li>
+<li><strong>bonds_by_distance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 determine atomic bonds based on atom proximity. False by
 default, unlike for PDB.</li>
-<li><strong>serial_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>serial_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the pdb serial field. True by default.</li>
-<li><strong>resseq_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>resseq_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the pdbqt resseq field. False by default.</li>
 </ul>
 </td>
@@ -1376,20 +1384,20 @@ into the current pymolecule.Molecule object. Note that most users will
 want to use the load_pdb_into() function instead, which is identical
 except that it accepts a filename string instead of a python file
 object.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.load_pdbqt_into_using_file_object()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="FileIO.html#pymolecule.FileIO.FileIO.load_pdbqt_into_using_file_object" title="pymolecule.FileIO.FileIO.load_pdbqt_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.load_pdbqt_into_using_file_object()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>file_obj</strong> (<em>file</em>) &#8211; A python file object, containing pdb-formatted
+<li><strong>file_obj</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#file" title="(in Python v2.7)"><em>file</em></a>) &#8211; A python file object, containing pdb-formatted
 data.</li>
-<li><strong>bonds_by_distance</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>bonds_by_distance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 determine atomic bonds based on atom proximity. False by
 default, unlike for PDB.</li>
-<li><strong>serial_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>serial_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the pdb serial field. True by default.</li>
-<li><strong>resseq_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>resseq_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the pdb resseq field. False by default.</li>
 </ul>
 </td>
@@ -1403,12 +1411,12 @@ reindex the pdb resseq field. False by default.</li>
 <code class="descname">load_pym_into</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.load_pym_into" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the molecular data contained in a pym file into the current
 pymolecule.Molecule object.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.load_pym_into()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="FileIO.html#pymolecule.FileIO.FileIO.load_pym_into" title="pymolecule.FileIO.FileIO.load_pym_into"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.load_pym_into()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) &#8211; A string, the filename of the pym file.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; A string, the filename of the pym file.</td>
 </tr>
 </tbody>
 </table>
@@ -1419,7 +1427,7 @@ pymolecule.Molecule object.</p>
 <code class="descname">load_via_MDAnalysis</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.load_via_MDAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Allows import of molecular structure with MDAnalysis</p>
 <p>Wrapper function for 
-<code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.load_via_MDAnalysis()</span></code></p>
+<a class="reference internal" href="FileIO.html#pymolecule.FileIO.FileIO.load_via_MDAnalysis" title="pymolecule.FileIO.FileIO.load_via_MDAnalysis"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.load_via_MDAnalysis()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1434,7 +1442,7 @@ pymolecule.Molecule object.</p>
 <dt id="pymolecule.Molecule.Molecule.merge_with_another_molecule">
 <code class="descname">merge_with_another_molecule</code><span class="sig-paren">(</span><em>other_molecule</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.merge_with_another_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges two molecular models into a single model.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.merge_with_another_molecule()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="OtherMolecules.html#pymolecule.OtherMolecules.OtherMolecules.merge_with_another_molecule" title="pymolecule.OtherMolecules.OtherMolecules.merge_with_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.merge_with_another_molecule()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1458,7 +1466,7 @@ this model combined with the atoms of other_molecule.</td>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>narray</strong> (<em>numpy.array</em>) &#8211; A structured numpy array.</li>
+<li><strong>narray</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A structured numpy array.</li>
 <li><strong>field_names</strong> (<em>list(str)</em>) &#8211; A list of strings, where each string is one of
 the field names of narray.</li>
 </ul>
@@ -1477,7 +1485,7 @@ field names in field_names removed.</p>
 <code class="descname">resseq_reindex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.resseq_reindex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reindexes the resseq field of the atoms in the molecule, starting
 with 1.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.resseq_reindex()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.resseq_reindex" title="pymolecule.Information.Information.resseq_reindex"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.resseq_reindex()</span></code></a></p>
 </dd></dl>
 
 <dl class="method">
@@ -1485,17 +1493,17 @@ with 1.</p>
 <code class="descname">rotate_molecule_around_a_line_between_atoms</code><span class="sig-paren">(</span><em>line_point1_index</em>, <em>line_point2_index</em>, <em>rotate</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate the molecular model about a line segment. The end points of
 the line segment are atoms of specified indices.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Manipulation.html#pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms" title="pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>line_point1_index</strong> (<em>int</em>) &#8211; An int, the index of the first atom at one
+<li><strong>line_point1_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the first atom at one
 end of the line segment.</li>
-<li><strong>line_point2_index</strong> (<em>int</em>) &#8211; An int, the index of the second atom at
+<li><strong>line_point2_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the second atom at
 the other end of the line segment.</li>
-<li><strong>rotate</strong> (<em>float</em>) &#8211; A float, the angle of rotation, in radians.</li>
+<li><strong>rotate</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A float, the angle of rotation, in radians.</li>
 </ul>
 </td>
 </tr>
@@ -1508,17 +1516,17 @@ the other end of the line segment.</li>
 <code class="descname">rotate_molecule_around_a_line_between_points</code><span class="sig-paren">(</span><em>line_point1</em>, <em>line_point2</em>, <em>rotate</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate the molecular model about a line segment. The end points of
 the line segment are explicitly specified coordinates.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Manipulation.html#pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points" title="pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>line_point1</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) corresponding to one end
+<li><strong>line_point1</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) corresponding to one end
 of the line segment.</li>
-<li><strong>line_point2</strong> (<em>numpy.array</em>) &#8211; A numpy.array (x, y, z) corresponding to the
+<li><strong>line_point2</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (x, y, z) corresponding to the
 other end of the line segment.</li>
-<li><strong>rotate</strong> (<em>float</em>) &#8211; A float, the angle of rotation, in radians.</li>
+<li><strong>rotate</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A float, the angle of rotation, in radians.</li>
 </ul>
 </td>
 </tr>
@@ -1530,19 +1538,19 @@ other end of the line segment.</li>
 <dt id="pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_atom">
 <code class="descname">rotate_molecule_around_pivot_atom</code><span class="sig-paren">(</span><em>pivot_index</em>, <em>thetax</em>, <em>thetay</em>, <em>thetaz</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_atom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate the molecular model around a specified atom.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_atom()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Manipulation.html#pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_atom" title="pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_atom"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_atom()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pivot_index</strong> (<em>int</em>) &#8211; An int, the index of the atom about which the
+<li><strong>pivot_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the atom about which the
 molecular model will be rotated.</li>
-<li><strong>thetax</strong> (<em>float</em>) &#8211; A float, the angle to rotate relative to the x axis,
+<li><strong>thetax</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A float, the angle to rotate relative to the x axis,
 in radians.</li>
-<li><strong>thetay</strong> (<em>float</em>) &#8211; A float, the angle to rotate relative to the y axis,
+<li><strong>thetay</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A float, the angle to rotate relative to the y axis,
 in radians.</li>
-<li><strong>thetaz</strong> (<em>float</em>) &#8211; A float, the angle to rotate relative to the z axis,
+<li><strong>thetaz</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A float, the angle to rotate relative to the z axis,
 in radians.</li>
 </ul>
 </td>
@@ -1555,19 +1563,19 @@ in radians.</li>
 <dt id="pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_point">
 <code class="descname">rotate_molecule_around_pivot_point</code><span class="sig-paren">(</span><em>pivot</em>, <em>thetax</em>, <em>thetay</em>, <em>thetaz</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate the molecular model around a specified atom.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_point()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Manipulation.html#pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_point" title="pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_point"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_point()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pivot</strong> (<em>numpy.array</em>) &#8211; A numpy.array, the (x, y, z) coordinate about which
+<li><strong>pivot</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array, the (x, y, z) coordinate about which
 the molecular model will be rotated.</li>
-<li><strong>thetax</strong> (<em>float</em>) &#8211; A float, the angle to rotate relative to the x axis,
+<li><strong>thetax</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A float, the angle to rotate relative to the x axis,
 in radians.</li>
-<li><strong>thetay</strong> (<em>float</em>) &#8211; A float, the angle to rotate relative to the y axis,
+<li><strong>thetay</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A float, the angle to rotate relative to the y axis,
 in radians.</li>
-<li><strong>thetaz</strong> (<em>float</em>) &#8211; A float, the angle to rotate relative to the z axis,
+<li><strong>thetaz</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A float, the angle to rotate relative to the z axis,
 in radians.</li>
 </ul>
 </td>
@@ -1581,18 +1589,18 @@ in radians.</li>
 <code class="descname">save_pdb</code><span class="sig-paren">(</span><em>filename=''</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>return_text=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.save_pdb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves the molecular data contained in a pymolecule.Molecule object
 to a pdb file.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.save_pdb()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="FileIO.html#pymolecule.FileIO.FileIO.save_pdb" title="pymolecule.FileIO.FileIO.save_pdb"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.save_pdb()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>filename</strong> (<em>str</em>) &#8211; An string, the filename to use for saving.</li>
-<li><strong>serial_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An string, the filename to use for saving.</li>
+<li><strong>serial_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the pdb serial field. True by default.</li>
-<li><strong>resseq_reindex</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>resseq_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the pdb resseq field. False by default.</li>
-<li><strong>return_text</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to return
+<li><strong>return_text</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to return
 text instead of writing to a file. If True, the filename
 variable is ignored.</li>
 </ul>
@@ -1602,7 +1610,7 @@ variable is ignored.</li>
 returns nothing.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>str</em> or <em>None</em></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><code class="xref any docutils literal"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/2/library/constants.html#None" title="(in Python v2.7)"><code class="xref any docutils literal"><span class="pre">None</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -1614,24 +1622,24 @@ returns nothing.</p>
 <code class="descname">save_pym</code><span class="sig-paren">(</span><em>filename</em>, <em>save_bonds=False</em>, <em>save_filename=False</em>, <em>save_remarks=False</em>, <em>save_hierarchy=False</em>, <em>save_coordinates_undo_point=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.save_pym" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves the molecular data contained in a pymolecule.Molecule object
 to a pym file.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.save_pym()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="FileIO.html#pymolecule.FileIO.FileIO.save_pym" title="pymolecule.FileIO.FileIO.save_pym"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.FileIO.FileIO.save_pym()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>filename</strong> (<em>str</em>) &#8211; An string, the filename to use for saving. (Note
+<li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An string, the filename to use for saving. (Note
 that this is actually a directory, not a file.)</li>
-<li><strong>save_bonds</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to save
+<li><strong>save_bonds</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to save
 information about atomic bonds. False by default.</li>
-<li><strong>save_filename</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to save
+<li><strong>save_filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to save
 the original (pdb) filename. False by default.</li>
-<li><strong>save_remarks</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to save
+<li><strong>save_remarks</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to save
 remarks associated with the molecule. False by default.</li>
-<li><strong>save_hierarchy</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to save
+<li><strong>save_hierarchy</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to save
 information about spheres the bound (encompass) the whole
 molecule, the chains, and the residues. False by default.</li>
-<li><strong>save_coordinates_undo_point</strong> (<em>bool</em>) &#8211; An optional boolean, whether or
+<li><strong>save_coordinates_undo_point</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or
 not to save the last coordinate undo point. False by
 default.</li>
 </ul>
@@ -1666,7 +1674,7 @@ pymolecule.Molecule object.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<em>numpy.array</em>) &#8211; A numpy.array containing the indices of the
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array containing the indices of the
 user-specified selection.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of the atoms that are
@@ -1716,7 +1724,7 @@ bound to each other via covalent bonds.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<em>numpy.array</em>) &#8211; A numpy.array containing the indices of the
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array containing the indices of the
 user-defined selection.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of the atoms belonging to
@@ -1736,7 +1744,7 @@ selection.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bounding_box</strong> (<em>numpy.array</em>) &#8211; <p>A 2x3 numpy.array containing the minimum and
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bounding_box</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; <p>A 2x3 numpy.array containing the minimum and
 maximum points of the bounding box. Example:
 numpy.array(</p>
 <blockquote>
@@ -1762,7 +1770,7 @@ have a unique combination of resname, resseq, and chainid fields.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<em>numpy.array</em>) &#8211; A numpy.array containing the indices of the
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array containing the indices of the
 user-defined selection.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of all atoms in the same
@@ -1783,9 +1791,9 @@ selection.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>selection</strong> (<em>numpy.array</em>) &#8211; A numpy.array containing the indices of the
+<li><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array containing the indices of the
 user-defined selection.</li>
-<li><strong>cutoff</strong> (<em>float</em>) &#8211; A float, the distance cutoff (in Angstroms).</li>
+<li><strong>cutoff</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A float, the distance cutoff (in Angstroms).</li>
 </ul>
 </td>
 </tr>
@@ -1811,9 +1819,9 @@ and &#8220;points&#8221; in the direction of directionality_atom_index.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>root_atom_index</strong> (<em>int</em>) &#8211; An int, the index of the first atom in the
+<li><strong>root_atom_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the first atom in the
 branch (the &#8220;root&#8221;).</li>
-<li><strong>directionality_atom_index</strong> (<em>int</em>) &#8211; An int, the index of the second atom
+<li><strong>directionality_atom_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the second atom
 in the branch, used to establish directionality</li>
 </ul>
 </td>
@@ -1838,13 +1846,13 @@ pymolecule.Molecule.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>other_mol</strong> (<a class="reference internal" href="#module-pymolecule.Molecule" title="pymolecule.Molecule"><em>pymolecule.Molecule</em></a>) &#8211; A pymolecule.Molecule object of the other
 molecule.</li>
-<li><strong>cutoff</strong> (<em>float</em>) &#8211; A float, the user-defined distance cutoff in
+<li><strong>cutoff</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A float, the user-defined distance cutoff in
 Angstroms.</li>
-<li><strong>pairwise_comparison</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>pairwise_comparison</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 perform a simple pairwise distance comparison (if True) or
 to use a more sophisitcated method (if False). True by
 default.</li>
-<li><strong>terminate_early</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to stop
+<li><strong>terminate_early</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to stop
 looking for steric clashes once one is found. False by
 default.</li>
 </ul>
@@ -1921,7 +1929,7 @@ the associated residue atoms.</td>
 <code class="descname">serial_reindex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.serial_reindex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reindexes the serial field of the atoms in the molecule, starting
 with 1.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.serial_reindex()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.serial_reindex" title="pymolecule.Information.Information.serial_reindex"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.serial_reindex()</span></code></a></p>
 </dd></dl>
 
 <dl class="method">
@@ -1930,12 +1938,12 @@ with 1.</p>
 <dd><p>Sets the __atom_information variable. See 
 <a class="reference internal" href="#pymolecule.Molecule.Molecule.get_atom_information" title="pymolecule.Molecule.Molecule.get_atom_information"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_atom_information()</span></code></a> for
 information on the numpy.array structure.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_atom_information()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.set_atom_information" title="pymolecule.Information.Information.set_atom_information"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_atom_information()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>atom_information</strong> (<em>numpy.array</em>) &#8211; An array containing details
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>atom_information</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; An array containing details
 on the constituent atoms.</td>
 </tr>
 </tbody>
@@ -1947,14 +1955,14 @@ on the constituent atoms.</td>
 <code class="descname">set_atom_location</code><span class="sig-paren">(</span><em>atom_index</em>, <em>new_location</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_atom_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Translates the entire molecular model (without rotating) so that the
 atom with the specified index is located at the specified coordinate.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.set_atom_location()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Manipulation.html#pymolecule.Manipulation.Manipulation.set_atom_location" title="pymolecule.Manipulation.Manipulation.set_atom_location"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.set_atom_location()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>atom_index</strong> (<em>int</em>) &#8211; An int, the index of the target atom.</li>
-<li><strong>new_location</strong> (<em>numpy.array</em>) &#8211; A numpy.array specifying the new (x, y, z)
+<li><strong>atom_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the target atom.</li>
+<li><strong>new_location</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array specifying the new (x, y, z)
 coordinate of the specified atom.</li>
 </ul>
 </td>
@@ -1973,12 +1981,12 @@ by which the pmolecule.Molecule was translated.</p>
 <dd><p>Sets the __bonds variable. See 
 <a class="reference internal" href="#pymolecule.Molecule.Molecule.get_bonds" title="pymolecule.Molecule.Molecule.get_bonds"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_bonds()</span></code></a> for additional 
 information.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_bonds()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.set_bonds" title="pymolecule.Information.Information.set_bonds"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_bonds()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bonds</strong> (<em>numpy.array</em>) &#8211; A binary n x n matrix containing bonding 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bonds</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A binary n x n matrix containing bonding 
 information.</td>
 </tr>
 </tbody>
@@ -1989,14 +1997,14 @@ information.</td>
 <dt id="pymolecule.Molecule.Molecule.set_coordinates">
 <code class="descname">set_coordinates</code><span class="sig-paren">(</span><em>coordinates</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_coordinates" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a specified frame of the __trajectory variable.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_coordinates()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.set_coordinates" title="pymolecule.Information.Information.set_coordinates"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_coordinates()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>coordinates</strong> (<em>numpy.array</em>) &#8211; An array of atomic coordinates.</li>
-<li><strong>frame</strong> (<em>int</em>) &#8211; An integer represeting the frame of the trajectory to be modified</li>
+<li><strong>coordinates</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; An array of atomic coordinates.</li>
+<li><strong>frame</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An integer represeting the frame of the trajectory to be modified</li>
 </ul>
 </td>
 </tr>
@@ -2008,12 +2016,12 @@ information.</td>
 <dt id="pymolecule.Molecule.Molecule.set_coordinates_undo_point">
 <code class="descname">set_coordinates_undo_point</code><span class="sig-paren">(</span><em>coordinates_undo_point</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_coordinates_undo_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the __coordinates_undo_point variable.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_coordinates_undo_point()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.set_coordinates_undo_point" title="pymolecule.Information.Information.set_coordinates_undo_point"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_coordinates_undo_point()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>coordinates_undo_point</strong> (<em>numpy.array</em>) &#8211; A coordinate set to revert 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>coordinates_undo_point</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A coordinate set to revert 
 to after modification.</td>
 </tr>
 </tbody>
@@ -2025,12 +2033,12 @@ to after modification.</td>
 <code class="descname">set_filename</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_filename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the __filename variable. Note: this does not reload or modify the
 molecule in anyway.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_filename()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.set_filename" title="pymolecule.Information.Information.set_filename"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_filename()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) &#8211; String representation of the filename.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; String representation of the filename.</td>
 </tr>
 </tbody>
 </table>
@@ -2040,14 +2048,14 @@ molecule in anyway.</p>
 <dt id="pymolecule.Molecule.Molecule.set_hierarchy">
 <code class="descname">set_hierarchy</code><span class="sig-paren">(</span><em>hierarchy</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_hierarchy" title="Permalink to this definition">¶</a></dt>
 <dd><p>DEPRECIATED?</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_hierarchy()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.set_hierarchy" title="pymolecule.Information.Information.set_hierarchy"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_hierarchy()</span></code></a></p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pymolecule.Molecule.Molecule.set_remarks">
 <code class="descname">set_remarks</code><span class="sig-paren">(</span><em>remarks</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_remarks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the __remarks variable.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_remarks()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.set_remarks" title="pymolecule.Information.Information.set_remarks"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_remarks()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2062,12 +2070,12 @@ molecule in anyway.</p>
 <dt id="pymolecule.Molecule.Molecule.set_trajectory">
 <code class="descname">set_trajectory</code><span class="sig-paren">(</span><em>trajectory</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.set_trajectory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the __trajectory variable.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_trajectory()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Information.html#pymolecule.Information.Information.set_trajectory" title="pymolecule.Information.Information.set_trajectory"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Information.Information.set_trajectory()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trajectory</strong> (<em>numpy.array</em>) &#8211; An array of atomic coordinates.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trajectory</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; An array of atomic coordinates.</td>
 </tr>
 </tbody>
 </table>
@@ -2078,7 +2086,7 @@ molecule in anyway.</p>
 <code class="descname">steric_clash_with_another_molecule</code><span class="sig-paren">(</span><em>other_mol</em>, <em>cutoff</em>, <em>pairwise_comparison=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.steric_clash_with_another_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detects steric clashes between the pymolecule.Molecule (self) and
 another pymolecule.Molecule.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="OtherMolecules.html#pymolecule.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule" title="pymolecule.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2086,9 +2094,9 @@ another pymolecule.Molecule.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>other_mol</strong> (<a class="reference internal" href="#module-pymolecule.Molecule" title="pymolecule.Molecule"><em>pymolecule.Molecule</em></a>) &#8211; The pymolecule.Molecule object that will be
 evaluated for steric clashes.</li>
-<li><strong>cutoff</strong> (<em>float</em>) &#8211; A float, the user-defined distance cutoff in
+<li><strong>cutoff</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A float, the user-defined distance cutoff in
 Angstroms.</li>
-<li><strong>pairwise_comparison</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>pairwise_comparison</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 perform a simple pairwise distance comparison (if True) or
 to use a more sophisitcated method (if False). True by
 default.</li>
@@ -2108,12 +2116,12 @@ are not.</p>
 <code class="descname">translate_molecule</code><span class="sig-paren">(</span><em>delta</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Molecule.Molecule.translate_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Translate all the atoms of the molecular model by a specified
 vector.</p>
-<p>Wrapper function for <code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.translate_molecule()</span></code></p>
+<p>Wrapper function for <a class="reference internal" href="Manipulation.html#pymolecule.Manipulation.Manipulation.translate_molecule" title="pymolecule.Manipulation.Manipulation.translate_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Manipulation.Manipulation.translate_molecule()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delta</strong> (<em>numpy.array</em>) &#8211; A numpy.array (delta_x, delta_y, delta_z) specifying the
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delta</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; A numpy.array (delta_x, delta_y, delta_z) specifying the
 amount to move each atom along the x, y, and z coordinates.</td>
 </tr>
 </tbody>
@@ -2130,6 +2138,12 @@ amount to move each atom along the x, y, and z coordinates.</td>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to PyMolecule&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="FileIO.html"
+                        title="next chapter">2. pymolecule.FileIO module</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -2160,6 +2174,12 @@ amount to move each atom along the x, y, and z coordinates.</td>
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="FileIO.html" title="2. pymolecule.FileIO module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to PyMolecule’s documentation!"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
       </ul>
     </div>

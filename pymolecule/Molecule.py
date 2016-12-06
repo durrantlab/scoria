@@ -52,7 +52,7 @@ class Molecule: # here's the actual Molecule class
 
                     [[x1, y1, z1], ... [xn, yn, zn]]
 
-        :rtype: *numpy.array*
+        :rtype: :any:`numpy.array`
 
         ::
 
@@ -90,7 +90,7 @@ class Molecule: # here's the actual Molecule class
                          ...,
                          [[xm1, ym1, zm1], ... [xmn, ymn, zmn]]] 
 
-        :rtype: *numpy.array*
+        :rtype: :any:`numpy.array`
 
         ::
 
@@ -125,7 +125,7 @@ class Molecule: # here's the actual Molecule class
         
         :returns: The name of the file.
 
-        :rtype: *str*
+        :rtype: :any:`str`
 
         ::
 
@@ -145,7 +145,7 @@ class Molecule: # here's the actual Molecule class
         
         :returns: The remarks from the file an a list of strings.
 
-        :rtype: *list*
+        :rtype: :any:`list`
 
         ::
 
@@ -165,7 +165,7 @@ class Molecule: # here's the actual Molecule class
 
         :returns: A masked array containing the atom information.
 
-        :rtype: *numpy.ma* 
+        :rtype: :any:`numpy.ma.MaskedArray` 
 
         The contents of the array are as follows:
 
@@ -207,7 +207,7 @@ class Molecule: # here's the actual Molecule class
 
         :returns: A set of coordinates from which to return to.
 
-        :rtype: *numpy.array* or *None*
+        :rtype: :any:`numpy.array` or :any:`None`
         """
 
         return self.information.get_coordinates_undo_point()
@@ -220,7 +220,7 @@ class Molecule: # here's the actual Molecule class
 
         :returns: A binary n x n matrix, where bonds are represented by 1.
 
-        :rtype: *numpy.array*
+        :rtype: :any:`numpy.array`
 
         An example for finding all atoms bonded with atom 153::
 
@@ -231,8 +231,6 @@ class Molecule: # here's the actual Molecule class
             153 - 152
             153 - 154
             153 - 155
-
-
         """
         
         return self.information.get_bonds()
@@ -245,7 +243,7 @@ class Molecule: # here's the actual Molecule class
 
         :returns: A dictionary?
 
-        :rtype: *dict*
+        :rtype: :any:`dict`
         """
         
         return self.information.get_hierarchy()
@@ -258,7 +256,7 @@ class Molecule: # here's the actual Molecule class
 
         :returns: The constants assumed by the model.
 
-        :rtype: *dict*
+        :rtype: :any:`dict`
 
         ============================== =============== ===============================
         Dictionary Keys                Value Type      Contains
@@ -296,7 +294,7 @@ class Molecule: # here's the actual Molecule class
         
         :returns: The x, y, and z coordinates of the center of mass.
 
-        :rtype: *numpy.ma*
+        :rtype: :any:`numpy.ma.MaskedArray`
 
         ::
 
@@ -325,7 +323,7 @@ class Molecule: # here's the actual Molecule class
         
         :returns: The x, y, and z coordinates of the geometric center.
 
-        :rtype: *numpy.array*
+        :rtype: :any:`numpy.array`
 
         ::
 
@@ -351,7 +349,7 @@ class Molecule: # here's the actual Molecule class
 
         :returns: The total mass of the atom or selection
 
-        :rtype: *float*
+        :rtype: :any:`float`
         ::
 
             >>> print mol.get_total_mass()
@@ -376,7 +374,7 @@ class Molecule: # here's the actual Molecule class
                     first frame of the trajectory.
 
         :returns:  The total number of atoms.
-        :rtype: *int*
+        :rtype: :any:`int`
         """
         
         return self.information.get_total_number_of_atoms(selection)
@@ -394,7 +392,7 @@ class Molecule: # here's the actual Molecule class
                     pymolecule.Molecule object will be considered.
 
         :returns: The total number of heavy (non-hydrogen) atoms.
-        :rtype: *int*
+        :rtype: :any:`int`
         """
         
         return self.information.get_total_number_of_heavy_atoms(selection)
@@ -416,7 +414,7 @@ class Molecule: # here's the actual Molecule class
 
         :returns: A numpy array representing two 3D points, (min_x, min_y, min_z)
                     and (max_x, max_y, max_z), that bound the molecule.
-        :rtype: *numpy.array*
+        :rtype: :any:`numpy.array`
         """
         
         return self.information.get_bounding_box(selection, padding, frame)
@@ -439,7 +437,7 @@ class Molecule: # here's the actual Molecule class
         :returns: A tuple containing two elements. The first is a numpy.array
                     representing a 3D point, the (x, y, z) center of the
                     sphere. The second is a float, the radius of the sphere.
-        :rtype: *tuple* (*numpy.array*, *float*)
+        :rtype: :any:`tuple` (:any:`numpy.array`, :any:`float`)
         """
         
         return self.information.get_bounding_sphere(selection, padding, frame)
@@ -547,7 +545,7 @@ class Molecule: # here's the actual Molecule class
 
         Wrapper function for :meth:`pymolecule.Information.Information.assign_masses`
 
-        **Note**:
+        ``Note``:
         This will autopopulate the masses according to their element 
         identification and takes no input.
         """
@@ -640,7 +638,6 @@ class Molecule: # here's the actual Molecule class
         :param int atom_index: An int, the index of the atom to consider.
 
         :returns: A boolean. True if part of dna, False if not.
-
         """
         
         return self.information.belongs_to_dna(atom_index)
@@ -675,7 +672,7 @@ class Molecule: # here's the actual Molecule class
         Wrapper function for :meth:`pymolecule.Information.Information.get_trajectory_frame_count`
 
         :returns: The number of frames in the trajectory.
-        :rtype: *int*
+        :rtype: :any:`int`
         """
 
         return self.information.get_trajectory_frame_count()
@@ -843,7 +840,7 @@ class Molecule: # here's the actual Molecule class
 
         :returns: If return_text is True, a PDB-formatted string. Otherwise,
                 returns nothing.
-        :rtype: *str* or *None*
+        :rtype: :any:`str` or :any:`None`
         """
 
         return self.fileio.save_pdb(
@@ -877,7 +874,7 @@ class Molecule: # here's the actual Molecule class
 
         :returns: An int, the number of neighboring atoms of the specified
                 element.
-        :rtype: *int*
+        :rtype: :any:`int`
         """
 
         return self.atoms_and_bonds.get_number_of_bond_partners_of_element(
@@ -898,7 +895,7 @@ class Molecule: # here's the actual Molecule class
 
         :returns: An int, the index of the first neighbor atom of the specified
                 element. If no such neighbor exists, returns -1.
-        :rtype: *int*
+        :rtype: :any:`int`
         """
 
         return self.atoms_and_bonds.get_index_of_first_bond_partner_of_element(

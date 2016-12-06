@@ -55,33 +55,33 @@
 <dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.add_atom">
 <code class="descname">add_atom</code><span class="sig-paren">(</span><em>record_name='ATOM'</em>, <em>serial=1</em>, <em>name='X'</em>, <em>resname='XXX'</em>, <em>chainid='X'</em>, <em>resseq=1</em>, <em>occupancy=0.0</em>, <em>tempfactor=0.0</em>, <em>charge=''</em>, <em>element='X'</em>, <em>coordinates=array([ 0.</em>, <em>0.</em>, <em>0.])</em>, <em>autoindex=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.add_atom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an atom.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.add_atom" title="pymolecule.AtomsAndBonds.AtomsAndBonds.add_atom"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.AtomsAndBonds.AtomsAndBonds.add_atom()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.add_atom" title="pymolecule.Molecule.Molecule.add_atom"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.add_atom()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>record_name</strong> (<em>str</em>) &#8211; An optional string, the record name of the atom.
+<li><strong>record_name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the record name of the atom.
 &#8220;ATOM&#8221; is the default.</li>
-<li><strong>serial</strong> (<em>int</em>) &#8211; An optional int, the serial field of the atom. 1 is
+<li><strong>serial</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An optional int, the serial field of the atom. 1 is
 the default.</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; An optional string, the name of the atom. &#8216;X&#8217; is the
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the name of the atom. &#8216;X&#8217; is the
 default.</li>
-<li><strong>resname</strong> (<em>str</em>) &#8211; An optional string, the resname of the atom. &#8216;XXX&#8217;
+<li><strong>resname</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the resname of the atom. &#8216;XXX&#8217;
 is the default.</li>
-<li><strong>chainid</strong> (<em>str</em>) &#8211; An optional string, chainid of the atom. &#8216;X&#8217; is the
+<li><strong>chainid</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, chainid of the atom. &#8216;X&#8217; is the
 default.</li>
-<li><strong>resseq</strong> (<em>int</em>) &#8211; An optional int, the resseq field of the atom. 1 is
+<li><strong>resseq</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An optional int, the resseq field of the atom. 1 is
 the default.</li>
-<li><strong>occupancy</strong> (<em>float</em>) &#8211; An optional float, the occupancy of the atom. 0.0
+<li><strong>occupancy</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; An optional float, the occupancy of the atom. 0.0
 is the default.</li>
-<li><strong>tempfactor</strong> (<em>float</em>) &#8211; An optional float, the tempfactor of the atom.
+<li><strong>tempfactor</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; An optional float, the tempfactor of the atom.
 0.0 is the default.</li>
-<li><strong>charge</strong> (<em>str</em>) &#8211; An optional string, the charge of the atom. &#8216;&#8217; is the
+<li><strong>charge</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the charge of the atom. &#8216;&#8217; is the
 default.</li>
-<li><strong>element</strong> (<em>str</em>) &#8211; An optional string, the element of the atom. &#8216;X&#8217; is
+<li><strong>element</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the element of the atom. &#8216;X&#8217; is
 the default.</li>
-<li><strong>coordinates</strong> (<em>numpy.array</em>) &#8211; An optional numpy.array, the (x, y, z)
+<li><strong>coordinates</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; An optional numpy.array, the (x, y, z)
 coordinates of the atom. numpy.array([0.0, 0.0, 0.0]) is
 the default.</li>
 </ul>
@@ -95,17 +95,17 @@ the default.</li>
 <dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.add_bond">
 <code class="descname">add_bond</code><span class="sig-paren">(</span><em>index1</em>, <em>index2</em>, <em>order=1</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.add_bond" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a bond.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.add_bond" title="pymolecule.AtomsAndBonds.AtomsAndBonds.add_bond"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.AtomsAndBonds.AtomsAndBonds.add_bond()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.add_bond" title="pymolecule.Molecule.Molecule.add_bond"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.add_bond()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>index1</strong> (<em>int</em>) &#8211; An int, the index of the first atom of the bonded
+<li><strong>index1</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the first atom of the bonded
 pair.</li>
-<li><strong>index2</strong> (<em>int</em>) &#8211; An int, the index of the second atom of the bonded
+<li><strong>index2</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the second atom of the bonded
 pair.</li>
-<li><strong>order</strong> (<em>int</em>) &#8211; An optional int, the order of the bond. 1 by default.</li>
+<li><strong>order</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An optional int, the order of the bond. 1 by default.</li>
 </ul>
 </td>
 </tr>
@@ -118,16 +118,18 @@ pair.</li>
 <code class="descname">create_bonds_by_distance</code><span class="sig-paren">(</span><em>remove_old_bond_data=True</em>, <em>delete_excessive_bonds=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines which atoms are bound to each other based on their
 proximity.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance" title="pymolecule.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance()</span></code></a>.</p>
+<p>Should be called via the wrapper function 
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.create_bonds_by_distance" title="pymolecule.Molecule.Molecule.create_bonds_by_distance"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.create_bonds_by_distance()</span></code></a>
+.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>remove_old_bond_data</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not to
+<li><strong>remove_old_bond_data</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 discard old bond data before adding in bonds determined by
 distance. True by default.</li>
-<li><strong>delete_excessive_bonds</strong> (<em>bool</em>) &#8211; An optional boolean, whether or not
+<li><strong>delete_excessive_bonds</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not
 to check for and delete excessive bonds. True by default.</li>
 </ul>
 </td>
@@ -140,12 +142,12 @@ to check for and delete excessive bonds. True by default.</li>
 <dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.delete_atom">
 <code class="descname">delete_atom</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.delete_atom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes an atom.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.delete_atom" title="pymolecule.AtomsAndBonds.AtomsAndBonds.delete_atom"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.AtomsAndBonds.AtomsAndBonds.delete_atom()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.delete_atom" title="pymolecule.Molecule.Molecule.delete_atom"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.delete_atom()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) &#8211; An int, the index of the atom to delete.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the atom to delete.</td>
 </tr>
 </tbody>
 </table>
@@ -155,15 +157,15 @@ to check for and delete excessive bonds. True by default.</li>
 <dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.delete_bond">
 <code class="descname">delete_bond</code><span class="sig-paren">(</span><em>index1</em>, <em>index2</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.delete_bond" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes a bond.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.delete_bond" title="pymolecule.AtomsAndBonds.AtomsAndBonds.delete_bond"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.AtomsAndBonds.AtomsAndBonds.delete_bond()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.delete_bond" title="pymolecule.Molecule.Molecule.delete_bond"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.delete_bond()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>index1</strong> (<em>int</em>) &#8211; An int, the index of the first atom of the bonded
+<li><strong>index1</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the first atom of the bonded
 pair.</li>
-<li><strong>index2</strong> (<em>int</em>) &#8211; An int, the index of the second atom of the bonded
+<li><strong>index2</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the second atom of the bonded
 pair.</li>
 </ul>
 </td>
@@ -177,14 +179,14 @@ pair.</li>
 <code class="descname">get_index_of_first_bond_partner_of_element</code><span class="sig-paren">(</span><em>atom_index</em>, <em>the_element</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>For a given atom of interest, returns the index of the first
 neighbor of a specified element.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element" title="pymolecule.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element" title="pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>atom_index</strong> (<em>int</em>) &#8211; An int, the index of the atom of interest.</li>
-<li><strong>the_element</strong> (<em>str</em>) &#8211; A string specifying the desired element of the
+<li><strong>atom_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the atom of interest.</li>
+<li><strong>the_element</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; A string specifying the desired element of the
 neighbor.</li>
 </ul>
 </td>
@@ -206,14 +208,14 @@ element. If no such neighbor exists, returns -1.</p>
 <dd><p>Counts the number of atoms of a given element bonded to a specified
 atom of interest.</p>
 <p>Should be called via the wrapper function 
-<a class="reference internal" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.get_number_of_bond_partners_of_element" title="pymolecule.AtomsAndBonds.AtomsAndBonds.get_number_of_bond_partners_of_element"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.AtomsAndBonds.AtomsAndBonds.get_number_of_bond_partners_of_element()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element" title="pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>atom_index</strong> (<em>int</em>) &#8211; An int, the index of the atom of interest.</li>
-<li><strong>the_element</strong> (<em>str</em>) &#8211; A string describing the element of the neighbors
+<li><strong>atom_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the atom of interest.</li>
+<li><strong>the_element</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; A string describing the element of the neighbors
 to be counted.</li>
 </ul>
 </td>

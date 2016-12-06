@@ -31,7 +31,11 @@ sys.path.insert(0, os.path.abspath("../.."))
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.intersphinx' 
 ]
+
+intersphinx_mapping = {'python': ('https://docs.python.org/2', None),
+                       'numpy': ('http://docs.scipy.org/doc/numpy/', None)}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

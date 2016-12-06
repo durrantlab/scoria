@@ -8,12 +8,18 @@ Welcome to PyMolecule's documentation!
 
 PyMolecule is a lightweight molecular dynamics library 
 
-Contents:
-
 .. toctree::
-   :caption: Contents
-   
-   Library
+   :maxdepth: 2
+   :numbered:
+
+   Molecule.rst
+   FileIO.rst
+   Geometry.rst
+   Information.rst
+   Manipulation.rst
+   OtherMolecules.rst
+   Quaternion.rst
+   Selections.rst
 
 Indices and tables
 ==================
