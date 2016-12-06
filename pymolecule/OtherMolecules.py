@@ -24,6 +24,8 @@ class OtherMolecules():
         Aligns a molecule to self (this pymolecule.Molecule object) using a
         quaternion RMSD alignment.
 
+        Requires the :any:`numpy` library.
+
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this`
                 
         :param pymolecule.Molecule other_mol: A pymolecule.Molecule that is to be aligned to
@@ -141,9 +143,11 @@ class OtherMolecules():
         """
         Detects steric clashes between the pymolecule.Molecule (self) and
         another pymolecule.Molecule.
-        
+
+        Requires the :any:`numpy` and :any:`scipy.spatial` library.
+
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.steric_clash_with_another_molecule`
-        
+
         :param pymolecule.Molecule other_mol: The pymolecule.Molecule object that will be
                     evaluated for steric clashes.
         :param float cutoff: A float, the user-defined distance cutoff in
@@ -260,8 +264,10 @@ class OtherMolecules():
         Computes the minimum distance between any of the atoms of this
         molecular model and any of the atoms of a second specified model.
 
+        Requires the :any:`numpy` and :any:`scipy.spatial` library.
+
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_distance_to_another_molecule`
-        
+
         :param pymolecule.Molecule other_molecule: a pymolecule.Molecule, the other molecular
                     model.
         :param bool pairwise_comparison: An optional boolean, whether or not to
@@ -388,11 +394,13 @@ class OtherMolecules():
         efficient optimization, and multithreading,"" by Oleg Trott and Arthur
         J. Olson. Note: Identical means the order of the atoms is the same as
         well.
-        
+
+        Requires the :any:`numpy` library.
+
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_rmsd_heuristic`
-        
+
         :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
-            
+
         :returns: A float, the RMSD between self and other_mol.
         """
 
@@ -428,7 +436,9 @@ class OtherMolecules():
     def _get_rmsd_heuristic_helper_func(self, atom_grp1, atom_grp2):
         """
         A helper function for calculating heuristic RMSD.
-        
+
+        Requires the :any:`scipy.spatial` library.
+
         :param dict atom_grp1: A dictionary, where the keys are atom types
                     and the values are numpy arrays of the coordinates.
         :param dict atom_grp2: The same, but now given the atoms of the

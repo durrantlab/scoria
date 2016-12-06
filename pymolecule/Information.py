@@ -134,6 +134,7 @@ class Information():
         :returns: The name of the file.
 
         :rtype: :any:`str`
+
         ::
 
             >>> mol = pymolecule.Molecule()
@@ -173,11 +174,13 @@ class Information():
         """
         Retreives the atomic information for the molecule.
 
+        Requires the :any:`numpy` library.
+
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_atom_information`
 
         :returns: A masked array containing the atom information.
 
-        :rtype: *numpy.ma* 
+        :rtype: :any:`numpy.ma.MaskedArray`
 
         The contents of the array are as follows:
 
@@ -189,7 +192,7 @@ class Information():
         name             S5    five char string  The atom name
         resname          S5    five char string  The residue name
         chainid          S1    one char string   The chain identifier
-        resseq           <i8   64-bit integer    The Residue sequence number   
+        resseq           <i8   64-bit integer    The Residue sequence number
         occupancy        <f8   64-bit float      Occupancy of atom
         tempfactor       <f8   64-bit float      Tempature Factor
         element          S2    two char string   The element symbol
@@ -199,7 +202,6 @@ class Information():
         chainid_stripped S1    one char string   Chain identifier without space
         element_stripped S2    two char string   Element symbol without space
         ================ ===== ================= ==============================
-        |
 
         An example for printing the elemental symbols of the first five atoms::
 
@@ -548,6 +550,8 @@ class Information():
         """
         Assigns masses to the atoms of the pymolecule.Molecule object. 
 
+        Requires the :any:`numpy` library.
+
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.assign_masses`
 
         **Note**:
@@ -575,6 +579,8 @@ class Information():
         this will overwrite any existing element assignments, including those
         explicitly specified in loaded files. Note that this doesn't populate
         elements_stripped.
+
+        Requires the :any:`numpy` library.
 
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.assign_elements_from_atom_names`
 
@@ -664,17 +670,19 @@ class Information():
         """
         Determines the center of mass.
 
+        Requires the :any:`numpy` library.
+
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_center_of_mass`
 
         :param numpy.array selection: The indices of
-                          the atoms to consider when calculating the center of mass. 
-                          If ommitted, all atoms of the pymolecule.Molecule object 
+                          the atoms to consider when calculating the center of mass.
+                          If ommitted, all atoms of the pymolecule.Molecule object
                           will be considered.
 
         :param int frame: The timestep at which the center of mass
-                      should be calculated. If ommitted, it defaults to the first 
+                      should be calculated. If ommitted, it defaults to the first
                       frame of the trajectory.
-        
+
         :returns: The x, y, and z coordinates of the center of mass.
 
         :rtype: *numpy.ma*
@@ -717,15 +725,17 @@ class Information():
         """
         Determines the geometric center of the molecule.
 
+        Requires the :any:`numpy` library.
+
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_geometric_center`
 
         :param numpy.array selection: The indices of
-                          the atoms to consider when calculating the geometric. 
-                          If ommitted, all atoms of the pymolecule.Molecule object 
+                          the atoms to consider when calculating the geometric.
+                          If ommitted, all atoms of the pymolecule.Molecule object
                           will be considered.
 
         :param int frame: The timestep at which the geometric center 
-                      should be calculated. If ommitted, it defaults to the first 
+                      should be calculated. If ommitted, it defaults to the first
                       frame of the trajectory.
         
         :returns: The x, y, and z coordinates of the geometric center.
@@ -748,19 +758,22 @@ class Information():
 
     def get_total_mass(self, selection = None):
         """
-        Returns the total mass of all atoms within the molecule, or of a given 
-        selection. 
-        
+        Returns the total mass of all atoms within the molecule, or of a given
+        selection.
+
+        Requires the :any:`numpy` library.
+
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_total_mass`
 
         :param numpy.array selection: The indices of
-                        the atoms to consider when calculating the geometric. 
+                        the atoms to consider when calculating the geometric.
                         If ommitted, all atoms of the pymolecule.Molecule object
                         will be considered.
 
         :returns: The total mass of the atom or selection
 
         :rtype: *float*
+
         ::
 
             >>> print mol.get_total_mass()
@@ -836,6 +849,8 @@ class Information():
         """
         Calculates a box that bounds (encompasses) a set of atoms.
 
+        Requires the :any:`numpy` library.
+
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_bounding_box`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
@@ -862,7 +877,9 @@ class Information():
     def get_bounding_sphere(self, selection = None, padding = 0.0, frame = 0):
         """
         Calculates a sphere that bounds (encompasses) a set of atoms.
-        
+
+        Requires the :any:`numpy` and :any:`scipy.spatial` library.
+
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_bounding_sphere`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
@@ -907,6 +924,8 @@ class Information():
         chains, and the residues. This information is stored in
         pymolecule.Molecule.Molecule.hierarchy.
 
+        Requires the :any:`numpy` and :any:`scipy.spatial` library.
+        
         Wrapper function for 
         :meth:`pymolecule.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries`
         """

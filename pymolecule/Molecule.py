@@ -163,6 +163,8 @@ class Molecule: # here's the actual Molecule class
     	"""
         Retreives the atomic information for the molecule.
 
+        Requires the :any:`numpy` library.
+
         Wrapper function for :meth:`pymolecule.Information.Information.get_atom_information`
 
         :returns: A masked array containing the atom information.
@@ -189,7 +191,6 @@ class Molecule: # here's the actual Molecule class
         chainid_stripped S1    one char string   Chain identifier without space
         element_stripped S2    two char string   Element symbol without space
         ================ ===== ================= ==============================
-        |
 
         An example for printing the elemental symbols of the first five atoms::
 
@@ -352,6 +353,7 @@ class Molecule: # here's the actual Molecule class
         :returns: The total mass of the atom or selection
 
         :rtype: :any:`float`
+
         ::
 
             >>> print mol.get_total_mass()
@@ -1055,9 +1057,7 @@ class Molecule: # here's the actual Molecule class
     
         :param numpy.array bounding_box: A 2x3 numpy.array containing the minimum and
                     maximum points of the bounding box. Example:
-                    numpy.array(
-                        [[min_x, min_y, min_z], [max_x, max_y, max_z]]
-                    ).
+                    numpy.array( [[min_x, min_y, min_z], [max_x, max_y, max_z]] ).
 
         :returns: A numpy.array containing the indices of the atoms that are
                     within the bounding box.

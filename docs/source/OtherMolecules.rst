@@ -1,5 +1,5 @@
 pymolecule.OtherMolecules module
-==========================
+================================
 
 .. automodule:: pymolecule.OtherMolecules
     :members:

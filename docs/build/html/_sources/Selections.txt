@@ -1,5 +1,5 @@
 pymolecule.Selections module
-==========================
+============================
 
 .. automodule:: pymolecule.Selections
     :members:

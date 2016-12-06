@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4. pymolecule.Information module &#8212; PyMolecule 2.0 documentation</title>
+    <title>5. pymolecule.Information module &#8212; PyMolecule 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" />
-    <link rel="next" title="5. pymolecule.Manipulation module" href="Manipulation.html" />
-    <link rel="prev" title="3. pymolecule.Geometry module" href="Geometry.html" /> 
+    <link rel="next" title="6. pymolecule.Manipulation module" href="Manipulation.html" />
+    <link rel="prev" title="4. pymolecule.Geometry module" href="Geometry.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -38,10 +38,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Manipulation.html" title="5. pymolecule.Manipulation module"
+          <a href="Manipulation.html" title="6. pymolecule.Manipulation module"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="Geometry.html" title="3. pymolecule.Geometry module"
+          <a href="Geometry.html" title="4. pymolecule.Geometry module"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
       </ul>
@@ -52,9 +52,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="pymolecule-information-module">
-<h1>4. pymolecule.Information module<a class="headerlink" href="#pymolecule-information-module" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-pymolecule.Information"></span><dl class="class">
+  <div class="section" id="module-pymolecule.Information">
+<span id="pymolecule-information-module"></span><h1>5. pymolecule.Information module<a class="headerlink" href="#module-pymolecule.Information" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
 <dt id="pymolecule.Information.Information">
 <em class="property">class </em><code class="descclassname">pymolecule.Information.</code><code class="descname">Information</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class for storing and accessing information about the elements of a
@@ -66,6 +66,7 @@ pymolecule.Molecule object.</p>
 this will overwrite any existing element assignments, including those
 explicitly specified in loaded files. Note that this doesn&#8217;t populate
 elements_stripped.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.assign_elements_from_atom_names" title="pymolecule.Molecule.Molecule.assign_elements_from_atom_names"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.assign_elements_from_atom_names()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -84,6 +85,7 @@ will be considered.</td>
 <dt id="pymolecule.Information.Information.assign_masses">
 <code class="descname">assign_masses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.assign_masses" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assigns masses to the atoms of the pymolecule.Molecule object.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.assign_masses" title="pymolecule.Molecule.Molecule.assign_masses"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.assign_masses()</span></code></a></p>
 <p><strong>Note</strong>:
 This will autopopulate the masses according to their element 
@@ -148,6 +150,7 @@ residue names.</p>
 <dd><p>Identifies spheres that bound (encompass) the entire molecule, the
 chains, and the residues. This information is stored in
 pymolecule.Molecule.Molecule.hierarchy.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref any docutils literal"><span class="pre">scipy.spatial</span></code></a> library.</p>
 <p>Wrapper function for 
 <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries" title="pymolecule.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries()</span></code></a></p>
 </dd></dl>
@@ -171,6 +174,7 @@ pymolecule.Molecule.Molecule.hierarchy.</p>
 <dt id="pymolecule.Information.Information.get_atom_information">
 <code class="descname">get_atom_information</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_atom_information" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retreives the atomic information for the molecule.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_atom_information" title="pymolecule.Molecule.Molecule.get_atom_information"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_atom_information()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -178,7 +182,7 @@ pymolecule.Molecule.Molecule.hierarchy.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A masked array containing the atom information.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>numpy.ma</em></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/maskedarray.baseclass.html#numpy.ma.MaskedArray" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy.ma.MaskedArray</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -270,9 +274,6 @@ pymolecule.Molecule.Molecule.hierarchy.</p>
 </tr>
 </tbody>
 </table>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
 <p>An example for printing the elemental symbols of the first five atoms:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">atom_info</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_atom_information</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">atom_info</span><span class="p">[</span><span class="s1">&#39;element_stripped&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
@@ -312,6 +313,7 @@ pymolecule.Molecule.Molecule.hierarchy.</p>
 <dt id="pymolecule.Information.Information.get_bounding_box">
 <code class="descname">get_bounding_box</code><span class="sig-paren">(</span><em>selection=None</em>, <em>padding=0.0</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_bounding_box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates a box that bounds (encompasses) a set of atoms.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_bounding_box" title="pymolecule.Molecule.Molecule.get_bounding_box"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_bounding_box()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -344,6 +346,7 @@ and (max_x, max_y, max_z), that bound the molecule.</p>
 <dt id="pymolecule.Information.Information.get_bounding_sphere">
 <code class="descname">get_bounding_sphere</code><span class="sig-paren">(</span><em>selection=None</em>, <em>padding=0.0</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_bounding_sphere" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates a sphere that bounds (encompasses) a set of atoms.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref any docutils literal"><span class="pre">scipy.spatial</span></code></a> library.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_bounding_sphere" title="pymolecule.Molecule.Molecule.get_bounding_sphere"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_bounding_sphere()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -377,6 +380,7 @@ sphere. The second is a float, the radius of the sphere.</p>
 <dt id="pymolecule.Information.Information.get_center_of_mass">
 <code class="descname">get_center_of_mass</code><span class="sig-paren">(</span><em>selection=None</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_center_of_mass" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines the center of mass.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_center_of_mass" title="pymolecule.Molecule.Molecule.get_center_of_mass"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_center_of_mass()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -384,11 +388,11 @@ sphere. The second is a float, the radius of the sphere.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; The indices of
-the atoms to consider when calculating the center of mass. 
-If ommitted, all atoms of the pymolecule.Molecule object 
+the atoms to consider when calculating the center of mass.
+If ommitted, all atoms of the pymolecule.Molecule object
 will be considered.</li>
 <li><strong>frame</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The timestep at which the center of mass
-should be calculated. If ommitted, it defaults to the first 
+should be calculated. If ommitted, it defaults to the first
 frame of the trajectory.</li>
 </ul>
 </td>
@@ -553,7 +557,7 @@ Retreives a previously save set of coordinates to revert to.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The name of the file.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>str</em></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><code class="xref any docutils literal"><span class="pre">str</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -569,6 +573,7 @@ Retreives a previously save set of coordinates to revert to.</p>
 <dt id="pymolecule.Information.Information.get_geometric_center">
 <code class="descname">get_geometric_center</code><span class="sig-paren">(</span><em>selection=None</em>, <em>frame=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_geometric_center" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines the geometric center of the molecule.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_geometric_center" title="pymolecule.Molecule.Molecule.get_geometric_center"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_geometric_center()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -576,11 +581,11 @@ Retreives a previously save set of coordinates to revert to.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; The indices of
-the atoms to consider when calculating the geometric. 
-If ommitted, all atoms of the pymolecule.Molecule object 
+the atoms to consider when calculating the geometric.
+If ommitted, all atoms of the pymolecule.Molecule object
 will be considered.</li>
 <li><strong>frame</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The timestep at which the geometric center 
-should be calculated. If ommitted, it defaults to the first 
+should be calculated. If ommitted, it defaults to the first
 frame of the trajectory.</li>
 </ul>
 </td>
@@ -644,15 +649,16 @@ frame of the trajectory.</li>
 <dl class="method">
 <dt id="pymolecule.Information.Information.get_total_mass">
 <code class="descname">get_total_mass</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_total_mass" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the total mass of all atoms within the molecule, or of a given 
+<dd><p>Returns the total mass of all atoms within the molecule, or of a given
 selection.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_total_mass" title="pymolecule.Molecule.Molecule.get_total_mass"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_total_mass()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; The indices of
-the atoms to consider when calculating the geometric. 
+the atoms to consider when calculating the geometric.
 If ommitted, all atoms of the pymolecule.Molecule object
 will be considered.</td>
 </tr>
@@ -953,10 +959,10 @@ DEPRECIATED?</p>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="Geometry.html"
-                        title="previous chapter">3. pymolecule.Geometry module</a></p>
+                        title="previous chapter">4. pymolecule.Geometry module</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="Manipulation.html"
-                        title="next chapter">5. pymolecule.Manipulation module</a></p>
+                        title="next chapter">6. pymolecule.Manipulation module</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -988,10 +994,10 @@ DEPRECIATED?</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Manipulation.html" title="5. pymolecule.Manipulation module"
+          <a href="Manipulation.html" title="6. pymolecule.Manipulation module"
              >next</a> |</li>
         <li class="right" >
-          <a href="Geometry.html" title="3. pymolecule.Geometry module"
+          <a href="Geometry.html" title="4. pymolecule.Geometry module"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
       </ul>

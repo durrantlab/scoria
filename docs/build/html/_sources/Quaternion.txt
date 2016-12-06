@@ -1,5 +1,5 @@
 pymolecule.Quaternion module
-==========================
+============================
 
 .. automodule:: pymolecule.Quaternion
     :members:

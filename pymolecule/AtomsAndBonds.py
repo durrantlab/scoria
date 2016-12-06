@@ -10,7 +10,7 @@ class AtomsAndBonds():
     def __init__(self, parent_molecule_object):
         """
         Initializes the pymolecule.AtomsAndBonds class.
-        
+
         :param pymolecule.Molecule parent_molecule_object: The pymolecule.Molecule object
                     associated with this class.
 
@@ -24,9 +24,10 @@ class AtomsAndBonds():
         Determines which atoms are bound to each other based on their
         proximity.
 
-        Should be called via the wrapper function 
-        :meth:`pymolecule.Molecule.Molecule.create_bonds_by_distance`
-        .
+        Requires the :any:`numpy` and :any:`scipy.spatial` library.
+
+        Should be called via the wrapper function
+        :meth:`pymolecule.Molecule.Molecule.create_bonds_by_distance`.
 
         :param bool remove_old_bond_data: An optional boolean, whether or not to
                     discard old bond data before adding in bonds determined by
@@ -145,6 +146,8 @@ class AtomsAndBonds():
         Counts the number of atoms of a given element bonded to a specified
         atom of interest.
         
+        Requires the :any:`numpy` library.
+
         Should be called via the wrapper function 
         :meth:`pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element`.
 
@@ -178,7 +181,10 @@ class AtomsAndBonds():
         For a given atom of interest, returns the index of the first
         neighbor of a specified element.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element`.
+        Requires the :mod:`numpy` and :mod:`scipy.spatial` libraries.
+
+        Should be called via the wrapper function
+        :meth:`pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element`.
 
         :param int atom_index: An int, the index of the atom of interest.
         :param str the_element: A string specifying the desired element of the

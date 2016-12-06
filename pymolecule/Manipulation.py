@@ -105,8 +105,9 @@ class Manipulation():
         Rotate the molecular model about a line segment. The end points of
         the line segment are explicitly specified coordinates.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_points`
-        
+        Wrapper function for 
+        :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_points`
+
         :param numpy.array line_point1: A numpy.array (x, y, z) corresponding to one end
                     of the line segment.
         :param numpy.array line_point2: A numpy.array (x, y, z) corresponding to the
@@ -208,7 +209,8 @@ class Manipulation():
         Rotate the molecular model about a line segment. The end points of
         the line segment are atoms of specified indices.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_atoms`
+        Wrapper function for 
+        :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_atoms`
 
         :param int line_point1_index: An int, the index of the first atom at one
                     end of the line segment.
@@ -231,6 +233,8 @@ class Manipulation():
                                            thetay, thetaz):
         """
         Rotate the molecular model around a specified atom.
+
+        Requires the :any:`numpy` library.
 
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_point`
         
@@ -293,6 +297,8 @@ class Manipulation():
                                           thetay, thetaz):
         """
         Rotate the molecular model around a specified atom.
+
+        Requires the :any:`numpy` library.
 
         Wrapper function for :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_atom`
         

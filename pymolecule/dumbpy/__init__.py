@@ -147,7 +147,7 @@ except:
     pass
 
 
-def class_dependency(action, dependency):
+def class_dependency(action, dependency, error_flag = True):
     """Determines whether or not a given dependency is available.
 
         Args:
@@ -166,5 +166,9 @@ def class_dependency(action, dependency):
         print
         print "\n".join(t.wrap("Error: Cannot " + action + ". Install this recommended dependency: " + dependency))
         print
-        return False
+        if error_flag:
+            raise ImportError("The " + dependency + "module is not available.")
+            return False
+        else:
+            return False
     return True

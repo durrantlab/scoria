@@ -25,6 +25,8 @@ class FileIO():
         Loads the molecular data contained in a pym file into the current
         pymolecule.Molecule object.
 
+        Requires the :any:`numpy` library.
+
         Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pym_into`
 
         :param str filename: A string, the filename of the pym file.
@@ -74,7 +76,8 @@ class FileIO():
         incomplete. It doesn't save atomic charges, for example. The atom
         types are stored in the "element" and "element_stripped" columns.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdbqt_into`
+        Should be called via the wrapper function 
+        :meth:`pymolecule.Molecule.Molecule.load_pdbqt_into`
 
         :param str filename: A string, the filename of the pdbqt file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
@@ -106,7 +109,10 @@ class FileIO():
         except that it accepts a filename string instead of a python file
         object.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object`
+        Requires the :any:`numpy` library.
+
+        Should be called via the wrapper function
+        :meth:`pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdb-formatted
                     data.
@@ -119,12 +125,15 @@ class FileIO():
                     reindex the pdb resseq field. False by default.
         """
 
+        if not numpy.class_dependency("load pym files", "NUMPY"):
+            return
+
         self.load_pdb_into_using_file_object(file_obj, bonds_by_distance,
                                              serial_reindex, resseq_reindex)
 
         # Now merge the last two columns.
         atom_inf = self.__parent_molecule.get_atom_information()
-         
+
         atom_types = numpy.defchararray_add(
             atom_inf["element_stripped"], atom_inf["charge"]
         )
@@ -175,7 +184,10 @@ class FileIO():
         to use the load_pdb_into() function instead, which is identical except
         that it accepts a filename string instead of a python file object.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdb_into_using_file_object`
+        Requires the :any:`numpy` library.
+
+        Should be called via the wrapper function 
+        :meth:`pymolecule.Molecule.Molecule.load_pdb_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdb-formatted
                     data.
@@ -194,6 +206,9 @@ class FileIO():
         # 'resseq', 'empty', 'x', 'y', 'z', 'occupancy', 'tempfactor',
         # 'empty2', 'element', 'charge'], delimiter=[6, 5, 5, 4, 2, 4, 4, 8, 8,
         # 8, 6, 6, 10, 2, 2])
+
+        if not numpy.class_dependency("load pym files", "NUMPY"):
+            return
 
         source_data = numpy.genfromtxt(
             file_obj,
@@ -254,7 +269,8 @@ class FileIO():
         for field in self.__parent_molecule.get_constants()['f8_fields']:
             index = atom_inf.dtype.names.index(field)
             descr[index] = (descr[index][0], 'f8')
-        # You need to create this descr object. strings are prefixed with |, and int and float with <
+        # You need to create this descr object. strings are prefixed with |,
+        # and int and float with <
         new_types = numpy.dtype(descr)
         self.__parent_molecule.set_atom_information(atom_inf.astype(new_types))
 
@@ -307,7 +323,7 @@ class FileIO():
                     data = numpy.defchararray_strip(atom_inf[f])
                 )
             )
-        
+
         # now, if there's conect data, load it. this part of the code is not
         # that "numpyic"
         conect_indices = numpy.nonzero(
@@ -361,7 +377,10 @@ class FileIO():
         Saves the molecular data contained in a pymolecule.Molecule object
         to a pym file.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.save_pym`
+        Requires the :any:`numpy` library.
+
+        Should be called via the wrapper function 
+        :meth:`pymolecule.Molecule.Molecule.save_pym`
 
         :param str filename: An string, the filename to use for saving. (Note
                     that this is actually a directory, not a file.)
@@ -616,13 +635,15 @@ class FileIO():
         """
         Allows import of molecular structure with MDAnalysis.
 
-        Should be called via the wrapper function 
-        :meth:`pymolecule.Molecule.Molecule.load_via_MDAnalysis`
-         
-        :param ``*args``: Filename, filenames, or list of file names. Used to inizalize a MDAnalysis.Universe object.
-        
-        """
+        Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
 
+        Should be called via the wrapper function
+        :meth:`pymolecule.Molecule.Molecule.load_via_MDAnalysis`
+
+        :params \*args: Filename, filenames, or list of file names. Used to
+            inizalize a MDAnalysis.Universe object.
+
+        """
         # Throwing an informative error for missing module.
         if "MDAnalysis" not in sys.modules:
             raise ImportError("The MDAnalysis Module is not available.")
@@ -638,19 +659,21 @@ class FileIO():
         """
         Allows import of molecular structure from an MDAnalysis object.
 
-        Should be called via the wrapper function 
+        Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
+
+        Should be called via the wrapper function
         :meth:`pymolecule.Molecule.Molecule.load_via_MDAnalysis`
-         
-        :param MDAnalysis.universe universe: An MDAnalysis universe object to 
+
+        :param mdanalysis.universe universe: An MDAnalysis universe object to
             import.
         """
 
         # Throwing an informative error for missing module.
-        if "MDAnalysis" not in sys.modules:
-            raise ImportError("The MDAnalysis Module is not available.")
+        if not numpy.class_dependency("load MDAnalysis into", "MDANALYSIS"):
+            return
 
         # Initializing the MDAnalysis universe with the suppplied args
-        self.__u =  universe
+        self.__u = universe
 
         # Writing to and reading from a temporary PDB file for atom information
         fileDescriptor, tempPDB = tempfile.mkstemp(".PDB")

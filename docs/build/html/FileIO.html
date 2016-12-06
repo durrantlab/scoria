@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>2. pymolecule.FileIO module &#8212; PyMolecule 2.0 documentation</title>
+    <title>3. pymolecule.FileIO module &#8212; PyMolecule 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" />
-    <link rel="next" title="3. pymolecule.Geometry module" href="Geometry.html" />
-    <link rel="prev" title="1. pymolecule.Molecule module" href="Molecule.html" /> 
+    <link rel="next" title="4. pymolecule.Geometry module" href="Geometry.html" />
+    <link rel="prev" title="2. pymolecule.AtomsAndBonds module" href="AtomsAndBonds.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -38,10 +38,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Geometry.html" title="3. pymolecule.Geometry module"
+          <a href="Geometry.html" title="4. pymolecule.Geometry module"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="Molecule.html" title="1. pymolecule.Molecule module"
+          <a href="AtomsAndBonds.html" title="2. pymolecule.AtomsAndBonds module"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
       </ul>
@@ -53,12 +53,30 @@
           <div class="body" role="main">
             
   <div class="section" id="module-pymolecule.FileIO">
-<span id="pymolecule-fileio-module"></span><h1>2. pymolecule.FileIO module<a class="headerlink" href="#module-pymolecule.FileIO" title="Permalink to this headline">¶</a></h1>
+<span id="pymolecule-fileio-module"></span><h1>3. pymolecule.FileIO module<a class="headerlink" href="#module-pymolecule.FileIO" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="pymolecule.FileIO.FileIO">
 <em class="property">class </em><code class="descclassname">pymolecule.FileIO.</code><code class="descname">FileIO</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class for saving and loading molecular data into a pymolecule.Molecule
 object.</p>
+<dl class="method">
+<dt id="pymolecule.FileIO.FileIO.load_MDAnalysis_into">
+<code class="descname">load_MDAnalysis_into</code><span class="sig-paren">(</span><em>universe</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_MDAnalysis_into" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows import of molecular structure from an MDAnalysis object.</p>
+<p>Requires the <a class="reference external" href="https://pythonhosted.org/MDAnalysis/documentation_pages/core/AtomGroup.html#module-MDAnalysis.core.AtomGroup" title="(in MDAnalysis v0.15)"><code class="xref any docutils literal"><span class="pre">MDAnalysis</span></code></a> library.</p>
+<p>Should be called via the wrapper function
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_via_MDAnalysis" title="pymolecule.Molecule.Molecule.load_via_MDAnalysis"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_via_MDAnalysis()</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>universe</strong> (<em>mdanalysis.universe</em>) &#8211; An MDAnalysis universe object to
+import.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="pymolecule.FileIO.FileIO.load_pdb_into">
 <code class="descname">load_pdb_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pdb_into" title="Permalink to this definition">¶</a></dt>
@@ -92,7 +110,9 @@ reindex the pdb resseq field. False by default.</li>
 the current pymolecule.Molecule object. Note that most users will want
 to use the load_pdb_into() function instead, which is identical except
 that it accepts a filename string instead of a python file object.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdb_into_using_file_object" title="pymolecule.Molecule.Molecule.load_pdb_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdb_into_using_file_object()</span></code></a></p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
+<p>Should be called via the wrapper function 
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdb_into_using_file_object" title="pymolecule.Molecule.Molecule.load_pdb_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdb_into_using_file_object()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -121,7 +141,8 @@ reindex the pdb resseq field. False by default.</li>
 pymolecule.Molecule object. Note that this implementation is
 incomplete. It doesn&#8217;t save atomic charges, for example. The atom
 types are stored in the &#8220;element&#8221; and &#8220;element_stripped&#8221; columns.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdbqt_into" title="pymolecule.Molecule.Molecule.load_pdbqt_into"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdbqt_into()</span></code></a></p>
+<p>Should be called via the wrapper function 
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdbqt_into" title="pymolecule.Molecule.Molecule.load_pdbqt_into"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdbqt_into()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -150,7 +171,9 @@ into the current pymolecule.Molecule object. Note that most users will
 want to use the load_pdb_into() function instead, which is identical
 except that it accepts a filename string instead of a python file
 object.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object" title="pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object()</span></code></a></p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
+<p>Should be called via the wrapper function
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object" title="pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -177,6 +200,7 @@ reindex the pdb resseq field. False by default.</li>
 <code class="descname">load_pym_into</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pym_into" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the molecular data contained in a pym file into the current
 pymolecule.Molecule object.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pym_into" title="pymolecule.Molecule.Molecule.load_pym_into"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pym_into()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -191,14 +215,16 @@ pymolecule.Molecule object.</p>
 <dl class="method">
 <dt id="pymolecule.FileIO.FileIO.load_via_MDAnalysis">
 <code class="descname">load_via_MDAnalysis</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_via_MDAnalysis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Allows import of molecular structure with MDAnalysis</p>
-<p>Should be called via the wrapper function 
+<dd><p>Allows import of molecular structure with MDAnalysis.</p>
+<p>Requires the <a class="reference external" href="https://pythonhosted.org/MDAnalysis/documentation_pages/core/AtomGroup.html#module-MDAnalysis.core.AtomGroup" title="(in MDAnalysis v0.15)"><code class="xref any docutils literal"><span class="pre">MDAnalysis</span></code></a> library.</p>
+<p>Should be called via the wrapper function
 <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_via_MDAnalysis" title="pymolecule.Molecule.Molecule.load_via_MDAnalysis"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_via_MDAnalysis()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>*args</strong> &#8211; Filename, filenames, or list of file names. Used to inizalize a MDAnalysis.Universe object.</td>
+<tr class="field-odd field"><th class="field-name">Params *args:</th><td class="field-body">Filename, filenames, or list of file names. Used to
+inizalize a MDAnalysis.Universe object.</td>
 </tr>
 </tbody>
 </table>
@@ -242,7 +268,9 @@ returns nothing.</p>
 <code class="descname">save_pym</code><span class="sig-paren">(</span><em>filename</em>, <em>save_bonds=False</em>, <em>save_filename=False</em>, <em>save_remarks=False</em>, <em>save_hierarchy=False</em>, <em>save_coordinates_undo_point=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.save_pym" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves the molecular data contained in a pymolecule.Molecule object
 to a pym file.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.save_pym" title="pymolecule.Molecule.Molecule.save_pym"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.save_pym()</span></code></a></p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
+<p>Should be called via the wrapper function 
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.save_pym" title="pymolecule.Molecule.Molecule.save_pym"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.save_pym()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -280,11 +308,11 @@ default.</li>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="Molecule.html"
-                        title="previous chapter">1. pymolecule.Molecule module</a></p>
+  <p class="topless"><a href="AtomsAndBonds.html"
+                        title="previous chapter">2. pymolecule.AtomsAndBonds module</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="Geometry.html"
-                        title="next chapter">3. pymolecule.Geometry module</a></p>
+                        title="next chapter">4. pymolecule.Geometry module</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -316,10 +344,10 @@ default.</li>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Geometry.html" title="3. pymolecule.Geometry module"
+          <a href="Geometry.html" title="4. pymolecule.Geometry module"
              >next</a> |</li>
         <li class="right" >
-          <a href="Molecule.html" title="1. pymolecule.Molecule module"
+          <a href="AtomsAndBonds.html" title="2. pymolecule.AtomsAndBonds module"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
       </ul>

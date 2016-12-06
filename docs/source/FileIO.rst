@@ -1,5 +1,5 @@
 pymolecule.FileIO module
-==========================
+========================
 
 .. automodule:: pymolecule.FileIO
     :members:
