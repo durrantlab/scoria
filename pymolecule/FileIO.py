@@ -3,29 +3,31 @@ import os
 import sys
 import cPickle as pickle
 import shutil
+import tempfile
 
 class FileIO():
     """A class for saving and loading molecular data into a pymolecule.Molecule
     object."""
 
     def __init__(self, parent_molecule_object):
-        """Initializes the pymolecule.FileIO class.
+        """
+        Initializes the pymolecule.FileIO class.
 
-            Args:
-                parent_molecule_object -- The pymolecule.Molecule object
+        :param pymolecule.Molecule parent_molecule_object: The pymolecule.Molecule object
                     associated with this class.
-
         """
 
         self.__parent_molecule = parent_molecule_object
         self.__u = None
 
     def load_pym_into(self, filename):
-        """Loads the molecular data contained in a pym file into the current
+        """
+        Loads the molecular data contained in a pym file into the current
         pymolecule.Molecule object.
 
-            Args:
-                filename -- A string, the filename of the pym file.
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pym_into`
+
+        :param str filename: A string, the filename of the pym file.
         """
 
         if not numpy.class_dependency("load pym files", "NUMPY"):
@@ -66,19 +68,21 @@ class FileIO():
         
     def load_pdbqt_into(self, filename, bonds_by_distance = False,
                       serial_reindex = True, resseq_reindex = False):
-        """Loads the molecular data contained in a pdbqt file into the current
+        """
+        Loads the molecular data contained in a pdbqt file into the current
         pymolecule.Molecule object. Note that this implementation is
         incomplete. It doesn't save atomic charges, for example. The atom
         types are stored in the "element" and "element_stripped" columns.
 
-            Args:
-                filename -- A string, the filename of the pdbqt file.
-                bonds_by_distance -- An optional boolean, whether or not to
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdbqt_into`
+
+        :param str filename: A string, the filename of the pdbqt file.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
                     determine atomic bonds based on atom proximity. False by
                     default, unlike for PDB.
-                serial_reindex -- An optional boolean, whether or not to
+        :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
-                resseq_reindex -- An optional boolean, whether or not to
+        :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the pdbqt resseq field. False by default.
         """
 
@@ -95,24 +99,25 @@ class FileIO():
                                           bonds_by_distance = False,
                                           serial_reindex = True,
                                           resseq_reindex = False):
-        """Loads molecular data from a python file object (pdbqt formatted)
+        """
+        Loads molecular data from a python file object (pdbqt formatted)
         into the current pymolecule.Molecule object. Note that most users will
         want to use the load_pdb_into() function instead, which is identical
         except that it accepts a filename string instead of a python file
         object.
 
-            Args:
-                file_obj -- A python file object, containing pdb-formatted
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object`
+
+        :param file file_obj: A python file object, containing pdb-formatted
                     data.
-                bonds_by_distance -- An optional boolean, whether or not to
+        :param bool bonds_by_distance: An optional boolean, whether or not to
                     determine atomic bonds based on atom proximity. False by
                     default, unlike for PDB.
-                serial_reindex -- An optional boolean, whether or not to
+        :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
-                resseq_reindex -- An optional boolean, whether or not to
+        :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the pdb resseq field. False by default.
-
-            """
+        """
 
         self.load_pdb_into_using_file_object(file_obj, bonds_by_distance,
                                              serial_reindex, resseq_reindex)
@@ -136,17 +141,19 @@ class FileIO():
 
     def load_pdb_into(self, filename, bonds_by_distance = True,
                       serial_reindex = True, resseq_reindex = False):
-        """Loads the molecular data contained in a pdb file into the current
+        """
+        Loads the molecular data contained in a pdb file into the current
         pymolecule.Molecule object.
 
-            Args:
-                filename -- A string, the filename of the pdb file.
-                bonds_by_distance -- An optional boolean, whether or not to
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdb_into`
+
+        :param str filename: A string, the filename of the pdb file.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
                     determine atomic bonds based on atom proximity. True by
                     default.
-                serial_reindex -- An optional boolean, whether or not to
+        :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
-                resseq_reindex -- An optional boolean, whether or not to
+        :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the pdb resseq field. False by default.
         """
 
@@ -162,22 +169,24 @@ class FileIO():
                                         bonds_by_distance = True,
                                         serial_reindex = True,
                                         resseq_reindex = False):
-        """Loads molecular data from a python file object (pdb formatted) into
+        """
+        Loads molecular data from a python file object (pdb formatted) into
         the current pymolecule.Molecule object. Note that most users will want
         to use the load_pdb_into() function instead, which is identical except
         that it accepts a filename string instead of a python file object.
 
-            Args:
-                file_obj -- A python file object, containing pdb-formatted
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdb_into_using_file_object`
+
+        :param file file_obj: A python file object, containing pdb-formatted
                     data.
-                bonds_by_distance -- An optional boolean, whether or not to
+        :param bool bonds_by_distance: An optional boolean, whether or not to
                     determine atomic bonds based on atom proximity. True by
                     default.
-                serial_reindex -- An optional boolean, whether or not to
+        :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
-                resseq_reindex -- An optional boolean, whether or not to
+        :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the pdb resseq field. False by default.
-            """
+        """
 
         # source_data = numpy.genfromtxt(file_obj,
         # dtype="S6,S5,S5,S4,S2,S4,S4,S8,S8,S8,S6,S6,S10,S2,S2",
@@ -348,22 +357,24 @@ class FileIO():
     def save_pym(self, filename, save_bonds = False, save_filename = False,
                  save_remarks = False, save_hierarchy = False,
                  save_coordinates_undo_point = False):
-        """Saves the molecular data contained in a pymolecule.Molecule object
+        """
+        Saves the molecular data contained in a pymolecule.Molecule object
         to a pym file.
 
-            Args:
-                filename -- An string, the filename to use for saving. (Note
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.save_pym`
+
+        :param str filename: An string, the filename to use for saving. (Note
                     that this is actually a directory, not a file.)
-                save_bonds -- An optional boolean, whether or not to save
+        :param bool save_bonds: An optional boolean, whether or not to save
                     information about atomic bonds. False by default.
-                save_filename -- An optional boolean, whether or not to save
+        :param bool save_filename: An optional boolean, whether or not to save
                     the original (pdb) filename. False by default.
-                save_remarks -- An optional boolean, whether or not to save
+        :param bool save_remarks: An optional boolean, whether or not to save
                     remarks associated with the molecule. False by default.
-                save_hierarchy -- An optional boolean, whether or not to save
+        :param bool save_hierarchy: An optional boolean, whether or not to save
                     information about spheres the bound (encompass) the whole
                     molecule, the chains, and the residues. False by default.
-                save_coordinates_undo_point -- An optional boolean, whether or
+        :param bool save_coordinates_undo_point: An optional boolean, whether or
                     not to save the last coordinate undo point. False by
                     default.
         """
@@ -441,22 +452,24 @@ class FileIO():
 
     def save_pdb(self, filename = "", serial_reindex = True,
                  resseq_reindex = False, return_text = False):
-        """Saves the molecular data contained in a pymolecule.Molecule object
+        """
+        Saves the molecular data contained in a pymolecule.Molecule object
         to a pdb file.
 
-            Args:
-                filename -- An string, the filename to use for saving.
-                serial_reindex -- An optional boolean, whether or not to
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.save_pdb`
+
+        :param str filename: An string, the filename to use for saving.
+        :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
-                resseq_reindex -- An optional boolean, whether or not to
+        :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the pdb resseq field. False by default.
-                return_text -- An optional boolean, whether or not to return
+        :param bool return_text: An optional boolean, whether or not to return
                     text instead of writing to a file. If True, the filename
                     variable is ignored.
 
-            Returns:
-                If return_text is True, a PDB-formatted string. Otherwise,
+        :returns: If return_text is True, a PDB-formatted string. Otherwise,
                 returns nothing.
+        :rtype: *str* or *None*
         """
 
         if len(self.__parent_molecule.get_atom_information()) > 0:
@@ -491,13 +504,13 @@ class FileIO():
             )
 
             printout = numpy.defchararray_add(printout,
-                                                   atom_information['name'])
+                                              atom_information['name'])
 
             printout = numpy.defchararray_add(printout,
-                                                   atom_information['resname'])
+                                              atom_information['resname'])
 
             printout = numpy.defchararray_add(printout,
-                                                   atom_information['chainid'])
+                                              atom_information['chainid'])
 
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
@@ -599,21 +612,61 @@ class FileIO():
             print ("ERROR: Cannot save a Molecule with no atoms " +
                    "(file name \"" + filename + "\")")
 
-
     def load_via_MDAnalysis(self, *args):
-        """Allows import of molecular structure with MDAnalysis
+        """
+        Allows import of molecular structure with MDAnalysis.
 
-            Args:
-                file_list - List of file names
+        Should be called via the wrapper function 
+        :meth:`pymolecule.Molecule.Molecule.load_via_MDAnalysis`
+         
+        :param ``*args``: Filename, filenames, or list of file names. Used to inizalize a MDAnalysis.Universe object.
+        
         """
 
         # Throwing an informative error for missing module.
-        if 'MDAnalysis' not in sys.modules:
+        if "MDAnalysis" not in sys.modules:
             raise ImportError("The MDAnalysis Module is not available.")
 
-        # Initializing the MDAnalysis universe
+        # Initializing the MDAnalysis universe with the suppplied args
         self.__u = numpy.mda.Universe(*args)
 
-        self.__parent_molecule.set_trajectory(self.__u.trajectory)
-        print self.__u.atoms.names
+        self.load_MDAnalysis_into(self.__u)
 
+        #self.set_filename(*args)
+
+    def load_MDAnalysis_into(self, universe):
+        """
+        Allows import of molecular structure from an MDAnalysis object.
+
+        Should be called via the wrapper function 
+        :meth:`pymolecule.Molecule.Molecule.load_via_MDAnalysis`
+         
+        :param MDAnalysis.universe universe: An MDAnalysis universe object to 
+            import.
+        """
+
+        # Throwing an informative error for missing module.
+        if "MDAnalysis" not in sys.modules:
+            raise ImportError("The MDAnalysis Module is not available.")
+
+        # Initializing the MDAnalysis universe with the suppplied args
+        self.__u =  universe
+
+        # Writing to and reading from a temporary PDB file for atom information
+        fileDescriptor, tempPDB = tempfile.mkstemp(".PDB")
+        try:
+            self.__u.atoms.write(tempPDB)
+            self.load_pdb_into(tempPDB)
+        finally:
+            os.remove(tempPDB)
+
+        # Converting the MDA.trajectory data structure to our structure
+        trajectoryList = []
+        for frame in self.__u.trajectory:
+            frameList = []
+            for coord in frame:
+                coordList = numpy.vstack(coord).T
+                frameList.append(coordList)
+            trajectoryList.append(numpy.vstack(frameList))
+
+        self.__parent_molecule.set_trajectory(trajectoryList)

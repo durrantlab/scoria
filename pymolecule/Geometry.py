@@ -1,36 +1,38 @@
 from pymolecule import dumbpy as numpy
 
 class Geometry():
-    """A class containing a few gemoetry functions. Note that numpy should be
-    used for most geometry functions."""
+    """
+    A class containing a few geometry functions. Note that numpy should be
+    used for most geometry functions.
+    """
 
     def __init__(self, parent_molecule_object):
-        """Initializes the pymolecule.Geometry class.
+        """
+        Initializes the pymolecule.Geometry class.
 
-            Args:
-                parent_molecule_object -- The pymolecule.Molecule object
+        :param pymolecule.Molecule parent_molecule_object: The pymolecule.Molecule object
                     associated with this class.
-
-            """
+        """
 
         self.__parent_molecule = parent_molecule_object
 
     def get_angle_between_three_points(self, pt1, pt2, pt3):
-        """Computes the angle (in radians) formed by three points (numpy.array
+        """
+        Computes the angle (in radians) formed by three points (numpy.array
         objects).
+            
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.get_angle_between_three_points`
+        
+        :param numpy.array pt1: A numpy.array (x, y, z) representing the first of the
+                    three 3D points.
+        :param numpy.array pt2: A numpy.array (x, y, z) representing the second of the
+                    three 3D points.
+        :param numpy.array pt3: A numpy.array (x, y, z) representing the third of the
+                    three 3D points.
 
-            Args
-                pt1 -- A numpy.array (x, y, z) representing the first of the
-                    three 3D points.
-                pt2 -- A numpy.array (x, y, z) representing the second of the
-                    three 3D points.
-                pt3 -- A numpy.array (x, y, z) representing the third of the
-                    three 3D points.
-
-            Returns:
-                A float containing the angle between the three points, in
-                    radians
-            """
+        :returns: A float containing the angle between the three points, in
+                    radians.
+        """
 
         if not numpy.class_dependency("calculate the angle between three points. Missing the dot-product function", "NUMPY"):
             return
@@ -58,23 +60,24 @@ class Geometry():
         return numpy.arccos(dot_prod)
 
     def get_dihedral_angle(self, pt1, pt2, pt3, pt4):
-        """Calculates the dihedral angle formed by four points (numpy.array
+        """
+        Calculates the dihedral angle formed by four points (numpy.array
         objects).
 
-            Args:
-                pt1 -- A numpy.array (x, y, z) representing the first 3D
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.get_dihedral_angle`
+        
+        :param numpy.array pt1: A numpy.array (x, y, z) representing the first 3D
                     point.
-                pt2 -- A numpy.array (x, y, z) representing the second 3D
+        :param numpy.array pt2: A numpy.array (x, y, z) representing the second 3D
                     point.
-                pt3 -- A numpy.array (x, y, z) representing the third 3D
+        :param numpy.array pt3: A numpy.array (x, y, z) representing the third 3D
                     point.
-                pt4 -- A numpy.array (x, y, z) representing the fourth 3D
+        :param numpy.array pt4: A numpy.array (x, y, z) representing the fourth 3D
                     point.
 
-            Returns:
-                A float containing the dihedral angle between the four points,
+        :returns: A float containing the dihedral angle between the four points,
                     in radians.
-            """
+        """
 
         if not numpy.class_dependency("calculate the angle between three points. Missing the cross-product function", "NUMPY"):
             return
@@ -92,38 +95,40 @@ class Geometry():
                              numpy.dot(b1Xb2, b2Xb3))
 
     def is_planar(self, pt1, pt2, pt3, pt4, planarity_cutoff = 0.2):
-        """Checks whether four points (numpy.array) lie in a common plane.
+        """
+        Checks whether four points (numpy.array) lie in a common plane.
 
-            Args:
-                pt1 -- A numpy.array (x, y, z) representing a 3D point.
-                pt2 -- A numpy.array (x, y, z) representing a 3D point.
-                pt3 -- A numpy.array (x, y, z) representing a 3D point.
-                pt4 -- A numpy.array (x, y, z) representing a 3D point.
-                planarity_cutoff -- An optional float. How much the points can
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.is_planar`
+        
+        :param numpy.array pt1: A numpy.array (x, y, z) representing a 3D point.
+        :param numpy.array pt2: A numpy.array (x, y, z) representing a 3D point.
+        :param numpy.array pt3: A numpy.array (x, y, z) representing a 3D point.
+        :param numpy.array pt4: A numpy.array (x, y, z) representing a 3D point.
+        :param float planarity_cutoff: An optional float. How much the points can
                     deviate (in Angstroms) and still be considered planar. The
                     default is 0.2.
 
-            Returns:
-                A boolean, whether the 4 points can be considered planar.
-            """
+        :returns: A boolean, whether the 4 points can be considered planar.
+        """
 
         return (self.get_planarity_deviation(pt1, pt2, pt3, pt4) <
                 planarity_cutoff)
 
     def get_planarity_deviation(self, pt1, pt2, pt3, pt4):
-        """Determines how close four points (numpy.array objects) come to lying
+        """
+        Determines how close four points (numpy.array objects) come to lying
         in a common plane.
 
-            Args:
-                pt1 -- A numpy.array (x, y, z) representing a 3D point.
-                pt2 -- A numpy.array (x, y, z) representing a 3D point.
-                pt3 -- A numpy.array (x, y, z) representing a 3D point.
-                pt4 -- A numpy.array (x, y, z) representing a 3D point.
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.get_planarity_deviation`
+        
+        :param numpy.array pt1: A numpy.array (x, y, z) representing a 3D point.
+        :param numpy.array pt2: A numpy.array (x, y, z) representing a 3D point.
+        :param numpy.array pt3: A numpy.array (x, y, z) representing a 3D point.
+        :param numpy.array pt4: A numpy.array (x, y, z) representing a 3D point.
 
-            Returns:
-                A float, the minimum distance between one point and the plane
+        :returns: A float, the minimum distance between one point and the plane
                     formed by the other three.
-            """
+        """
 
         # note that minimal efforts were made to "numpify" this section. It's
         # mostly legacy code.

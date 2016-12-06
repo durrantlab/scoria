@@ -1,14 +1,16 @@
 from pymolecule import dumbpy as numpy
 
 class Manipulation():
-    """A class for translating and rotating the atomic coordinates of a
-    pymolecule.Molecule object"""
+    """
+    A class for translating and rotating the atomic coordinates of a
+    pymolecule.Molecule object
+    """
 
     def __init__(self, parent_molecule_object):
-        """Initializes the pymolecule.Manipulation class.
+        """
+        Initializes the pymolecule.Manipulation class.
 
-            Args:
-                parent_molecule_object -- The pymolecule.Molecule object
+        :param pymolecule.Molecule parent_molecule_object: The pymolecule.Molecule object
                     associated with this class.
 
             """
@@ -16,36 +18,41 @@ class Manipulation():
         self.__parent_molecule = parent_molecule_object
 
     def set_coordinate_undo_point(self):
-        """Sets ("saves") the undo point of the atom coordinates. Any
+        """
+        Sets ("saves") the undo point of the atom coordinates. Any
         subsequent manipulations of atomic coordinates can be "undone" by
-        reseting to this configuration via the coordinate_undo function."""
+        reseting to this configuration via the coordinate_undo function.
+        
+        """
 
         self.__parent_molecule.set_coordinates_undo_point(
             self.__parent_molecule.get_coordinates().copy()
         )
 
     def coordinate_undo(self):
-        """Resets the coordinates of all atoms to those saved using the
-        set_coordinate_undo_point function."""
+        """
+        Resets the coordinates of all atoms to those saved using the
+        set_coordinate_undo_point function.
+        """
 
         self.__parent_molecule.set_coordinates(
             self.__parent_molecule.get_coordinates_undo_point().copy()
         )
 
     def set_atom_location(self, atom_index, new_location):
-        """Translates the entire molecular model (without rotating) so that the
+        """
+        Translates the entire molecular model (without rotating) so that the
         atom with the specified index is located at the specified coordinate.
 
-            Args:
-                atom_index -- An int, the index of the target atom.
-                new_location -- A numpy.array specifying the new (x, y, z)
+        Wrapper function for :meth:`pymolecule.Molecule.Molecule.set_atom_location`
+        
+        :param int atom_index: An int, the index of the target atom.
+        :param numpy.array new_location: A numpy.array specifying the new (x, y, z)
                     coordinate of the specified atom.
 
-            Returns:
-                A numpy.array specifying the (delta_x, delta_y, delta_z) vector
+        :returns: A numpy.array specifying the (delta_x, delta_y, delta_z) vector
                 by which the pmolecule.Molecule was translated.
-
-            """
+        """
 
         if new_location.shape == (3,):
             new_location = numpy.array([new_location])
@@ -58,13 +65,14 @@ class Manipulation():
         return delta
 
     def translate_molecule(self, delta):
-        """Translate all the atoms of the molecular model by a specified
+        """
+        Translate all the atoms of the molecular model by a specified
         vector.
 
-        Args:
-            delta -- A numpy.array (delta_x, delta_y, delta_z) specifying the
-            amount to move each atom along the x, y, and z coordinates.
+        Wrapper function for :meth:`pymolecule.Molecule.Molecule.translate_molecule`
 
+        :param numpy.array delta: A numpy.array (delta_x, delta_y, delta_z) specifying the
+            amount to move each atom along the x, y, and z coordinates.
         """
 
         if delta.shape == (3,):
@@ -93,17 +101,18 @@ class Manipulation():
 
     def rotate_molecule_around_a_line_between_points(self, line_point1,
                                                      line_point2, rotate):
-        """Rotate the molecular model about a line segment. The end points of
+        """
+        Rotate the molecular model about a line segment. The end points of
         the line segment are explicitly specified coordinates.
 
-            Args:
-                line_point1 -- A numpy.array (x, y, z) corresponding to one end
+        Wrapper function for :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_points`
+        
+        :param numpy.array line_point1: A numpy.array (x, y, z) corresponding to one end
                     of the line segment.
-                line_point2 -- A numpy.array (x, y, z) corresponding to the
+        :param numpy.array line_point2: A numpy.array (x, y, z) corresponding to the
                     other end of the line segment.
-                rotate -- A float, the angle of rotation, in radians.
-
-            """
+        :param float rotate: A float, the angle of rotation, in radians.
+        """
 
         if line_point1.shape == (1, 3):
             line_point1 = line_point1[0]
@@ -195,17 +204,18 @@ class Manipulation():
 
     def rotate_molecule_around_a_line_between_atoms(self, line_point1_index,
                                                     line_point2_index, rotate):
-        """Rotate the molecular model about a line segment. The end points of
+        """
+        Rotate the molecular model about a line segment. The end points of
         the line segment are atoms of specified indices.
 
-            Args:
-                line_point1_index -- An int, the index of the first atom at one
-                    end of the line segment.
-                line_point2_index -- An int, the index of the second atom at
-                    the other end of the line segment.
-                rotate -- A float, the angle of rotation, in radians.
+        Wrapper function for :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_atoms`
 
-            """
+        :param int line_point1_index: An int, the index of the first atom at one
+                    end of the line segment.
+        :param int line_point2_index: An int, the index of the second atom at
+                    the other end of the line segment.
+        :param float rotate: A float, the angle of rotation, in radians.
+        """
 
         pt1 = self.__parent_molecule.get_coordinates()[line_point1_index]
         pt2 = self.__parent_molecule.get_coordinates()[line_point2_index]
@@ -219,19 +229,20 @@ class Manipulation():
 
     def rotate_molecule_around_pivot_point(self, pivot, thetax,
                                            thetay, thetaz):
-        """Rotate the molecular model around a specified atom.
+        """
+        Rotate the molecular model around a specified atom.
 
-            Args:
-                pivot -- A numpy.array, the (x, y, z) coordinate about which
+        Wrapper function for :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_point`
+        
+        :param numpy.array pivot: A numpy.array, the (x, y, z) coordinate about which
                     the molecular model will be rotated.
-                thetax -- A float, the angle to rotate relative to the x axis,
+        :param float thetax: A float, the angle to rotate relative to the x axis,
                     in radians.
-                thetay -- A float, the angle to rotate relative to the y axis,
+        :param float thetay: A float, the angle to rotate relative to the y axis,
                     in radians.
-                thetaz -- A float, the angle to rotate relative to the z axis,
+        :param float thetaz: A float, the angle to rotate relative to the z axis,
                     in radians.
-
-            """
+        """
 
         if not numpy.class_dependency("rotate the molecule about a point. Missing the dot-product function", "NUMPY"):
             return
@@ -280,19 +291,20 @@ class Manipulation():
 
     def rotate_molecule_around_pivot_atom(self, pivot_index, thetax,
                                           thetay, thetaz):
-        """Rotate the molecular model around a specified atom.
+        """
+        Rotate the molecular model around a specified atom.
 
-            Args:
-                pivot_index -- An int, the index of the atom about which the
+        Wrapper function for :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_atom`
+        
+        :param int pivot_index: An int, the index of the atom about which the
                     molecular model will be rotated.
-                thetax -- A float, the angle to rotate relative to the x axis,
+        :param float thetax: A float, the angle to rotate relative to the x axis,
                     in radians.
-                thetay -- A float, the angle to rotate relative to the y axis,
+        :param float thetay: A float, the angle to rotate relative to the y axis,
                     in radians.
-                thetaz -- A float, the angle to rotate relative to the z axis,
+        :param float thetaz: A float, the angle to rotate relative to the z axis,
                     in radians.
-
-            """
+        """
 
         if not numpy.class_dependency("rotate the molecule about an atom. Missing the dot-product function", "NUMPY"):
             return

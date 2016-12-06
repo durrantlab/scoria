@@ -2,13 +2,16 @@ from pymolecule import dumbpy as numpy
 
 
 class AtomsAndBonds():
-    """A class for adding and deleting atoms and bonds"""
+    """
+    A class for adding and deleting atoms and bonds. Subclass to the
+    :py:class:`pymolecule.Molecule` class.
+    """
 
     def __init__(self, parent_molecule_object):
-        """Initializes the pymolecule.AtomsAndBonds class.
-
-            Args:
-                parent_molecule_object -- The pymolecule.Molecule object
+        """
+        Initializes the pymolecule.AtomsAndBonds class.
+        
+        :param pymolecule.Molecule parent_molecule_object: The pymolecule.Molecule object
                     associated with this class.
 
         """
@@ -17,17 +20,20 @@ class AtomsAndBonds():
 
     def create_bonds_by_distance(self, remove_old_bond_data = True,
                                  delete_excessive_bonds = True):
-        """Determines which atoms are bound to each other based on their
+        """
+        Determines which atoms are bound to each other based on their
         proximity.
 
-            Args:
-                remove_old_bond_data -- An optional boolean, whether or not to
+        Should be called via the wrapper function 
+        :meth:`pymolecule.Molecule.Molecule.create_bonds_by_distance`
+        .
+
+        :param bool remove_old_bond_data: An optional boolean, whether or not to
                     discard old bond data before adding in bonds determined by
                     distance. True by default.
-                delete_excessive_bonds -- An optional boolean, whether or not
+        :param bool delete_excessive_bonds: An optional boolean, whether or not
                     to check for and delete excessive bonds. True by default.
-
-            """
+        """
 
         if not numpy.class_dependency("calculate bonds by distance", "NUMPY"):
             return
@@ -135,19 +141,21 @@ class AtomsAndBonds():
                 except: pass # element probably wasn't in the dictionary
 
     def get_number_of_bond_partners_of_element(self, atom_index, the_element):
-        """Counts the number of atoms of a given element bonded to a specified
+        """
+        Counts the number of atoms of a given element bonded to a specified
         atom of interest.
+        
+        Should be called via the wrapper function 
+        :meth:`pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element`.
 
-            Args:
-                atom_index -- An int, the index of the atom of interest.
-                the_element -- A string describing the element of the neighbors
+        :param int atom_index: An int, the index of the atom of interest.
+        :param str the_element: A string describing the element of the neighbors
                     to be counted.
 
-            Returns:
-                An int, the number of neighboring atoms of the specified
+        :returns: An int, the number of neighboring atoms of the specified
                 element.
-
-            """
+        :rtype: *int*
+        """
 
         if not numpy.class_dependency("count the number of bond partners of a given element", "NUMPY"):
             return
@@ -166,18 +174,19 @@ class AtomsAndBonds():
 
     def get_index_of_first_bond_partner_of_element(self, atom_index,
                                                    the_element):
-        """For a given atom of interest, returns the index of the first
+        """
+        For a given atom of interest, returns the index of the first
         neighbor of a specified element.
 
-            Args:
-                atom_index -- An int, the index of the atom of interest.
-                the_element -- A string specifying the desired element of the
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element`.
+
+        :param int atom_index: An int, the index of the atom of interest.
+        :param str the_element: A string specifying the desired element of the
                     neighbor.
 
-            Returns:
-                An int, the index of the first neighbor atom of the specified
+        :returns: An int, the index of the first neighbor atom of the specified
                 element. If no such neighbor exists, returns -1.
-
+        :rtype: *int*
         """
 
         if not numpy.class_dependency("get the index of a bond partner of element X", "NUMPY"):
@@ -200,15 +209,16 @@ class AtomsAndBonds():
         return bond_partners_selection[numpy.nonzero(elements == the_element)[0]][0]
 
     def delete_bond(self, index1, index2):
-        """Deletes a bond.
+        """
+        Deletes a bond.
 
-            Args:
-                index1 -- An int, the index of the first atom of the bonded
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.delete_bond`.
+        
+        :param int index1: An int, the index of the first atom of the bonded
                     pair.
-                index2 -- An int, the index of the second atom of the bonded
+        :param int index2: An int, the index of the second atom of the bonded
                     pair.
-
-            """
+        """
 
         if not numpy.class_dependency("delete bonds", "NUMPY"):
             return
@@ -221,16 +231,17 @@ class AtomsAndBonds():
                        " and " + str(index2) + ".")
 
     def add_bond(self, index1, index2, order = 1):
-        """Adds a bond.
+        """
+        Adds a bond.
 
-            Args:
-                index1 -- An int, the index of the first atom of the bonded
-                    pair.
-                index2 -- An int, the index of the second atom of the bonded
-                    pair.
-                order -- An optional int, the order of the bond. 1 by default.
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.add_bond`.
 
-            """
+        :param int index1: An int, the index of the first atom of the bonded
+                    pair.
+        :param int index2: An int, the index of the second atom of the bonded
+                    pair.
+        :param int order: An optional int, the order of the bond. 1 by default.
+        """
 
         if not numpy.class_dependency("add bonds", "NUMPY"):
             return
@@ -241,12 +252,13 @@ class AtomsAndBonds():
         self.__parent_molecule.set_bonds(bonds)
 
     def delete_atom(self, index):
-        """Deletes an atom.
+        """
+        Deletes an atom.
 
-            Args:
-                index -- An int, the index of the atom to delete.
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.delete_atom`.
 
-            """
+        :param int index: An int, the index of the atom to delete.
+        """
 
         if not numpy.class_dependency("delete atoms", "NUMPY"):
             return
@@ -299,34 +311,35 @@ class AtomsAndBonds():
                  resname = "XXX", chainid = "X", resseq = 1, occupancy = 0.0,
                  tempfactor = 0.0, charge = '', element = "X",
                  coordinates = numpy.array([0.0, 0.0, 0.0]), autoindex = True):
-        """Adds an atom.
+        """
+        Adds an atom.
 
-            Args:
-                record_name -- An optional string, the record name of the atom.
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.add_atom`.
+
+        :param str record_name: An optional string, the record name of the atom.
                     "ATOM" is the default.
-                serial -- An optional int, the serial field of the atom. 1 is
+        :param int serial: An optional int, the serial field of the atom. 1 is
                     the default.
-                name -- An optional string, the name of the atom. "X" is the
+        :param str name: An optional string, the name of the atom. 'X' is the
                     default.
-                resname -- An optional string, the resname of the atom. "XXX"
+        :param str resname: An optional string, the resname of the atom. 'XXX'
                     is the default.
-                chainid -- An optional string, chainid of the atom. "X" is the
+        :param str chainid: An optional string, chainid of the atom. 'X' is the
                     default.
-                resseq -- An optional int, the resseq field of the atom. 1 is
+        :param int resseq: An optional int, the resseq field of the atom. 1 is
                     the default.
-                occupancy -- An optional float, the occupancy of the atom. 0.0
+        :param float occupancy: An optional float, the occupancy of the atom. 0.0
                     is the default.
-                tempfactor -- An optional float, the tempfactor of the atom.
+        :param float tempfactor: An optional float, the tempfactor of the atom.
                     0.0 is the default.
-                charge -- An optional string, the charge of the atom. "" is the
+        :param str charge: An optional string, the charge of the atom. '' is the
                     default.
-                element -- An optional string, the element of the atom. "X" is
+        :param str element: An optional string, the element of the atom. 'X' is
                     the default.
-                coordinates -- An optional numpy.array, the (x, y, z)
+        :param numpy.array coordinates: An optional numpy.array, the (x, y, z)
                     coordinates of the atom. numpy.array([0.0, 0.0, 0.0]) is
                     the default.
-
-            """
+        """
 
         if not numpy.class_dependency("add atoms", "NUMPY"):
             return

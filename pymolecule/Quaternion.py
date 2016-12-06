@@ -1,7 +1,9 @@
 from pymolecule import dumbpy as numpy
 
 class Quaternion:
-    """A class supporting quaternion arithmetic"""
+    """
+    A class supporting quaternion arithmetic
+    """
 
     def __init__(self, s, x, y, z):
         """Initializes the pymolecule.Quaternion class.
@@ -33,12 +35,12 @@ class Quaternion:
         return Quaternion(self.v[0], self.v[1], self.v[2], self.v[3])
 
     def load_from_mat(self, m):
-        """Converts a rotation matrix that is pure orthogonal (det(matrix)=1)
+        """
+        Converts a rotation matrix that is pure orthogonal (det(matrix)=1)
         into a Quaternion. Adapted from http://www.euclideanspace.com/maths/
         geometry/rotations/conversions/matrixToQuaternion/index.htm
 
-            Args:
-                m -- A 2D numpy.array representing a pure orthogonal matrix
+        :param numpy.array m: A 2D numpy.array representing a pure orthogonal matrix
 
         """
 
@@ -87,11 +89,10 @@ class Quaternion:
             self.v[3] = .25 * S
 
     def rep_as_44_matrix(self):
-        """Creates a 4x4 matrix representation of the Quaternion.
+        """
+        Creates a 4x4 matrix representation of the Quaternion.
 
-            Returns:
-                A 4x4 numpy array
-
+        :returns: A 4x4 numpy array
         """
 
         n = self.normalize()
@@ -108,11 +109,10 @@ class Quaternion:
         ])
 
     def to_matrix(self):
-        """Converts to a normalized 3x3 matrix.
+        """
+        Converts to a normalized 3x3 matrix.
 
-            Returns:
-                A 3x3 numpy.array, corresponding to the quaternion
-
+        :returns: A 3x3 numpy.array, corresponding to the quaternion
         """
 
         #First normalize
@@ -138,53 +138,47 @@ class Quaternion:
         )
 
     def add(self, q2):
-        """Adds two quaternions.
+        """
+        Adds two quaternions.
 
-        Args:
-            q2 -- A quaternion, to be added to self
+        :param pymolecule.Quaternion q2: A quaternion, to be added to self
 
-        Returns:
-            A Quaternion, with the values corresponding to self + q2
-
+        :returns: A Quaternion, with the values corresponding to self + q2
         """
 
         return Quaternion(self.v[0] + q2.v[0], self.v[1] + q2.v[1],
                           self.v[2] + q2.v[2], self.v[3] + q2.v[3])
 
     def invert(self):
-        """Takes the inverse of the quaternion for "division."
+        """
+        Takes the inverse of the quaternion for "division."
 
-            Returns:
-                A Quaternion, with the values corresponding to self^-1
-
-            """
+        :returns: A Quaternion, with the values corresponding to self^-1
+        """
 
         return Quaternion(self.v[0], -1 * self.v[1],
                           -1 * self.v[2], -1 * self.v[3])
 
     def minus(self, q2):
-        """Multiplies two quaternions.
+        """
+        Multiplies two quaternions.
 
-        Args:
-            q2 -- A quaternion, to be subtracted from self
+        :param pymolecule.Quaternion q2: A quaternion, to be subtracted from self
 
         Returns:
             A Quaternion, with the values corresponding to self - q2
-
         """
 
         return Quaternion(self.v[0] - q2.v[0], self.v[1] - q2.v[1],
                           self.v[2] - q2.v[2], self.v[3] - q2.v[3])
 
     def multiply(self, q2):
-        """Multiplies two quaternions.
+        """
+        Multiplies two quaternions.
 
-            Args:
-                q2 -- A quaternion, to be multiplied with self
+        :param pymolecule.Quaternion q2: A quaternion, to be multiplied with self
 
-            Returns:
-                A Quaternion, with the values corresponding to self * q2
-
+        :returns: A Quaternion, with the values corresponding to self * q2
         """
 
         return Quaternion(self.v[0] * q2.v[0] - self.v[1] * q2.v[1] -
@@ -197,11 +191,10 @@ class Quaternion:
                           self.v[2] * q2.v[1] + self.v[3] * q2.v[0])
 
     def normalize(self):
-        """Normalizes the quaternion.
+        """
+        Normalizes the quaternion.
 
-            Returns:
-                A normalized Quaternion
-
+        :returns: A normalized Quaternion
         """
 
         #First normalize
@@ -214,14 +207,12 @@ class Quaternion:
                           self.v[3] / n)
 
     def scale(self, scalar):
-        """Scales a quaternion.
+        """
+        Scales a quaternion.
 
-            Args:
-                scalar -- the value to scale the quaternion by
+        :param ??? scalar: the value to scale the quaternion by
 
-            Returns:
-                A Quaternion, with the values corresponding to self * scalar
-
+        :returns: A Quaternion, with the values corresponding to self * scalar
         """
 
         return Quaternion(self.v[0] * scalar,

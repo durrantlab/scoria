@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>6. pymolecule.OtherMolecules module &#8212; PyMolecule 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" />
+    <link rel="next" title="7. pymolecule.Quaternion module" href="Quaternion.html" />
+    <link rel="prev" title="5. pymolecule.Manipulation module" href="Manipulation.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Quaternion.html" title="7. pymolecule.Quaternion module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Manipulation.html" title="5. pymolecule.Manipulation module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pymolecule-othermolecules-module">
+<h1>6. pymolecule.OtherMolecules module<a class="headerlink" href="#pymolecule-othermolecules-module" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-pymolecule.OtherMolecules"></span><dl class="class">
+<dt id="pymolecule.OtherMolecules.OtherMolecules">
+<em class="property">class </em><code class="descclassname">pymolecule.OtherMolecules.</code><code class="descname">OtherMolecules</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class for characterizing the relationships between multiple
+pymolecule.Molecule objects.</p>
+<dl class="method">
+<dt id="pymolecule.OtherMolecules.OtherMolecules.get_distance_to_another_molecule">
+<code class="descname">get_distance_to_another_molecule</code><span class="sig-paren">(</span><em>other_molecule</em>, <em>pairwise_comparison=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules.get_distance_to_another_molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the minimum distance between any of the atoms of this
+molecular model and any of the atoms of a second specified model.</p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_distance_to_another_molecule" title="pymolecule.Molecule.Molecule.get_distance_to_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_distance_to_another_molecule()</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>other_molecule</strong> (<a class="reference internal" href="Molecule.html#module-pymolecule.Molecule" title="pymolecule.Molecule"><em>pymolecule.Molecule</em></a>) &#8211; a pymolecule.Molecule, the other molecular
+model.</li>
+<li><strong>pairwise_comparison</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+perform a simple pairwise distance comparison (if True) or
+to use a more sophisitcated method (if False). True by
+default.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A float, the minimum distance between any two atoms of the two
+specified molecular models (self and other_molecule).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.OtherMolecules.OtherMolecules.get_other_molecule_aligned_to_this">
+<code class="descname">get_other_molecule_aligned_to_this</code><span class="sig-paren">(</span><em>other_mol</em>, <em>tethers</em>, <em>weight_mat=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules.get_other_molecule_aligned_to_this" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aligns a molecule to self (this pymolecule.Molecule object) using a
+quaternion RMSD alignment.</p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this" title="pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this()</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>other_mol</strong> (<a class="reference internal" href="Molecule.html#module-pymolecule.Molecule" title="pymolecule.Molecule"><em>pymolecule.Molecule</em></a>) &#8211; A pymolecule.Molecule that is to be aligned to
+this one.</li>
+<li><strong>tethers</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; A tuple of two numpy.array objects, where each array
+contains the indices of self and other_mol, respectively,
+such that equivalent atoms are listed in the same order.
+So, for example, if (atom 1, self = atom 3, other) and
+(atom2, self = atom6, other) than the tethers would be
+(numpy.array([1, 2]), numpy.array([3, 6])).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The new molecule.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.OtherMolecules.OtherMolecules.get_rmsd_equivalent_atoms_specified">
+<code class="descname">get_rmsd_equivalent_atoms_specified</code><span class="sig-paren">(</span><em>other_mol</em>, <em>tethers</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules.get_rmsd_equivalent_atoms_specified" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the RMSD between this pymolecule.Molecle object and
+another, where equivalent atoms are explicitly specified.</p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified" title="pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified()</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>other_mol</strong> (<a class="reference internal" href="Molecule.html#module-pymolecule.Molecule" title="pymolecule.Molecule"><em>pymolecule.Molecule</em></a>) &#8211; The other pymolecule.Molecule object.</li>
+<li><strong>tethers</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; A tuple of two numpy.array objects, where each array
+contains the indices of self and other_mol, respectively,
+such that equivalent atoms are listed in the same order.
+So, for example, if (atom 1, self = atom 3, other) and
+(atom2, self = atom6, other) than the tethers would be
+(numpy.array([1, 2]), numpy.array([3, 6])).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A float, the RMSD between self and other_mol.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.OtherMolecules.OtherMolecules.get_rmsd_heuristic">
+<code class="descname">get_rmsd_heuristic</code><span class="sig-paren">(</span><em>other_mol</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules.get_rmsd_heuristic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Caluclates the RMSD between two identical molecules with different
+conformations, per the definition given in &#8220;AutoDock Vina: Improving
+the speed and accuracy of docking with a new scoring function,
+efficient optimization, and multithreading,&#8221;&#8221; by Oleg Trott and Arthur
+J. Olson. Note: Identical means the order of the atoms is the same as
+well.</p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_rmsd_heuristic" title="pymolecule.Molecule.Molecule.get_rmsd_heuristic"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_rmsd_heuristic()</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other_mol</strong> (<a class="reference internal" href="Molecule.html#module-pymolecule.Molecule" title="pymolecule.Molecule"><em>pymolecule.Molecule</em></a>) &#8211; The other pymolecule.Molecule object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A float, the RMSD between self and other_mol.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.OtherMolecules.OtherMolecules.get_rmsd_order_dependent">
+<code class="descname">get_rmsd_order_dependent</code><span class="sig-paren">(</span><em>other_mol</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules.get_rmsd_order_dependent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the RMSD between two structures, where equivalent atoms
+are listed in the same order.</p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_rmsd_order_dependent" title="pymolecule.Molecule.Molecule.get_rmsd_order_dependent"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_rmsd_order_dependent()</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other_mol</strong> (<a class="reference internal" href="Molecule.html#module-pymolecule.Molecule" title="pymolecule.Molecule"><em>pymolecule.Molecule</em></a>) &#8211; The other pymolecule.Molecule object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A float, the RMSD between self and other_mol.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.OtherMolecules.OtherMolecules.merge_with_another_molecule">
+<code class="descname">merge_with_another_molecule</code><span class="sig-paren">(</span><em>other_molecule</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules.merge_with_another_molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges two molecular models into a single model.</p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.merge_with_another_molecule" title="pymolecule.Molecule.Molecule.merge_with_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.merge_with_another_molecule()</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other_molecule</strong> (<a class="reference internal" href="Molecule.html#module-pymolecule.Molecule" title="pymolecule.Molecule"><em>pymolecule.Molecule</em></a>) &#8211; A molecular model (pymolecule.Molecule
+object).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A single pymolecule.Molecule object containing the atoms of
+this model combined with the atoms of other_molecule.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule">
+<code class="descname">steric_clash_with_another_molecule</code><span class="sig-paren">(</span><em>other_mol</em>, <em>cutoff</em>, <em>pairwise_comparison=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detects steric clashes between the pymolecule.Molecule (self) and
+another pymolecule.Molecule.</p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.steric_clash_with_another_molecule" title="pymolecule.Molecule.Molecule.steric_clash_with_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.steric_clash_with_another_molecule()</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>other_mol</strong> (<a class="reference internal" href="Molecule.html#module-pymolecule.Molecule" title="pymolecule.Molecule"><em>pymolecule.Molecule</em></a>) &#8211; The pymolecule.Molecule object that will be
+evaluated for steric clashes.</li>
+<li><strong>cutoff</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A float, the user-defined distance cutoff in
+Angstroms.</li>
+<li><strong>pairwise_comparison</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+perform a simple pairwise distance comparison (if True) or
+to use a more sophisitcated method (if False). True by
+default.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A boolean. True if steric clashes are present, False if they
+are not.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Manipulation.html"
+                        title="previous chapter">5. pymolecule.Manipulation module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Quaternion.html"
+                        title="next chapter">7. pymolecule.Quaternion module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/OtherMolecules.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Quaternion.html" title="7. pymolecule.Quaternion module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Manipulation.html" title="5. pymolecule.Manipulation module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Jacob Durrant.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

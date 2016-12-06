@@ -139,10 +139,13 @@ except:
     pass
 
 try:
-    # Try to load MD analysis
+    if force_dumbpy: raise ValueError('Using dumbpy')
+
     import MDAnalysis as mda
+    dependencies_available.append("MDANALYSIS")
 except:
     pass
+
 
 def class_dependency(action, dependency):
     """Determines whether or not a given dependency is available.
