@@ -45,8 +45,8 @@ class Molecule: # here's the actual Molecule class
 
         Wrapper function for :meth:`~pymolecule.Information.Information.get_coordinates`
 
-        :param int frame: The timestep from which the coordinates shoule be 
-                        returned. If ommitted, it defaults to the first 
+        :param int frame: The timestep from which the coordinates shoule be
+                        returned. If ommitted, it defaults to the first
                         frame of the trajectory.
         
         :returns: The set of coordinates from the specified frame.
@@ -62,16 +62,16 @@ class Molecule: # here's the actual Molecule class
             [[ -30.85199928  -81.45800018  365.05499268]
              [ -31.99500084  -80.69300079  365.66900635]
              [ -32.0530014   -81.13200378  367.18200684]
-             ..., 
+             ...,
              [ -27.54199982  -96.25099945  402.83700562]
              [ -23.54199982  -94.7539978   400.41900635]
              [ -22.86100006  -93.72499847  400.55300903]]
-             
+
             >>> print mol.get_coordinates(2)
             [[ -28.88899994  -80.45700073  365.51699829]
              [ -30.20000076  -79.73699951  365.99700928]
              [ -30.90699959  -80.5510025   367.13000488]
-             ..., 
+             ...,
              [ -26.0189991   -97.28099823  403.52600098]
              [ -23.2140007   -94.73999786  400.94699097]
              [ -22.52899933  -93.73300171  400.81399536]]

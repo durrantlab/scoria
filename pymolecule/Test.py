@@ -6,10 +6,12 @@ import inspect
 from time import time
 import shutil
 
+
 class Test:
     """A class for testing all pymolecule functions."""
 
     mol = None
+    numpy.missing_dependency_throws_error = False
 
     def test_all(self):
         """Test all pymolecule functions."""
@@ -20,12 +22,12 @@ class Test:
             os.mkdir("./pymolecule_tests_tmp")
 
         self.test_file_io()
-        #self.test_information()
+        self.test_information()
         #self.test_selection()
-        #self.test_manipulation()
+        self.test_manipulation()
         #self.test_other_molecules()
-        #self.test_atoms_and_bonds()
-        #self.test_geometry()
+        self.test_atoms_and_bonds()
+        self.test_geometry()
 
     def test_file_io(self):
         """Test the functions in FileIO."""
