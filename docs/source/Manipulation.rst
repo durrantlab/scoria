@@ -1,5 +1,5 @@
 pymolecule.Manipulation module
-==========================
+==============================
 
 .. automodule:: pymolecule.Manipulation
     :members:

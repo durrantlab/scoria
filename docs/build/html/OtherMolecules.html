@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>6. pymolecule.OtherMolecules module &#8212; PyMolecule 2.0 documentation</title>
+    <title>7. pymolecule.OtherMolecules module &#8212; PyMolecule 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" />
-    <link rel="next" title="7. pymolecule.Quaternion module" href="Quaternion.html" />
-    <link rel="prev" title="5. pymolecule.Manipulation module" href="Manipulation.html" /> 
+    <link rel="next" title="8. pymolecule.Quaternion module" href="Quaternion.html" />
+    <link rel="prev" title="6. pymolecule.Manipulation module" href="Manipulation.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -38,10 +38,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Quaternion.html" title="7. pymolecule.Quaternion module"
+          <a href="Quaternion.html" title="8. pymolecule.Quaternion module"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="Manipulation.html" title="5. pymolecule.Manipulation module"
+          <a href="Manipulation.html" title="6. pymolecule.Manipulation module"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
       </ul>
@@ -52,9 +52,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="pymolecule-othermolecules-module">
-<h1>6. pymolecule.OtherMolecules module<a class="headerlink" href="#pymolecule-othermolecules-module" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-pymolecule.OtherMolecules"></span><dl class="class">
+  <div class="section" id="module-pymolecule.OtherMolecules">
+<span id="pymolecule-othermolecules-module"></span><h1>7. pymolecule.OtherMolecules module<a class="headerlink" href="#module-pymolecule.OtherMolecules" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
 <dt id="pymolecule.OtherMolecules.OtherMolecules">
 <em class="property">class </em><code class="descclassname">pymolecule.OtherMolecules.</code><code class="descname">OtherMolecules</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class for characterizing the relationships between multiple
@@ -64,6 +64,7 @@ pymolecule.Molecule objects.</p>
 <code class="descname">get_distance_to_another_molecule</code><span class="sig-paren">(</span><em>other_molecule</em>, <em>pairwise_comparison=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules.get_distance_to_another_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the minimum distance between any of the atoms of this
 molecular model and any of the atoms of a second specified model.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref any docutils literal"><span class="pre">scipy</span></code></a> libraries.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_distance_to_another_molecule" title="pymolecule.Molecule.Molecule.get_distance_to_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_distance_to_another_molecule()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -92,6 +93,7 @@ specified molecular models (self and other_molecule).</p>
 <code class="descname">get_other_molecule_aligned_to_this</code><span class="sig-paren">(</span><em>other_mol</em>, <em>tethers</em>, <em>weight_mat=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules.get_other_molecule_aligned_to_this" title="Permalink to this definition">¶</a></dt>
 <dd><p>Aligns a molecule to self (this pymolecule.Molecule object) using a
 quaternion RMSD alignment.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this" title="pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -153,6 +155,7 @@ the speed and accuracy of docking with a new scoring function,
 efficient optimization, and multithreading,&#8221;&#8221; by Oleg Trott and Arthur
 J. Olson. Note: Identical means the order of the atoms is the same as
 well.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_rmsd_heuristic" title="pymolecule.Molecule.Molecule.get_rmsd_heuristic"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_rmsd_heuristic()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -208,6 +211,7 @@ this model combined with the atoms of other_molecule.</td>
 <code class="descname">steric_clash_with_another_molecule</code><span class="sig-paren">(</span><em>other_mol</em>, <em>cutoff</em>, <em>pairwise_comparison=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detects steric clashes between the pymolecule.Molecule (self) and
 another pymolecule.Molecule.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref any docutils literal"><span class="pre">scipy</span></code></a> libraries.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.steric_clash_with_another_molecule" title="pymolecule.Molecule.Molecule.steric_clash_with_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.steric_clash_with_another_molecule()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -245,10 +249,10 @@ are not.</p>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="Manipulation.html"
-                        title="previous chapter">5. pymolecule.Manipulation module</a></p>
+                        title="previous chapter">6. pymolecule.Manipulation module</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="Quaternion.html"
-                        title="next chapter">7. pymolecule.Quaternion module</a></p>
+                        title="next chapter">8. pymolecule.Quaternion module</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -280,10 +284,10 @@ are not.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Quaternion.html" title="7. pymolecule.Quaternion module"
+          <a href="Quaternion.html" title="8. pymolecule.Quaternion module"
              >next</a> |</li>
         <li class="right" >
-          <a href="Manipulation.html" title="5. pymolecule.Manipulation module"
+          <a href="Manipulation.html" title="6. pymolecule.Manipulation module"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
       </ul>

@@ -13,6 +13,7 @@ PyMolecule is a lightweight molecular dynamics library
    :numbered:
 
    Molecule.rst
+   AtomsAndBonds.rst
    FileIO.rst
    Geometry.rst
    Information.rst

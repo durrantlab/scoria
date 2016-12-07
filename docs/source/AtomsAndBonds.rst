@@ -1,5 +1,5 @@
 pymolecule.AtomsAndBonds module
-==========================
+===============================
 
 .. automodule:: pymolecule.AtomsAndBonds
     :members:

@@ -5,6 +5,8 @@ import textwrap
 
 # A list of the available dependencies.
 dependencies_available = []
+
+# A flag for supressing errors
 missing_dependency_throws_error = True
 
 # Try to load numpy.
@@ -161,10 +163,18 @@ def class_dependency(action, dependency):
     """
 
     global dependencies_available
+    global missing_dependency_throws_error
+
     if not dependency in dependencies_available:
         t = textwrap.TextWrapper(width = 60, subsequent_indent="       ")
         print
-        print "\n".join(t.wrap("Error: Cannot " + action + ". Install this recommended dependency: " + dependency))
+        print "\n".join(t.wrap("Error: Cannot " + action +
+                               ". Install this recommended dependency: " +
+                               dependency))
         print
-        return False
+        if missing_dependency_throws_error:
+            raise ImportError("The " + dependency + " module is not available.")
+            return False
+        else:
+            return False
     return True

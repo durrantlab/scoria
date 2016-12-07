@@ -129,11 +129,12 @@ class Information():
         """
         Returns the filename that the molecule was originally loaded from.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_filename`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_filename`
         
         :returns: The name of the file.
 
         :rtype: :any:`str`
+
         ::
 
             >>> mol = pymolecule.Molecule()
@@ -153,7 +154,7 @@ class Information():
         """
         Returns the remarks from the file the molecule was loaded from.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_remarks`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_remarks`
         
         :returns: The remarks from the file an a list of strings.
 
@@ -173,11 +174,11 @@ class Information():
         """
         Retreives the atomic information for the molecule.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_atom_information`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_atom_information`
 
         :returns: A masked array containing the atom information.
 
-        :rtype: *numpy.ma* 
+        :rtype: :any:`numpy.ma.MaskedArray`
 
         The contents of the array are as follows:
 
@@ -189,7 +190,7 @@ class Information():
         name             S5    five char string  The atom name
         resname          S5    five char string  The residue name
         chainid          S1    one char string   The chain identifier
-        resseq           <i8   64-bit integer    The Residue sequence number   
+        resseq           <i8   64-bit integer    The Residue sequence number
         occupancy        <f8   64-bit float      Occupancy of atom
         tempfactor       <f8   64-bit float      Tempature Factor
         element          S2    two char string   The element symbol
@@ -199,7 +200,6 @@ class Information():
         chainid_stripped S1    one char string   Chain identifier without space
         element_stripped S2    two char string   Element symbol without space
         ================ ===== ================= ==============================
-        |
 
         An example for printing the elemental symbols of the first five atoms::
 
@@ -214,7 +214,7 @@ class Information():
         """
         Returns the trajectory for the molecule.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_trajectory`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_trajectory`
         
         :returns: The set of all coordinates.
                     ::
@@ -254,7 +254,7 @@ class Information():
         """
         Returns the set of coordinates from the specified frame.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_coordinates`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_coordinates`
 
         :param int frame: The timestep from which the coordinates shoule be 
                         returned. If ommitted, it defaults to the first 
@@ -298,7 +298,7 @@ class Information():
         NEEDS CLARIFICATION.
         Retreives a previously save set of coordinates to revert to.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_coordinates_undo_point`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_coordinates_undo_point`
 
         :returns: A set of coordinates from which to return to.
 
@@ -311,7 +311,7 @@ class Information():
         """
         Retreives the bonds beteween atoms as a n x n matrix.
         
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_bonds`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_bonds`
 
         :returns: A binary n x n matrix, where bonds are represented by 1.
 
@@ -338,7 +338,7 @@ class Information():
         """
         NEEDS CLARIFICATION.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_hierarchy`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_hierarchy`
 
         :returns: A dictionary?
 
@@ -354,7 +354,7 @@ class Information():
         """
         Returns a dictionary containing the constants assumed for the molecular model.
         
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_constants`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_constants`
 
         :returns: The constants assumed by the model.
 
@@ -385,7 +385,7 @@ class Information():
         Sets the __filename variable. Note: this does not reload or modify the
         molecule in anyway.
         
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.set_filename`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_filename`
          
         :param str filename: String representation of the filename.
         """
@@ -401,7 +401,7 @@ class Information():
         """
         Sets the __remarks variable.
         
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.set_remarks`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_remarks`
 
         :param list(str) remarks: List containing remarks.
         """
@@ -411,10 +411,10 @@ class Information():
     def set_atom_information(self, atom_information):
         """
         Sets the __atom_information variable. See 
-        :meth:`pymolecule.Molecule.Molecule.get_atom_information` for
+        :meth:`~pymolecule.Molecule.Molecule.get_atom_information` for
         information on the numpy.array structure.
         
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.set_atom_information`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_atom_information`
 
         :param numpy.array atom_information: An array containing details
                             on the constituent atoms. 
@@ -426,7 +426,7 @@ class Information():
         """
         Sets the __trajectory variable.
         
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.set_trajectory`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_trajectory`
 
         :param numpy.array trajectory: An array of atomic coordinates.
         """
@@ -437,7 +437,7 @@ class Information():
         """
         Sets a specified frame of the __trajectory variable.
         
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.set_coordinates`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_coordinates`
         
         :param numpy.array coordinates: An array of atomic coordinates.
         :param int frame: An integer represeting the frame of the trajectory to be modified
@@ -452,7 +452,7 @@ class Information():
         """
         Sets the __coordinates_undo_point variable.
         
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.set_coordinates_undo_point`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_coordinates_undo_point`
         
         :param numpy.array coordinates_undo_point: A coordinate set to revert 
             to after modification.
@@ -463,10 +463,10 @@ class Information():
     def set_bonds(self, bonds):
         """
         Sets the __bonds variable. See 
-        :meth:`pymolecule.Molecule.Molecule.get_bonds` for additional 
+        :meth:`~pymolecule.Molecule.Molecule.get_bonds` for additional 
         information.
         
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.set_bonds`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_bonds`
         
         :param numpy.array bonds: A binary n x n matrix containing bonding 
             information.
@@ -478,7 +478,7 @@ class Information():
         """Sets the __hierarchy variable.
         DEPRECIATED?
         
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.set_hierarchy`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_hierarchy`
         """
 
         self.__hierarchy = hierarchy
@@ -488,7 +488,7 @@ class Information():
         Checks if the atom is part of a protein. Taken primarily from Amber
         residue names.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.belongs_to_protein`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.belongs_to_protein`
         
         :param int atom_index: An int, the index of the atom to consider.
 
@@ -507,7 +507,7 @@ class Information():
         """
         Checks if the atom is part of DNA.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.belongs_to_dna`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.belongs_to_dna`
 
         :param int atom_index: An int, the index of the atom to consider.
 
@@ -527,7 +527,7 @@ class Information():
         """
         Checks if the atom is part of RNA.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.belongs_to_rna`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.belongs_to_rna`
 
         :param int atom_index: An int, the index of the atom to consider.
 
@@ -548,7 +548,7 @@ class Information():
         """
         Assigns masses to the atoms of the pymolecule.Molecule object. 
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.assign_masses`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.assign_masses`
 
         **Note**:
         This will autopopulate the masses according to their element 
@@ -576,7 +576,7 @@ class Information():
         explicitly specified in loaded files. Note that this doesn't populate
         elements_stripped.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.assign_elements_from_atom_names`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.assign_elements_from_atom_names`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to consider when calculating the center of mass.
@@ -664,17 +664,17 @@ class Information():
         """
         Determines the center of mass.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_center_of_mass`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_center_of_mass`
 
         :param numpy.array selection: The indices of
-                          the atoms to consider when calculating the center of mass. 
-                          If ommitted, all atoms of the pymolecule.Molecule object 
+                          the atoms to consider when calculating the center of mass.
+                          If ommitted, all atoms of the pymolecule.Molecule object
                           will be considered.
 
         :param int frame: The timestep at which the center of mass
-                      should be calculated. If ommitted, it defaults to the first 
+                      should be calculated. If ommitted, it defaults to the first
                       frame of the trajectory.
-        
+
         :returns: The x, y, and z coordinates of the center of mass.
 
         :rtype: *numpy.ma*
@@ -717,15 +717,15 @@ class Information():
         """
         Determines the geometric center of the molecule.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_geometric_center`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_geometric_center`
 
         :param numpy.array selection: The indices of
-                          the atoms to consider when calculating the geometric. 
-                          If ommitted, all atoms of the pymolecule.Molecule object 
+                          the atoms to consider when calculating the geometric.
+                          If ommitted, all atoms of the pymolecule.Molecule object
                           will be considered.
 
         :param int frame: The timestep at which the geometric center 
-                      should be calculated. If ommitted, it defaults to the first 
+                      should be calculated. If ommitted, it defaults to the first
                       frame of the trajectory.
         
         :returns: The x, y, and z coordinates of the geometric center.
@@ -748,19 +748,20 @@ class Information():
 
     def get_total_mass(self, selection = None):
         """
-        Returns the total mass of all atoms within the molecule, or of a given 
-        selection. 
-        
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_total_mass`
+        Returns the total mass of all atoms within the molecule, or of a given
+        selection.
+
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_total_mass`
 
         :param numpy.array selection: The indices of
-                        the atoms to consider when calculating the geometric. 
+                        the atoms to consider when calculating the geometric.
                         If ommitted, all atoms of the pymolecule.Molecule object
                         will be considered.
 
         :returns: The total mass of the atom or selection
 
         :rtype: *float*
+
         ::
 
             >>> print mol.get_total_mass()
@@ -782,7 +783,7 @@ class Information():
         Counts the number of atoms.
         
         Wrapper function for 
-        :meth:`pymolecule.Molecule.Molecule.get_total_number_of_atoms`
+        :meth:`~pymolecule.Molecule.Molecule.get_total_number_of_atoms`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to count. If ommitted, all atoms of the
@@ -810,7 +811,7 @@ class Information():
         hydrogens). 
 
         Wrapper function for 
-        :meth:`pymolecule.Molecule.Molecule.get_total_number_of_heavy_atoms`
+        :meth:`~pymolecule.Molecule.Molecule.get_total_number_of_heavy_atoms`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to count. If ommitted, all atoms of the
@@ -836,7 +837,7 @@ class Information():
         """
         Calculates a box that bounds (encompasses) a set of atoms.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_bounding_box`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_bounding_box`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to consider. If ommitted, all atoms of the
@@ -862,8 +863,10 @@ class Information():
     def get_bounding_sphere(self, selection = None, padding = 0.0, frame = 0):
         """
         Calculates a sphere that bounds (encompasses) a set of atoms.
-        
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_bounding_sphere`
+
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
+
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_bounding_sphere`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to consider. If ommitted, all atoms of the
@@ -907,8 +910,10 @@ class Information():
         chains, and the residues. This information is stored in
         pymolecule.Molecule.Molecule.hierarchy.
 
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
+
         Wrapper function for 
-        :meth:`pymolecule.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries`
+        :meth:`~pymolecule.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries`
         """
 
         if not numpy.class_dependency("calculate the spherical boundaries around molecules, chains, and residues", "NUMPY"):
@@ -991,7 +996,7 @@ class Information():
         Reindexes the serial field of the atoms in the molecule, starting
         with 1.
         
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.serial_reindex`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.serial_reindex`
         """
 
         for i in range(len(self.__atom_information['serial'])):
@@ -1002,7 +1007,7 @@ class Information():
         Reindexes the resseq field of the atoms in the molecule, starting
         with 1.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.resseq_reindex`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.resseq_reindex`
         """
 
         keys = numpy.defchararray_add(
@@ -1040,7 +1045,7 @@ class Information():
         """
         Inserts a new coordinate frame at the end of the trajectory.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.insert_trajectory_frame`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.insert_trajectory_frame`
 
         :param numpy.array coordinates: A single frame of coordinates to append.
         :param int index: The location where the frame should be added.
@@ -1054,7 +1059,7 @@ class Information():
         """
         Removes a given frame from the trajectory.
   
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.delete_trajectory_frame`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.delete_trajectory_frame`
 
         :param int index: Integer of the frame to remove.
         """
@@ -1065,7 +1070,7 @@ class Information():
         """
         Returns the number of frames in __trajectory.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_trajectory_frame_count`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_trajectory_frame_count`
 
         :returns: The number of frames in the trajectory.
         :rtype: *int*

@@ -1,5 +1,5 @@
 pymolecule.Information module
-==========================
+=============================
 
 .. automodule:: pymolecule.Information
     :members:
