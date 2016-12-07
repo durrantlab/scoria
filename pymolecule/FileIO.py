@@ -4,6 +4,8 @@ import sys
 import cPickle as pickle
 import shutil
 import tempfile
+import cStringIO as StringIO
+import pymolecule
 
 class FileIO():
     """A class for saving and loading molecular data into a pymolecule.Molecule
@@ -65,9 +67,66 @@ class FileIO():
             prnt.set_coordinates_undo_point(
                 numpy.load(filename + "coordinates_undo_point.npz")['arr_0']
             )
-        
+
+
+    def load_pdbqt_trajectory_into(self, filename, bonds_by_distance = True,
+                                   serial_reindex = True, 
+                                   resseq_reindex = False):
+        """
+        Loads the molecular data contained in a pdbqt trajectoy file (e.g., an
+        AutoDock Vina output file) into the current pymolecule.Molecule
+        object.
+
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdbqt_trajectory_into`
+
+        :param str filename: A string, the filename of the pdbqt file.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. True by
+                    default.
+        :param bool serial_reindex: An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+        :param bool resseq_reindex: An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+        """
+
+        self.load_pdbqt_into(
+            filename, bonds_by_distance, serial_reindex, resseq_reindex,
+            is_trajectory = True
+        )
+
+    def load_pdbqt_trajectory_into_using_file_object(self, file_obj,
+                                                     bonds_by_distance = True,
+                                                     serial_reindex = True,
+                                                     resseq_reindex = False):
+        """
+        Loads molecular data from a python file object (pdbqt trajectory
+        formatted) into the current pymolecule.Molecule object. Note that most
+        users will want to use the load_pdbqt_trajectory_into() function
+        instead, which is identical except that it accepts a filename string
+        instead of a python file object.
+
+        Should be called via the wrapper function
+        :meth:`pymolecule.Molecule.Molecule.load_pdbqt_trajectory_into_using_file_object`
+
+        :param file file_obj: A python file object, containing pdbqt-formatted
+                    trajectory data.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. True by
+                    default.
+        :param bool serial_reindex: An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+        :param bool resseq_reindex: An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+        """
+
+        self.load_pdbqt_into_using_file_object(
+            file_obj, bonds_by_distance, serial_reindex, resseq_reindex,
+            is_trajectory = True
+        )
+
     def load_pdbqt_into(self, filename, bonds_by_distance = False,
-                      serial_reindex = True, resseq_reindex = False):
+                      serial_reindex = True, resseq_reindex = False,
+                      is_trajectory = False):
         """
         Loads the molecular data contained in a pdbqt file into the current
         pymolecule.Molecule object. Note that this implementation is
@@ -84,6 +143,8 @@ class FileIO():
                     reindex the pdb serial field. True by default.
         :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the pdbqt resseq field. False by default.
+        :param bool is_trajectory: An optional boolean, whether or not the PDB
+                    is multi-frame. Defaults of False.
         """
 
         self.__parent_molecule.set_filename(filename)
@@ -91,14 +152,17 @@ class FileIO():
         # open/read the file
         # Treat PDBQT just like PDB, but merge last two columns.
         afile = open(filename, "r")
-        self.load_pdbqt_into_using_file_object(afile, bonds_by_distance,
-                                               serial_reindex, resseq_reindex)
+        self.load_pdbqt_into_using_file_object(
+            afile, bonds_by_distance, serial_reindex, resseq_reindex,
+            is_trajectory = is_trajectory
+        )
         afile.close()
 
     def load_pdbqt_into_using_file_object(self, file_obj,
                                           bonds_by_distance = False,
                                           serial_reindex = True,
-                                          resseq_reindex = False):
+                                          resseq_reindex = False,
+                                          is_trajectory = False):
         """
         Loads molecular data from a python file object (pdbqt formatted)
         into the current pymolecule.Molecule object. Note that most users will
@@ -117,10 +181,13 @@ class FileIO():
                     reindex the pdb serial field. True by default.
         :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the pdb resseq field. False by default.
+        :param bool is_trajectory: An optional boolean, whether or not the PDB
+                    is multi-frame.
         """
 
         self.load_pdb_into_using_file_object(file_obj, bonds_by_distance,
-                                             serial_reindex, resseq_reindex)
+                                             serial_reindex, resseq_reindex,
+                                             is_trajectory = is_trajectory)
 
         # Now merge the last two columns.
         atom_inf = self.__parent_molecule.get_atom_information()
@@ -139,8 +206,134 @@ class FileIO():
 
         self.__parent_molecule.set_atom_information(atom_inf)
 
+    def load_pdb_trajectory_into(self, filename, bonds_by_distance = True,
+                                 serial_reindex = True, 
+                                 resseq_reindex = False):
+        """
+        Loads the molecular data contained in a pdb trajectory file into the
+        current pymolecule.Molecule object.
+
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdb_trajectory_into`
+
+        :param str filename: A string, the filename of the pdb trajectory
+                   file.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. True by
+                    default.
+        :param bool serial_reindex: An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+        :param bool resseq_reindex: An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+        """
+
+        self.__parent_molecule.set_filename(filename)
+
+        # open/read the file
+        afile = open(filename, "r")
+        self.load_pdb_trajectory_into_using_file_object(
+            afile, bonds_by_distance, serial_reindex, resseq_reindex
+        )
+        afile.close()
+
+    def load_pdb_trajectory_into_using_file_object(self, file_obj,
+                                                   bonds_by_distance = True,
+                                                   serial_reindex = True,
+                                                   resseq_reindex = False):
+        """
+        Loads molecular data from a python file object (pdb trajectory
+        formatted) into the current pymolecule.Molecule object. Note that most
+        users will want to use the load_pdb_trajectory_into() function
+        instead, which is identical except that it accepts a filename string
+        instead of a python file object.
+
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdb_trajectory_into_using_file_object`
+
+        :param file file_obj: A python file object, containing pdb-formatted
+                    trajectory data.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. True by
+                    default.
+        :param bool serial_reindex: An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+        :param bool resseq_reindex: An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+        """
+
+        # Frames are separated by "ENDMDL or "END".
+        # A generator to return one frame at a time.
+        def get_next_frame(file_obj):
+            lines = []
+            line = " "
+
+            # Loop through until EOF
+            while len(line) != 0:
+
+                # Get the current line
+                line = file_obj.readline()
+
+                # If the current line if ENDMDL or END, it's likely a new frame
+                # now.
+                if line.strip() in ["ENDMDL", "END"]:
+                    # print "len(lines)", len(lines)
+                    # if len(lines) == 1: print lines
+
+                    # Make sure the list isn't just " "
+                    while len(lines) > 0 and lines[0] == " ":
+                        lines = lines[1:]
+                    
+                    if len(lines) > 0:
+                        # == 0 if, for example, when ENDMDL then END on next
+                        # line.
+
+                        # So turn list into string and yield that value.
+                        to_yield = "".join(lines)
+                        yield to_yield
+                    
+                    # Clear list (since new frame) and continue loop.
+                    lines = []
+                    line = " "
+                    continue
+
+                lines.append(line)
+            
+            # In rare cases, it could be that the PDB file doesn't end in END
+            # or ENDMDL. so consider any remaining lines in the lines list.
+            while len(lines) > 0 and (lines[0] == " " or lines[0] == ""):
+                lines = lines[1:]
+            if len(lines) > 0:
+                yield "".join(lines)
+        
+        # Get the information from each frame and place it in the current Molecule object.
+        # Note that this could be parallelized in the future...
+        first_line = True
+        trajectoryList = []
+        for pdb_frame in get_next_frame(file_obj):
+            str_file_obj = StringIO.StringIO(pdb_frame)
+            if first_line == True:
+                # First frame, load it into the current molecule
+                first_line = False
+                self.load_pdb_into_using_file_object(
+                    str_file_obj, bonds_by_distance, serial_reindex,
+                    resseq_reindex, is_trajectory = False
+                )
+                trajectoryList.append(self.__parent_molecule.get_coordinates())
+            else:
+                # subsequent frames, load it into a tmp molecule and copy over
+                # the coordinates.
+                tmp_mol = pymolecule.Molecule()
+                tmp_mol.load_pdb_into_using_file_object(
+                    str_file_obj, bonds_by_distance = False, 
+                    serial_reindex = False, resseq_reindex = False,
+                    is_trajectory = False
+                )
+                
+                trajectoryList.append(tmp_mol.get_coordinates())
+
+        self.__parent_molecule.set_trajectory(trajectoryList)        
+
     def load_pdb_into(self, filename, bonds_by_distance = True,
-                      serial_reindex = True, resseq_reindex = False):
+                      serial_reindex = True, resseq_reindex = False,
+                      is_trajectory = False):
         """
         Loads the molecular data contained in a pdb file into the current
         pymolecule.Molecule object.
@@ -155,6 +348,8 @@ class FileIO():
                     reindex the pdb serial field. True by default.
         :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the pdb resseq field. False by default.
+        :param bool is_trajectory: An optional boolean, whether or not the PDB
+                    is multi-frame.
         """
 
         self.__parent_molecule.set_filename(filename)
@@ -162,13 +357,15 @@ class FileIO():
         # open/read the file
         afile = open(filename, "r")
         self.load_pdb_into_using_file_object(afile, bonds_by_distance,
-                                             serial_reindex, resseq_reindex)
+                                             serial_reindex, resseq_reindex,
+                                             is_trajectory)
         afile.close()
 
     def load_pdb_into_using_file_object(self, file_obj,
                                         bonds_by_distance = True,
                                         serial_reindex = True,
-                                        resseq_reindex = False):
+                                        resseq_reindex = False,
+                                        is_trajectory = False):
         """
         Loads molecular data from a python file object (pdb formatted) into
         the current pymolecule.Molecule object. Note that most users will want
@@ -186,7 +383,16 @@ class FileIO():
                     reindex the pdb serial field. True by default.
         :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the pdb resseq field. False by default.
+        :param bool is_trajectory: An optional boolean, whether or not the PDB
+                    is multi-frame.
         """
+
+        if is_trajectory == True:
+            self.load_pdb_trajectory_into_using_file_object(
+                file_obj, bonds_by_distance = True, serial_reindex = True,
+                resseq_reindex = False
+            )
+            return
 
         # source_data = numpy.genfromtxt(file_obj,
         # dtype="S6,S5,S5,S4,S2,S4,S4,S8,S8,S8,S6,S6,S10,S2,S2",

@@ -693,7 +693,8 @@ class Molecule: # here's the actual Molecule class
         self.fileio.load_pym_into(filename)
 
     def load_pdb_into(self, filename, bonds_by_distance = True,
-                      serial_reindex = True, resseq_reindex = False):
+                      serial_reindex = True, resseq_reindex = False,
+                      is_trajectory = False):
         """
         Loads the molecular data contained in a pdb file into the current
         pymolecule.Molecule object.
@@ -708,16 +709,20 @@ class Molecule: # here's the actual Molecule class
                     reindex the pdb serial field. True by default.
         :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the pdb resseq field. False by default.
+        :param bool is_trajectory: An optional boolean, whether or not the PDB
+                    is multi-frame.
         """
 
         self.fileio.load_pdb_into(
-            filename, bonds_by_distance, serial_reindex, resseq_reindex
+            filename, bonds_by_distance, serial_reindex,
+            resseq_reindex, is_trajectory
         )
 
     def load_pdb_into_using_file_object(self, file_obj,
                                         bonds_by_distance = True,
                                         serial_reindex = True,
-                                        resseq_reindex = False):
+                                        resseq_reindex = False,
+                                        is_trajectory = False):
         """
         Loads molecular data from a python file object (pdb formatted) into
         the current pymolecule.Molecule object. Note that most users will want
@@ -735,14 +740,18 @@ class Molecule: # here's the actual Molecule class
                     reindex the pdb serial field. True by default.
         :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the pdb resseq field. False by default.
+        :param bool is_trajectory: An optional boolean, whether or not the PDB
+                    is multi-frame.
         """
 
         self.fileio.load_pdb_into_using_file_object(
-            file_obj, bonds_by_distance, serial_reindex, resseq_reindex
+            file_obj, bonds_by_distance, serial_reindex,
+            resseq_reindex, is_trajectory
         )
 
     def load_pdbqt_into(self, filename, bonds_by_distance = False,
-                      serial_reindex = True, resseq_reindex = False):
+                      serial_reindex = True, resseq_reindex = False,
+                      is_trajectory = False):
         """
         Loads the molecular data contained in a pdbqt file into the current
         pymolecule.Molecule object. Note that this implementation is
@@ -759,16 +768,20 @@ class Molecule: # here's the actual Molecule class
                     reindex the pdb serial field. True by default.
         :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the pdbqt resseq field. False by default.
+        :param bool is_trajectory: An optional boolean, whether or not the PDB
+                    is multi-frame. Defaults of False.
         """
 
         self.fileio.load_pdbqt_into(
-            filename, bonds_by_distance, serial_reindex, resseq_reindex
+            filename, bonds_by_distance, serial_reindex, resseq_reindex,
+            is_trajectory = is_trajectory
         )
 
     def load_pdbqt_into_using_file_object(self, file_obj,
                                         bonds_by_distance = False,
                                         serial_reindex = True,
-                                        resseq_reindex = False):
+                                        resseq_reindex = False,
+                                        is_trajectory = False):
         """
         Loads molecular data from a python file object (pdbqt formatted)
         into the current pymolecule.Molecule object. Note that most users will
@@ -787,10 +800,13 @@ class Molecule: # here's the actual Molecule class
                     reindex the pdb serial field. True by default.
         :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the pdb resseq field. False by default.
+        :param bool is_trajectory: An optional boolean, whether or not the PDB
+                    is multi-frame. Defaults of False.
         """
 
         self.fileio.load_pdbqt_into_using_file_object(
-            file_obj, bonds_by_distance, serial_reindex, resseq_reindex
+            file_obj, bonds_by_distance, serial_reindex, resseq_reindex,
+            is_trajectory = is_trajectory
         )
 
     def save_pym(self, filename, save_bonds = False, save_filename = False,
