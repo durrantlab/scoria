@@ -22,8 +22,6 @@ class Selections():
         """
         Select a set of atoms based on user-specified criteria.
 
-        Requires the :any:`numpy` library.
-
         Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.select_atoms`.
 
         :param dict selection_criteria: A dictionary, where the keys correspond

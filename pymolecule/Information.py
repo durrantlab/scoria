@@ -174,8 +174,6 @@ class Information():
         """
         Retreives the atomic information for the molecule.
 
-        Requires the :any:`numpy` library.
-
         Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_atom_information`
 
         :returns: A masked array containing the atom information.
@@ -550,8 +548,6 @@ class Information():
         """
         Assigns masses to the atoms of the pymolecule.Molecule object. 
 
-        Requires the :any:`numpy` library.
-
         Wrapper function for :meth:`~pymolecule.Molecule.Molecule.assign_masses`
 
         **Note**:
@@ -579,8 +575,6 @@ class Information():
         this will overwrite any existing element assignments, including those
         explicitly specified in loaded files. Note that this doesn't populate
         elements_stripped.
-
-        Requires the :any:`numpy` library.
 
         Wrapper function for :meth:`~pymolecule.Molecule.Molecule.assign_elements_from_atom_names`
 
@@ -670,8 +664,6 @@ class Information():
         """
         Determines the center of mass.
 
-        Requires the :any:`numpy` library.
-
         Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_center_of_mass`
 
         :param numpy.array selection: The indices of
@@ -725,8 +717,6 @@ class Information():
         """
         Determines the geometric center of the molecule.
 
-        Requires the :any:`numpy` library.
-
         Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_geometric_center`
 
         :param numpy.array selection: The indices of
@@ -760,8 +750,6 @@ class Information():
         """
         Returns the total mass of all atoms within the molecule, or of a given
         selection.
-
-        Requires the :any:`numpy` library.
 
         Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_total_mass`
 
@@ -848,8 +836,6 @@ class Information():
     def get_bounding_box(self, selection = None, padding = 0.0, frame = 0):
         """
         Calculates a box that bounds (encompasses) a set of atoms.
-
-        Requires the :any:`numpy` library.
 
         Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_bounding_box`
 

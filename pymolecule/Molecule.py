@@ -163,8 +163,6 @@ class Molecule: # here's the actual Molecule class
     	"""
         Retreives the atomic information for the molecule.
 
-        Requires the :any:`numpy` library.
-
         Wrapper function for :meth:`~pymolecule.Information.Information.get_atom_information`
 
         :returns: A masked array containing the atom information.
@@ -284,8 +282,6 @@ class Molecule: # here's the actual Molecule class
         """
         Determines the center of mass.
 
-        Requires the :any:`numpy` library.
-
         Wrapper function for :meth:`~pymolecule.Information.Information.get_center_of_mass`
 
         :param numpy.array selection: The indices of
@@ -314,8 +310,6 @@ class Molecule: # here's the actual Molecule class
     def get_geometric_center(self, selection = None, frame = 0):
         """
         Determines the geometric center of the molecule.
-
-        Requires the :any:`numpy` library.
 
         Wrapper function for :meth:`~pymolecule.Information.Information.get_geometric_center`
 
@@ -346,8 +340,6 @@ class Molecule: # here's the actual Molecule class
         """
         Returns the total mass of all atoms within the molecule, or of a given 
         selection. 
-
-        Requires the :any:`numpy` library.
 
         Wrapper function for :meth:`~pymolecule.Information.Information.get_total_mass`
 
@@ -410,8 +402,6 @@ class Molecule: # here's the actual Molecule class
     def get_bounding_box(self, selection = None, padding = 0.0, frame = 0):
         """
         Calculates a box that bounds (encompasses) a set of atoms.
-
-        Requires the :any:`numpy` library.
 
         Wrapper function for :meth:`~pymolecule.Information.Information.get_bounding_box`
 
@@ -557,8 +547,6 @@ class Molecule: # here's the actual Molecule class
         """
         Assigns masses to the atoms of the pymolecule.Molecule object. 
 
-        Requires the :any:`numpy` library.
-
         Wrapper function for :meth:`~pymolecule.Information.Information.assign_masses`
 
         ``Note``:
@@ -574,8 +562,6 @@ class Molecule: # here's the actual Molecule class
         this will overwrite any existing element assignments, including those
         explicitly specified in loaded files. Note that this doesn't populate
         elements_stripped.
-
-        Requires the :any:`numpy` library.
 
         Wrapper function for :meth:`~pymolecule.Information.Information.assign_elements_from_atom_names`
 
@@ -1062,8 +1048,6 @@ class Molecule: # here's the actual Molecule class
     def select_atoms(self, selection_criteria):
         """
         Select a set of atoms based on user-specified criteria.
-
-        Requires the :any:`numpy` library.
 
         Wrapper function for :meth:`~pymolecule.Selections.Selections.select_atoms`
 

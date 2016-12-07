@@ -92,8 +92,6 @@ class Quaternion:
         """
         Creates a 4x4 matrix representation of the Quaternion.
 
-        Requires the :any:`numpy` library.
-
         :returns: A 4x4 numpy array
         """
 
@@ -113,8 +111,6 @@ class Quaternion:
     def to_matrix(self):
         """
         Converts to a normalized 3x3 matrix.
-
-        Requires the :any:`numpy` library.
 
         :returns: A 3x3 numpy.array, corresponding to the quaternion
         """
@@ -197,8 +193,6 @@ class Quaternion:
     def normalize(self):
         """
         Normalizes the quaternion.
-
-        Requires the :any:`numpy` library.
 
         :returns: A normalized Quaternion
         """
