@@ -26,7 +26,7 @@ class OtherMolecules():
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this`
                 
         :param pymolecule.Molecule other_mol: A pymolecule.Molecule that is to be aligned to
                     this one.
@@ -144,9 +144,9 @@ class OtherMolecules():
         Detects steric clashes between the pymolecule.Molecule (self) and
         another pymolecule.Molecule.
 
-        Requires the :any:`numpy` and :any:`scipy.spatial` library.
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.steric_clash_with_another_molecule`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.steric_clash_with_another_molecule`
 
         :param pymolecule.Molecule other_mol: The pymolecule.Molecule object that will be
                     evaluated for steric clashes.
@@ -191,7 +191,7 @@ class OtherMolecules():
         """
         Merges two molecular models into a single model.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.merge_with_another_molecule`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.merge_with_another_molecule`
         
         :param pymolecule.Molecule other_molecule: A molecular model (pymolecule.Molecule
                     object).
@@ -264,9 +264,9 @@ class OtherMolecules():
         Computes the minimum distance between any of the atoms of this
         molecular model and any of the atoms of a second specified model.
 
-        Requires the :any:`numpy` and :any:`scipy.spatial` library.
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_distance_to_another_molecule`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_distance_to_another_molecule`
 
         :param pymolecule.Molecule other_molecule: a pymolecule.Molecule, the other molecular
                     model.
@@ -330,7 +330,7 @@ class OtherMolecules():
         Calculates the RMSD between this pymolecule.Molecle object and
         another, where equivalent atoms are explicitly specified.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified`
         
         :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
         :param tuple tethers: A tuple of two numpy.array objects, where each array
@@ -366,7 +366,7 @@ class OtherMolecules():
         Calculates the RMSD between two structures, where equivalent atoms
         are listed in the same order.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_rmsd_order_dependent`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_rmsd_order_dependent`
         
         :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
 
@@ -397,7 +397,7 @@ class OtherMolecules():
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.get_rmsd_heuristic`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_rmsd_heuristic`
 
         :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
 
@@ -437,7 +437,7 @@ class OtherMolecules():
         """
         A helper function for calculating heuristic RMSD.
 
-        Requires the :any:`scipy.spatial` library.
+        Requires the :any:`scipy<scipy.spatial>` library.
 
         :param dict atom_grp1: A dictionary, where the keys are atom types
                     and the values are numpy arrays of the coordinates.

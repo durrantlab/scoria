@@ -27,7 +27,7 @@ class FileIO():
 
         Requires the :any:`numpy` library.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pym_into`
+        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.load_pym_into`
 
         :param str filename: A string, the filename of the pym file.
         """
@@ -77,7 +77,7 @@ class FileIO():
         types are stored in the "element" and "element_stripped" columns.
 
         Should be called via the wrapper function 
-        :meth:`pymolecule.Molecule.Molecule.load_pdbqt_into`
+        :meth:`~pymolecule.Molecule.Molecule.load_pdbqt_into`
 
         :param str filename: A string, the filename of the pdbqt file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
@@ -112,7 +112,7 @@ class FileIO():
         Requires the :any:`numpy` library.
 
         Should be called via the wrapper function
-        :meth:`pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object`
+        :meth:`~pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdb-formatted
                     data.
@@ -154,7 +154,7 @@ class FileIO():
         Loads the molecular data contained in a pdb file into the current
         pymolecule.Molecule object.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdb_into`
+        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.load_pdb_into`
 
         :param str filename: A string, the filename of the pdb file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
@@ -187,7 +187,7 @@ class FileIO():
         Requires the :any:`numpy` library.
 
         Should be called via the wrapper function 
-        :meth:`pymolecule.Molecule.Molecule.load_pdb_into_using_file_object`
+        :meth:`~pymolecule.Molecule.Molecule.load_pdb_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdb-formatted
                     data.
@@ -380,7 +380,7 @@ class FileIO():
         Requires the :any:`numpy` library.
 
         Should be called via the wrapper function 
-        :meth:`pymolecule.Molecule.Molecule.save_pym`
+        :meth:`~pymolecule.Molecule.Molecule.save_pym`
 
         :param str filename: An string, the filename to use for saving. (Note
                     that this is actually a directory, not a file.)
@@ -475,7 +475,7 @@ class FileIO():
         Saves the molecular data contained in a pymolecule.Molecule object
         to a pdb file.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.save_pdb`
+        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.save_pdb`
 
         :param str filename: An string, the filename to use for saving.
         :param bool serial_reindex: An optional boolean, whether or not to
@@ -638,7 +638,7 @@ class FileIO():
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
 
         Should be called via the wrapper function
-        :meth:`pymolecule.Molecule.Molecule.load_via_MDAnalysis`
+        :meth:`~pymolecule.Molecule.Molecule.load_via_MDAnalysis`
 
         :params \*args: Filename, filenames, or list of file names. Used to
             inizalize a MDAnalysis.Universe object.
@@ -662,7 +662,7 @@ class FileIO():
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
 
         Should be called via the wrapper function
-        :meth:`pymolecule.Molecule.Molecule.load_via_MDAnalysis`
+        :meth:`~pymolecule.Molecule.Molecule.load_via_MDAnalysis`
 
         :param mdanalysis.universe universe: An MDAnalysis universe object to
             import.

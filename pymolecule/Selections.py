@@ -24,7 +24,7 @@ class Selections():
 
         Requires the :any:`numpy` library.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.select_atoms`.
+        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.select_atoms`.
 
         :param dict selection_criteria: A dictionary, where the keys correspond
                     to keys in the
@@ -96,8 +96,9 @@ class Selections():
 
         Requires the :any:`numpy` library.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.select_atoms_in_bounding_box`.
-    
+        Should be called via the wrapper function
+        :meth:`~pymolecule.Molecule.Molecule.select_atoms_in_bounding_box`.
+
         :param numpy.array bounding_box: A 2x3 numpy.array containing the minimum and
                     maximum points of the bounding box. Example:
                     numpy.array( [[min_x, min_y, min_z], [max_x, max_y, max_z]] ).
@@ -133,7 +134,7 @@ class Selections():
         Requires the :any:`numpy` library.
 
         Should be called via the wrapper function 
-        :meth:`pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection`.
+        :meth:`~pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection`.
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-specified selection.
@@ -174,7 +175,8 @@ class Selections():
 
         Requires the :any:`numpy` library.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.select_branch`.
+        Should be called via the wrapper function
+        :meth:`~pymolecule.Molecule.Molecule.select_branch`.
 
         :param int root_atom_index: An int, the index of the first atom in the
                 branch (the "root").
@@ -197,9 +199,9 @@ class Selections():
 
         # Make sure atoms are neighboring
         if (not directionality_atom_index in
-            self.select_all_atoms_bound_to_selection(
-                numpy.array([root_atom_index]))
-            ):
+                self.select_all_atoms_bound_to_selection(
+                    numpy.array([root_atom_index]))
+           ):
 
             print ("The root and directionality atoms, with indices " +
                    str(root_atom_index) + " and " +
@@ -259,9 +261,9 @@ class Selections():
 
         Requires the :any:`numpy` library.
 
-        Should be called via the wrapper function 
-        :meth:`pymolecule.Molecule.Molecule.select_atoms_from_same_molecule`.
-        
+        Should be called via the wrapper function
+        :meth:`~pymolecule.Molecule.Molecule.select_atoms_from_same_molecule`.
+
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
 
@@ -344,8 +346,9 @@ class Selections():
 
         Requires the :any:`numpy` library.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.selections_of_constituent_molecules`.
-        
+        Should be called via the wrapper function
+        :meth:`~pymolecule.Molecule.Molecule.selections_of_constituent_molecules`.
+
         :Returns: A python list of numpy.array objects containing the indices of
                     the atoms belonging to each molecule of the composite
                     pymolecule.Molecule object.
@@ -383,10 +386,10 @@ class Selections():
         Selects all atoms that are near the atoms of a user-defined
         selection.
 
-        Requires the :any:`numpy` and :any:`scipy.spatial` library.
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
         Should be called via the wrapper function
-        :meth:`pymolecule.Molecule.Molecule.select_atoms_near_other_selection`.
+        :meth:`~pymolecule.Molecule.Molecule.select_atoms_near_other_selection`.
 
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -426,8 +429,9 @@ class Selections():
         of a user-defined seleciton. Residues are considered unique if they
         have a unique combination of resname, resseq, and chainid fields.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.select_atoms_in_same_residue`.
-        
+        Should be called via the wrapper function
+        :meth:`~pymolecule.Molecule.Molecule.select_atoms_in_same_residue`.
+
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
 
@@ -475,8 +479,9 @@ class Selections():
         Inverts a user-defined selection (i.e., identifies all atoms that
         are not in the seleciton).
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.invert_selection`.
-        
+        Should be called via the wrapper function
+        :meth:`~pymolecule.Molecule.Molecule.invert_selection`.
+
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
 
@@ -497,7 +502,7 @@ class Selections():
         """
         Selects all the atoms in a pymolecule.Molecule object.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.select_all`.
+        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.select_all`.
         
         :returns: A numpy.array containing the indices of all atoms in the
                     pymolecule.Molecule object.
@@ -512,10 +517,10 @@ class Selections():
         Effectively detects steric clashes between self and another
         pymolecule.Molecule.
 
-        Requires the :any:`numpy` and :any:`scipy.spatial` library.
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
         Should be called via the wrapper function
-        :meth:`pymolecule.Molecule.Molecule.select_close_atoms_from_different_molecules`.
+        :meth:`~pymolecule.Molecule.Molecule.select_close_atoms_from_different_molecules`.
         
         :param pymolecule.Molecule other_mol: A pymolecule.Molecule object of the other
                     molecule.
@@ -545,7 +550,7 @@ class Selections():
         if pairwise_comparison == True:
 
             dists = numpy.cdist(self.__parent_molecule.get_coordinates(),
-                          other_mol.get_coordinates())
+                                other_mol.get_coordinates())
             close_ones = numpy.nonzero(dists < cutoff)
             close_ones_from_mol_parent_molecule = numpy.unique(close_ones[0])
             close_ones_from_mol_other_mol = numpy.unique(close_ones[1])
@@ -727,7 +732,7 @@ class Selections():
         """
         Creates a pymolecule.Molecule from a user-defined atom selection.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.get_molecule_from_selection`.
+        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.get_molecule_from_selection`.
 
         :param numpy.array selection: A numpy.array containing the indices of the atoms
                     in the user-defined selection.
@@ -777,7 +782,7 @@ class Selections():
 
         Requires the :any:`numpy` library.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.selections_of_chains`.
+        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.selections_of_chains`.
         
         :returns: A dictionary. The keys of the dictionary correspond to the
                     chainids, and the values are numpy.array objects containing
@@ -811,7 +816,7 @@ class Selections():
         Requires the :any:`numpy` library.
 
         Should be called via the wrapper function
-        :meth:`pymolecule.Molecule.Molecule.selections_of_residues`.
+        :meth:`~pymolecule.Molecule.Molecule.selections_of_residues`.
         
         :returns: A dictionary. The keys of this dictionary correspond to the
                     unique resname-resseq-chainid residue identifiers, and the

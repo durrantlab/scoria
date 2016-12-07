@@ -43,7 +43,7 @@ class Molecule: # here's the actual Molecule class
         """
         Returns the set of coordinates from the specified frame.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.get_coordinates`
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_coordinates`
 
         :param int frame: The timestep from which the coordinates shoule be 
                         returned. If ommitted, it defaults to the first 
@@ -83,7 +83,7 @@ class Molecule: # here's the actual Molecule class
         """
         Returns the trajectory for the molecule.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.get_trajectory`
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_trajectory`
         
         :returns: The set of all coordinates.
                     ::
@@ -123,7 +123,7 @@ class Molecule: # here's the actual Molecule class
         """
         Returns the filename that the molecule was originally loaded from.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.get_filename`
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_filename`
         
         :returns: The name of the file.
 
@@ -143,7 +143,7 @@ class Molecule: # here's the actual Molecule class
         """
         Returns the remarks from the file the molecule was loaded from.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.get_remarks`
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_remarks`
         
         :returns: The remarks from the file an a list of strings.
 
@@ -165,7 +165,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.get_atom_information`
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_atom_information`
 
         :returns: A masked array containing the atom information.
 
@@ -206,7 +206,7 @@ class Molecule: # here's the actual Molecule class
         NEEDS CLARIFICATION.
         Retreives a previously save set of coordinates to revert to.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.get_coordinates_undo_point`
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_coordinates_undo_point`
 
         :returns: A set of coordinates from which to return to.
 
@@ -219,7 +219,7 @@ class Molecule: # here's the actual Molecule class
         """
         Retreives the bonds beteween atoms as a n x n matrix.
         
-        Wrapper function for :meth:`pymolecule.Information.Information.get_bonds`
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_bonds`
 
         :returns: A binary n x n matrix, where bonds are represented by 1.
 
@@ -242,7 +242,7 @@ class Molecule: # here's the actual Molecule class
         """
         NEEDS CLARIFICATION.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.get_hierarchy`
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_hierarchy`
 
         :returns: A dictionary?
 
@@ -255,7 +255,7 @@ class Molecule: # here's the actual Molecule class
         """
         Returns a dictionary containing the constants assumed for the molecular model.
         
-        Wrapper function for :meth:`pymolecule.Information.Information.get_constants`
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_constants`
 
         :returns: The constants assumed by the model.
 
@@ -284,7 +284,9 @@ class Molecule: # here's the actual Molecule class
         """
         Determines the center of mass.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.get_center_of_mass`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_center_of_mass`
 
         :param numpy.array selection: The indices of
                           the atoms to consider when calculating the center of mass. 
@@ -313,15 +315,17 @@ class Molecule: # here's the actual Molecule class
         """
         Determines the geometric center of the molecule.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.get_geometric_center`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_geometric_center`
 
         :param numpy.array selection: The indices of
-                          the atoms to consider when calculating the geometric. 
-                          If ommitted, all atoms of the pymolecule.Molecule object 
+                          the atoms to consider when calculating the geometric.
+                          If ommitted, all atoms of the pymolecule.Molecule object
                           will be considered.
 
-        :param int frame: The timestep at which the geometric center 
-                      should be calculated. If ommitted, it defaults to the first 
+        :param int frame: The timestep at which the geometric center
+                      should be calculated. If ommitted, it defaults to the first
                       frame of the trajectory.
         
         :returns: The x, y, and z coordinates of the geometric center.
@@ -342,8 +346,10 @@ class Molecule: # here's the actual Molecule class
         """
         Returns the total mass of all atoms within the molecule, or of a given 
         selection. 
-        
-        Wrapper function for :meth:`pymolecule.Information.Information.get_total_mass`
+
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_total_mass`
 
         :param numpy.array selection: The indices of
                         the atoms to consider when calculating the geometric. 
@@ -368,7 +374,7 @@ class Molecule: # here's the actual Molecule class
         Counts the number of atoms.
         
         Wrapper function for 
-        :meth:`pymolecule.Information.Information.get_total_number_of_atoms`
+        :meth:`~pymolecule.Information.Information.get_total_number_of_atoms`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to count. If ommitted, all atoms of the
@@ -389,7 +395,7 @@ class Molecule: # here's the actual Molecule class
         hydrogens). 
 
         Wrapper function for 
-        :meth:`pymolecule.Information.Information.get_total_number_of_heavy_atoms`
+        :meth:`~pymolecule.Information.Information.get_total_number_of_heavy_atoms`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to count. If ommitted, all atoms of the
@@ -405,7 +411,9 @@ class Molecule: # here's the actual Molecule class
         """
         Calculates a box that bounds (encompasses) a set of atoms.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.get_bounding_box`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_bounding_box`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to consider. If ommitted, all atoms of the
@@ -426,8 +434,10 @@ class Molecule: # here's the actual Molecule class
     def get_bounding_sphere(self, selection = None, padding = 0.0, frame = 0):
         """
         Calculates a sphere that bounds (encompasses) a set of atoms.
-        
-        Wrapper function for :meth:`pymolecule.Information.Information.get_bounding_sphere`
+
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
+
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_bounding_sphere`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to consider. If ommitted, all atoms of the
@@ -452,7 +462,7 @@ class Molecule: # here's the actual Molecule class
         Sets the __filename variable. Note: this does not reload or modify the
         molecule in anyway.
         
-        Wrapper function for :meth:`pymolecule.Information.Information.set_filename`
+        Wrapper function for :meth:`~pymolecule.Information.Information.set_filename`
          
         :param str filename: String representation of the filename.
         """
@@ -463,7 +473,7 @@ class Molecule: # here's the actual Molecule class
         """
         Sets the __remarks variable.
         
-        Wrapper function for :meth:`pymolecule.Information.Information.set_remarks`
+        Wrapper function for :meth:`~pymolecule.Information.Information.set_remarks`
 
         :param list(str) remarks: List containing remarks.
         """
@@ -473,10 +483,10 @@ class Molecule: # here's the actual Molecule class
     def set_atom_information(self, atom_information):
         """
         Sets the __atom_information variable. See 
-        :meth:`pymolecule.Molecule.Molecule.get_atom_information` for
+        :meth:`~pymolecule.Molecule.Molecule.get_atom_information` for
         information on the numpy.array structure.
         
-        Wrapper function for :meth:`pymolecule.Information.Information.set_atom_information`
+        Wrapper function for :meth:`~pymolecule.Information.Information.set_atom_information`
 
         :param numpy.array atom_information: An array containing details
                             on the constituent atoms. 
@@ -488,7 +498,7 @@ class Molecule: # here's the actual Molecule class
         """
         Sets a specified frame of the __trajectory variable.
         
-        Wrapper function for :meth:`pymolecule.Information.Information.set_coordinates`
+        Wrapper function for :meth:`~pymolecule.Information.Information.set_coordinates`
         
         :param numpy.array coordinates: An array of atomic coordinates.
         :param int frame: An integer represeting the frame of the trajectory to be modified
@@ -500,7 +510,7 @@ class Molecule: # here's the actual Molecule class
         """
         Sets the __trajectory variable.
         
-        Wrapper function for :meth:`pymolecule.Information.Information.set_trajectory`
+        Wrapper function for :meth:`~pymolecule.Information.Information.set_trajectory`
 
         :param numpy.array trajectory: An array of atomic coordinates.
         """
@@ -511,7 +521,7 @@ class Molecule: # here's the actual Molecule class
         """
         Sets the __coordinates_undo_point variable.
         
-        Wrapper function for :meth:`pymolecule.Information.Information.set_coordinates_undo_point`
+        Wrapper function for :meth:`~pymolecule.Information.Information.set_coordinates_undo_point`
         
         :param numpy.array coordinates_undo_point: A coordinate set to revert 
             to after modification.
@@ -522,10 +532,10 @@ class Molecule: # here's the actual Molecule class
     def set_bonds(self, bonds):
         """
         Sets the __bonds variable. See 
-        :meth:`pymolecule.Molecule.Molecule.get_bonds` for additional 
+        :meth:`~pymolecule.Molecule.Molecule.get_bonds` for additional 
         information.
         
-        Wrapper function for :meth:`pymolecule.Information.Information.set_bonds`
+        Wrapper function for :meth:`~pymolecule.Information.Information.set_bonds`
         
         :param numpy.array bonds: A binary n x n matrix containing bonding 
             information.
@@ -537,7 +547,7 @@ class Molecule: # here's the actual Molecule class
         """
         DEPRECIATED?
         
-        Wrapper function for :meth:`pymolecule.Information.Information.set_hierarchy`
+        Wrapper function for :meth:`~pymolecule.Information.Information.set_hierarchy`
         """
         
         self.information.set_hierarchy(hierarchy)
@@ -547,7 +557,9 @@ class Molecule: # here's the actual Molecule class
         """
         Assigns masses to the atoms of the pymolecule.Molecule object. 
 
-        Wrapper function for :meth:`pymolecule.Information.Information.assign_masses`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Information.Information.assign_masses`
 
         ``Note``:
         This will autopopulate the masses according to their element 
@@ -563,7 +575,9 @@ class Molecule: # here's the actual Molecule class
         explicitly specified in loaded files. Note that this doesn't populate
         elements_stripped.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.assign_elements_from_atom_names`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Information.Information.assign_elements_from_atom_names`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to consider when calculating the center of mass.
@@ -579,8 +593,10 @@ class Molecule: # here's the actual Molecule class
         chains, and the residues. This information is stored in
         pymolecule.Information.Information.hierarchy.
 
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
+
         Wrapper function for 
-        :meth:`pymolecule.Information.Information.define_molecule_chain_residue_spherical_boundaries`
+        :meth:`~pymolecule.Information.Information.define_molecule_chain_residue_spherical_boundaries`
         """
         
         self.information.define_molecule_chain_residue_spherical_boundaries()
@@ -590,7 +606,7 @@ class Molecule: # here's the actual Molecule class
         Reindexes the serial field of the atoms in the molecule, starting
         with 1.
         
-        Wrapper function for :meth:`pymolecule.Information.Information.serial_reindex`
+        Wrapper function for :meth:`~pymolecule.Information.Information.serial_reindex`
         """
         
         self.information.serial_reindex()
@@ -600,7 +616,7 @@ class Molecule: # here's the actual Molecule class
         Reindexes the resseq field of the atoms in the molecule, starting
         with 1.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.resseq_reindex`
+        Wrapper function for :meth:`~pymolecule.Information.Information.resseq_reindex`
         """
         
         self.information.resseq_reindex()
@@ -610,7 +626,7 @@ class Molecule: # here's the actual Molecule class
         Checks if the atom is part of a protein. Taken primarily from Amber
         residue names.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.belongs_to_protein`
+        Wrapper function for :meth:`~pymolecule.Information.Information.belongs_to_protein`
         
         :param int atom_index: An int, the index of the atom to consider.
 
@@ -623,7 +639,7 @@ class Molecule: # here's the actual Molecule class
         """
         Checks if the atom is part of RNA.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.belongs_to_rna`
+        Wrapper function for :meth:`~pymolecule.Information.Information.belongs_to_rna`
 
         :param int atom_index: An int, the index of the atom to consider.
 
@@ -637,7 +653,7 @@ class Molecule: # here's the actual Molecule class
         """
         Checks if the atom is part of DNA.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.belongs_to_dna`
+        Wrapper function for :meth:`~pymolecule.Information.Information.belongs_to_dna`
 
         :param int atom_index: An int, the index of the atom to consider.
 
@@ -650,7 +666,7 @@ class Molecule: # here's the actual Molecule class
         """
         Inserts a new coordinate frame at the end of the trajectory.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.insert_trajectory_frame`
+        Wrapper function for :meth:`~pymolecule.Information.Information.insert_trajectory_frame`
 
         :param numpy.array coordinates: A single frame of coordinates to append.
         :param int index: The location where the frame should be added.
@@ -662,7 +678,7 @@ class Molecule: # here's the actual Molecule class
         """
         Removes a given frame from the trajectory.
   
-        Wrapper function for :meth:`pymolecule.Information.Information.delete_trajectory_frame`
+        Wrapper function for :meth:`~pymolecule.Information.Information.delete_trajectory_frame`
 
         :param int index: Integer of the frame to remove.
         """
@@ -673,7 +689,7 @@ class Molecule: # here's the actual Molecule class
         """
         Returns the number of frames in __trajectory.
 
-        Wrapper function for :meth:`pymolecule.Information.Information.get_trajectory_frame_count`
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_trajectory_frame_count`
 
         :returns: The number of frames in the trajectory.
         :rtype: :any:`int`
@@ -687,7 +703,9 @@ class Molecule: # here's the actual Molecule class
         Loads the molecular data contained in a pym file into the current
         pymolecule.Molecule object.
 
-        Wrapper function for :meth:`pymolecule.FileIO.FileIO.load_pym_into`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.FileIO.FileIO.load_pym_into`
 
         :param str filename: A string, the filename of the pym file.
         """
@@ -700,7 +718,7 @@ class Molecule: # here's the actual Molecule class
         Loads the molecular data contained in a pdb file into the current
         pymolecule.Molecule object.
 
-        Wrapper function for :meth:`pymolecule.FileIO.FileIO.load_pdb_into`
+        Wrapper function for :meth:`~pymolecule.FileIO.FileIO.load_pdb_into`
 
         :param str filename: A string, the filename of the pdb file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
@@ -726,7 +744,9 @@ class Molecule: # here's the actual Molecule class
         to use the load_pdb_into() function instead, which is identical except
         that it accepts a filename string instead of a python file object.
 
-        Wrapper function for :meth:`pymolecule.FileIO.FileIO.load_pdb_into_using_file_object`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.FileIO.FileIO.load_pdb_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdb-formatted
                     data.
@@ -751,7 +771,7 @@ class Molecule: # here's the actual Molecule class
         incomplete. It doesn't save atomic charges, for example. The atom
         types are stored in the "element" and "element_stripped" columns.
 
-        Wrapper function for :meth:`pymolecule.FileIO.FileIO.load_pdbqt_into`
+        Wrapper function for :meth:`~pymolecule.FileIO.FileIO.load_pdbqt_into`
 
         :param str filename: A string, the filename of the pdbqt file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
@@ -778,7 +798,9 @@ class Molecule: # here's the actual Molecule class
         except that it accepts a filename string instead of a python file
         object.
 
-        Wrapper function for :meth:`pymolecule.FileIO.FileIO.load_pdbqt_into_using_file_object`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.FileIO.FileIO.load_pdbqt_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdb-formatted
                     data.
@@ -802,7 +824,9 @@ class Molecule: # here's the actual Molecule class
         Saves the molecular data contained in a pymolecule.Molecule object
         to a pym file.
 
-        Wrapper function for :meth:`pymolecule.FileIO.FileIO.save_pym`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.FileIO.FileIO.save_pym`
 
         :param str filename: An string, the filename to use for saving. (Note
                     that this is actually a directory, not a file.)
@@ -831,7 +855,7 @@ class Molecule: # here's the actual Molecule class
         Saves the molecular data contained in a pymolecule.Molecule object
         to a pdb file.
 
-        Wrapper function for :meth:`pymolecule.FileIO.FileIO.save_pdb`
+        Wrapper function for :meth:`~pymolecule.FileIO.FileIO.save_pdb`
 
         :param str filename: An string, the filename to use for saving.
         :param bool serial_reindex: An optional boolean, whether or not to
@@ -855,10 +879,13 @@ class Molecule: # here's the actual Molecule class
         """
         Allows import of molecular structure with MDAnalysis
 
+        Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
+
         Wrapper function for 
-        :meth:`pymolecule.FileIO.FileIO.load_via_MDAnalysis`
+        :meth:`~pymolecule.FileIO.FileIO.load_via_MDAnalysis`
          
-        :param ``*args``: Filename, filenames, or list of file names. Used to inizalize a MDAnalysis.Universe object.
+        :param \*args: Filename, filenames, or list of file names. Used to
+            inizalize a MDAnalysis.Universe object.
         """
 
         self.fileio.load_via_MDAnalysis(*args)
@@ -868,9 +895,11 @@ class Molecule: # here's the actual Molecule class
         """
         Counts the number of atoms of a given element bonded to a specified
         atom of interest.
+
+        Requires the :any:`numpy` library.
         
         Wrapper function for 
-        :meth:`pymolecule.AtomsAndBonds.AtomsAndBonds.get_number_of_bond_partners_of_element`
+        :meth:`~pymolecule.AtomsAndBonds.AtomsAndBonds.get_number_of_bond_partners_of_element`
 
         :param int atom_index: An int, the index of the atom of interest.
         :param str the_element: A string describing the element of the neighbors
@@ -891,7 +920,7 @@ class Molecule: # here's the actual Molecule class
         For a given atom of interest, returns the index of the first
         neighbor of a specified element.
 
-        Wrapper function for :meth:`pymolecule.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element`
+        Wrapper function for :meth:`~pymolecule.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element`
 
         :param int atom_index: An int, the index of the atom of interest.
         :param str the_element: A string specifying the desired element of the
@@ -912,7 +941,10 @@ class Molecule: # here's the actual Molecule class
         Determines which atoms are bound to each other based on their
         proximity.
 
-        Wrapper function for :meth:`pymolecule.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance`
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
+
+        Wrapper function for 
+        :meth:`~pymolecule.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance`
 
         :param bool remove_old_bond_data: An optional boolean, whether or not to
                     discard old bond data before adding in bonds determined by
@@ -929,7 +961,7 @@ class Molecule: # here's the actual Molecule class
         """
         Deletes a bond.
 
-        Wrapper function for :meth:`pymolecule.AtomsAndBonds.AtomsAndBonds.delete_bond`
+        Wrapper function for :meth:`~pymolecule.AtomsAndBonds.AtomsAndBonds.delete_bond`
         
         :param int index1: An int, the index of the first atom of the bonded
                     pair.
@@ -943,7 +975,7 @@ class Molecule: # here's the actual Molecule class
         """
         Adds a bond.
 
-        Wrapper function for :meth:`pymolecule.AtomsAndBonds.AtomsAndBonds.add_bond`
+        Wrapper function for :meth:`~pymolecule.AtomsAndBonds.AtomsAndBonds.add_bond`
 
         :param int index1: An int, the index of the first atom of the bonded
                     pair.
@@ -958,7 +990,7 @@ class Molecule: # here's the actual Molecule class
         """
         Deletes an atom.
 
-        Wrapper function for :meth:`pymolecule.AtomsAndBonds.AtomsAndBonds.delete_atom`
+        Wrapper function for :meth:`~pymolecule.AtomsAndBonds.AtomsAndBonds.delete_atom`
 
         :param int index: An int, the index of the atom to delete.
         """
@@ -972,7 +1004,7 @@ class Molecule: # here's the actual Molecule class
         """
         Adds an atom.
 
-        Wrapper function for :meth:`pymolecule.AtomsAndBonds.AtomsAndBonds.add_atom`
+        Wrapper function for :meth:`~pymolecule.AtomsAndBonds.AtomsAndBonds.add_atom`
 
         :param str record_name: An optional string, the record name of the atom.
                     "ATOM" is the default.
@@ -1010,7 +1042,7 @@ class Molecule: # here's the actual Molecule class
         """
         Creates a pymolecule.Molecule from a user-defined atom selection.
 
-        Wrapper function for :meth:`pymolecule.Selections.Selections.get_molecule_from_selection`
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.get_molecule_from_selection`
 
         :param numpy.array selection: A numpy.array containing the indices of the atoms
                     in the user-defined selection.
@@ -1031,7 +1063,9 @@ class Molecule: # here's the actual Molecule class
         """
         Select a set of atoms based on user-specified criteria.
 
-        Wrapper function for :meth:`pymolecule.Selections.Selections.select_atoms`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_atoms`
 
         :param dict selection_criteria: A dictionary, where the keys correspond
                     to keys in the
@@ -1053,7 +1087,9 @@ class Molecule: # here's the actual Molecule class
         """
         Selects all the atoms that are within a bounding box.
 
-        Wrapper function for :meth:`pymolecule.Selections.Selections.select_atoms_in_bounding_box`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_atoms_in_bounding_box`
     
         :param numpy.array bounding_box: A 2x3 numpy.array containing the minimum and
                     maximum points of the bounding box. Example:
@@ -1072,7 +1108,9 @@ class Molecule: # here's the actual Molecule class
         bound to one another and that the branch starts at root_atom_index one
         and "points" in the direction of directionality_atom_index.
 
-        Wrapper function for :meth:`pymolecule.Selections.Selections.select_branch`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_branch`
 
         :param int root_atom_index: An int, the index of the first atom in the
                 branch (the "root").
@@ -1090,7 +1128,9 @@ class Molecule: # here's the actual Molecule class
         """
         Selects all the atoms that are bound to a user-specified selection.
 
-        Wrapper function for :meth:`pymolecule.Selections.Selections.select_all_atoms_bound_to_selection`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_all_atoms_bound_to_selection`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-specified selection.
@@ -1110,7 +1150,9 @@ class Molecule: # here's the actual Molecule class
         actually contains multiple physically distinct molecules that are not
         bound to each other via covalent bonds.
 
-        Wrapper function for :meth:`pymolecule.Selections.Selections.select_atoms_from_same_molecule`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_atoms_from_same_molecule`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -1129,7 +1171,9 @@ class Molecule: # here's the actual Molecule class
         physically distinct molecules that are not bound to each other via
         covalent bonds.
 
-        Wrapper function for :meth:`pymolecule.Selections.Selections.selections_of_constituent_molecules`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.selections_of_constituent_molecules`
         
         :Returns: A python list of numpy.array objects containing the indices of
                     the atoms belonging to each molecule of the composite
@@ -1143,7 +1187,9 @@ class Molecule: # here's the actual Molecule class
         Selects all atoms that are near the atoms of a user-defined
         selection.
 
-        Wrapper function for :meth:`pymolecule.Selections.Selections.select_atoms_near_other_selection`
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
+
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_atoms_near_other_selection`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -1164,7 +1210,7 @@ class Molecule: # here's the actual Molecule class
         of a user-defined seleciton. Residues are considered unique if they
         have a unique combination of resname, resseq, and chainid fields.
 
-        Wrapper function for :meth:`pymolecule.Selections.Selections.select_atoms_in_same_residue`
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_atoms_in_same_residue`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -1180,7 +1226,7 @@ class Molecule: # here's the actual Molecule class
         Inverts a user-defined selection (i.e., identifies all atoms that
         are not in the seleciton).
 
-        Wrapper function for :meth:`pymolecule.Selections.Selections.invert_selection`
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.invert_selection`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -1195,7 +1241,7 @@ class Molecule: # here's the actual Molecule class
         """
         Selects all the atoms in a pymolecule.Molecule object.
 
-        Wrapper function for :meth:`pymolecule.Selections.Selections.select_all`
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_all`
         
         :returns: A numpy.array containing the indices of all atoms in the
                     pymolecule.Molecule object.
@@ -1210,7 +1256,9 @@ class Molecule: # here's the actual Molecule class
         Effectively detects steric clashes between self and another
         pymolecule.Molecule.
 
-        Wrapper function for :meth:`pymolecule.Selections.Selections.select_close_atoms_from_different_molecules`
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
+
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_close_atoms_from_different_molecules`
         
         :param pymolecule.Molecule other_mol: A pymolecule.Molecule object of the other
                     molecule.
@@ -1239,7 +1287,9 @@ class Molecule: # here's the actual Molecule class
         """
         Identifies the atom selections of each chain.
 
-        Wrapper function for :meth:`pymolecule.Selections.Selections.selections_of_chains`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.selections_of_chains`
         
         :returns: A dictionary. The keys of the dictionary correspond to the
                     chainids, and the values are numpy.array objects containing
@@ -1251,8 +1301,10 @@ class Molecule: # here's the actual Molecule class
     def selections_of_residues(self):
         """
         Identifies the atom selections of each residue.
-    
-        Wrapper function for :meth:`pymolecule.Selections.Selections.selections_of_residues`
+
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Selections.Selections.selections_of_residues`
         
         :returns: A dictionary. The keys of this dictionary correspond to the
                     unique resname-resseq-chainid residue identifiers, and the
@@ -1268,7 +1320,7 @@ class Molecule: # here's the actual Molecule class
         Translates the entire molecular model (without rotating) so that the
         atom with the specified index is located at the specified coordinate.
 
-        Wrapper function for :meth:`pymolecule.Manipulation.Manipulation.set_atom_location`
+        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.set_atom_location`
         
         :param int atom_index: An int, the index of the target atom.
         :param numpy.array new_location: A numpy.array specifying the new (x, y, z)
@@ -1285,7 +1337,7 @@ class Molecule: # here's the actual Molecule class
         Resets the coordinates of all atoms to those saved using the
         set_coordinate_undo_point function.
         
-        Wrapper function for :meth:`pymolecule.Manipulation.Manipulation.coordinate_undo`
+        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.coordinate_undo`
         """
         
         self.manipulation.coordinate_undo()
@@ -1295,7 +1347,7 @@ class Molecule: # here's the actual Molecule class
         Translate all the atoms of the molecular model by a specified
         vector.
 
-        Wrapper function for :meth:`pymolecule.Manipulation.Manipulation.translate_molecule`
+        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.translate_molecule`
 
         :param numpy.array delta: A numpy.array (delta_x, delta_y, delta_z) specifying the
             amount to move each atom along the x, y, and z coordinates.
@@ -1309,7 +1361,7 @@ class Molecule: # here's the actual Molecule class
         Rotate the molecular model about a line segment. The end points of
         the line segment are explicitly specified coordinates.
 
-        Wrapper function for :meth:`pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points`
+        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points`
         
         :param numpy.array line_point1: A numpy.array (x, y, z) corresponding to one end
                     of the line segment.
@@ -1328,7 +1380,7 @@ class Molecule: # here's the actual Molecule class
         Rotate the molecular model about a line segment. The end points of
         the line segment are atoms of specified indices.
 
-        Wrapper function for :meth:`pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms`
+        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms`
 
         :param int line_point1_index: An int, the index of the first atom at one
                     end of the line segment.
@@ -1346,7 +1398,9 @@ class Molecule: # here's the actual Molecule class
         """
         Rotate the molecular model around a specified atom.
 
-        Wrapper function for :meth:`pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_point`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_point`
         
         :param numpy.array pivot: A numpy.array, the (x, y, z) coordinate about which
                     the molecular model will be rotated.
@@ -1367,7 +1421,9 @@ class Molecule: # here's the actual Molecule class
         """
         Rotate the molecular model around a specified atom.
 
-        Wrapper function for :meth:`pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_atom`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_atom`
         
         :param int pivot_index: An int, the index of the atom about which the
                     molecular model will be rotated.
@@ -1389,7 +1445,7 @@ class Molecule: # here's the actual Molecule class
         Computes the angle (in radians) formed by three points (numpy.array
         objects).
             
-        Wrapper function for :meth:`pymolecule.Geometry.Geometry.get_angle_between_three_points`
+        Wrapper function for :meth:`~pymolecule.Geometry.Geometry.get_angle_between_three_points`
         
         :param numpy.array pt1: A numpy.array (x, y, z) representing the first of the
                     three 3D points.
@@ -1409,7 +1465,7 @@ class Molecule: # here's the actual Molecule class
         Calculates the dihedral angle formed by four points (numpy.array
         objects).
 
-        Wrapper function for :meth:`pymolecule.Geometry.Geometry.get_dihedral_angle`
+        Wrapper function for :meth:`~pymolecule.Geometry.Geometry.get_dihedral_angle`
         
         :param numpy.array pt1: A numpy.array (x, y, z) representing the first 3D
                     point.
@@ -1431,7 +1487,7 @@ class Molecule: # here's the actual Molecule class
         Determines how close four points (numpy.array objects) come to lying
         in a common plane.
 
-        Wrapper function for :meth:`pymolecule.Geometry.Geometry.get_planarity_deviation`
+        Wrapper function for :meth:`~pymolecule.Geometry.Geometry.get_planarity_deviation`
         
         :param numpy.array pt1: A numpy.array (x, y, z) representing a 3D point.
         :param numpy.array pt2: A numpy.array (x, y, z) representing a 3D point.
@@ -1448,7 +1504,7 @@ class Molecule: # here's the actual Molecule class
         """
         Checks whether four points (numpy.array) lie in a common plane.
 
-        Wrapper function for :meth:`pymolecule.Geometry.Geometry.is_planar`
+        Wrapper function for :meth:`~pymolecule.Geometry.Geometry.is_planar`
         
         :param numpy.array pt1: A numpy.array (x, y, z) representing a 3D point.
         :param numpy.array pt2: A numpy.array (x, y, z) representing a 3D point.
@@ -1469,7 +1525,9 @@ class Molecule: # here's the actual Molecule class
         Aligns a molecule to self (this pymolecule.Molecule object) using a
         quaternion RMSD alignment.
 
-        Wrapper function for :meth:`pymolecule.OtherMolecules.OtherMolecules.get_other_molecule_aligned_to_this`
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_other_molecule_aligned_to_this`
                 
         :param pymolecule.Molecule other_mol: A pymolecule.Molecule that is to be aligned to
                     this one.
@@ -1494,7 +1552,9 @@ class Molecule: # here's the actual Molecule class
         Computes the minimum distance between any of the atoms of this
         molecular model and any of the atoms of a second specified model.
 
-        Wrapper function for :meth:`pymolecule.OtherMolecules.OtherMolecules.get_distance_to_another_molecule`
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
+
+        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_distance_to_another_molecule`
         
         :param pymolecule.Molecule other_molecule: a pymolecule.Molecule, the other molecular
                     model.
@@ -1516,7 +1576,7 @@ class Molecule: # here's the actual Molecule class
         Calculates the RMSD between this pymolecule.Molecle object and
         another, where equivalent atoms are explicitly specified.
 
-        Wrapper function for :meth:`pymolecule.OtherMolecules.OtherMolecules.get_rmsd_equivalent_atoms_specified`
+        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_rmsd_equivalent_atoms_specified`
         
         :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
         :param tuple tethers: A tuple of two numpy.array objects, where each array
@@ -1538,7 +1598,7 @@ class Molecule: # here's the actual Molecule class
         Calculates the RMSD between two structures, where equivalent atoms
         are listed in the same order.
 
-        Wrapper function for :meth:`pymolecule.OtherMolecules.OtherMolecules.get_rmsd_order_dependent`
+        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_rmsd_order_dependent`
         
         :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
 
@@ -1555,8 +1615,10 @@ class Molecule: # here's the actual Molecule class
         efficient optimization, and multithreading,"" by Oleg Trott and Arthur
         J. Olson. Note: Identical means the order of the atoms is the same as
         well.
-        
-        Wrapper function for :meth:`pymolecule.OtherMolecules.OtherMolecules.get_rmsd_heuristic`
+
+        Requires the :any:`numpy` library.
+
+        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_rmsd_heuristic`
         
         :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
             
@@ -1570,8 +1632,10 @@ class Molecule: # here's the actual Molecule class
         """
         Detects steric clashes between the pymolecule.Molecule (self) and
         another pymolecule.Molecule.
-        
-        Wrapper function for :meth:`pymolecule.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule`
+
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
+
+        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule`
         
         :param pymolecule.Molecule other_mol: The pymolecule.Molecule object that will be
                     evaluated for steric clashes.
@@ -1594,7 +1658,7 @@ class Molecule: # here's the actual Molecule class
         """
         Merges two molecular models into a single model.
 
-        Wrapper function for :meth:`pymolecule.OtherMolecules.OtherMolecules.merge_with_another_molecule`
+        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.merge_with_another_molecule`
         
         :param pymolecule.Molecule other_molecule: A molecular model (pymolecule.Molecule
                     object).

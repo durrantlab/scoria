@@ -24,10 +24,10 @@ class AtomsAndBonds():
         Determines which atoms are bound to each other based on their
         proximity.
 
-        Requires the :any:`numpy` and :any:`scipy.spatial` library.
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
         Should be called via the wrapper function
-        :meth:`pymolecule.Molecule.Molecule.create_bonds_by_distance`.
+        :meth:`~pymolecule.Molecule.Molecule.create_bonds_by_distance`.
 
         :param bool remove_old_bond_data: An optional boolean, whether or not to
                     discard old bond data before adding in bonds determined by
@@ -137,19 +137,20 @@ class AtomsAndBonds():
                         # discard the extra bonds
                         for throw_out_index in indx_2_thrw_out:
                             self.__parent_molecule.delete_bond(index,
-                                                                throw_out_index)
+                                                               throw_out_index)
 
-                except: pass # element probably wasn't in the dictionary
+                except:
+                    pass # element probably wasn't in the dictionary
 
     def get_number_of_bond_partners_of_element(self, atom_index, the_element):
         """
         Counts the number of atoms of a given element bonded to a specified
         atom of interest.
-        
+
         Requires the :any:`numpy` library.
 
-        Should be called via the wrapper function 
-        :meth:`pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element`.
+        Should be called via the wrapper function
+        :meth:`~pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element`.
 
         :param int atom_index: An int, the index of the atom of interest.
         :param str the_element: A string describing the element of the neighbors
@@ -184,7 +185,7 @@ class AtomsAndBonds():
         Requires the :mod:`numpy` and :mod:`scipy.spatial` libraries.
 
         Should be called via the wrapper function
-        :meth:`pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element`.
+        :meth:`~pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element`.
 
         :param int atom_index: An int, the index of the atom of interest.
         :param str the_element: A string specifying the desired element of the
@@ -218,7 +219,7 @@ class AtomsAndBonds():
         """
         Deletes a bond.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.delete_bond`.
+        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.delete_bond`.
         
         :param int index1: An int, the index of the first atom of the bonded
                     pair.
@@ -240,7 +241,7 @@ class AtomsAndBonds():
         """
         Adds a bond.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.add_bond`.
+        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.add_bond`.
 
         :param int index1: An int, the index of the first atom of the bonded
                     pair.
@@ -261,7 +262,7 @@ class AtomsAndBonds():
         """
         Deletes an atom.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.delete_atom`.
+        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.delete_atom`.
 
         :param int index: An int, the index of the atom to delete.
         """
@@ -320,7 +321,7 @@ class AtomsAndBonds():
         """
         Adds an atom.
 
-        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.add_atom`.
+        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.add_atom`.
 
         :param str record_name: An optional string, the record name of the atom.
                     "ATOM" is the default.

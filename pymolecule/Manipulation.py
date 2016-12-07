@@ -44,7 +44,7 @@ class Manipulation():
         Translates the entire molecular model (without rotating) so that the
         atom with the specified index is located at the specified coordinate.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.set_atom_location`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_atom_location`
         
         :param int atom_index: An int, the index of the target atom.
         :param numpy.array new_location: A numpy.array specifying the new (x, y, z)
@@ -69,7 +69,7 @@ class Manipulation():
         Translate all the atoms of the molecular model by a specified
         vector.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.translate_molecule`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.translate_molecule`
 
         :param numpy.array delta: A numpy.array (delta_x, delta_y, delta_z) specifying the
             amount to move each atom along the x, y, and z coordinates.
@@ -106,7 +106,7 @@ class Manipulation():
         the line segment are explicitly specified coordinates.
 
         Wrapper function for 
-        :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_points`
+        :meth:`~pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_points`
 
         :param numpy.array line_point1: A numpy.array (x, y, z) corresponding to one end
                     of the line segment.
@@ -210,7 +210,7 @@ class Manipulation():
         the line segment are atoms of specified indices.
 
         Wrapper function for 
-        :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_atoms`
+        :meth:`~pymolecule.Molecule.Molecule.rotate_molecule_around_a_line_between_atoms`
 
         :param int line_point1_index: An int, the index of the first atom at one
                     end of the line segment.
@@ -236,8 +236,8 @@ class Manipulation():
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_point`
-        
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_point`
+
         :param numpy.array pivot: A numpy.array, the (x, y, z) coordinate about which
                     the molecular model will be rotated.
         :param float thetax: A float, the angle to rotate relative to the x axis,
@@ -300,7 +300,7 @@ class Manipulation():
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_atom`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.rotate_molecule_around_pivot_atom`
         
         :param int pivot_index: An int, the index of the atom about which the
                     molecular model will be rotated.
