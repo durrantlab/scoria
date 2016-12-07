@@ -450,8 +450,8 @@ class FileIO():
             numpy.savez(filename + "coordinates_undo_point.npz",
                         self.__parent_molecule.get_coordinates_undo_point())
 
-    def save_pdb(self, filename = "", serial_reindex = True,
-                 resseq_reindex = False, return_text = False):
+    def save_pdb(self, filename = "", serial_reindex = True, resseq_reindex = False,
+                 return_text = False, frame = None):
         """
         Saves the molecular data contained in a pymolecule.Molecule object
         to a pdb file.
@@ -466,6 +466,10 @@ class FileIO():
         :param bool return_text: An optional boolean, whether or not to return
                     text instead of writing to a file. If True, the filename
                     variable is ignored.
+        :param int frame: If specified, a single-frame PDB will be generated.
+                    If not specified, a multi-frame PDB will be generated if 
+                    the Molecule has multiple frames. Otherwise, the single
+                    existing frame will be used.
 
         :returns: If return_text is True, a PDB-formatted string. Otherwise,
                 returns nothing.
@@ -474,6 +478,19 @@ class FileIO():
 
         if len(self.__parent_molecule.get_atom_information()) > 0:
             # so the pdb is not empty (if it is empty, don't save)
+
+            # Quick check if it has more than one frame. If so, switch to a
+            # multi-frame output function.
+            if (self.__parent_molecule.get_trajectory_frame_count() > 1 and 
+                frame is None):
+                # It has multiple frames and the user hasn't specified a
+                # specific frame, so generate the whole trajectory.
+                return self._save_pdb_trajectory(filename, serial_reindex, 
+                                                 resseq_reindex, return_text)
+
+            # If you get to this point, set the frame to 0.
+            if frame is None:
+                frame = 0
 
             if serial_reindex == True: self.__parent_molecule.serial_reindex()
             if resseq_reindex == True: self.__parent_molecule.resseq_reindex()
@@ -494,7 +511,7 @@ class FileIO():
 
             # print out coordinates
             atom_information = self.__parent_molecule.get_atom_information()
-            coordinates = self.__parent_molecule.get_coordinates()
+            coordinates = self.__parent_molecule.get_coordinates(frame)
 
             printout = numpy.defchararray_add(
                 atom_information['record_name'],
@@ -611,6 +628,64 @@ class FileIO():
         else:
             print ("ERROR: Cannot save a Molecule with no atoms " +
                    "(file name \"" + filename + "\")")
+
+    def _save_pdb_trajectory(self, filename = "", serial_reindex = True,
+                 resseq_reindex = False, return_text = False):
+        """
+        Saves the molecular trajectory data contained in a pymolecule.Molecule
+        object to a pdb file.
+
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.save_pdb`
+
+        :param str filename: An string, the filename to use for saving.
+        :param bool serial_reindex: An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+        :param bool resseq_reindex: An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+        :param bool return_text: An optional boolean, whether or not to return
+                    text instead of writing to a file. If True, the filename
+                    variable is ignored.
+
+        :returns: If return_text is True, a PDB-formatted string. Otherwise,
+                returns nothing.
+        :rtype: *str* or *None*
+        """
+
+        num_frames = self.__parent_molecule.get_trajectory_frame_count()
+        if num_frames > 1:
+            # Only proceed if it's a multi-frame trajectory.
+
+            if return_text == True:
+                all_txt = ""
+            else:
+                out = open(filename, 'w')
+    
+
+            for frame in range(num_frames):
+                pdb_txt = self.save_pdb(
+                    filename, serial_reindex, resseq_reindex, 
+                    True, frame = frame
+                )
+
+                # Remove the CONECT and REMARK information. I don't know how
+                # to deal with that when it's multiple frames.
+                pdb_txt = "\n".join(l for l in pdb_txt.split("\n") if not l.startswith("CONECT") and not l.startswith("REMARK"))
+                
+                # Add start and end tags
+                pdb_txt = "MODEL" + str(frame + 1).rjust(9) + "\n" + pdb_txt.strip() + "\nENDMDL\n"
+
+                if return_text == True:
+                    all_txt = all_txt + pdb_txt
+                else:
+                    out.write(pdb_txt)
+
+            if return_text == True:
+                all_txt = all_txt + "END"
+                return all_txt
+            else:
+                out.write("END")
+                out.close()
+                return
 
     def load_via_MDAnalysis(self, *args):
         """

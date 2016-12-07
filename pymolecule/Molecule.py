@@ -824,7 +824,7 @@ class Molecule: # here's the actual Molecule class
         )
 
     def save_pdb(self, filename = "", serial_reindex = True,
-                 resseq_reindex = False, return_text = False):
+                 resseq_reindex = False, return_text = False, frame = None):
         """
         Saves the molecular data contained in a pymolecule.Molecule object
         to a pdb file.
@@ -839,6 +839,11 @@ class Molecule: # here's the actual Molecule class
         :param bool return_text: An optional boolean, whether or not to return
                     text instead of writing to a file. If True, the filename
                     variable is ignored.
+        :param int frame: If specified, a single-frame PDB will be generated.
+                    If not specified, a multi-frame PDB will be generated if 
+                    the Molecule has multiple frames. Otherwise, the single
+                    existing frame will be used.
+
 
         :returns: If return_text is True, a PDB-formatted string. Otherwise,
                 returns nothing.
@@ -846,7 +851,7 @@ class Molecule: # here's the actual Molecule class
         """
 
         return self.fileio.save_pdb(
-            filename, serial_reindex, resseq_reindex, return_text
+            filename, serial_reindex, resseq_reindex, return_text, frame
         )
 
     def load_via_MDAnalysis(self, *args):
