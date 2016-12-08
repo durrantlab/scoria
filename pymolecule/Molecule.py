@@ -882,6 +882,113 @@ class Molecule: # here's the actual Molecule class
             filename, serial_reindex, resseq_reindex, return_text, frame
         )
 
+    def load_pdbqt_trajectory_into(self, filename, bonds_by_distance = True,
+                                   serial_reindex = True, 
+                                   resseq_reindex = False):
+        """
+        Loads the molecular data contained in a pdbqt trajectoy file (e.g., an
+        AutoDock Vina output file) into the current pymolecule.Molecule
+        object.
+
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdbqt_trajectory_into`
+
+        :param str filename: A string, the filename of the pdbqt file.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. True by
+                    default.
+        :param bool serial_reindex: An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+        :param bool resseq_reindex: An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+        """
+
+        return self.fileio.load_pdbqt_trajectory_into(filename, 
+                                             bonds_by_distance, 
+                                             serial_reindex, 
+                                             resseq_reindex)
+        
+    def load_pdbqt_trajectory_into_using_file_object(self, file_obj,
+                                                     bonds_by_distance = True,
+                                                     serial_reindex = True,
+                                                     resseq_reindex = False):
+        """
+        Loads molecular data from a python file object (pdbqt trajectory
+        formatted) into the current pymolecule.Molecule object. Note that most
+        users will want to use the load_pdbqt_trajectory_into() function
+        instead, which is identical except that it accepts a filename string
+        instead of a python file object.
+
+        Wrapper function for
+        :meth:`~pymolecule.FileIO.FileIO.load_pdbqt_trajectory_into_using_file_object`
+
+        :param file file_obj: A python file object, containing pdbqt-formatted
+                    trajectory data.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. True by
+                    default.
+        :param bool serial_reindex: An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+        :param bool resseq_reindex: An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+        """
+
+        return self.fileio.load_pdbqt_trajectory_into_using_file_object(file_obj,
+                                                     bonds_by_distance,
+                                                     serial_reindex,
+                                                     resseq_reindex)
+
+    def load_pdb_trajectory_into(self, filename, bonds_by_distance = True,
+                                 serial_reindex = True, 
+                                 resseq_reindex = False):
+        """
+        Loads the molecular data contained in a pdb trajectory file into the
+        current pymolecule.Molecule object.
+
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdb_trajectory_into`
+
+        :param str filename: A string, the filename of the pdb trajectory
+                   file.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. True by
+                    default.
+        :param bool serial_reindex: An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+        :param bool resseq_reindex: An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+        """
+
+        return self.fileiod.load_pdb_trajectory_into(filename, bonds_by_distance,
+                                        serial_reindex, resseq_reindex)
+                                
+    def load_pdb_trajectory_into_using_file_object(self, file_obj,
+                                                   bonds_by_distance = True,
+                                                   serial_reindex = True,
+                                                   resseq_reindex = False):
+        """
+        Loads molecular data from a python file object (pdb trajectory
+        formatted) into the current pymolecule.Molecule object. Note that most
+        users will want to use the load_pdb_trajectory_into() function
+        instead, which is identical except that it accepts a filename string
+        instead of a python file object.
+
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdb_trajectory_into_using_file_object`
+
+        :param file file_obj: A python file object, containing pdb-formatted
+                    trajectory data.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. True by
+                    default.
+        :param bool serial_reindex: An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+        :param bool resseq_reindex: An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+        """
+
+        return self.fileio.load_pdb_trajectory_into_using_file_object(file_obj,
+                                                                    bonds_by_distance,
+                                                                    serial_reindex,
+                                                                    resseq_reindex)
+
     def load_via_MDAnalysis(self, *args):
         """
         Allows import of molecular structure with MDAnalysis
@@ -1727,7 +1834,7 @@ class Molecule: # here's the actual Molecule class
         new_molecule.set_filename(self.get_filename()[:])
         new_molecule.set_remarks(self.get_remarks()[:])
         new_molecule.set_atom_information(self.get_atom_information().copy())
-        new_molecule.set_coordinates(self.get_coordinates().copy())
+        new_molecule.set_trajectory(self.get_trajectory().copy())
 
         if not self.get_bonds() is None:
             new_molecule.set_bonds(self.get_bonds().copy())
