@@ -63,7 +63,7 @@
 <dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.add_atom">
 <code class="descname">add_atom</code><span class="sig-paren">(</span><em>record_name='ATOM'</em>, <em>serial=1</em>, <em>name='X'</em>, <em>resname='XXX'</em>, <em>chainid='X'</em>, <em>resseq=1</em>, <em>occupancy=0.0</em>, <em>tempfactor=0.0</em>, <em>charge=''</em>, <em>element='X'</em>, <em>coordinates=array([ 0.</em>, <em>0.</em>, <em>0.])</em>, <em>autoindex=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.add_atom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an atom.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.add_atom" title="pymolecule.Molecule.Molecule.add_atom"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.add_atom()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.add_atom" title="pymolecule.Molecule.Molecule.add_atom"><code class="xref py py-meth docutils literal"><span class="pre">add_atom()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -103,7 +103,7 @@ the default.</li>
 <dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.add_bond">
 <code class="descname">add_bond</code><span class="sig-paren">(</span><em>index1</em>, <em>index2</em>, <em>order=1</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.add_bond" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a bond.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.add_bond" title="pymolecule.Molecule.Molecule.add_bond"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.add_bond()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.add_bond" title="pymolecule.Molecule.Molecule.add_bond"><code class="xref py py-meth docutils literal"><span class="pre">add_bond()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -128,7 +128,7 @@ pair.</li>
 proximity.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref any docutils literal"><span class="pre">scipy</span></code></a> libraries.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.create_bonds_by_distance" title="pymolecule.Molecule.Molecule.create_bonds_by_distance"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.create_bonds_by_distance()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.create_bonds_by_distance" title="pymolecule.Molecule.Molecule.create_bonds_by_distance"><code class="xref py py-meth docutils literal"><span class="pre">create_bonds_by_distance()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -150,7 +150,7 @@ to check for and delete excessive bonds. True by default.</li>
 <dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.delete_atom">
 <code class="descname">delete_atom</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.delete_atom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes an atom.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.delete_atom" title="pymolecule.Molecule.Molecule.delete_atom"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.delete_atom()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.delete_atom" title="pymolecule.Molecule.Molecule.delete_atom"><code class="xref py py-meth docutils literal"><span class="pre">delete_atom()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -165,7 +165,7 @@ to check for and delete excessive bonds. True by default.</li>
 <dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.delete_bond">
 <code class="descname">delete_bond</code><span class="sig-paren">(</span><em>index1</em>, <em>index2</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.delete_bond" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes a bond.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.delete_bond" title="pymolecule.Molecule.Molecule.delete_bond"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.delete_bond()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.delete_bond" title="pymolecule.Molecule.Molecule.delete_bond"><code class="xref py py-meth docutils literal"><span class="pre">delete_bond()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -189,7 +189,7 @@ pair.</li>
 neighbor of a specified element.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref py py-mod docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref py py-mod docutils literal"><span class="pre">scipy.spatial</span></code></a> libraries.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element" title="pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element" title="pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element"><code class="xref py py-meth docutils literal"><span class="pre">get_index_of_first_bond_partner_of_element()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -219,7 +219,7 @@ element. If no such neighbor exists, returns -1.</p>
 atom of interest.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element" title="pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element" title="pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element"><code class="xref py py-meth docutils literal"><span class="pre">get_number_of_bond_partners_of_element()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

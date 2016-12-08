@@ -715,7 +715,7 @@ class FileIO():
 
             # If you get to this point, set the frame to 0.
             if frame is None:
-                frame = 0
+                frame = self.__parent_molecule.get_default_trajectory_frame()
 
             if serial_reindex == True: self.__parent_molecule.serial_reindex()
             if resseq_reindex == True: self.__parent_molecule.resseq_reindex()

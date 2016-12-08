@@ -39,7 +39,7 @@ class Molecule: # here's the actual Molecule class
     # Information methods
     ### Wrappers ###
     # Gets
-    def get_coordinates(self, frame = 0):
+    def get_coordinates(self, frame = None):
         """
         Returns the set of coordinates from the specified frame.
 
@@ -278,7 +278,7 @@ class Molecule: # here's the actual Molecule class
         
         return self.information.get_constants()
 
-    def get_center_of_mass(self, selection = None, frame = 0):
+    def get_center_of_mass(self, selection = None, frame = None):
         """
         Determines the center of mass.
 
@@ -307,7 +307,7 @@ class Molecule: # here's the actual Molecule class
         
         return self.information.get_center_of_mass(selection, frame)
 
-    def get_geometric_center(self, selection = None, frame = 0):
+    def get_geometric_center(self, selection = None, frame = None):
         """
         Determines the geometric center of the molecule.
 
@@ -399,7 +399,7 @@ class Molecule: # here's the actual Molecule class
         
         return self.information.get_total_number_of_heavy_atoms(selection)
 
-    def get_bounding_box(self, selection = None, padding = 0.0, frame = 0):
+    def get_bounding_box(self, selection = None, padding = 0.0, frame = None):
         """
         Calculates a box that bounds (encompasses) a set of atoms.
 
@@ -421,7 +421,7 @@ class Molecule: # here's the actual Molecule class
         
         return self.information.get_bounding_box(selection, padding, frame)
 
-    def get_bounding_sphere(self, selection = None, padding = 0.0, frame = 0):
+    def get_bounding_sphere(self, selection = None, padding = 0.0, frame = None):
         """
         Calculates a sphere that bounds (encompasses) a set of atoms.
 
@@ -445,6 +445,18 @@ class Molecule: # here's the actual Molecule class
         """
         
         return self.information.get_bounding_sphere(selection, padding, frame)
+
+    def get_default_trajectory_frame(self):
+        """
+        Retreives the default trajectory frame index.
+
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_default_trajectory_frame`
+
+        :returns: An *int* representing the index of the default trajectory frame.
+        """
+
+        return self.information.get_default_trajectory_frame()
+
 
     # Set
     def set_filename(self, filename):
@@ -484,7 +496,7 @@ class Molecule: # here's the actual Molecule class
         
         self.information.set_atom_information(atom_information)
 
-    def set_coordinates(self, coordinates, frame = 0):
+    def set_coordinates(self, coordinates, frame = None):
         """
         Sets a specified frame of the __trajectory variable.
         
@@ -541,6 +553,17 @@ class Molecule: # here's the actual Molecule class
         """
         
         self.information.set_hierarchy(hierarchy)
+
+    def set_default_trajectory_frame(self, frame):
+        """
+        Set's the default trajectory frame for various calculations. 
+
+        Wrapper function for :meth:`~pymolecule.Information.Information.set_default_trajectory_frame`
+
+        :param int frame: The default frame for coordinate selection.
+        """
+
+        self.information.set_default_trajectory_frame(frame)
 
     # Information functions
     def assign_masses(self):
