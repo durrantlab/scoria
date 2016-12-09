@@ -1853,17 +1853,19 @@ class Molecule: # here's the actual Molecule class
                     information as this pymolecule.Molecule object.
         """
 
-        new_molecule = Molecule()
-        new_molecule.set_filename(self.get_filename()[:])
-        new_molecule.set_remarks(self.get_remarks()[:])
-        new_molecule.set_atom_information(self.get_atom_information().copy())
-        new_molecule.set_trajectory(self.get_trajectory().copy())
+#        new_molecule = Molecule()
+#        new_molecule.set_filename(self.get_filename()[:])
+#        new_molecule.set_remarks(self.get_remarks()[:])
+#        new_molecule.set_atom_information(self.get_atom_information().copy())
+#        new_molecule.set_trajectory(self.get_trajectory().copy())
+#
+#        if not self.get_bonds() is None:
+#            new_molecule.set_bonds(self.get_bonds().copy())
+#        else:
+#            new_molecule.set_bonds(None)
+#
+#        new_molecule.set_hierarchy(copy.deepcopy(self.get_hierarchy()))
 
-        if not self.get_bonds() is None:
-            new_molecule.set_bonds(self.get_bonds().copy())
-        else:
-            new_molecule.set_bonds(None)
-
-        new_molecule.set_hierarchy(copy.deepcopy(self.get_hierarchy()))
+        new_molecule = copy.deepcopy(self)
 
         return new_molecule
