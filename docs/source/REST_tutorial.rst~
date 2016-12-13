@@ -1,0 +1,76 @@
+Welcome!
+========
+
+This is a quick guide to get you up to speed for documenting python
+projects. We use a specific type of documenting style called 'REST' or
+reStructuredText, which allows us to autopopulate html pages with our
+documentation.
+
+We will want every class and function to have a string documenting
+what it is and how it works. A base template to work off of will look
+like this::
+
+   def foo(bar, var):
+      """
+      This is a fuction that foo-ifies a variable, with regards to bar.
+
+      Please note that this is only functioning with version foobar 4.2
+      and that earlier versions are not supported.
+
+      :param int bar: This represents the level of bar we want to foo.
+
+      :param str var: This is the string that we will be foo-ifying.
+
+      :returns: foo-ified var with regards to bar.
+      :rtype: :class:`str`
+
+      ::
+
+         >>> bar = 4
+         >>> var = "Hello World!"
+         >>> print foo(bar, var)
+         Hello World!Hello World!Hello World!Hello World!
+      """
+
+      foovar = foobar.fooify(var * bar)
+      return foovar
+
+There are a few things to include with a good documentation string.  
+
+* A short description of the function in plain english, with any
+  caveats or non-standard behaviours.
+
+* A note of dependancies or relationships between this code and other
+  functions or librarie, if any.
+
+* A list of any parameters that the function takes. These should be
+  prefaced with ``:param type name:`` which will be autopopulated when
+  the documentation is generated.
+
+* A description of the return value of the function. This should be
+  prefaced with ``:returns:``. The variable type that is returned
+  should be prefaced with ``:rtype:`` and a link to the object that it
+  should return. 
+
+  * Finally an example is sometimes a good way to end a documentation
+  section. A literal section of code is created with the ``::`` as
+  either a stand alone will allow you to enter a quick example of the
+  function.
+
+These segments are almost all optional. If a function doesn't take
+parameters, or give a return value, then the documentation shouldn't
+cover it. Likewise, if there are no dependancies or necessary
+examples, then those sections should be omitted.
+
+An example of an alternate layout would be a setter function as
+follows::
+
+   def set_namespace(self, namespace):
+      """
+      Sets the namespace for the function. 
+ 
+      :param str namespace: A string containing the new namespace.
+      """
+      
+      self.__namespace = namespace
+
