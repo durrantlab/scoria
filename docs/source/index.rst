@@ -12,8 +12,6 @@ PyMolecule is a lightweight molecular dynamics library
    :maxdepth: 2
    :numbered:
 
-   REST_tutorial.rst
-
    Molecule.rst
    AtomsAndBonds.rst
    FileIO.rst
@@ -23,6 +21,8 @@ PyMolecule is a lightweight molecular dynamics library
    OtherMolecules.rst
    Quaternion.rst
    Selections.rst
+
+   REST_tutorial.rst
 
 Indices and tables
 ==================

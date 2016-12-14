@@ -61,7 +61,8 @@ class Selections():
             elif key in const['i8_fields']:
                 vals = [int(v) for v in vals]
             else:
-                vals = [v.strip() for v in vals]
+                vals = vals
+                #vals = [v.strip() for v in vals]
 
             # "or" all the vals together
             # start assuming nothing is selected

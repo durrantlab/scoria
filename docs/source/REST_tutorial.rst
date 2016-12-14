@@ -124,9 +124,6 @@ follows::
 Advanced
 --------
 
-Outside of the base template, there are a few notes that will help
-flesh out any remainging functionality.
-
 Linking
 ^^^^^^^
 
@@ -141,17 +138,13 @@ documentation libraries, the url of the library must be added to the
 sphinx configuration file. Additionally, adding a tilde before a long
 function definition will truncate to show just the last section.
 
-========= ============ =========================================================
+========= ============ ==============================
 Type      Preface      Example
-========= ============ =========================================================
+========= ============ ==============================
 Unknown   `:any:`      :any:`int`
 Module    `:mod:`      :mod:`numpy`
 Class     `:class:`    :class:`pymolecule.Information`
 Function  `:func:`     :func:`pymolecule.Information.Information.get_trajectory`
 Function  `:func:` + ~ :func:`~pymolecule.Information.Information.get_trajectory`
-========= ============ =========================================================
+========= ============ ==============================
 
-TBD
-^^^
-
-More will be added as we have need for it.
