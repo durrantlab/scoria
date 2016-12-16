@@ -59,7 +59,7 @@
 <dt id="pymolecule.Selections.Selections.get_molecule_from_selection">
 <code class="descname">get_molecule_from_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.get_molecule_from_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a pymolecule.Molecule from a user-defined atom selection.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_molecule_from_selection" title="pymolecule.Molecule.Molecule.get_molecule_from_selection"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_molecule_from_selection()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_molecule_from_selection" title="pymolecule.Molecule.Molecule.get_molecule_from_selection"><code class="xref py py-meth docutils literal"><span class="pre">get_molecule_from_selection()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -88,7 +88,7 @@ user-defined selection.</p>
 <dd><p>Inverts a user-defined selection (i.e., identifies all atoms that
 are not in the seleciton).</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.invert_selection" title="pymolecule.Molecule.Molecule.invert_selection"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.invert_selection()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.invert_selection" title="pymolecule.Molecule.Molecule.invert_selection"><code class="xref py py-meth docutils literal"><span class="pre">invert_selection()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -107,7 +107,7 @@ in the user-defined seleciton.</td>
 <dt id="pymolecule.Selections.Selections.select_all">
 <code class="descname">select_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all the atoms in a pymolecule.Molecule object.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_all" title="pymolecule.Molecule.Molecule.select_all"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_all()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_all" title="pymolecule.Molecule.Molecule.select_all"><code class="xref py py-meth docutils literal"><span class="pre">select_all()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -125,7 +125,7 @@ pymolecule.Molecule object.</td>
 <dd><p>Selects all the atoms that are bound to a user-specified selection.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function 
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection" title="pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection" title="pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection"><code class="xref py py-meth docutils literal"><span class="pre">select_all_atoms_bound_to_selection()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -146,8 +146,7 @@ original user-specified selection.</td>
 <dt id="pymolecule.Selections.Selections.select_atoms">
 <code class="descname">select_atoms</code><span class="sig-paren">(</span><em>selection_criteria</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select a set of atoms based on user-specified criteria.</p>
-<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms" title="pymolecule.Molecule.Molecule.select_atoms"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_atoms()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms" title="pymolecule.Molecule.Molecule.select_atoms"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -178,7 +177,7 @@ actually contains multiple physically distinct molecules that are not
 bound to each other via covalent bonds.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_from_same_molecule" title="pymolecule.Molecule.Molecule.select_atoms_from_same_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_atoms_from_same_molecule()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_from_same_molecule" title="pymolecule.Molecule.Molecule.select_atoms_from_same_molecule"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_from_same_molecule()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -200,7 +199,7 @@ selection.</td>
 <dd><p>Selects all the atoms that are within a bounding box.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_in_bounding_box" title="pymolecule.Molecule.Molecule.select_atoms_in_bounding_box"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_atoms_in_bounding_box()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_in_bounding_box" title="pymolecule.Molecule.Molecule.select_atoms_in_bounding_box"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_in_bounding_box()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -223,7 +222,7 @@ within the bounding box.</td>
 of a user-defined seleciton. Residues are considered unique if they
 have a unique combination of resname, resseq, and chainid fields.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_in_same_residue" title="pymolecule.Molecule.Molecule.select_atoms_in_same_residue"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_atoms_in_same_residue()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_in_same_residue" title="pymolecule.Molecule.Molecule.select_atoms_in_same_residue"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_in_same_residue()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -245,7 +244,7 @@ residue as any of the atoms of the user-defined selection.</td>
 selection.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref any docutils literal"><span class="pre">scipy</span></code></a> libraries.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_near_other_selection" title="pymolecule.Molecule.Molecule.select_atoms_near_other_selection"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_atoms_near_other_selection()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_near_other_selection" title="pymolecule.Molecule.Molecule.select_atoms_near_other_selection"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_near_other_selection()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -275,7 +274,7 @@ bound to one another and that the branch starts at root_atom_index one
 and &#8220;points&#8221; in the direction of directionality_atom_index.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_branch" title="pymolecule.Molecule.Molecule.select_branch"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_branch()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_branch" title="pymolecule.Molecule.Molecule.select_branch"><code class="xref py py-meth docutils literal"><span class="pre">select_branch()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -302,7 +301,7 @@ in the branch, used to establish directionality</li>
 pymolecule.Molecule.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref any docutils literal"><span class="pre">scipy</span></code></a> libraries.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_close_atoms_from_different_molecules" title="pymolecule.Molecule.Molecule.select_close_atoms_from_different_molecules"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.select_close_atoms_from_different_molecules()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_close_atoms_from_different_molecules" title="pymolecule.Molecule.Molecule.select_close_atoms_from_different_molecules"><code class="xref py py-meth docutils literal"><span class="pre">select_close_atoms_from_different_molecules()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -338,7 +337,7 @@ the other molecule.</p>
 <code class="descname">selections_of_chains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.selections_of_chains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the atom selections of each chain.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.selections_of_chains" title="pymolecule.Molecule.Molecule.selections_of_chains"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.selections_of_chains()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.selections_of_chains" title="pymolecule.Molecule.Molecule.selections_of_chains"><code class="xref py py-meth docutils literal"><span class="pre">selections_of_chains()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -360,7 +359,7 @@ physically distinct molecules that are not bound to each other via
 covalent bonds.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.selections_of_constituent_molecules" title="pymolecule.Molecule.Molecule.selections_of_constituent_molecules"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.selections_of_constituent_molecules()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.selections_of_constituent_molecules" title="pymolecule.Molecule.Molecule.selections_of_constituent_molecules"><code class="xref py py-meth docutils literal"><span class="pre">selections_of_constituent_molecules()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -379,7 +378,7 @@ pymolecule.Molecule object.</td>
 <dd><p>Identifies the atom selections of each residue.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.selections_of_residues" title="pymolecule.Molecule.Molecule.selections_of_residues"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.selections_of_residues()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.selections_of_residues" title="pymolecule.Molecule.Molecule.selections_of_residues"><code class="xref py py-meth docutils literal"><span class="pre">selections_of_residues()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
