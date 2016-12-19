@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>2. pymolecule.AtomsAndBonds module &#8212; PyMolecule 2.0 documentation</title>
+    <title>2. The AtomsAndBonds Class &#8212; PyMolecule 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" />
     <link rel="next" title="3. pymolecule.FileIO module" href="FileIO.html" />
-    <link rel="prev" title="1. pymolecule.Molecule module" href="Molecule.html" /> 
+    <link rel="prev" title="1. The Molecule Class" href="Molecule.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -41,7 +41,7 @@
           <a href="FileIO.html" title="3. pymolecule.FileIO module"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="Molecule.html" title="1. pymolecule.Molecule module"
+          <a href="Molecule.html" title="1. The Molecule Class"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
       </ul>
@@ -52,8 +52,23 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-pymolecule.AtomsAndBonds">
-<span id="pymolecule-atomsandbonds-module"></span><h1>2. pymolecule.AtomsAndBonds module<a class="headerlink" href="#module-pymolecule.AtomsAndBonds" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="the-atomsandbonds-class">
+<h1>2. The AtomsAndBonds Class<a class="headerlink" href="#the-atomsandbonds-class" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rationale-of-the-atomsandbonds-functions">
+<h2>2.1. Rationale of the AtomsAndBonds functions<a class="headerlink" href="#rationale-of-the-atomsandbonds-functions" title="Permalink to this headline">¶</a></h2>
+<p>The functions within the AtomsAndBonds framework all involve the
+addition, deletion, and manipulation of individual atoms and their
+bonds within the molecular framework.</p>
+<div class="section" id="other-classes">
+<h3>2.1.1. Other Classes<a class="headerlink" href="#other-classes" title="Permalink to this headline">¶</a></h3>
+<p>To make modifications to the coordinate set of all atoms, use the
+functions within the <a class="reference internal" href="Manipulation.html#module-pymolecule.Manipulation" title="pymolecule.Manipulation"><code class="xref py py-class docutils literal"><span class="pre">Manipulation</span></code></a> class. To look
+at groups of atoms with similar properties, use the functions within
+the <a class="reference internal" href="Selections.html#module-pymolecule.Selections" title="pymolecule.Selections"><code class="xref py py-class docutils literal"><span class="pre">Selections</span></code></a> class.</p>
+</div>
+</div>
+<div class="section" id="module-pymolecule.AtomsAndBonds">
+<span id="function-definitions"></span><h2>2.2. Function Definitions<a class="headerlink" href="#module-pymolecule.AtomsAndBonds" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="pymolecule.AtomsAndBonds.AtomsAndBonds">
 <em class="property">class </em><code class="descclassname">pymolecule.AtomsAndBonds.</code><code class="descname">AtomsAndBonds</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds" title="Permalink to this definition">¶</a></dt>
@@ -245,6 +260,7 @@ element.</p>
 </dd></dl>
 
 </div>
+</div>
 
 
           </div>
@@ -252,9 +268,21 @@ element.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2. The AtomsAndBonds Class</a><ul>
+<li><a class="reference internal" href="#rationale-of-the-atomsandbonds-functions">2.1. Rationale of the AtomsAndBonds functions</a><ul>
+<li><a class="reference internal" href="#other-classes">2.1.1. Other Classes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pymolecule.AtomsAndBonds">2.2. Function Definitions</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="Molecule.html"
-                        title="previous chapter">1. pymolecule.Molecule module</a></p>
+                        title="previous chapter">1. The Molecule Class</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="FileIO.html"
                         title="next chapter">3. pymolecule.FileIO module</a></p>
@@ -292,7 +320,7 @@ element.</p>
           <a href="FileIO.html" title="3. pymolecule.FileIO module"
              >next</a> |</li>
         <li class="right" >
-          <a href="Molecule.html" title="1. pymolecule.Molecule module"
+          <a href="Molecule.html" title="1. The Molecule Class"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
       </ul>
