@@ -65,7 +65,7 @@ pymolecule.Molecule objects.</p>
 <dd><p>Computes the minimum distance between any of the atoms of this
 molecular model and any of the atoms of a second specified model.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref any docutils literal"><span class="pre">scipy</span></code></a> libraries.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_distance_to_another_molecule" title="pymolecule.Molecule.Molecule.get_distance_to_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_distance_to_another_molecule()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_distance_to_another_molecule" title="pymolecule.Molecule.Molecule.get_distance_to_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">get_distance_to_another_molecule()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -94,7 +94,7 @@ specified molecular models (self and other_molecule).</p>
 <dd><p>Aligns a molecule to self (this pymolecule.Molecule object) using a
 quaternion RMSD alignment.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this" title="pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this" title="pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this"><code class="xref py py-meth docutils literal"><span class="pre">get_other_molecule_aligned_to_this()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -123,7 +123,7 @@ So, for example, if (atom 1, self = atom 3, other) and
 <code class="descname">get_rmsd_equivalent_atoms_specified</code><span class="sig-paren">(</span><em>other_mol</em>, <em>tethers</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules.get_rmsd_equivalent_atoms_specified" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the RMSD between this pymolecule.Molecle object and
 another, where equivalent atoms are explicitly specified.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified" title="pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified" title="pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified"><code class="xref py py-meth docutils literal"><span class="pre">get_rmsd_equivalent_atoms_specified()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -156,7 +156,7 @@ efficient optimization, and multithreading,&#8221;&#8221; by Oleg Trott and Arth
 J. Olson. Note: Identical means the order of the atoms is the same as
 well.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_rmsd_heuristic" title="pymolecule.Molecule.Molecule.get_rmsd_heuristic"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_rmsd_heuristic()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_rmsd_heuristic" title="pymolecule.Molecule.Molecule.get_rmsd_heuristic"><code class="xref py py-meth docutils literal"><span class="pre">get_rmsd_heuristic()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -174,7 +174,7 @@ well.</p>
 <code class="descname">get_rmsd_order_dependent</code><span class="sig-paren">(</span><em>other_mol</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules.get_rmsd_order_dependent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the RMSD between two structures, where equivalent atoms
 are listed in the same order.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_rmsd_order_dependent" title="pymolecule.Molecule.Molecule.get_rmsd_order_dependent"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.get_rmsd_order_dependent()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_rmsd_order_dependent" title="pymolecule.Molecule.Molecule.get_rmsd_order_dependent"><code class="xref py py-meth docutils literal"><span class="pre">get_rmsd_order_dependent()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -191,7 +191,7 @@ are listed in the same order.</p>
 <dt id="pymolecule.OtherMolecules.OtherMolecules.merge_with_another_molecule">
 <code class="descname">merge_with_another_molecule</code><span class="sig-paren">(</span><em>other_molecule</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.OtherMolecules.OtherMolecules.merge_with_another_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges two molecular models into a single model.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.merge_with_another_molecule" title="pymolecule.Molecule.Molecule.merge_with_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.merge_with_another_molecule()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.merge_with_another_molecule" title="pymolecule.Molecule.Molecule.merge_with_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">merge_with_another_molecule()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -212,7 +212,7 @@ this model combined with the atoms of other_molecule.</td>
 <dd><p>Detects steric clashes between the pymolecule.Molecule (self) and
 another pymolecule.Molecule.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref any docutils literal"><span class="pre">scipy</span></code></a> libraries.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.steric_clash_with_another_molecule" title="pymolecule.Molecule.Molecule.steric_clash_with_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.steric_clash_with_another_molecule()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.steric_clash_with_another_molecule" title="pymolecule.Molecule.Molecule.steric_clash_with_another_molecule"><code class="xref py py-meth docutils literal"><span class="pre">steric_clash_with_another_molecule()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

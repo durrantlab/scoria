@@ -39,7 +39,7 @@ class Molecule: # here's the actual Molecule class
     # Information methods
     ### Wrappers ###
     # Gets
-    def get_coordinates(self, frame = 0):
+    def get_coordinates(self, frame = None):
         """
         Returns the set of coordinates from the specified frame.
 
@@ -278,7 +278,7 @@ class Molecule: # here's the actual Molecule class
         
         return self.information.get_constants()
 
-    def get_center_of_mass(self, selection = None, frame = 0):
+    def get_center_of_mass(self, selection = None, frame = None):
         """
         Determines the center of mass.
 
@@ -307,7 +307,7 @@ class Molecule: # here's the actual Molecule class
         
         return self.information.get_center_of_mass(selection, frame)
 
-    def get_geometric_center(self, selection = None, frame = 0):
+    def get_geometric_center(self, selection = None, frame = None):
         """
         Determines the geometric center of the molecule.
 
@@ -399,7 +399,7 @@ class Molecule: # here's the actual Molecule class
         
         return self.information.get_total_number_of_heavy_atoms(selection)
 
-    def get_bounding_box(self, selection = None, padding = 0.0, frame = 0):
+    def get_bounding_box(self, selection = None, padding = 0.0, frame = None):
         """
         Calculates a box that bounds (encompasses) a set of atoms.
 
@@ -421,7 +421,7 @@ class Molecule: # here's the actual Molecule class
         
         return self.information.get_bounding_box(selection, padding, frame)
 
-    def get_bounding_sphere(self, selection = None, padding = 0.0, frame = 0):
+    def get_bounding_sphere(self, selection = None, padding = 0.0, frame = None):
         """
         Calculates a sphere that bounds (encompasses) a set of atoms.
 
@@ -445,6 +445,18 @@ class Molecule: # here's the actual Molecule class
         """
         
         return self.information.get_bounding_sphere(selection, padding, frame)
+
+    def get_default_trajectory_frame(self):
+        """
+        Retreives the default trajectory frame index.
+
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_default_trajectory_frame`
+
+        :returns: An *int* representing the index of the default trajectory frame.
+        """
+
+        return self.information.get_default_trajectory_frame()
+
 
     # Set
     def set_filename(self, filename):
@@ -484,7 +496,7 @@ class Molecule: # here's the actual Molecule class
         
         self.information.set_atom_information(atom_information)
 
-    def set_coordinates(self, coordinates, frame = 0):
+    def set_coordinates(self, coordinates, frame = None):
         """
         Sets a specified frame of the __trajectory variable.
         
@@ -541,6 +553,17 @@ class Molecule: # here's the actual Molecule class
         """
         
         self.information.set_hierarchy(hierarchy)
+
+    def set_default_trajectory_frame(self, frame):
+        """
+        Set's the default trajectory frame for various calculations. 
+
+        Wrapper function for :meth:`~pymolecule.Information.Information.set_default_trajectory_frame`
+
+        :param int frame: The default frame for coordinate selection.
+        """
+
+        self.information.set_default_trajectory_frame(frame)
 
     # Information functions
     def assign_masses(self):
@@ -881,6 +904,113 @@ class Molecule: # here's the actual Molecule class
         return self.fileio.save_pdb(
             filename, serial_reindex, resseq_reindex, return_text, frame
         )
+
+    def load_pdbqt_trajectory_into(self, filename, bonds_by_distance = True,
+                                   serial_reindex = True, 
+                                   resseq_reindex = False):
+        """
+        Loads the molecular data contained in a pdbqt trajectoy file (e.g., an
+        AutoDock Vina output file) into the current pymolecule.Molecule
+        object.
+
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdbqt_trajectory_into`
+
+        :param str filename: A string, the filename of the pdbqt file.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. True by
+                    default.
+        :param bool serial_reindex: An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+        :param bool resseq_reindex: An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+        """
+
+        return self.fileio.load_pdbqt_trajectory_into(filename, 
+                                             bonds_by_distance, 
+                                             serial_reindex, 
+                                             resseq_reindex)
+        
+    def load_pdbqt_trajectory_into_using_file_object(self, file_obj,
+                                                     bonds_by_distance = True,
+                                                     serial_reindex = True,
+                                                     resseq_reindex = False):
+        """
+        Loads molecular data from a python file object (pdbqt trajectory
+        formatted) into the current pymolecule.Molecule object. Note that most
+        users will want to use the load_pdbqt_trajectory_into() function
+        instead, which is identical except that it accepts a filename string
+        instead of a python file object.
+
+        Wrapper function for
+        :meth:`~pymolecule.FileIO.FileIO.load_pdbqt_trajectory_into_using_file_object`
+
+        :param file file_obj: A python file object, containing pdbqt-formatted
+                    trajectory data.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. True by
+                    default.
+        :param bool serial_reindex: An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+        :param bool resseq_reindex: An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+        """
+
+        return self.fileio.load_pdbqt_trajectory_into_using_file_object(file_obj,
+                                                     bonds_by_distance,
+                                                     serial_reindex,
+                                                     resseq_reindex)
+
+    def load_pdb_trajectory_into(self, filename, bonds_by_distance = True,
+                                 serial_reindex = True, 
+                                 resseq_reindex = False):
+        """
+        Loads the molecular data contained in a pdb trajectory file into the
+        current pymolecule.Molecule object.
+
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdb_trajectory_into`
+
+        :param str filename: A string, the filename of the pdb trajectory
+                   file.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. True by
+                    default.
+        :param bool serial_reindex: An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+        :param bool resseq_reindex: An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+        """
+
+        return self.fileiod.load_pdb_trajectory_into(filename, bonds_by_distance,
+                                        serial_reindex, resseq_reindex)
+                                
+    def load_pdb_trajectory_into_using_file_object(self, file_obj,
+                                                   bonds_by_distance = True,
+                                                   serial_reindex = True,
+                                                   resseq_reindex = False):
+        """
+        Loads molecular data from a python file object (pdb trajectory
+        formatted) into the current pymolecule.Molecule object. Note that most
+        users will want to use the load_pdb_trajectory_into() function
+        instead, which is identical except that it accepts a filename string
+        instead of a python file object.
+
+        Should be called via the wrapper function :meth:`pymolecule.Molecule.Molecule.load_pdb_trajectory_into_using_file_object`
+
+        :param file file_obj: A python file object, containing pdb-formatted
+                    trajectory data.
+        :param bool bonds_by_distance: An optional boolean, whether or not to
+                    determine atomic bonds based on atom proximity. True by
+                    default.
+        :param bool serial_reindex: An optional boolean, whether or not to
+                    reindex the pdb serial field. True by default.
+        :param bool resseq_reindex: An optional boolean, whether or not to
+                    reindex the pdb resseq field. False by default.
+        """
+
+        return self.fileio.load_pdb_trajectory_into_using_file_object(file_obj,
+                                                                    bonds_by_distance,
+                                                                    serial_reindex,
+                                                                    resseq_reindex)
 
     def load_via_MDAnalysis(self, *args):
         """
@@ -1723,17 +1853,19 @@ class Molecule: # here's the actual Molecule class
                     information as this pymolecule.Molecule object.
         """
 
-        new_molecule = Molecule()
-        new_molecule.set_filename(self.get_filename()[:])
-        new_molecule.set_remarks(self.get_remarks()[:])
-        new_molecule.set_atom_information(self.get_atom_information().copy())
-        new_molecule.set_coordinates(self.get_coordinates().copy())
+#        new_molecule = Molecule()
+#        new_molecule.set_filename(self.get_filename()[:])
+#        new_molecule.set_remarks(self.get_remarks()[:])
+#        new_molecule.set_atom_information(self.get_atom_information().copy())
+#        new_molecule.set_trajectory(self.get_trajectory().copy())
+#
+#        if not self.get_bonds() is None:
+#            new_molecule.set_bonds(self.get_bonds().copy())
+#        else:
+#            new_molecule.set_bonds(None)
+#
+#        new_molecule.set_hierarchy(copy.deepcopy(self.get_hierarchy()))
 
-        if not self.get_bonds() is None:
-            new_molecule.set_bonds(self.get_bonds().copy())
-        else:
-            new_molecule.set_bonds(None)
-
-        new_molecule.set_hierarchy(copy.deepcopy(self.get_hierarchy()))
+        new_molecule = copy.deepcopy(self)
 
         return new_molecule

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>3. pymolecule.FileIO module &#8212; PyMolecule 2.0 documentation</title>
+    <title>3. The FileIO Class &#8212; PyMolecule 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" />
     <link rel="next" title="4. pymolecule.Geometry module" href="Geometry.html" />
-    <link rel="prev" title="2. pymolecule.AtomsAndBonds module" href="AtomsAndBonds.html" /> 
+    <link rel="prev" title="2. The AtomsAndBonds Class" href="AtomsAndBonds.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -41,7 +41,7 @@
           <a href="Geometry.html" title="4. pymolecule.Geometry module"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="AtomsAndBonds.html" title="2. pymolecule.AtomsAndBonds module"
+          <a href="AtomsAndBonds.html" title="2. The AtomsAndBonds Class"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
       </ul>
@@ -52,8 +52,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-pymolecule.FileIO">
-<span id="pymolecule-fileio-module"></span><h1>3. pymolecule.FileIO module<a class="headerlink" href="#module-pymolecule.FileIO" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="the-fileio-class">
+<h1>3. The FileIO Class<a class="headerlink" href="#the-fileio-class" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="file-types-and-formats">
+<h2>3.1. File Types and Formats<a class="headerlink" href="#file-types-and-formats" title="Permalink to this headline">¶</a></h2>
+<p>Pymolecule can naitvely read and write PDB, PDBQT, and PYM files. It
+can also read multiframe PDB and PDBQT files. It also has the ability
+to import information from <a class="reference external" href="https://pythonhosted.org/MDAnalysis/documentation_pages/core/AtomGroup.html#module-MDAnalysis.core.AtomGroup" title="(in MDAnalysis v0.15)"><code class="xref any docutils literal"><span class="pre">MDAnalysis</span></code></a> objects.</p>
+</div>
+<div class="section" id="module-pymolecule.FileIO">
+<span id="function-definitions"></span><h2>3.2. Function Definitions<a class="headerlink" href="#module-pymolecule.FileIO" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="pymolecule.FileIO.FileIO">
 <em class="property">class </em><code class="descclassname">pymolecule.FileIO.</code><code class="descname">FileIO</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO" title="Permalink to this definition">¶</a></dt>
@@ -65,7 +73,7 @@ object.</p>
 <dd><p>Allows import of molecular structure from an MDAnalysis object.</p>
 <p>Requires the <a class="reference external" href="https://pythonhosted.org/MDAnalysis/documentation_pages/core/AtomGroup.html#module-MDAnalysis.core.AtomGroup" title="(in MDAnalysis v0.15)"><code class="xref any docutils literal"><span class="pre">MDAnalysis</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_via_MDAnalysis" title="pymolecule.Molecule.Molecule.load_via_MDAnalysis"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_via_MDAnalysis()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_via_MDAnalysis" title="pymolecule.Molecule.Molecule.load_via_MDAnalysis"><code class="xref py py-meth docutils literal"><span class="pre">load_via_MDAnalysis()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -79,16 +87,78 @@ import.</td>
 
 <dl class="method">
 <dt id="pymolecule.FileIO.FileIO.load_pdb_into">
-<code class="descname">load_pdb_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pdb_into" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load_pdb_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>is_trajectory=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pdb_into" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the molecular data contained in a pdb file into the current
 pymolecule.Molecule object.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdb_into" title="pymolecule.Molecule.Molecule.load_pdb_into"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdb_into()</span></code></a></p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdb_into" title="pymolecule.Molecule.Molecule.load_pdb_into"><code class="xref py py-meth docutils literal"><span class="pre">load_pdb_into()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; A string, the filename of the pdb file.</li>
+<li><strong>bonds_by_distance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+determine atomic bonds based on atom proximity. True by
+default.</li>
+<li><strong>serial_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+reindex the pdb serial field. True by default.</li>
+<li><strong>resseq_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+reindex the pdb resseq field. False by default.</li>
+<li><strong>is_trajectory</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not the PDB
+is multi-frame.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.FileIO.FileIO.load_pdb_into_using_file_object">
+<code class="descname">load_pdb_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>is_trajectory=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pdb_into_using_file_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads molecular data from a python file object (pdb formatted) into
+the current pymolecule.Molecule object. Note that most users will want
+to use the load_pdb_into() function instead, which is identical except
+that it accepts a filename string instead of a python file object.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
+<p>Should be called via the wrapper function 
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdb_into_using_file_object" title="pymolecule.Molecule.Molecule.load_pdb_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">load_pdb_into_using_file_object()</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>file_obj</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#file" title="(in Python v2.7)"><em>file</em></a>) &#8211; A python file object, containing pdb-formatted
+data.</li>
+<li><strong>bonds_by_distance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+determine atomic bonds based on atom proximity. True by
+default.</li>
+<li><strong>serial_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+reindex the pdb serial field. True by default.</li>
+<li><strong>resseq_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+reindex the pdb resseq field. False by default.</li>
+<li><strong>is_trajectory</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not the PDB
+is multi-frame.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.FileIO.FileIO.load_pdb_trajectory_into">
+<code class="descname">load_pdb_trajectory_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pdb_trajectory_into" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the molecular data contained in a pdb trajectory file into the
+current pymolecule.Molecule object.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdb_trajectory_into" title="pymolecule.Molecule.Molecule.load_pdb_trajectory_into"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdb_trajectory_into()</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; A string, the filename of the pdb trajectory
+file.</li>
 <li><strong>bonds_by_distance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 determine atomic bonds based on atom proximity. True by
 default.</li>
@@ -104,22 +174,21 @@ reindex the pdb resseq field. False by default.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.FileIO.FileIO.load_pdb_into_using_file_object">
-<code class="descname">load_pdb_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pdb_into_using_file_object" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loads molecular data from a python file object (pdb formatted) into
-the current pymolecule.Molecule object. Note that most users will want
-to use the load_pdb_into() function instead, which is identical except
-that it accepts a filename string instead of a python file object.</p>
-<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
-<p>Should be called via the wrapper function 
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdb_into_using_file_object" title="pymolecule.Molecule.Molecule.load_pdb_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdb_into_using_file_object()</span></code></a></p>
+<dt id="pymolecule.FileIO.FileIO.load_pdb_trajectory_into_using_file_object">
+<code class="descname">load_pdb_trajectory_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pdb_trajectory_into_using_file_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads molecular data from a python file object (pdb trajectory
+formatted) into the current pymolecule.Molecule object. Note that most
+users will want to use the load_pdb_trajectory_into() function
+instead, which is identical except that it accepts a filename string
+instead of a python file object.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdb_trajectory_into_using_file_object" title="pymolecule.Molecule.Molecule.load_pdb_trajectory_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdb_trajectory_into_using_file_object()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>file_obj</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#file" title="(in Python v2.7)"><em>file</em></a>) &#8211; A python file object, containing pdb-formatted
-data.</li>
+trajectory data.</li>
 <li><strong>bonds_by_distance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 determine atomic bonds based on atom proximity. True by
 default.</li>
@@ -136,13 +205,13 @@ reindex the pdb resseq field. False by default.</li>
 
 <dl class="method">
 <dt id="pymolecule.FileIO.FileIO.load_pdbqt_into">
-<code class="descname">load_pdbqt_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=False</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pdbqt_into" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load_pdbqt_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=False</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>is_trajectory=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pdbqt_into" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the molecular data contained in a pdbqt file into the current
 pymolecule.Molecule object. Note that this implementation is
 incomplete. It doesn&#8217;t save atomic charges, for example. The atom
 types are stored in the &#8220;element&#8221; and &#8220;element_stripped&#8221; columns.</p>
 <p>Should be called via the wrapper function 
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdbqt_into" title="pymolecule.Molecule.Molecule.load_pdbqt_into"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdbqt_into()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdbqt_into" title="pymolecule.Molecule.Molecule.load_pdbqt_into"><code class="xref py py-meth docutils literal"><span class="pre">load_pdbqt_into()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -156,6 +225,8 @@ default, unlike for PDB.</li>
 reindex the pdb serial field. True by default.</li>
 <li><strong>resseq_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the pdbqt resseq field. False by default.</li>
+<li><strong>is_trajectory</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not the PDB
+is multi-frame. Defaults of False.</li>
 </ul>
 </td>
 </tr>
@@ -165,7 +236,7 @@ reindex the pdbqt resseq field. False by default.</li>
 
 <dl class="method">
 <dt id="pymolecule.FileIO.FileIO.load_pdbqt_into_using_file_object">
-<code class="descname">load_pdbqt_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=False</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pdbqt_into_using_file_object" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load_pdbqt_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=False</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>is_trajectory=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pdbqt_into_using_file_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads molecular data from a python file object (pdbqt formatted)
 into the current pymolecule.Molecule object. Note that most users will
 want to use the load_pdb_into() function instead, which is identical
@@ -173,7 +244,7 @@ except that it accepts a filename string instead of a python file
 object.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object" title="pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object" title="pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">load_pdbqt_into_using_file_object()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -184,6 +255,66 @@ data.</li>
 <li><strong>bonds_by_distance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 determine atomic bonds based on atom proximity. False by
 default, unlike for PDB.</li>
+<li><strong>serial_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+reindex the pdb serial field. True by default.</li>
+<li><strong>resseq_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+reindex the pdb resseq field. False by default.</li>
+<li><strong>is_trajectory</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not the PDB
+is multi-frame.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.FileIO.FileIO.load_pdbqt_trajectory_into">
+<code class="descname">load_pdbqt_trajectory_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pdbqt_trajectory_into" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the molecular data contained in a pdbqt trajectoy file (e.g., an
+AutoDock Vina output file) into the current pymolecule.Molecule
+object.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdbqt_trajectory_into" title="pymolecule.Molecule.Molecule.load_pdbqt_trajectory_into"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdbqt_trajectory_into()</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; A string, the filename of the pdbqt file.</li>
+<li><strong>bonds_by_distance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+determine atomic bonds based on atom proximity. True by
+default.</li>
+<li><strong>serial_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+reindex the pdb serial field. True by default.</li>
+<li><strong>resseq_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+reindex the pdb resseq field. False by default.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymolecule.FileIO.FileIO.load_pdbqt_trajectory_into_using_file_object">
+<code class="descname">load_pdbqt_trajectory_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pdbqt_trajectory_into_using_file_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads molecular data from a python file object (pdbqt trajectory
+formatted) into the current pymolecule.Molecule object. Note that most
+users will want to use the load_pdbqt_trajectory_into() function
+instead, which is identical except that it accepts a filename string
+instead of a python file object.</p>
+<p>Should be called via the wrapper function
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pdbqt_trajectory_into_using_file_object" title="pymolecule.Molecule.Molecule.load_pdbqt_trajectory_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pdbqt_trajectory_into_using_file_object()</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>file_obj</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#file" title="(in Python v2.7)"><em>file</em></a>) &#8211; A python file object, containing pdbqt-formatted
+trajectory data.</li>
+<li><strong>bonds_by_distance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+determine atomic bonds based on atom proximity. True by
+default.</li>
 <li><strong>serial_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
 reindex the pdb serial field. True by default.</li>
 <li><strong>resseq_reindex</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
@@ -201,7 +332,7 @@ reindex the pdb resseq field. False by default.</li>
 <dd><p>Loads the molecular data contained in a pym file into the current
 pymolecule.Molecule object.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pym_into" title="pymolecule.Molecule.Molecule.load_pym_into"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_pym_into()</span></code></a></p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pym_into" title="pymolecule.Molecule.Molecule.load_pym_into"><code class="xref py py-meth docutils literal"><span class="pre">load_pym_into()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -218,7 +349,7 @@ pymolecule.Molecule object.</p>
 <dd><p>Allows import of molecular structure with MDAnalysis.</p>
 <p>Requires the <a class="reference external" href="https://pythonhosted.org/MDAnalysis/documentation_pages/core/AtomGroup.html#module-MDAnalysis.core.AtomGroup" title="(in MDAnalysis v0.15)"><code class="xref any docutils literal"><span class="pre">MDAnalysis</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_via_MDAnalysis" title="pymolecule.Molecule.Molecule.load_via_MDAnalysis"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.load_via_MDAnalysis()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_via_MDAnalysis" title="pymolecule.Molecule.Molecule.load_via_MDAnalysis"><code class="xref py py-meth docutils literal"><span class="pre">load_via_MDAnalysis()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -232,10 +363,10 @@ inizalize a MDAnalysis.Universe object.</td>
 
 <dl class="method">
 <dt id="pymolecule.FileIO.FileIO.save_pdb">
-<code class="descname">save_pdb</code><span class="sig-paren">(</span><em>filename=''</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>return_text=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.save_pdb" title="Permalink to this definition">¶</a></dt>
+<code class="descname">save_pdb</code><span class="sig-paren">(</span><em>filename=''</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>return_text=False</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.save_pdb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves the molecular data contained in a pymolecule.Molecule object
 to a pdb file.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.save_pdb" title="pymolecule.Molecule.Molecule.save_pdb"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.save_pdb()</span></code></a></p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.save_pdb" title="pymolecule.Molecule.Molecule.save_pdb"><code class="xref py py-meth docutils literal"><span class="pre">save_pdb()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -249,6 +380,10 @@ reindex the pdb resseq field. False by default.</li>
 <li><strong>return_text</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to return
 text instead of writing to a file. If True, the filename
 variable is ignored.</li>
+<li><strong>frame</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; If specified, a single-frame PDB will be generated.
+If not specified, a multi-frame PDB will be generated if 
+the Molecule has multiple frames. Otherwise, the single
+existing frame will be used.</li>
 </ul>
 </td>
 </tr>
@@ -270,7 +405,7 @@ returns nothing.</p>
 to a pym file.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function 
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.save_pym" title="pymolecule.Molecule.Molecule.save_pym"><code class="xref py py-meth docutils literal"><span class="pre">pymolecule.Molecule.Molecule.save_pym()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.save_pym" title="pymolecule.Molecule.Molecule.save_pym"><code class="xref py py-meth docutils literal"><span class="pre">save_pym()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -300,6 +435,7 @@ default.</li>
 </dd></dl>
 
 </div>
+</div>
 
 
           </div>
@@ -307,9 +443,18 @@ default.</li>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. The FileIO Class</a><ul>
+<li><a class="reference internal" href="#file-types-and-formats">3.1. File Types and Formats</a></li>
+<li><a class="reference internal" href="#module-pymolecule.FileIO">3.2. Function Definitions</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="AtomsAndBonds.html"
-                        title="previous chapter">2. pymolecule.AtomsAndBonds module</a></p>
+                        title="previous chapter">2. The AtomsAndBonds Class</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="Geometry.html"
                         title="next chapter">4. pymolecule.Geometry module</a></p>
@@ -347,7 +492,7 @@ default.</li>
           <a href="Geometry.html" title="4. pymolecule.Geometry module"
              >next</a> |</li>
         <li class="right" >
-          <a href="AtomsAndBonds.html" title="2. pymolecule.AtomsAndBonds module"
+          <a href="AtomsAndBonds.html" title="2. The AtomsAndBonds Class"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
       </ul>

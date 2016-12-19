@@ -122,6 +122,7 @@ class Information():
         self.__bonds = None
         self.__hierarchy = {}
         self.__max_ring_size = 50
+        self.__default_frame = 0
 
     #### Aliases ####
     # Gets
@@ -250,7 +251,7 @@ class Information():
 
         return self.__trajectory
 
-    def get_coordinates(self, frame = 0):
+    def get_coordinates(self, frame = None):
         """
         Returns the set of coordinates from the specified frame.
 
@@ -287,6 +288,9 @@ class Information():
              [ -23.2140007   -94.73999786  400.94699097]
              [ -22.52899933  -93.73300171  400.81399536]]
         """
+
+        if frame == None:
+            frame = self.__default_frame
 
         if (self.__trajectory is None) or (len(self.__trajectory) == 0):
             return None
@@ -433,7 +437,7 @@ class Information():
 
         self.__trajectory = trajectory
 
-    def set_coordinates(self, coordinates, frame = 0):
+    def set_coordinates(self, coordinates, frame = None):
         """
         Sets a specified frame of the __trajectory variable.
         
@@ -442,6 +446,9 @@ class Information():
         :param numpy.array coordinates: An array of atomic coordinates.
         :param int frame: An integer represeting the frame of the trajectory to be modified
         """
+
+        if frame == None:
+            frame = self.__default_frame
 
         if (self.__trajectory is None) or (len(self.__trajectory) == 0):
             self.__trajectory = [coordinates]
@@ -660,7 +667,7 @@ class Information():
         #    self.__parent_molecule.information.
         #    get_atom_information()['element']))
 
-    def get_center_of_mass(self, selection = None, frame = 0):
+    def get_center_of_mass(self, selection = None, frame = None):
         """
         Determines the center of mass.
 
@@ -686,6 +693,9 @@ class Information():
             >>> print mol.get_center_of_mass()
             [33.0643089093134 19.135747088722564 16.05629867850796]
         """
+
+        if frame == None:
+            frame = self.__default_frame
 
         if selection is None: 
             selection = self.__parent_molecule.select_all()
@@ -713,7 +723,7 @@ class Information():
 
         return center_of_mass
 
-    def get_geometric_center(self, selection = None, frame = 0):
+    def get_geometric_center(self, selection = None, frame = None):
         """
         Determines the geometric center of the molecule.
 
@@ -739,6 +749,9 @@ class Information():
             >>> print mol.get_geometric_center()
             [ 33.09860848  19.1221197   16.0426808 ]
         """
+
+        if frame == None:
+            frame = self.__default_frame
 
         if selection is None:
             selection = self.__parent_molecule.select_all()
@@ -778,7 +791,7 @@ class Information():
         # return total mass
         return numpy.sum(self.__atom_information['mass'][selection])
 
-    def get_total_number_of_atoms(self, selection = None, frame = 0):
+    def get_total_number_of_atoms(self, selection = None, frame = None):
         """
         Counts the number of atoms.
         
@@ -795,6 +808,9 @@ class Information():
         :returns:  The total number of atoms.
         :rtype: *int*
         """
+
+        if frame == None:
+            frame = self.__default_frame
 
         if selection is None:
             selection = self.__parent_molecule.select_all()
@@ -833,7 +849,7 @@ class Information():
 
         return self.get_total_number_of_atoms() - len(all_hydrogens)
 
-    def get_bounding_box(self, selection = None, padding = 0.0, frame = 0):
+    def get_bounding_box(self, selection = None, padding = 0.0, frame = None):
         """
         Calculates a box that bounds (encompasses) a set of atoms.
 
@@ -853,6 +869,9 @@ class Information():
         :rtype: *numpy.array*
         """
 
+        if frame == None:
+            frame = self.__default_frame
+
         if selection is None: 
             selection = self.__parent_molecule.select_all()
 
@@ -860,7 +879,7 @@ class Information():
             (numpy.min(self.__trajectory[frame][selection], 0) - padding,
              numpy.max(self.__trajectory[frame][selection], 0) + padding))
 
-    def get_bounding_sphere(self, selection = None, padding = 0.0, frame = 0):
+    def get_bounding_sphere(self, selection = None, padding = 0.0, frame = None):
         """
         Calculates a sphere that bounds (encompasses) a set of atoms.
 
@@ -888,6 +907,9 @@ class Information():
 
         if not numpy.class_dependency("calculate a sphere that bounds a set of atoms", "SCIPY"):
             return
+
+        if frame == None:
+            frame = self.__default_frame
 
         if selection is None:
             selection = self.__parent_molecule.select_all()
@@ -1080,3 +1102,21 @@ class Information():
             return 0
         else:
             return len(self.__trajectory)
+
+    def get_default_trajectory_frame(self):
+        """
+        Retreives the default trajectory frame index.
+
+        :returns: An *int* representing the index of the default trajectory frame.
+        """
+
+        return self.__default_frame
+
+    def set_default_trajectory_frame(self, frame):
+        """
+        Se's the default trajectory frame index for various calculations. 
+
+        :param int frame: The default frame for coordinate selection.
+        """
+
+        self.__default_frame = frame
