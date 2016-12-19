@@ -450,8 +450,8 @@ class Information():
         if frame == None:
             frame = self.__default_frame
 
-        if (self.__trajectory is None) or (len(self.__trajectory) == 0):
-            self.__trajectory = [coordinates]
+        if (self.__trajectory is None) or (len(self.__trajectory) <= frame):
+            self.insert_trajectory_frame(frame, coordinates)
         else:
             self.__trajectory[frame] = coordinates
 

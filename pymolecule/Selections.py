@@ -747,9 +747,13 @@ class Selections():
 
         from Molecule import Molecule
         new_mol = Molecule()
-        new_mol.set_coordinates(
-            self.__parent_molecule.get_coordinates()[selection]
-        )
+
+        trajectory_frames = self.__parent_molecule.get_trajectory_frame_count()
+        for frame in xrange(0, trajectory_frames):
+            new_mol.set_coordinates(
+                self.__parent_molecule.get_coordinates(frame)[selection],
+                frame
+            )
 
         # try to get the undo coordinates as well, though they may not have
         # been  set
