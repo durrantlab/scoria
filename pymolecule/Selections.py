@@ -62,7 +62,8 @@ class Selections():
                 vals = [int(v) for v in vals]
             else:
                 vals = vals
-                #vals = [v.strip() for v in vals]
+                # vals = [v.strip() for v in vals]
+                # This was causing issues when looking for unstripped fields.
 
             # "or" all the vals together
             # start assuming nothing is selected
