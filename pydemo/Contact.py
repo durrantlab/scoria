@@ -115,3 +115,14 @@ class Contact():
 
         self.__subsection_1.set_atom_information(atom_information[0])
         self.__subsection_2.set_atom_information(atom_information[1])
+
+    def print_subcomponents(self, section_one_name, section_two_name):
+        """
+        Prints the subcomponents to two PDB files.
+
+        :param str section_one_name: Filename for the first component
+        :param str section_two_name: Filename for the second componenet
+        """
+
+        self.__subsection_1.save_pdb(section_one_name, False)
+        self.__subsection_2.save_pdb(section_two_name, False)
