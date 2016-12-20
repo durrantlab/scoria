@@ -80,6 +80,7 @@ try:
     from numpy import fabs
     from numpy.lib.recfunctions import stack_arrays
     from numpy import std  # Note that there is no dumbpy equivalent yet.
+    from numpy import ndarray
 
     def get_col(arr, num):
         return arr[:, num]

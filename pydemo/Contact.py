@@ -1,5 +1,5 @@
 import pymolecule
-
+import numpy as np
 
 class Contact():
     """
@@ -23,22 +23,22 @@ class Contact():
         self.__subsection_2 = None
 
         self.__contacts = None
-        self.__contact_count = [{}, {}]
+        self.__contact_count = [np.array([]), np.array([])]
 
-    def set_subsections(self, serials_1, serials_2):
+    def set_subsections(self, resids_1, resids_2):
         """
         Given two sets on indexes, creates the subsection molecules.
 
-        :param list serials_1: A list of indexes of the atoms to include in subsection one.
+        :param list resids_1: A list of indexes of the atoms to include in subsection one.
 
-        :param list serials_2: a list of indexes of the atoms to include in subsection two.
+        :param list resids_2: a list of indexes of the atoms to include in subsection two.
         """
 
-        self.__serials1 = serials_1
-        self.__serials2 = serials_2
+        self.__serials1 = self.__molecule.select_atoms({'resseq':resids_1}) 
+        self.__serials2 = self.__molecule.select_atoms({'resseq':resids_2}) 
 
-        self.__subsection_1 = self.__get_molecule_from_serials(serials_1)
-        self.__subsection_2 = self.__get_molecule_from_serials(serials_2)
+        self.__subsection_1 = self.__get_molecule_from_serials(self.__serials1)
+        self.__subsection_2 = self.__get_molecule_from_serials(self.__serials2)
 
         self.__clean_contact_counts()
 
@@ -49,11 +49,17 @@ class Contact():
         if (self.__serials1 is None) or (self.__serials2 is None):
             return
 
+        """
+        Should be faster with numpy arrays...
         for index in xrange(0, len(self.__serials1)):
             self.__contact_count[0][index] = float(0.0)
 
         for index in xrange(0, len(self.__serials2)):
             self.__contact_count[1][index] = float(0.0)
+        """
+
+        self.__contact_count[0] = np.zeros(self.__subsection_1.get_total_number_of_atoms())
+        self.__contact_count[1] = np.zeros(self.__subsection_2.get_total_number_of_atoms())
 
 
     def __get_molecule_from_serials(self, serial_list):
@@ -63,8 +69,9 @@ class Contact():
         :param list serial_list: A list of atom serial numbers.
         """
 
-        critera = {'serial':serial_list}
-        selection = self.__molecule.select_atoms(critera)
+        criteria = {'serial':serial_list}
+        #import pdb; pdb.set_trace()
+        selection = self.__molecule.select_atoms(criteria)
         return self.__molecule.get_molecule_from_selection(selection, False)
 
 
@@ -94,12 +101,20 @@ class Contact():
         global maximum.
         """
 
+        """
+        Will be faster using numpy...
         max_value = max(max(self.__contact_count[0].values()),
                         max(self.__contact_count[1].values()))
 
         for count in self.__contact_count:
             for key in count.keys():
                 count[key] = float(count[key]) / max_value
+        """
+
+        max_value = max(self.__contact_count[0].max(), self.__contact_count[1].max())
+        
+        self.__contact_count[0] = self.__contact_count[0] / max_value
+        self.__contact_count[1] = self.__contact_count[1] / max_value
 
     def __save_contacts_to_occupancy(self):
         """
@@ -109,9 +124,26 @@ class Contact():
         atom_information = [self.__subsection_1.get_atom_information(),
                             self.__subsection_2.get_atom_information()]
 
+        """
+        numpy will be faster...
         for i, atom_info in enumerate(atom_information):
             for key in self.__contact_count[i].keys():
                 atom_info['occupancy'][int(key)] = self.__contact_count[i][key]
+        """
+
+        atom_information[0]["occupancy"] = self.__contact_count[0]
+        atom_information[1]["occupancy"] = self.__contact_count[1]
+
+        # print len(atom_information[0]["occupancy"])
+        # print len()
+        # print len(atom_information[1]["occupancy"])
+        # print len(self.__contact_count[1])
+
+        # print atom_information[0]["occupancy"]
+        # print self.__serials1
+        # print self.__contact_count[0]
+
+        # import pdb; pdb.set_trace()
 
         self.__subsection_1.set_atom_information(atom_information[0])
         self.__subsection_2.set_atom_information(atom_information[1])

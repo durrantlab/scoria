@@ -51,7 +51,7 @@ class Selections():
 
             # make sure the vals are in a list
             # if it's a single value, put it in a list
-            if not type(vals) is list and not type(vals) is tuple:
+            if not type(vals) is list and not type(vals) is tuple and not type(vals) is numpy.ndarray:
                 vals = [vals]
 
             # make sure the vals are in the right format
