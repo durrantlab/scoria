@@ -173,8 +173,6 @@ class FileIO():
         except that it accepts a filename string instead of a python file
         object.
 
-        Requires the :any:`numpy` library.
-
         Should be called via the wrapper function
         :meth:`~pymolecule.Molecule.Molecule.load_pdbqt_into_using_file_object`
 
@@ -190,9 +188,6 @@ class FileIO():
         :param bool is_trajectory: An optional boolean, whether or not the PDB
                     is multi-frame.
         """
-
-        if not numpy.class_dependency("load pym files", "NUMPY"):
-            return
 
         self.load_pdb_into_using_file_object(file_obj, bonds_by_distance,
                                              serial_reindex, resseq_reindex,
@@ -381,8 +376,6 @@ class FileIO():
         to use the load_pdb_into() function instead, which is identical except
         that it accepts a filename string instead of a python file object.
 
-        Requires the :any:`numpy` library.
-
         Should be called via the wrapper function 
         :meth:`~pymolecule.Molecule.Molecule.load_pdb_into_using_file_object`
 
@@ -412,9 +405,6 @@ class FileIO():
         # 'resseq', 'empty', 'x', 'y', 'z', 'occupancy', 'tempfactor',
         # 'empty2', 'element', 'charge'], delimiter=[6, 5, 5, 4, 2, 4, 4, 8, 8,
         # 8, 6, 6, 10, 2, 2])
-
-        if not numpy.class_dependency("load pym files", "NUMPY"):
-            return
 
         source_data = numpy.genfromtxt(
             file_obj,
