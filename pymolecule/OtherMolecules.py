@@ -395,7 +395,7 @@ class OtherMolecules():
         J. Olson. Note: Identical means the order of the atoms is the same as
         well.
 
-        Requires the :any:`numpy` library.
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
         Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_rmsd_heuristic`
 
