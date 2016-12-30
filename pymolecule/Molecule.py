@@ -33,7 +33,7 @@ class Molecule: # here's the actual Molecule class
         self.selections = Selections(self)
         self.manipulation = Manipulation(self)
         self.information = Information(self)
-        self.other_molecule = OtherMolecules(self)
+        self.other_molecules = OtherMolecules(self)
         self.geometry = Geometry(self)
 
     # Information methods
@@ -1655,14 +1655,14 @@ class Molecule: # here's the actual Molecule class
         return self.geometry.is_planar(pt1, pt2, pt3, pt4, planarity_cutoff)
 
     # Other molecule class
-    def get_other_molecule_aligned_to_this(self, other_mol, tethers):
+    def get_other_molecules_aligned_to_this(self, other_mol, tethers):
         """
         Aligns a molecule to self (this pymolecule.Molecule object) using a
         quaternion RMSD alignment.
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_other_molecule_aligned_to_this`
+        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_other_molecules_aligned_to_this`
                 
         :param pymolecule.Molecule other_mol: A pymolecule.Molecule that is to be aligned to
                     this one.
@@ -1677,11 +1677,11 @@ class Molecule: # here's the actual Molecule class
         """
 
         # Add Weight Matrix
-        return self.other_molecule.get_other_molecule_aligned_to_this(
+        return self.other_molecules.get_other_molecules_aligned_to_this(
             other_mol, tethers
         )
 
-    def get_distance_to_another_molecule(self, other_molecule,
+    def get_distance_to_another_molecules(self, other_molecules,
                                          pairwise_comparison = True):
         """
         Computes the minimum distance between any of the atoms of this
@@ -1689,9 +1689,9 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_distance_to_another_molecule`
+        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_distance_to_another_molecules`
         
-        :param pymolecule.Molecule other_molecule: a pymolecule.Molecule, the other molecular
+        :param pymolecule.Molecule other_molecules: a pymolecule.Molecule, the other molecular
                     model.
         :param bool pairwise_comparison: An optional boolean, whether or not to
                     perform a simple pairwise distance comparison (if True) or
@@ -1699,11 +1699,11 @@ class Molecule: # here's the actual Molecule class
                     default.
 
         :returns: A float, the minimum distance between any two atoms of the two
-                specified molecular models (self and other_molecule).
+                specified molecular models (self and other_molecules).
         """
 
-        return self.other_molecule.get_distance_to_another_molecule(
-            other_molecule, pairwise_comparison
+        return self.other_molecules.get_distance_to_another_molecules(
+            other_molecules, pairwise_comparison
         )
 
     def get_rmsd_equivalent_atoms_specified(self, other_mol, tethers):
@@ -1724,7 +1724,7 @@ class Molecule: # here's the actual Molecule class
         :returns: A float, the RMSD between self and other_mol.
         """
 
-        return self.other_molecule.get_rmsd_equivalent_atoms_specified(
+        return self.other_molecules.get_rmsd_equivalent_atoms_specified(
             other_mol, tethers
         )
 
@@ -1740,7 +1740,7 @@ class Molecule: # here's the actual Molecule class
         :returns: A float, the RMSD between self and other_mol.
         """
         
-        return self.other_molecule.get_rmsd_order_dependent(other_mol)
+        return self.other_molecules.get_rmsd_order_dependent(other_mol)
 
     def get_rmsd_heuristic(self, other_mol):
         """
@@ -1760,9 +1760,9 @@ class Molecule: # here's the actual Molecule class
         :returns: A float, the RMSD between self and other_mol.
         """
         
-        return self.other_molecule.get_rmsd_heuristic(other_mol)
+        return self.other_molecules.get_rmsd_heuristic(other_mol)
 
-    def steric_clash_with_another_molecule(self, other_mol, cutoff,
+    def steric_clash_with_another_molecules(self, other_mol, cutoff,
                                            pairwise_comparison = True):
         """
         Detects steric clashes between the pymolecule.Molecule (self) and
@@ -1770,7 +1770,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule`
+        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.steric_clash_with_another_molecules`
         
         :param pymolecule.Molecule other_mol: The pymolecule.Molecule object that will be
                     evaluated for steric clashes.
@@ -1785,24 +1785,24 @@ class Molecule: # here's the actual Molecule class
                     are not.
         """
 
-        return self.other_molecule.steric_clash_with_another_molecule(
+        return self.other_molecules.steric_clash_with_another_molecules(
             other_mol, cutoff, pairwise_comparison
         )
 
-    def merge_with_another_molecule(self, other_molecule):
+    def merge_with_another_molecules(self, other_molecules):
         """
         Merges two molecular models into a single model.
 
-        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.merge_with_another_molecule`
+        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.merge_with_another_molecules`
         
-        :param pymolecule.Molecule other_molecule: A molecular model (pymolecule.Molecule
+        :param pymolecule.Molecule other_molecules: A molecular model (pymolecule.Molecule
                     object).
 
         :returns: A single pymolecule.Molecule object containing the atoms of
-                    this model combined with the atoms of other_molecule.
+                    this model combined with the atoms of other_molecules.
         """     
         
-        return self.other_molecule.merge_with_another_molecule(other_molecule)
+        return self.other_molecules.merge_with_another_molecules(other_molecules)
 
     ######## Supporting functions ########
 

@@ -25,7 +25,7 @@ class Test:
         self.test_information()
         #self.test_selection()
         self.test_manipulation()
-        #self.test_other_molecules()
+        #self.test_other_moleculess()
         self.test_atoms_and_bonds()
         self.test_geometry()
 
@@ -338,7 +338,7 @@ class Test:
         self.mol.coordinate_undo()
         self.mol.save_pdb(manip_filename + "7.pdb", False, False, False)
         
-    def test_other_molecules(self):
+    def test_other_moleculess(self):
         """Test the functions in OtherMolecules"""
 
         print "OtherMolecules Functions"
@@ -363,14 +363,14 @@ class Test:
         mol2.translate_molecule(numpy.array([10.0, 10.0, 10.0]))
 
         # Temporarily commented out because no dumbpy implementation needed.
-        print "    steric_clash_with_another_molecule()"
-        print "        " + str(mol1.steric_clash_with_another_molecule(mol2, 5.0, False))
-        print "        " + str(mol1.steric_clash_with_another_molecule(mol2, 5.0, True))
+        print "    steric_clash_with_another_molecules()"
+        print "        " + str(mol1.steric_clash_with_another_molecules(mol2, 5.0, False))
+        print "        " + str(mol1.steric_clash_with_another_molecules(mol2, 5.0, True))
 
         # Temporarily commented out because no dumbpy implementation needed.
-        print "    get_distance_to_another_molecule()"
-        print "        " + str(mol1.get_distance_to_another_molecule(mol2, False))
-        print "        " + str(mol1.get_distance_to_another_molecule(mol2, True))
+        print "    get_distance_to_another_molecules()"
+        print "        " + str(mol1.get_distance_to_another_molecules(mol2, False))
+        print "        " + str(mol1.get_distance_to_another_molecules(mol2, True))
 
         print "    get_rmsd_order_dependent()"
         print "        " + str(mol1.get_rmsd_order_dependent(mol2))
@@ -383,13 +383,13 @@ class Test:
         tethers = [numpy.array([1, 1]), numpy.array([2, 2]), numpy.array([3, 3])]
         print "        " + str(mol1.get_rmsd_equivalent_atoms_specified(mol2, tethers))
 
-        print "    merge_with_another_molecule()"
-        merged_mol = mol1.merge_with_another_molecule(mol2)
+        print "    merge_with_another_molecules()"
+        merged_mol = mol1.merge_with_another_molecules(mol2)
         merged_mol.save_pdb("./pymolecule_tests_tmp/merged.pdb", False, False, False)
 
-        print "    get_other_molecule_aligned_to_this()"
-        if numpy.class_dependency("test get_other_molecule_aligned_to_this(). Missing the dot-product function", "NUMPY"):
-            aligned_mol = mol1.get_other_molecule_aligned_to_this(mol2, tethers)
+        print "    get_other_molecules_aligned_to_this()"
+        if numpy.class_dependency("test get_other_molecules_aligned_to_this(). Missing the dot-product function", "NUMPY"):
+            aligned_mol = mol1.get_other_molecules_aligned_to_this(mol2, tethers)
             print "        New RMSD: " + str(mol1.get_rmsd_order_dependent(aligned_mol))
 
     def test_atoms_and_bonds(self):

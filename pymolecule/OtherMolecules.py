@@ -18,7 +18,7 @@ class OtherMolecules():
 
         self.__parent_molecule = parent_molecule_object
 
-    def get_other_molecule_aligned_to_this(self, other_mol, tethers,
+    def get_other_molecules_aligned_to_this(self, other_mol, tethers,
                                            weight_mat = None):
         """
         Aligns a molecule to self (this pymolecule.Molecule object) using a
@@ -26,7 +26,7 @@ class OtherMolecules():
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_other_molecule_aligned_to_this`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_other_molecules_aligned_to_this`
                 
         :param pymolecule.Molecule other_mol: A pymolecule.Molecule that is to be aligned to
                     this one.
@@ -138,7 +138,7 @@ class OtherMolecules():
 
         return new_mol
 
-    def steric_clash_with_another_molecule(self, other_mol, cutoff,
+    def steric_clash_with_another_molecules(self, other_mol, cutoff,
                                            pairwise_comparison = True):
         """
         Detects steric clashes between the pymolecule.Molecule (self) and
@@ -146,7 +146,7 @@ class OtherMolecules():
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.steric_clash_with_another_molecule`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.steric_clash_with_another_molecules`
 
         :param pymolecule.Molecule other_mol: The pymolecule.Molecule object that will be
                     evaluated for steric clashes.
@@ -187,17 +187,17 @@ class OtherMolecules():
         else:
             return True
 
-    def merge_with_another_molecule(self, other_molecule):
+    def merge_with_another_molecules(self, other_molecules):
         """
         Merges two molecular models into a single model.
 
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.merge_with_another_molecule`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.merge_with_another_molecules`
         
-        :param pymolecule.Molecule other_molecule: A molecular model (pymolecule.Molecule
+        :param pymolecule.Molecule other_molecules: A molecular model (pymolecule.Molecule
                     object).
 
         :returns: A single pymolecule.Molecule object containing the atoms of
-                    this model combined with the atoms of other_molecule.
+                    this model combined with the atoms of other_molecules.
         """
 
         merged = self.__parent_molecule.copy()
@@ -211,20 +211,20 @@ class OtherMolecules():
             merged.information.assign_masses()
 
         merged.filename = ""
-        merged.get_remarks().extend(other_molecule.get_remarks())
+        merged.get_remarks().extend(other_molecules.get_remarks())
 
         merged.set_atom_information(
             numpy.stack_arrays(
                 (
                     merged.get_atom_information(),
-                    other_molecule.get_atom_information()
+                    other_molecules.get_atom_information()
                 ),
                 usemask = False
             )
         )
 
         merged.set_coordinates(numpy.vstack((
-            merged.get_coordinates(), other_molecule.get_coordinates()
+            merged.get_coordinates(), other_molecules.get_coordinates()
         )))
 
         merged.set_coordinates_undo_point(None)
@@ -232,10 +232,10 @@ class OtherMolecules():
         # merge the bonds, though note that bonds between the two molecules
         # will not be set
         if (not merged.get_bonds() is None and
-            not other_molecule.get_bonds() is None):
+            not other_molecules.get_bonds() is None):
 
             bonds1 = merged.get_bonds().copy()
-            bonds2 = other_molecule.get_bonds().copy()
+            bonds2 = other_molecules.get_bonds().copy()
 
             bonds1_v2 = numpy.hstack((
                 bonds1, numpy.zeros((len(bonds1), len(bonds2)))
@@ -258,7 +258,7 @@ class OtherMolecules():
 
         return merged
 
-    def get_distance_to_another_molecule(self, other_molecule,
+    def get_distance_to_another_molecules(self, other_molecules,
                                          pairwise_comparison = True):
         """
         Computes the minimum distance between any of the atoms of this
@@ -266,9 +266,9 @@ class OtherMolecules():
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_distance_to_another_molecule`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_distance_to_another_molecules`
 
-        :param pymolecule.Molecule other_molecule: a pymolecule.Molecule, the other molecular
+        :param pymolecule.Molecule other_molecules: a pymolecule.Molecule, the other molecular
                     model.
         :param bool pairwise_comparison: An optional boolean, whether or not to
                     perform a simple pairwise distance comparison (if True) or
@@ -276,7 +276,7 @@ class OtherMolecules():
                     default.
 
         :returns: A float, the minimum distance between any two atoms of the two
-                specified molecular models (self and other_molecule).
+                specified molecular models (self and other_molecules).
         """
 
         if not numpy.class_dependency("calculate the distance to another molecule", "NUMPY"):
@@ -288,7 +288,7 @@ class OtherMolecules():
         if pairwise_comparison == True:
             return numpy.amin(numpy.cdist(
                 self.__parent_molecule.get_coordinates(),
-                other_molecule.get_coordinates()
+                other_molecules.get_coordinates()
             ))
         else:
             # so use the more sophisticated methods for comparison
@@ -299,7 +299,7 @@ class OtherMolecules():
             # first, get a cutoff distance. Let's just do a quick survey of the
             # two molecules to pick a good one.
             slf_gt_crs = self.__parent_molecule.get_coordinates()
-            oth_gt_crs = other_molecule.get_coordinates()
+            oth_gt_crs = other_molecules.get_coordinates()
             self_tmp = slf_gt_crs[numpy.arange(0, len(slf_gt_crs),
                                                len(slf_gt_crs) / 10.0,
                                                dtype = int)]
@@ -317,11 +317,11 @@ class OtherMolecules():
                 prnt.select_close_atoms_from_different_molecules
             )
 
-            self_indices, other_indices = sel_cls_atms_dif_mols(other_molecule,
+            self_indices, other_indices = sel_cls_atms_dif_mols(other_molecules,
                                                                 cutoff, False)
 
             self_coors = self.__parent_molecule.get_coordinates()[self_indices]
-            self_other = other_molecule.get_coordinates()[other_indices]
+            self_other = other_molecules.get_coordinates()[other_indices]
 
             return numpy.amin(numpy.cdist(self_coors, self_other))
 
