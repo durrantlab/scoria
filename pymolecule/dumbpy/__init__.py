@@ -2,6 +2,7 @@
 imitations."""
 
 import textwrap
+import sys
 
 # A list of the available dependencies.
 dependencies_available = []
@@ -14,7 +15,10 @@ force_dumbpy = False  # True for debugging.
 
 if '__pypy__' in sys.builtin_module_names:
     # It's pypy, so don't load numpy
-    force_dumbpy = False
+    force_dumbpy = True
+if len(sys.argv) > 1 and sys.argv[1].upper() == "NODEPENS":
+    # The command-line parameter indicates you shouldn't use dpeendnecies
+    force_dumbpy = True
 
 try:
     # Try to load traditional numpy

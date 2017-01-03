@@ -5,6 +5,7 @@ from pymolecule import dumbpy as numpy
 import inspect
 from time import time
 import shutil
+import math
 
 
 class Test:
@@ -463,8 +464,6 @@ class FileIOBenchmarks:
     save_filename = ""
 
     def __init__(self):
-        import numpy  # numpy required for benchmarks
-
         self.load_filename = self.sample_structures_dir + "single_frame.pdb"
         self.save_filename = "tmptmp.pdb"
 
@@ -499,7 +498,22 @@ class FileIOBenchmarks:
             os.unlink("tmptmp.pdb")
         if os.path.exists("tmptmp.pym"):
             shutil.rmtree("tmptmp.pym")
-        
+    
+    def mean(self, nums):
+        asum = 0.0
+        for num in nums:
+            asum = asum + num
+        return asum / len(nums)
+    
+    def std(self, nums):
+        mn = self.mean(nums)
+        sum_of_square_diffs = 0.0
+        for num in nums:
+            sum_of_square_diffs = sum_of_square_diffs + (num - mn)**2
+        variance = sum_of_square_diffs / len(nums)
+        std = math.sqrt(variance)
+        return std
+
     def timeit(self, func, reset_test_vars, before_each_timing):
         reset_test_vars()
         for i in range(100):
@@ -508,7 +522,7 @@ class FileIOBenchmarks:
             func()
             t2 = time()
             self.times.append(t2 - t1)
-        print numpy.mean(self.times), "+/-", numpy.std(self.times)
+        print self.mean(self.times), "+/-", self.std(self.times)
 
     def reset_test_vars_standard(self):
         self.times = []
