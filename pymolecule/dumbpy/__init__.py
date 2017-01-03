@@ -11,6 +11,11 @@ missing_dependency_throws_error = True
 
 # Try to load numpy.
 force_dumbpy = False  # True for debugging.
+
+if '__pypy__' in sys.builtin_module_names:
+    # It's pypy, so don't load numpy
+    force_dumbpy = False
+
 try:
     # Try to load traditional numpy
     if force_dumbpy: raise ValueError('Using dumbpy')
