@@ -92,11 +92,11 @@ class Molecule: # here's the actual Molecule class
         
         return self.information.get_coordinates(frame)
 
-    def get_trajectory(self):
+    def get_trajectory_coordinates(self):
         """
         Returns the trajectory for the molecule.
 
-        Wrapper function for :meth:`~pymolecule.Information.Information.get_trajectory`
+        Wrapper function for :meth:`~pymolecule.Information.Information.get_trajectory_coordinates`
         
         :returns: The set of all coordinates.
                     ::
@@ -109,7 +109,7 @@ class Molecule: # here's the actual Molecule class
 
         ::
 
-            >>> for coord in mol.get_trajectory():
+            >>> for coord in mol.get_trajectory_coordinates():
             >>>     print coord
             >>>     print
             [[ -30.85199928  -81.45800018  365.05499268]
@@ -130,7 +130,7 @@ class Molecule: # here's the actual Molecule class
              <more>
         """
 
-        return self.information.get_trajectory()
+        return self.information.get_trajectory_coordinates()
 
     def get_filename(self):
         """
@@ -521,16 +521,16 @@ class Molecule: # here's the actual Molecule class
         
         self.information.set_coordinates(coordinates, frame)
 
-    def set_trajectory(self, trajectory):
+    def set_trajectory_coordinates(self, trajectory):
         """
         Sets the __trajectory variable.
         
-        Wrapper function for :meth:`~pymolecule.Information.Information.set_trajectory`
+        Wrapper function for :meth:`~pymolecule.Information.Information.set_trajectory_coordinates`
 
         :param numpy.array trajectory: An array of atomic coordinates.
         """
 
-        self.information.set_trajectory(trajectory)
+        self.information.set_trajectory_coordinates(trajectory)
 
     def set_coordinates_undo_point(self, coordinates_undo_point):
         """
@@ -1870,7 +1870,7 @@ class Molecule: # here's the actual Molecule class
 #        new_molecule.set_filename(self.get_filename()[:])
 #        new_molecule.set_remarks(self.get_remarks()[:])
 #        new_molecule.set_atom_information(self.get_atom_information().copy())
-#        new_molecule.set_trajectory(self.get_trajectory().copy())
+#        new_molecule.set_trajectory_coordinates(self.get_trajectory_coordinates().copy())
 #
 #        if not self.get_bonds() is None:
 #            new_molecule.set_bonds(self.get_bonds().copy())

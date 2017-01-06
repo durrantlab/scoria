@@ -333,7 +333,7 @@ class FileIO():
                 
                 trajectoryList.append(tmp_mol.get_coordinates())
 
-        self.__parent_molecule.set_trajectory(trajectoryList)        
+        self.__parent_molecule.set_trajectory_coordinates(trajectoryList)        
 
     def load_pdb_into(self, filename, bonds_by_distance = True,
                       serial_reindex = True, resseq_reindex = False,
@@ -963,4 +963,4 @@ class FileIO():
                 frameList.append(coordList)
             trajectoryList.append(numpy.vstack(frameList))
 
-        self.__parent_molecule.set_trajectory(trajectoryList)
+        self.__parent_molecule.set_trajectory_coordinates(trajectoryList)

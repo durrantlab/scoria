@@ -211,11 +211,11 @@ class Information():
 
         return self.__atom_information
 
-    def get_trajectory(self):
+    def get_trajectory_coordinates(self):
         """
         Returns the trajectory for the molecule.
 
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_trajectory`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_trajectory_coordinates`
         
         :returns: The set of all coordinates.
                     ::
@@ -228,7 +228,7 @@ class Information():
 
         ::
 
-            >>> for coord in mol.get_trajectory():
+            >>> for coord in mol.get_trajectory_coordinates():
             >>>     print coord
             >>>     print
             [[ -30.85199928  -81.45800018  365.05499268]
@@ -426,11 +426,11 @@ class Information():
 
         self.__atom_information = atom_information
 
-    def set_trajectory(self, trajectory):
+    def set_trajectory_coordinates(self, trajectory):
         """
         Sets the __trajectory variable.
         
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_trajectory`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_trajectory_coordinates`
 
         :param numpy.array trajectory: An array of atomic coordinates.
         """
