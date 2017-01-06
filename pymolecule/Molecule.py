@@ -26,6 +26,12 @@ class Molecule: # here's the actual Molecule class
     def __init__ (self, fileType=None, *args):
         """
         Initializes the variables of the Molecule class.
+
+        :param string fileType: The type of file to be imported. Acceptable 
+            values include: PDB, PDBQT, PYM, and OTHER.
+
+        :param files args: Additional files added to the end of the paramter
+            will be input with the method indicated by the fileType parameter.
         """
 
         self.fileio = FileIO(self)
@@ -40,7 +46,7 @@ class Molecule: # here's the actual Molecule class
         # If the type is not one we recognize, we'll attempt to use MDAnalysis.
         if fileType is not None:
             typeUpper = str(fileType).upper()
-            if typeUpper == 'PDB': 
+            if typeUpper == 'PDB':
                 self.load_pdb_into(args[0])
             elif typeUpper == 'PDBQT':
                 self.load_pdbqt_into(args[0])
