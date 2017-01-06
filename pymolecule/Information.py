@@ -426,11 +426,11 @@ class Information():
 
         self.__atom_information = atom_information
 
-    def set_trajectory(self, trajectory):
+    def set_trajectory_coordinates(self, trajectory):
         """
         Sets the __trajectory variable.
         
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_trajectory`
+        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_trajectory_coordinates`
 
         :param numpy.array trajectory: An array of atomic coordinates.
         """

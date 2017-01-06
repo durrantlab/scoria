@@ -508,16 +508,16 @@ class Molecule: # here's the actual Molecule class
         
         self.information.set_coordinates(coordinates, frame)
 
-    def set_trajectory(self, trajectory):
+    def set_trajectory_coordinates(self, trajectory):
         """
         Sets the __trajectory variable.
         
-        Wrapper function for :meth:`~pymolecule.Information.Information.set_trajectory`
+        Wrapper function for :meth:`~pymolecule.Information.Information.set_trajectory_coordinates`
 
         :param numpy.array trajectory: An array of atomic coordinates.
         """
 
-        self.information.set_trajectory(trajectory)
+        self.information.set_trajectory_coordinates(trajectory)
 
     def set_coordinates_undo_point(self, coordinates_undo_point):
         """
@@ -1857,7 +1857,7 @@ class Molecule: # here's the actual Molecule class
 #        new_molecule.set_filename(self.get_filename()[:])
 #        new_molecule.set_remarks(self.get_remarks()[:])
 #        new_molecule.set_atom_information(self.get_atom_information().copy())
-#        new_molecule.set_trajectory(self.get_trajectory_coordinates().copy())
+#        new_molecule.set_trajectory_coordinates(self.get_trajectory_coordinates().copy())
 #
 #        if not self.get_bonds() is None:
 #            new_molecule.set_bonds(self.get_bonds().copy())
