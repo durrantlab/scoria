@@ -23,7 +23,7 @@ class Molecule: # here's the actual Molecule class
         >>> mol.load_via_MDAnalysis(PSF, DCD)
     """
 
-    def __init__ (self):
+    def __init__ (self, fileType=None, *args):
         """
         Initializes the variables of the Molecule class.
         """
@@ -36,6 +36,19 @@ class Molecule: # here's the actual Molecule class
         self.other_molecules = OtherMolecules(self)
         self.geometry = Geometry(self)
 
+        # Based on the fileType given, we are going to attempt to open the file.
+        # If the type is not one we recognize, we'll attempt to use MDAnalysis.
+        if fileType is not None:
+            typeUpper = str(fileType).upper()
+            if typeUpper == 'PDB': 
+                self.load_pdb_into(args[0])
+            elif typeUpper == 'PDBQT':
+                self.load_pdbqt_into(args[0])
+            elif typeUpper == 'PYM':
+                self.load_pym_into(args[0])
+            else:
+                self.load_via_MDAnalysis(args)
+    
     # Information methods
     ### Wrappers ###
     # Gets

@@ -235,6 +235,7 @@ code {
 
 th {
     background-color: #ede;
+    hyphens: none !important;
 }
 
 .warning code {
