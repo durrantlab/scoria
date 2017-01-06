@@ -435,7 +435,7 @@ class AtomsAndBonds():
         if self.__parent_molecule.get_coordinates() is None:
             self.__parent_molecule.set_coordinates(numpy.array([coordinates]))
         else:
-            for frame in range(0, len(self.__parent_molecule.get_trajectory())):
+            for frame in range(0, len(self.__parent_molecule.get_trajectory_coordinates())):
                 self.__parent_molecule.set_coordinates(
                     numpy.vstack((
                         self.__parent_molecule.get_coordinates(frame), coordinates

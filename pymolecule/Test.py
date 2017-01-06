@@ -490,8 +490,13 @@ class FileIOBenchmarks:
         self.timeit(self.load_pym, self.reset_test_vars_standard, self.new_molecule)
         print
 
-        print "Load DCD"
-        print "Need to implement this!"
+        print "Load DCD (single frame)"
+        self.timeit(self.load_dcd, self.reset_test_vars_standard, self.new_molecule)
+        print
+
+        print "Load DCD (100 frames)"
+        self.timeit(self.load_dcd_100_frames, self.reset_test_vars_standard, self.new_molecule)
+        print
 
         # Clean up
         if os.path.exists("tmptmp.pdb"):
@@ -559,3 +564,11 @@ class FileIOBenchmarks:
     def load_pym(self):
         self.molecule.load_pym_into(self.load_filename)
     
+    def load_dcd(self):
+        if "MDANALYSIS" in numpy.dependencies_available:
+            self.molecule.load_via_MDAnalysis(self.sample_structures_dir + "single_frame.psf", self.sample_structures_dir + "single_frame.dcd")
+    
+    def load_dcd_100_frames(self):
+        if "MDANALYSIS" in numpy.dependencies_available:
+            self.molecule.load_via_MDAnalysis(self.sample_structures_dir + "single_frame.psf", self.sample_structures_dir + "single_frame.100.dcd")
+        
