@@ -17,18 +17,6 @@ class Manipulation():
 
         self.__parent_molecule = parent_molecule_object
 
-    def set_coordinate_undo_point(self):
-        """
-        Sets ("saves") the undo point of the atom coordinates. Any
-        subsequent manipulations of atomic coordinates can be "undone" by
-        reseting to this configuration via the coordinate_undo function.
-        
-        """
-
-        self.__parent_molecule.set_coordinates_undo_point(
-            self.__parent_molecule.get_coordinates().copy()
-        )
-
     def coordinate_undo(self):
         """
         Resets the coordinates of all atoms to those saved using the

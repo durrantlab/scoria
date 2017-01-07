@@ -457,7 +457,10 @@ class Information():
 
     def set_coordinates_undo_point(self, coordinates_undo_point):
         """
-        Sets the __coordinates_undo_point variable.
+        Sets ("saves") the undo point of the atom coordinates. Any
+        subsequent manipulations of atomic coordinates can be "undone" by
+        reseting to this configuration via the coordinate_undo function. Sets
+        the __coordinates_undo_point variable.
         
         Wrapper function for :meth:`~pymolecule.Molecule.Molecule.set_coordinates_undo_point`
         

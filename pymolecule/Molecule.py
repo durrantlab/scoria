@@ -201,8 +201,7 @@ class Molecule: # here's the actual Molecule class
 
     def get_coordinates_undo_point(self):
         """
-        NEEDS CLARIFICATION.
-        Retreives a previously save set of coordinates to revert to.
+        Returns the previous atomic coordinates from when an undo point was set.
 
         Wrapper function for :meth:`~pymolecule.Information.Information.get_coordinates_undo_point`
 
