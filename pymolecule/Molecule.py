@@ -27,7 +27,7 @@ class Molecule: # here's the actual Molecule class
         """
         Initializes the variables of the Molecule class.
 
-        :param string fileType: The type of file to be imported. Acceptable 
+        :param string fileType: The type of file to be imported. Acceptable
             values include: PDB, PDBQT, PYM, and OTHER.
 
         :param files args: Additional files added to the end of the paramter

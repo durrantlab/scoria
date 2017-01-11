@@ -72,11 +72,16 @@ class Selections():
                 len(atm_inf), dtype = bool
             )
 
-            for val in vals:
-                subselection = numpy.logical_or(
-                    subselection,
-                    (atm_inf[key] == val)
-                )
+            try:
+                for val in vals:
+                    subselection = numpy.logical_or(
+                        subselection,
+                        (atm_inf[key] == val)
+                    )
+            except ValueError:
+                print "A non-existant field was selected for. The selectable fields are: ",
+                print atm_inf.dtype.names
+
 
             # now "and" that with everything else
             selection = numpy.logical_and(selection, subselection)
