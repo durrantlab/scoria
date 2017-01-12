@@ -132,9 +132,9 @@ class Information():
 
         Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_filename`
         
-        :returns: The name of the file.
+        :returns: The names of the files as a list.
 
-        :rtype: :any:`str`
+        :rtype: :any:`list`
 
         ::
 
@@ -394,12 +394,10 @@ class Information():
         :param str filename: String representation of the filename.
         """
 
-        #if type(filename) == str:
-        #    self.__filename = [filename]
-        #elif type(filename) == list:
-        #    self.__filename = filename
-
-        self.__filename = filename
+        if type(filename) == str:
+            self.__filename = [filename]
+        elif type(filename) == list:
+            self.__filename = filename
 
     def set_remarks(self, remarks):
         """
