@@ -46,18 +46,18 @@ class Quaternion:
 
         #Make sure m is a 3x3 array
         if m.shape[0] != 3 or m.shape[1] != 3:
-            print "Could not load quaternion from matrix...size is not (3x3)"
+            print("Could not load quaternion from matrix...size is not (3x3)")
             return
 
         #Check that matrix is orthogonal. m_T = m_inv
         if not numpy.array_equal(numpy.transpose(m), numpy.linalg.inv(m)):
-            print "Load Quaternion error. Matrix is not orthogonal"
+            print("Load Quaternion error. Matrix is not orthogonal")
             return
 
         #Need to make sure that the matrix is special orthogonal
         if numpy.fabs(1 - numpy.linalg.det(m)) > 0.000001:
             # Done for rounding errors
-            print "Load Quaternion error.  Determinant is not 1"
+            print("Load Quaternion error.  Determinant is not 1")
             return
 
         #First calculate the sum of the diagonal elements

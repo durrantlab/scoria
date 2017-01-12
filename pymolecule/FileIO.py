@@ -1,10 +1,24 @@
 from pymolecule import dumbpy as numpy
 import os
 import sys
-import cPickle as pickle
+
+try:
+    # for python2
+    import cPickle as pickle
+except:
+    # for python3
+    import pickle
+
 import shutil
 import tempfile
-import cStringIO as StringIO
+
+try:
+    # for python2
+    import cStringIO as StringIO
+except:
+    # for python3
+    import io as StringIO
+
 import pymolecule
 
 class FileIO():
@@ -406,9 +420,13 @@ class FileIO():
         # 'empty2', 'element', 'charge'], delimiter=[6, 5, 5, 4, 2, 4, 4, 8, 8,
         # 8, 6, 6, 10, 2, 2])
 
+        # print type(file_obj.read())
+
         source_data = numpy.genfromtxt(
             file_obj,
             dtype = "S6,S5,S5,S5,S1,S4,S4,S8,S8,S8,S6,S6,S10,S2,S3",
+            #dtype = "U6,U5,U5,U5,U1,U4,U4,U8,U8,U8,U6,U6,U10,U2,U3",
+            #dtype = [bytes, bytes, bytes, bytes, bytes, bytes, bytes, bytes, bytes, bytes, bytes, bytes, bytes, bytes, bytes],
             names = ['record_name', 'serial', 'name', 'resname', 'chainid',
                    'resseq', 'empty', 'x', 'y', 'z', 'occupancy',
                    'tempfactor', 'empty2', 'element', 'charge'],
@@ -841,8 +859,8 @@ class FileIO():
                 return return_string
 
         else:
-            print ("ERROR: Cannot save a Molecule with no atoms " +
-                   "(file name \"" + filename + "\")")
+            print("ERROR: Cannot save a Molecule with no atoms " +
+                  "(file name \"" + filename + "\")")
 
     def _save_pdb_trajectory(self, filename = "", serial_reindex = True,
                  resseq_reindex = False, return_text = False):

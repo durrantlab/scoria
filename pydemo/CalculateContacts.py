@@ -18,25 +18,25 @@ Component_B_out = "./Component_B.pdb"
 
 
 # Load in a DCD/PSF trajectory and create a contact object within it.
-print "Loading Molecule...             ",
+print("Loading Molecule...             ",)
 MOL = pymolecule.Molecule()
 MOL.load_via_MDAnalysis(PSF, DCD)
 contacts = con.Contact(MOL)
-print " done"
+print(" done")
 
 
 # Create the subsections based on the resid ranges defined previously
-print "Creating Component Molecules... ",
+print("Creating Component Molecules... ",)
 contacts.set_subsections(residA, residB)
-print " done"
+print(" done")
 
 
 # Calculate the contact points between the two subsections.
-print "Calculating contacts...         ",
+print("Calculating contacts...         ",)
 contacts.calculate_contact()
-print " done"
+print(" done")
 
 #Save pdbs (with those occupancies) to two different files
-print "Writing output files...         ",
+print("Writing output files...         ",)
 contacts.print_subcomponents("Part_A.pdb", "Part_B.pdb")
-print " done"
+print(" done")

@@ -2,7 +2,7 @@ import pymolecule
 import numpy as np
 
 # Load in a DCD/PSF trajectory.
-print "Loading Molecule..."
+print("Loading Molecule...")
 mol = pymolecule.Molecule()
 mol.load_via_MDAnalysis(
     "../pymolecule/sample_files/test_sim.psf", 
@@ -12,8 +12,8 @@ mol.load_via_MDAnalysis(
 # Create two new trajectories, corresponding to the shroom2
 # protein and the rock1 dimer, respectively. Shroom2 is 
 # resid 1 to 181, and the rock1 dimer is 182 to 297.
-print "Splitting trajectory into shroom2 and",
-print "rock1..."
+print("Splitting trajectory into shroom2 and",)
+print("rock1...")
 shroom2 = mol.get_molecule_from_selection(
     mol.select_atoms({
         "resseq": range(1, 181)
@@ -28,7 +28,7 @@ rock1 = mol.get_molecule_from_selection(
 # Create numpy arrays to store the number of times each
 # atom of shroom2 comes within 3.0 A of the atoms of rock1,
 # and vice versa.
-print "Calculating contacts..."
+print("Calculating contacts...")
 shroom2_counts = np.zeros(
     shroom2.get_total_number_of_atoms()
 )
@@ -73,6 +73,6 @@ rock1.set_atom_information(rock1_atom_info)
 
 # Save the first frame of each trajectory, with the updated
 # occupancies.
-print "Writing output files..."
+print("Writing output files...")
 shroom2.save_pdb("./shroom2_contacts.pdb", frame = 0)
 rock1.save_pdb("./rock1_contacts.pdb", frame = 0)

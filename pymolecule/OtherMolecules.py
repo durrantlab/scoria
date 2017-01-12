@@ -1,5 +1,5 @@
 from pymolecule import dumbpy as numpy
-from Quaternion import Quaternion
+from pymolecule.Quaternion import Quaternion
 
 
 class OtherMolecules():
@@ -347,10 +347,10 @@ class OtherMolecules():
         if (len(slf_gt_crs) !=
             len(other_mol.get_coordinates())):
 
-            print "Cannot calculate RMSD: number of atoms are not equal."
-            print "\t" + (str(len(slf_gt_crs)) +
+            print("Cannot calculate RMSD: number of atoms are not equal.")
+            print("\t" + (str(len(slf_gt_crs)) +
                           " vs. " + str(len(other_mol.get_coordinates())) +
-                          " atoms.")
+                          " atoms."))
             return 99999999.0
 
         self_coors_in_order = slf_gt_crs[tethers[0]]

@@ -1,11 +1,11 @@
 from pymolecule import dumbpy as numpy
-from FileIO import FileIO
-from AtomsAndBonds import AtomsAndBonds
-from Selections import Selections
-from Manipulation import Manipulation
-from Information import Information
-from OtherMolecules import OtherMolecules
-from Geometry import Geometry
+from pymolecule.FileIO import FileIO
+from pymolecule.AtomsAndBonds import AtomsAndBonds
+from pymolecule.Selections import Selections
+from pymolecule.Manipulation import Manipulation
+from pymolecule.Information import Information
+from pymolecule.OtherMolecules import OtherMolecules
+from pymolecule.Geometry import Geometry
 import copy
 
 
@@ -71,7 +71,7 @@ class Molecule: # here's the actual Molecule class
 
         ::
 
-            >>> print mol.get_coordinates()
+            >>> print(mol.get_coordinates())
             [[ -30.85199928  -81.45800018  365.05499268]
              [ -31.99500084  -80.69300079  365.66900635]
              [ -32.0530014   -81.13200378  367.18200684]
@@ -80,7 +80,7 @@ class Molecule: # here's the actual Molecule class
              [ -23.54199982  -94.7539978   400.41900635]
              [ -22.86100006  -93.72499847  400.55300903]]
 
-            >>> print mol.get_coordinates(2)
+            >>> print(mol.get_coordinates(2))
             [[ -28.88899994  -80.45700073  365.51699829]
              [ -30.20000076  -79.73699951  365.99700928]
              [ -30.90699959  -80.5510025   367.13000488]
@@ -110,8 +110,8 @@ class Molecule: # here's the actual Molecule class
         ::
 
             >>> for coord in mol.get_trajectory_coordinates():
-            >>>     print coord
-            >>>     print
+            >>>     print(coord)
+            >>>     print()
             [[ -30.85199928  -81.45800018  365.05499268]
              [ -31.99500084  -80.69300079  365.66900635]
              [ -32.0530014   -81.13200378  367.18200684]
@@ -146,7 +146,7 @@ class Molecule: # here's the actual Molecule class
 
             >>> mol = pymolecule.Molecule()
             >>> mol.load_pdb_into("single_frame.pdb")
-            >>> print mol.get_filename()
+            >>> print(mol.get_filename())
             single_frame.pdb
         """
         
@@ -166,14 +166,14 @@ class Molecule: # here's the actual Molecule class
 
             >>> mol = pymolecule.Molecule()
             >>> mol.load_pdb_into("single_frame.pdb")
-            >>> print mol.get_remarks()
+            >>> print(mol.get_remarks())
             [' This is a remark.']
         """
         
         return self.information.get_remarks()
 
     def get_atom_information(self):
-    	"""
+        """
         Retreives the atomic information for the molecule.
 
         Wrapper function for :meth:`~pymolecule.Information.Information.get_atom_information`
@@ -206,7 +206,7 @@ class Molecule: # here's the actual Molecule class
         An example for printing the elemental symbols of the first five atoms::
 
             >>> atom_info = mol.get_atom_information()
-            >>> print atom_info['element_stripped'][0:5]
+            >>> print(atom_info['element_stripped'][0:5])
             ['N' 'C' 'C' 'O' 'C']
         """
 
@@ -240,7 +240,7 @@ class Molecule: # here's the actual Molecule class
             >>> bonds = mol.get_bonds()
             >>> for i in xrange(0,len(bonds)):
             ...     if bonds[153][i] == 1:
-            ...             print 153,"-",i
+            ...             print(153,"-",i)
             153 - 152
             153 - 154
             153 - 155
@@ -313,7 +313,7 @@ class Molecule: # here's the actual Molecule class
 
             >>> mol = pymolecule.Molecule()
             >>> mol.load_pdb_into("single_frame.pdb")
-            >>> print mol.get_center_of_mass()
+            >>> print(mol.get_center_of_mass())
             [33.0643089093134 19.135747088722564 16.05629867850796]
         """
         
@@ -342,7 +342,7 @@ class Molecule: # here's the actual Molecule class
 
             >>> mol = pymolecule.Molecule()
             >>> mol.load_pdb_into("single_frame.pdb")
-            >>> print mol.get_geometric_center()
+            >>> print(mol.get_geometric_center())
             [ 33.09860848  19.1221197   16.0426808 ]
         """
 
@@ -366,7 +366,7 @@ class Molecule: # here's the actual Molecule class
 
         ::
 
-            >>> print mol.get_total_mass()
+            >>> print(mol.get_total_mass())
             5289.1729999999998
 
         """

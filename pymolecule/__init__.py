@@ -1,12 +1,12 @@
-from Information import Information
-from AtomsAndBonds import AtomsAndBonds
-from FileIO import FileIO
-from Geometry import Geometry
-from Manipulation import Manipulation
-from Molecule import Molecule
-from OtherMolecules import OtherMolecules
-from Quaternion import Quaternion
-from Selections import Selections
-from Test import Test
+from pymolecule.Information import Information
+from pymolecule.AtomsAndBonds import AtomsAndBonds
+from pymolecule.FileIO import FileIO
+from pymolecule.Geometry import Geometry
+from pymolecule.Manipulation import Manipulation
+from pymolecule.Molecule import Molecule
+from pymolecule.OtherMolecules import OtherMolecules
+from pymolecule.Quaternion import Quaternion
+from pymolecule.Selections import Selections
+from pymolecule.Test import Test
 
 __version__ = "2.0"
