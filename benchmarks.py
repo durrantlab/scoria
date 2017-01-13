@@ -1,3 +1,3 @@
-import pymolecule
-from pymolecule.Test import FileIOBenchmarks
+import scoria
+from scoria.Test import FileIOBenchmarks
 FileIOBenchmarks()

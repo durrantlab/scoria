@@ -7,7 +7,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 import numpy as np
 import scipy
-import pymolecule
+import scoria
 
 
 class InformationTests(unittest.TestCase):
@@ -21,10 +21,10 @@ class InformationTests(unittest.TestCase):
         """
         Setting up the test molecule.
         """
-        if not os.path.exists("./pymolecule_tests_tmp"):
-            os.mkdir("./pymolecule_tests_tmp")
+        if not os.path.exists("./scoria_tests_tmp"):
+            os.mkdir("./scoria_tests_tmp")
 
-        self.mol = pymolecule.Molecule("PDB", "./pymolecule/sample_files/3_mol_test.pdb")
+        self.mol = scoria.Molecule("PDB", "./scoria/sample_files/3_mol_test.pdb")
         self.accuracy = 4
 
     def tearDown(self):
@@ -42,7 +42,7 @@ class InformationTests(unittest.TestCase):
         """
         Tests the getting of filenames.
         """
-        expected_filename = ["./pymolecule/sample_files/3_mol_test.pdb"]
+        expected_filename = ["./scoria/sample_files/3_mol_test.pdb"]
         self.assertEqual(self.mol.get_filename(), expected_filename)
 
     def test_get_remarks(self):

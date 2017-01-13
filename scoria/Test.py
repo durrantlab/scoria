@@ -1,7 +1,7 @@
 from Molecule import Molecule
 import cStringIO as StringIO
 import os
-from pymolecule import dumbpy as numpy
+from scoria import dumbpy as numpy
 import inspect
 from time import time
 import shutil
@@ -9,18 +9,18 @@ import math
 
 
 class Test:
-    """A class for testing all pymolecule functions."""
+    """A class for testing all scoria functions."""
 
     mol = None
     numpy.missing_dependency_throws_error = False
 
     def test_all(self):
-        """Test all pymolecule functions."""
+        """Test all scoria functions."""
 
         print "Creating directory to store temporary files."
 
-        if not os.path.exists("./pymolecule_tests_tmp"):
-            os.mkdir("./pymolecule_tests_tmp")
+        if not os.path.exists("./scoria_tests_tmp"):
+            os.mkdir("./scoria_tests_tmp")
 
         self.test_file_io()
         self.test_information()
@@ -33,7 +33,7 @@ class Test:
     def test_file_io(self):
         """Test the functions in FileIO."""
 
-        file_io_filename = "./pymolecule_tests_tmp/file_io_test"
+        file_io_filename = "./scoria_tests_tmp/file_io_test"
         sample_structures_dir = os.path.dirname(inspect.stack()[0][1]) + os.sep + "sample_files" + os.sep
 
         print "FileIO Functions"
@@ -291,12 +291,12 @@ class Test:
         sel = [1,2,3,4,5]
         print "        Atoms in selection: " + str(len(sel))
         mol2 = self.mol.get_molecule_from_selection(sel)
-        mol2.save_pdb("./pymolecule_tests_tmp/save_selection.pdb", True, True, False)
+        mol2.save_pdb("./scoria_tests_tmp/save_selection.pdb", True, True, False)
 
     def test_manipulation(self):
         """Test the functions in Manipulation."""
 
-        manip_filename = "./pymolecule_tests_tmp/manipulation_test"
+        manip_filename = "./scoria_tests_tmp/manipulation_test"
 
         print "Manipulation Functions"
         
@@ -386,7 +386,7 @@ class Test:
 
         print "    merge_with_another_molecules()"
         merged_mol = mol1.merge_with_another_molecules(mol2)
-        merged_mol.save_pdb("./pymolecule_tests_tmp/merged.pdb", False, False, False)
+        merged_mol.save_pdb("./scoria_tests_tmp/merged.pdb", False, False, False)
 
         print "    get_other_molecules_aligned_to_this()"
         if numpy.class_dependency("test get_other_molecules_aligned_to_this(). Missing the dot-product function", "NUMPY"):
@@ -455,7 +455,7 @@ class Test:
 
 class FileIOBenchmarks:
     """A class for testing the load and save times of multiple
-    PyMolecule-supported file formats."""
+    scoria-supported file formats."""
 
     molecule = None
     times = []

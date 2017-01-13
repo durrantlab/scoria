@@ -1,7 +1,7 @@
-pymolecule.Geometry module
+scoria.Geometry module
 ==========================
 
-.. automodule:: pymolecule.Geometry
+.. automodule:: scoria.Geometry
     :members:
     :undoc-members:
     :show-inheritance:

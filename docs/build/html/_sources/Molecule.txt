@@ -4,9 +4,9 @@ The Molecule Class
 Initiating and using the object
 -------------------------------
 
-The Molecule object is the main object class within the pymolecule
+The Molecule object is the main object class within the scoria
 module. All other classes (with the exception of the
-:class:`~pymolecule.Quarterion`) are initiated with, and hold the
+:class:`~scoria.Quarterion`) are initiated with, and hold the
 relevant functions and variables for, the Molecule object. This class
 contains wrapper functions to *nearly* every function belonging to
 it's children classes.
@@ -16,7 +16,7 @@ it's children classes.
 Function Definitions
 --------------------
 
-.. automodule:: pymolecule.Molecule
+.. automodule:: scoria.Molecule
     :members:
     :undoc-members:
     :show-inheritance:

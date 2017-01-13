@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>9. pymolecule.Selections module &#8212; PyMolecule 2.0 documentation</title>
+    <title>9. scoria.Selections module &#8212; scoria 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" />
+    <link rel="top" title="scoria 2.0 documentation" href="index.html" />
     <link rel="next" title="10. reST Documentation Guide" href="REST_tutorial.html" />
-    <link rel="prev" title="8. pymolecule.Quaternion module" href="Quaternion.html" /> 
+    <link rel="prev" title="8. scoria.Quaternion module" href="Quaternion.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -41,9 +41,9 @@
           <a href="REST_tutorial.html" title="10. reST Documentation Guide"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="Quaternion.html" title="8. pymolecule.Quaternion module"
+          <a href="Quaternion.html" title="8. scoria.Quaternion module"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -52,18 +52,18 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-pymolecule.Selections">
-<span id="pymolecule-selections-module"></span><h1>9. pymolecule.Selections module<a class="headerlink" href="#module-pymolecule.Selections" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-scoria.Selections">
+<span id="scoria-selections-module"></span><h1>9. scoria.Selections module<a class="headerlink" href="#module-scoria.Selections" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="pymolecule.Selections.Selections">
-<em class="property">class </em><code class="descclassname">pymolecule.Selections.</code><code class="descname">Selections</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Selections.Selections">
+<em class="property">class </em><code class="descclassname">scoria.Selections.</code><code class="descname">Selections</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class for selecting atoms. Subclass to the
-<a class="reference internal" href="Molecule.html#module-pymolecule.Molecule" title="pymolecule.Molecule"><code class="xref py py-class docutils literal"><span class="pre">pymolecule.Molecule</span></code></a> class.</p>
+<a class="reference internal" href="Molecule.html#module-scoria.Molecule" title="scoria.Molecule"><code class="xref py py-class docutils literal"><span class="pre">scoria.Molecule</span></code></a> class.</p>
 <dl class="method">
-<dt id="pymolecule.Selections.Selections.get_molecule_from_selection">
-<code class="descname">get_molecule_from_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.get_molecule_from_selection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a pymolecule.Molecule from a user-defined atom selection.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_molecule_from_selection" title="pymolecule.Molecule.Molecule.get_molecule_from_selection"><code class="xref py py-meth docutils literal"><span class="pre">get_molecule_from_selection()</span></code></a>.</p>
+<dt id="scoria.Selections.Selections.get_molecule_from_selection">
+<code class="descname">get_molecule_from_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.get_molecule_from_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a scoria.Molecule from a user-defined atom selection.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_molecule_from_selection" title="scoria.Molecule.Molecule.get_molecule_from_selection"><code class="xref py py-meth docutils literal"><span class="pre">get_molecule_from_selection()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -78,7 +78,7 @@ reindex the atom resseq fields. Default is False.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A pymolecule.Molecule object containing the atoms of the
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A scoria.Molecule object containing the atoms of the
 user-defined selection.</p>
 </td>
 </tr>
@@ -87,12 +87,12 @@ user-defined selection.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Selections.Selections.invert_selection">
-<code class="descname">invert_selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.invert_selection" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Selections.Selections.invert_selection">
+<code class="descname">invert_selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.invert_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inverts a user-defined selection (i.e., identifies all atoms that
 are not in the seleciton).</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.invert_selection" title="pymolecule.Molecule.Molecule.invert_selection"><code class="xref py py-meth docutils literal"><span class="pre">invert_selection()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.invert_selection" title="scoria.Molecule.Molecule.invert_selection"><code class="xref py py-meth docutils literal"><span class="pre">invert_selection()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -108,28 +108,28 @@ in the user-defined seleciton.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Selections.Selections.select_all">
-<code class="descname">select_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Selects all the atoms in a pymolecule.Molecule object.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_all" title="pymolecule.Molecule.Molecule.select_all"><code class="xref py py-meth docutils literal"><span class="pre">select_all()</span></code></a>.</p>
+<dt id="scoria.Selections.Selections.select_all">
+<code class="descname">select_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects all the atoms in a scoria.Molecule object.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_all" title="scoria.Molecule.Molecule.select_all"><code class="xref py py-meth docutils literal"><span class="pre">select_all()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of all atoms in the
-pymolecule.Molecule object.</td>
+scoria.Molecule object.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Selections.Selections.select_all_atoms_bound_to_selection">
-<code class="descname">select_all_atoms_bound_to_selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_all_atoms_bound_to_selection" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Selections.Selections.select_all_atoms_bound_to_selection">
+<code class="descname">select_all_atoms_bound_to_selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_all_atoms_bound_to_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all the atoms that are bound to a user-specified selection.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function 
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection" title="pymolecule.Molecule.Molecule.select_all_atoms_bound_to_selection"><code class="xref py py-meth docutils literal"><span class="pre">select_all_atoms_bound_to_selection()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_all_atoms_bound_to_selection" title="scoria.Molecule.Molecule.select_all_atoms_bound_to_selection"><code class="xref py py-meth docutils literal"><span class="pre">select_all_atoms_bound_to_selection()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -147,10 +147,10 @@ original user-specified selection.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Selections.Selections.select_atoms">
-<code class="descname">select_atoms</code><span class="sig-paren">(</span><em>selection_criteria</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_atoms" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Selections.Selections.select_atoms">
+<code class="descname">select_atoms</code><span class="sig-paren">(</span><em>selection_criteria</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select a set of atoms based on user-specified criteria.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms" title="pymolecule.Molecule.Molecule.select_atoms"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_atoms" title="scoria.Molecule.Molecule.select_atoms"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -173,15 +173,15 @@ selection.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Selections.Selections.select_atoms_from_same_molecule">
-<code class="descname">select_atoms_from_same_molecule</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_atoms_from_same_molecule" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Selections.Selections.select_atoms_from_same_molecule">
+<code class="descname">select_atoms_from_same_molecule</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_atoms_from_same_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all the atoms that belong to the same molecule as a
-user-defined selection, assuming that the pymolecule.Molecule object
+user-defined selection, assuming that the scoria.Molecule object
 actually contains multiple physically distinct molecules that are not
 bound to each other via covalent bonds.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_from_same_molecule" title="pymolecule.Molecule.Molecule.select_atoms_from_same_molecule"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_from_same_molecule()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_atoms_from_same_molecule" title="scoria.Molecule.Molecule.select_atoms_from_same_molecule"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_from_same_molecule()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -198,12 +198,12 @@ selection.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Selections.Selections.select_atoms_in_bounding_box">
-<code class="descname">select_atoms_in_bounding_box</code><span class="sig-paren">(</span><em>bounding_box</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_atoms_in_bounding_box" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Selections.Selections.select_atoms_in_bounding_box">
+<code class="descname">select_atoms_in_bounding_box</code><span class="sig-paren">(</span><em>bounding_box</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_atoms_in_bounding_box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all the atoms that are within a bounding box.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.select_atoms_in_bounding_box" title="pymolecule.Molecule.Molecule.select_atoms_in_bounding_box"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_in_bounding_box()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_atoms_in_bounding_box" title="scoria.Molecule.Molecule.select_atoms_in_bounding_box"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_in_bounding_box()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -220,8 +220,8 @@ within the bounding box.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Selections.Selections.select_atoms_in_same_residue">
-<code class="descname">select_atoms_in_same_residue</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Selections.Selections.select_atoms_in_same_residue" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Selections.Selections.select_atoms_in_same_residue">
+<code class="descname">select_atoms_in_same_residue</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_atoms_in_same_residue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all atoms that are in the same residue as any of the atoms
 of a user-defined seleciton. Residues are considered unique if they
 have a unique combination of resname, resseq, and chainid fields.</p>

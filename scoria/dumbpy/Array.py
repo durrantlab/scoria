@@ -1,5 +1,5 @@
 """Note that this code is NOT a replacement for numpy. It imitates numpy just
-well enough to run some of the pymolecule functions that couldn't run
+well enough to run some of the scoria functions that couldn't run
 otherwise. Installing numpy/scipy is strongly recommended."""
 
 import copy

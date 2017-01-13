@@ -1,4 +1,4 @@
-import pymolecule
+import scoria
 import numpy as np
 
 class Contact():
@@ -11,7 +11,7 @@ class Contact():
         """
         Initializes the Contact object.
 
-        :param pymolecule.molecule molecule: A molecule from which to calculate
+        :param scoria.molecule molecule: A molecule from which to calculate
         contact points.
         """
 

@@ -1,7 +1,7 @@
-pymolecule.Manipulation module
+scoria.Manipulation module
 ==============================
 
-.. automodule:: pymolecule.Manipulation
+.. automodule:: scoria.Manipulation
     :members:
     :undoc-members:
     :show-inheritance:

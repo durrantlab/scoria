@@ -91,9 +91,9 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/pymolecule2.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/scoria.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/pymolecule2.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/scoria.qhc"
 
 .PHONY: applehelp
 applehelp:
@@ -110,8 +110,8 @@ devhelp:
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/pymolecule2"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/pymolecule2"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/scoria"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/scoria"
 	@echo "# devhelp"
 
 .PHONY: epub

@@ -1,12 +1,12 @@
 import itertools as it
-import pymolecule
+import scoria
 import numpy as np
 import Contact as con
 
 
 # Defining the input files
-PSF = "../pymolecule/sample_files/test_sim.psf"
-DCD = "../pymolecule/sample_files/test_sim.dcd"
+PSF = "../scoria/sample_files/test_sim.psf"
+DCD = "../scoria/sample_files/test_sim.dcd"
 
 # Defining the two subsections to compare by a list of resid identifiers.
 residA = range(1, 181)
@@ -19,7 +19,7 @@ Component_B_out = "./Component_B.pdb"
 
 # Load in a DCD/PSF trajectory and create a contact object within it.
 print "Loading Molecule...             ",
-MOL = pymolecule.Molecule()
+MOL = scoria.Molecule()
 MOL.load_via_MDAnalysis(PSF, DCD)
 contacts = con.Contact(MOL)
 print " done"

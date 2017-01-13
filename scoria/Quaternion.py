@@ -1,4 +1,4 @@
-from pymolecule import dumbpy as numpy
+from scoria import dumbpy as numpy
 
 class Quaternion:
     """
@@ -6,7 +6,7 @@ class Quaternion:
     """
 
     def __init__(self, s, x, y, z):
-        """Initializes the pymolecule.Quaternion class.
+        """Initializes the scoria.Quaternion class.
 
             Args:
                 s -- ????
@@ -141,7 +141,7 @@ class Quaternion:
         """
         Adds two quaternions.
 
-        :param pymolecule.Quaternion q2: A quaternion, to be added to self
+        :param scoria.Quaternion q2: A quaternion, to be added to self
 
         :returns: A Quaternion, with the values corresponding to self + q2
         """
@@ -163,7 +163,7 @@ class Quaternion:
         """
         Multiplies two quaternions.
 
-        :param pymolecule.Quaternion q2: A quaternion, to be subtracted from self
+        :param scoria.Quaternion q2: A quaternion, to be subtracted from self
 
         Returns:
             A Quaternion, with the values corresponding to self - q2
@@ -176,7 +176,7 @@ class Quaternion:
         """
         Multiplies two quaternions.
 
-        :param pymolecule.Quaternion q2: A quaternion, to be multiplied with self
+        :param scoria.Quaternion q2: A quaternion, to be multiplied with self
 
         :returns: A Quaternion, with the values corresponding to self * q2
         """

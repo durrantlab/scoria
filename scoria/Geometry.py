@@ -1,4 +1,4 @@
-from pymolecule import dumbpy as numpy
+from scoria import dumbpy as numpy
 
 class Geometry():
     """
@@ -8,9 +8,9 @@ class Geometry():
 
     def __init__(self, parent_molecule_object):
         """
-        Initializes the pymolecule.Geometry class.
+        Initializes the scoria.Geometry class.
 
-        :param pymolecule.Molecule parent_molecule_object: The pymolecule.Molecule object
+        :param scoria.Molecule parent_molecule_object: The scoria.Molecule object
                     associated with this class.
         """
 
@@ -21,7 +21,7 @@ class Geometry():
         Computes the angle (in radians) formed by three points (numpy.array
         objects).
             
-        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.get_angle_between_three_points`
+        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.get_angle_between_three_points`
         
         :param numpy.array pt1: A numpy.array (x, y, z) representing the first of the
                     three 3D points.
@@ -64,7 +64,7 @@ class Geometry():
         Calculates the dihedral angle formed by four points (numpy.array
         objects).
 
-        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.get_dihedral_angle`
+        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.get_dihedral_angle`
         
         :param numpy.array pt1: A numpy.array (x, y, z) representing the first 3D
                     point.
@@ -98,7 +98,7 @@ class Geometry():
         """
         Checks whether four points (numpy.array) lie in a common plane.
 
-        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.is_planar`
+        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.is_planar`
         
         :param numpy.array pt1: A numpy.array (x, y, z) representing a 3D point.
         :param numpy.array pt2: A numpy.array (x, y, z) representing a 3D point.
@@ -119,7 +119,7 @@ class Geometry():
         Determines how close four points (numpy.array objects) come to lying
         in a common plane.
 
-        Should be called via the wrapper function :meth:`~pymolecule.Molecule.Molecule.get_planarity_deviation`
+        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.get_planarity_deviation`
         
         :param numpy.array pt1: A numpy.array (x, y, z) representing a 3D point.
         :param numpy.array pt2: A numpy.array (x, y, z) representing a 3D point.

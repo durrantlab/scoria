@@ -1,7 +1,7 @@
-pymolecule.Information module
+scoria.Information module
 =============================
 
-.. automodule:: pymolecule.Information
+.. automodule:: scoria.Information
     :members:
     :undoc-members:
     :show-inheritance:

@@ -1,6 +1,6 @@
 #!/bin/bash
 
 conda config --add channels MDAnalysis
-conda create --name pymolecule numpy scipy mdanalysis
+conda create --name scoria numpy scipy mdanalysis
 
-source activate pymolecule
+source activate scoria

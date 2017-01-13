@@ -130,8 +130,8 @@ Linking
 Inter- and intra-document links can be made with the `:any:`,
 `:class:`, or `:func:` preface. This allows us to connect related
 segments of the documentation together. Connections can be made to
-classes, :class:`pymolecule.Molecule`, or to specific functions,
-:func:`~pymolecule.FileIO.FileIO.load_pdb_into`. They can also be used
+classes, :class:`scoria.Molecule`, or to specific functions,
+:func:`~scoria.FileIO.FileIO.load_pdb_into`. They can also be used
 to link to definitions outside the documentation base, such as linking
 to the :any:`scipy.spatial` module. Note: to link to outside
 documentation libraries, the url of the library must be added to the
@@ -143,8 +143,8 @@ Type      Preface      Example
 ========= ============ ==============================
 Unknown   `:any:`      :any:`int`
 Module    `:mod:`      :mod:`numpy`
-Class     `:class:`    :class:`pymolecule.Information`
-Function  `:func:`     :func:`pymolecule.Information.Information.get_trajectory`
-Function  `:func:` + ~ :func:`~pymolecule.Information.Information.get_trajectory`
+Class     `:class:`    :class:`scoria.Information`
+Function  `:func:`     :func:`scoria.Information.Information.get_trajectory`
+Function  `:func:` + ~ :func:`~scoria.Information.Information.get_trajectory`
 ========= ============ ==============================
 

@@ -1,4 +1,4 @@
-pymolecule2
+scoria
 ===========
 
 .. toctree::

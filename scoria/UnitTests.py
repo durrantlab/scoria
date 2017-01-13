@@ -1,7 +1,7 @@
 import unittest
 import os
 
-import pymolecule
+import scoria
 
 class InformationTests(unittest.TestCase):
     """
@@ -14,10 +14,10 @@ class InformationTests(unittest.TestCase):
         """
         Setting up the test molecule.
         """
-        if not os.path.exists("./pymolecule_tests_tmp"):
-            os.mkdir("./pymolecule_tests_tmp")
+        if not os.path.exists("./scoria_tests_tmp"):
+            os.mkdir("./scoria_tests_tmp")
 
-        self.mol = pymolecule.Molecule("PDB", "TEST.pdb")
+        self.mol = scoria.Molecule("PDB", "TEST.pdb")
 
     def tearDown(self):
         """

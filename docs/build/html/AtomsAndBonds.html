@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>2. The AtomsAndBonds Class &#8212; PyMolecule 2.0 documentation</title>
+    <title>2. The AtomsAndBonds Class &#8212; scoria 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" />
+    <link rel="top" title="scoria 2.0 documentation" href="index.html" />
     <link rel="next" title="3. The FileIO Class" href="FileIO.html" />
     <link rel="prev" title="1. The Molecule Class" href="Molecule.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="Molecule.html" title="1. The Molecule Class"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -62,23 +62,23 @@ bonds within the molecular framework.</p>
 <div class="section" id="other-classes">
 <h3>2.1.1. Other Classes<a class="headerlink" href="#other-classes" title="Permalink to this headline">¶</a></h3>
 <p>To make modifications to the coordinate set of all atoms, use the
-functions within the <a class="reference internal" href="Manipulation.html#module-pymolecule.Manipulation" title="pymolecule.Manipulation"><code class="xref py py-class docutils literal"><span class="pre">Manipulation</span></code></a> class. To look
+functions within the <a class="reference internal" href="Manipulation.html#module-scoria.Manipulation" title="scoria.Manipulation"><code class="xref py py-class docutils literal"><span class="pre">Manipulation</span></code></a> class. To look
 at groups of atoms with similar properties, use the functions within
-the <a class="reference internal" href="Selections.html#module-pymolecule.Selections" title="pymolecule.Selections"><code class="xref py py-class docutils literal"><span class="pre">Selections</span></code></a> class.</p>
+the <a class="reference internal" href="Selections.html#module-scoria.Selections" title="scoria.Selections"><code class="xref py py-class docutils literal"><span class="pre">Selections</span></code></a> class.</p>
 </div>
 </div>
-<div class="section" id="module-pymolecule.AtomsAndBonds">
-<span id="function-definitions"></span><h2>2.2. Function Definitions<a class="headerlink" href="#module-pymolecule.AtomsAndBonds" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-scoria.AtomsAndBonds">
+<span id="function-definitions"></span><h2>2.2. Function Definitions<a class="headerlink" href="#module-scoria.AtomsAndBonds" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="pymolecule.AtomsAndBonds.AtomsAndBonds">
-<em class="property">class </em><code class="descclassname">pymolecule.AtomsAndBonds.</code><code class="descname">AtomsAndBonds</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds">
+<em class="property">class </em><code class="descclassname">scoria.AtomsAndBonds.</code><code class="descname">AtomsAndBonds</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class for adding and deleting atoms and bonds. Subclass to the
-<a class="reference internal" href="Molecule.html#module-pymolecule.Molecule" title="pymolecule.Molecule"><code class="xref py py-class docutils literal"><span class="pre">pymolecule.Molecule</span></code></a> class.</p>
+<a class="reference internal" href="Molecule.html#module-scoria.Molecule" title="scoria.Molecule"><code class="xref py py-class docutils literal"><span class="pre">scoria.Molecule</span></code></a> class.</p>
 <dl class="method">
-<dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.add_atom">
-<code class="descname">add_atom</code><span class="sig-paren">(</span><em>record_name='ATOM'</em>, <em>serial=1</em>, <em>name='X'</em>, <em>resname='XXX'</em>, <em>chainid='X'</em>, <em>resseq=1</em>, <em>occupancy=0.0</em>, <em>tempfactor=0.0</em>, <em>charge=''</em>, <em>element='X'</em>, <em>coordinates=array([ 0.</em>, <em>0.</em>, <em>0.])</em>, <em>autoindex=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.add_atom" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.add_atom">
+<code class="descname">add_atom</code><span class="sig-paren">(</span><em>record_name='ATOM'</em>, <em>serial=1</em>, <em>name='X'</em>, <em>resname='XXX'</em>, <em>chainid='X'</em>, <em>resseq=1</em>, <em>occupancy=0.0</em>, <em>tempfactor=0.0</em>, <em>charge=''</em>, <em>element='X'</em>, <em>coordinates=array([ 0.</em>, <em>0.</em>, <em>0.])</em>, <em>autoindex=True</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.add_atom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an atom.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.add_atom" title="pymolecule.Molecule.Molecule.add_atom"><code class="xref py py-meth docutils literal"><span class="pre">add_atom()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.add_atom" title="scoria.Molecule.Molecule.add_atom"><code class="xref py py-meth docutils literal"><span class="pre">add_atom()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -115,10 +115,10 @@ the default.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.add_bond">
-<code class="descname">add_bond</code><span class="sig-paren">(</span><em>index1</em>, <em>index2</em>, <em>order=1</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.add_bond" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.add_bond">
+<code class="descname">add_bond</code><span class="sig-paren">(</span><em>index1</em>, <em>index2</em>, <em>order=1</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.add_bond" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a bond.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.add_bond" title="pymolecule.Molecule.Molecule.add_bond"><code class="xref py py-meth docutils literal"><span class="pre">add_bond()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.add_bond" title="scoria.Molecule.Molecule.add_bond"><code class="xref py py-meth docutils literal"><span class="pre">add_bond()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -137,13 +137,13 @@ pair.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance">
-<code class="descname">create_bonds_by_distance</code><span class="sig-paren">(</span><em>remove_old_bond_data=True</em>, <em>delete_excessive_bonds=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance">
+<code class="descname">create_bonds_by_distance</code><span class="sig-paren">(</span><em>remove_old_bond_data=True</em>, <em>delete_excessive_bonds=True</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines which atoms are bound to each other based on their
 proximity.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref any docutils literal"><span class="pre">scipy</span></code></a> libraries.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.create_bonds_by_distance" title="pymolecule.Molecule.Molecule.create_bonds_by_distance"><code class="xref py py-meth docutils literal"><span class="pre">create_bonds_by_distance()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.create_bonds_by_distance" title="scoria.Molecule.Molecule.create_bonds_by_distance"><code class="xref py py-meth docutils literal"><span class="pre">create_bonds_by_distance()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -162,10 +162,10 @@ to check for and delete excessive bonds. True by default.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.delete_atom">
-<code class="descname">delete_atom</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.delete_atom" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.delete_atom">
+<code class="descname">delete_atom</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.delete_atom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes an atom.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.delete_atom" title="pymolecule.Molecule.Molecule.delete_atom"><code class="xref py py-meth docutils literal"><span class="pre">delete_atom()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.delete_atom" title="scoria.Molecule.Molecule.delete_atom"><code class="xref py py-meth docutils literal"><span class="pre">delete_atom()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -177,10 +177,10 @@ to check for and delete excessive bonds. True by default.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.delete_bond">
-<code class="descname">delete_bond</code><span class="sig-paren">(</span><em>index1</em>, <em>index2</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.delete_bond" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.delete_bond">
+<code class="descname">delete_bond</code><span class="sig-paren">(</span><em>index1</em>, <em>index2</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.delete_bond" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes a bond.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.delete_bond" title="pymolecule.Molecule.Molecule.delete_bond"><code class="xref py py-meth docutils literal"><span class="pre">delete_bond()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.delete_bond" title="scoria.Molecule.Molecule.delete_bond"><code class="xref py py-meth docutils literal"><span class="pre">delete_bond()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -198,13 +198,13 @@ pair.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element">
-<code class="descname">get_index_of_first_bond_partner_of_element</code><span class="sig-paren">(</span><em>atom_index</em>, <em>the_element</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element">
+<code class="descname">get_index_of_first_bond_partner_of_element</code><span class="sig-paren">(</span><em>atom_index</em>, <em>the_element</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>For a given atom of interest, returns the index of the first
 neighbor of a specified element.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref py py-mod docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref py py-mod docutils literal"><span class="pre">scipy.spatial</span></code></a> libraries.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element" title="pymolecule.Molecule.Molecule.get_index_of_first_bond_partner_of_element"><code class="xref py py-meth docutils literal"><span class="pre">get_index_of_first_bond_partner_of_element()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_index_of_first_bond_partner_of_element" title="scoria.Molecule.Molecule.get_index_of_first_bond_partner_of_element"><code class="xref py py-meth docutils literal"><span class="pre">get_index_of_first_bond_partner_of_element()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -228,13 +228,13 @@ element. If no such neighbor exists, returns -1.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.AtomsAndBonds.AtomsAndBonds.get_number_of_bond_partners_of_element">
-<code class="descname">get_number_of_bond_partners_of_element</code><span class="sig-paren">(</span><em>atom_index</em>, <em>the_element</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.AtomsAndBonds.AtomsAndBonds.get_number_of_bond_partners_of_element" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.get_number_of_bond_partners_of_element">
+<code class="descname">get_number_of_bond_partners_of_element</code><span class="sig-paren">(</span><em>atom_index</em>, <em>the_element</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.get_number_of_bond_partners_of_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Counts the number of atoms of a given element bonded to a specified
 atom of interest.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element" title="pymolecule.Molecule.Molecule.get_number_of_bond_partners_of_element"><code class="xref py py-meth docutils literal"><span class="pre">get_number_of_bond_partners_of_element()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_number_of_bond_partners_of_element" title="scoria.Molecule.Molecule.get_number_of_bond_partners_of_element"><code class="xref py py-meth docutils literal"><span class="pre">get_number_of_bond_partners_of_element()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -275,7 +275,7 @@ element.</p>
 <li><a class="reference internal" href="#other-classes">2.1.1. Other Classes</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-pymolecule.AtomsAndBonds">2.2. Function Definitions</a></li>
+<li><a class="reference internal" href="#module-scoria.AtomsAndBonds">2.2. Function Definitions</a></li>
 </ul>
 </li>
 </ul>
@@ -322,7 +322,7 @@ element.</p>
         <li class="right" >
           <a href="Molecule.html" title="1. The Molecule Class"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
