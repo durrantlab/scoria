@@ -8,5 +8,6 @@ from OtherMolecules import OtherMolecules
 from Quaternion import Quaternion
 from Selections import Selections
 from Test import Test
+from unittests import UnitTests
 
 __version__ = "2.0"
