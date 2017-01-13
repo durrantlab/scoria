@@ -2,9 +2,6 @@ import unittest
 import os
 import sys
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-#print sys.path
-
 import numpy as np
 import scipy
 import scoria
