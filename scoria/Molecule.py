@@ -52,7 +52,7 @@ class Molecule: # here's the actual Molecule class
                     self.load_pdbqt_into(file)
                 elif file_type == 'PYM':
                     self.load_pym_into(file)
-                else: 
+                else:
                     self.load_via_MDAnalysis(file)
             else:
                 self.load_via_MDAnalysis(args)

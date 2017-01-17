@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4. scoria.Geometry module &#8212; scoria 2.0 documentation</title>
+    <title>4. The Geometry class &#8212; scoria 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -52,8 +52,21 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-scoria.Geometry">
-<span id="scoria-geometry-module"></span><h1>4. scoria.Geometry module<a class="headerlink" href="#module-scoria.Geometry" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="the-geometry-class">
+<h1>4. The Geometry class<a class="headerlink" href="#the-geometry-class" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rationale-of-the-geometry-functions">
+<h2>4.1. Rationale of the Geometry functions<a class="headerlink" href="#rationale-of-the-geometry-functions" title="Permalink to this headline">¶</a></h2>
+<p>The functions in the Geometry class calculate different advanced geometric
+features of the molecule, given certain points as input.</p>
+<div class="section" id="other-classes">
+<h3>4.1.1. Other Classes<a class="headerlink" href="#other-classes" title="Permalink to this headline">¶</a></h3>
+<p>The Geometry functions rely on the input of coordinate arrays which can be
+obtained from the <a class="reference internal" href="Information.html#scoria.Information.Information.get_coordinates" title="scoria.Information.Information.get_coordinates"><code class="xref py py-meth docutils literal"><span class="pre">get_coordinates()</span></code></a> functions. Note that these
+functions work whether the molecule contains these coordinates or not.</p>
+</div>
+</div>
+<div class="section" id="module-scoria.Geometry">
+<span id="function-definitions"></span><h2>4.2. Function Definitions<a class="headerlink" href="#module-scoria.Geometry" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="scoria.Geometry.Geometry">
 <em class="property">class </em><code class="descclassname">scoria.Geometry.</code><code class="descname">Geometry</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Geometry.Geometry" title="Permalink to this definition">¶</a></dt>
@@ -173,6 +186,7 @@ default is 0.2.</li>
 </dd></dl>
 
 </div>
+</div>
 
 
           </div>
@@ -180,6 +194,18 @@ default is 0.2.</li>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. The Geometry class</a><ul>
+<li><a class="reference internal" href="#rationale-of-the-geometry-functions">4.1. Rationale of the Geometry functions</a><ul>
+<li><a class="reference internal" href="#other-classes">4.1.1. Other Classes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-scoria.Geometry">4.2. Function Definitions</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="FileIO.html"
                         title="previous chapter">3. The FileIO Class</a></p>

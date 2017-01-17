@@ -4,7 +4,7 @@ The FileIO Class
 File Types and Formats
 ----------------------
 
-scoria can naitvely read and write PDB, PDBQT, and PYM files. It
+Scoria can naitvely read and write PDB, PDBQT, and PYM files. It
 can also read multiframe PDB and PDBQT files. It also has the ability
 to import information from :any:`MDAnalysis
 <MDAnalysis.core.AtomGroup>` objects.
