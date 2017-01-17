@@ -77,7 +77,7 @@ class AtomsAndBonds():
 
                 try: bond_dist = consts['bond_length_dict'][key]
                 except:
-                    print ("ERROR: Unknown bond distance between elements " +
+                    print("ERROR: Unknown bond distance between elements " +
                         atom_inf['element_stripped'][index1] + ' and ' +
                         atom_inf['element_stripped'][index2] +
                         '. Assuming ' + str(max_bond_length) + '.')
@@ -234,7 +234,7 @@ class AtomsAndBonds():
         try:
             bonds[index1][index2] = 0
             bonds[index2][index1] = 0
-        except: print ("Could not delete bond between " + str(index1) +
+        except: print("Could not delete bond between " + str(index1) +
                        " and " + str(index2) + ".")
 
     def add_bond(self, index1, index2, order = 1):

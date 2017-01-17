@@ -1,13 +1,12 @@
-from Information import Information
-from AtomsAndBonds import AtomsAndBonds
-from FileIO import FileIO
-from Geometry import Geometry
-from Manipulation import Manipulation
-from Molecule import Molecule
-from OtherMolecules import OtherMolecules
-from Quaternion import Quaternion
-from Selections import Selections
-from Test import Test
-from unittests.UnitTests import UnitTests
+from scoria.Information import Information
+from scoria.AtomsAndBonds import AtomsAndBonds
+from scoria.FileIO import FileIO
+from scoria.Geometry import Geometry
+from scoria.Manipulation import Manipulation
+from scoria.Molecule import Molecule
+from scoria.OtherMolecules import OtherMolecules
+from scoria.Quaternion import Quaternion
+from scoria.Selections import Selections
+from scoria.Test import Test
 
 __version__ = "2.0"

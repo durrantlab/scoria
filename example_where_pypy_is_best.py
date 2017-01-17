@@ -12,4 +12,4 @@ for t in range(500):
     mol.translate_molecule(numpy.array([1.0, 0.0, 0.0]))
     mol.save_pdb("test.pdb")
     
-print time.time() - t1
+print(time.time() - t1)

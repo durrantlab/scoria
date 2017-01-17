@@ -1,10 +1,16 @@
 from scoria import dumbpy as numpy
 import os
 import sys
-import cPickle as pickle
+
+try: import cPickle as pickle  # python2
+except: import pickle  # python3
+
 import shutil
 import tempfile
-import cStringIO as StringIO
+
+try: import cStringIO as StringIO  # python2
+except: from io import StringIO  # python3
+
 import scoria
 
 class FileIO():
@@ -406,14 +412,28 @@ class FileIO():
         # 'empty2', 'element', 'charge'], delimiter=[6, 5, 5, 4, 2, 4, 4, 8, 8,
         # 8, 6, 6, 10, 2, 2])
 
-        source_data = numpy.genfromtxt(
-            file_obj,
-            dtype = "S6,S5,S5,S5,S1,S4,S4,S8,S8,S8,S6,S6,S10,S2,S3",
-            names = ['record_name', 'serial', 'name', 'resname', 'chainid',
-                   'resseq', 'empty', 'x', 'y', 'z', 'occupancy',
-                   'tempfactor', 'empty2', 'element', 'charge'],
-            delimiter = [6, 5, 5, 5, 1, 4, 4, 8, 8, 8, 6, 6, 10, 2, 3]
-        )
+
+        if numpy.python_version == 2:
+            source_data = numpy.genfromtxt(
+                file_obj,
+                dtype = "S6,S5,S5,S5,S1,S4,S4,S8,S8,S8,S6,S6,S10,S2,S3",
+                names = ['record_name', 'serial', 'name', 'resname', 'chainid',
+                    'resseq', 'empty', 'x', 'y', 'z', 'occupancy',
+                    'tempfactor', 'empty2', 'element', 'charge'],
+                delimiter = [6, 5, 5, 5, 1, 4, 4, 8, 8, 8, 6, 6, 10, 2, 3]
+            )
+        elif numpy.python_version == 3:
+            data = []
+            for line in file_obj:
+                toappend = (line[:6], line[6:11], line[11:16], line[16:21], line[21:22], line[22:26], line[26:30], line[30:38], line[38:46], line[46:54], line[54:60], line[60:66], line[66:76], line[76:78], line[78:81])
+                #toappend = [s.decode("utf-8") for s in toappend]
+                data.append(toappend)
+
+        #s1 = ["|S6","|S5","|S5","|S5","|S1","|S4","|S4","|S8","|S8","|S8","|S6","|S6","|S10","|S2","|S3"]
+        s1 = ["|U6","|U5","|U5","|U5","|U1","|U4","|U4","|U8","|U8","|U8","|U6","|U6","|U10","|U2","|U3"]
+        names = ['record_name', 'serial', 'name', 'resname', 'chainid', 'resseq', 'empty', 'x', 'y', 'z', 'occupancy', 'tempfactor', 'empty2', 'element', 'charge']
+        dtype = [l for l in zip(names, s1)]
+        source_data = numpy.array(data, dtype=dtype)
 
         # get the remarks, if any. good to hold on to this because some of my
         # programs might retain info via remarks
@@ -728,10 +748,13 @@ class FileIO():
             atom_information = self.__parent_molecule.get_atom_information()
             coordinates = self.__parent_molecule.get_coordinates(frame)
 
+            if numpy.python_version == 2: dtype_to_use = '|S5'
+            else: dtype_to_use = '|U5'  # python3 needs this instead
+
             printout = numpy.defchararray_add(
                 atom_information['record_name'],
                 numpy.defchararray_rjust(
-                    atom_information['serial'].astype('|S5'), 5
+                    atom_information['serial'].astype(dtype_to_use), 5
                 )
             )
 
@@ -744,9 +767,12 @@ class FileIO():
             printout = numpy.defchararray_add(printout,
                                               atom_information['chainid'])
 
+            if numpy.python_version == 2: dtype_to_use = '|S4'
+            else: dtype_to_use = '|U4'  # python3 needs this instead
+
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
-                    atom_information['resseq'].astype('|S4'), 4
+                    atom_information['resseq'].astype(dtype_to_use), 4
                 )
             )
 
@@ -841,8 +867,8 @@ class FileIO():
                 return return_string
 
         else:
-            print ("ERROR: Cannot save a Molecule with no atoms " +
-                   "(file name \"" + filename + "\")")
+            print("ERROR: Cannot save a Molecule with no atoms " +
+                  "(file name \"" + filename + "\")")
 
     def _save_pdb_trajectory(self, filename = "", serial_reindex = True,
                  resseq_reindex = False, return_text = False):
