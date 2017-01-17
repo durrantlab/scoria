@@ -1,12 +1,12 @@
-from pymolecule.Information import Information
-from pymolecule.AtomsAndBonds import AtomsAndBonds
-from pymolecule.FileIO import FileIO
-from pymolecule.Geometry import Geometry
-from pymolecule.Manipulation import Manipulation
-from pymolecule.Molecule import Molecule
-from pymolecule.OtherMolecules import OtherMolecules
-from pymolecule.Quaternion import Quaternion
-from pymolecule.Selections import Selections
-from pymolecule.Test import Test
+from scoria.Information import Information
+from scoria.AtomsAndBonds import AtomsAndBonds
+from scoria.FileIO import FileIO
+from scoria.Geometry import Geometry
+from scoria.Manipulation import Manipulation
+from scoria.Molecule import Molecule
+from scoria.OtherMolecules import OtherMolecules
+from scoria.Quaternion import Quaternion
+from scoria.Selections import Selections
+from scoria.Test import Test
 
 __version__ = "2.0"

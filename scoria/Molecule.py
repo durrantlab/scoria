@@ -1196,9 +1196,9 @@ class Molecule: # here's the actual Molecule class
     def get_molecule_from_selection(self, selection, serial_reindex = True,
                                     resseq_reindex = False):
         """
-        Creates a pymolecule.Molecule from a user-defined atom selection.
+        Creates a scoria.Molecule from a user-defined atom selection.
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.get_molecule_from_selection`
+        Wrapper function for :meth:`~scoria.Selections.Selections.get_molecule_from_selection`
 
         :param numpy.array selection: A numpy.array containing the indices of the atoms
                     in the user-defined selection.
@@ -1207,7 +1207,7 @@ class Molecule: # here's the actual Molecule class
         :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the atom resseq fields. Default is False.
 
-        :returns: A pymolecule.Molecule object containing the atoms of the
+        :returns: A scoria.Molecule object containing the atoms of the
                     user-defined selection.
         """
 
@@ -1219,7 +1219,7 @@ class Molecule: # here's the actual Molecule class
         """
         Select a set of atoms based on user-specified criteria.
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_atoms`
+        Wrapper function for :meth:`~scoria.Selections.Selections.select_atoms`
 
         :param dict selection_criteria: A dictionary, where the keys correspond
                     to keys in the
@@ -1243,7 +1243,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_atoms_in_bounding_box`
+        Wrapper function for :meth:`~scoria.Selections.Selections.select_atoms_in_bounding_box`
     
         :param numpy.array bounding_box: A 2x3 numpy.array containing the minimum and
                     maximum points of the bounding box. Example:
@@ -1264,7 +1264,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_branch`
+        Wrapper function for :meth:`~scoria.Selections.Selections.select_branch`
 
         :param int root_atom_index: An int, the index of the first atom in the
                 branch (the "root").
@@ -1284,7 +1284,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_all_atoms_bound_to_selection`
+        Wrapper function for :meth:`~scoria.Selections.Selections.select_all_atoms_bound_to_selection`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-specified selection.
@@ -1300,13 +1300,13 @@ class Molecule: # here's the actual Molecule class
     def select_atoms_from_same_molecule(self, selection):
         """
         Selects all the atoms that belong to the same molecule as a
-        user-defined selection, assuming that the pymolecule.Molecule object
+        user-defined selection, assuming that the scoria.Molecule object
         actually contains multiple physically distinct molecules that are not
         bound to each other via covalent bonds.
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_atoms_from_same_molecule`
+        Wrapper function for :meth:`~scoria.Selections.Selections.select_atoms_from_same_molecule`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -1321,17 +1321,17 @@ class Molecule: # here's the actual Molecule class
     def selections_of_constituent_molecules(self):
         """
         Identifies the indices of atoms belonging to separate molecules,
-        assuming that the pymolecule.Molecule object actually contains multiple
+        assuming that the scoria.Molecule object actually contains multiple
         physically distinct molecules that are not bound to each other via
         covalent bonds.
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.selections_of_constituent_molecules`
+        Wrapper function for :meth:`~scoria.Selections.Selections.selections_of_constituent_molecules`
         
         :Returns: A python list of numpy.array objects containing the indices of
                     the atoms belonging to each molecule of the composite
-                    pymolecule.Molecule object.
+                    scoria.Molecule object.
         """
         
         return self.selections.selections_of_constituent_molecules()
@@ -1343,7 +1343,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_atoms_near_other_selection`
+        Wrapper function for :meth:`~scoria.Selections.Selections.select_atoms_near_other_selection`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -1364,7 +1364,7 @@ class Molecule: # here's the actual Molecule class
         of a user-defined seleciton. Residues are considered unique if they
         have a unique combination of resname, resseq, and chainid fields.
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_atoms_in_same_residue`
+        Wrapper function for :meth:`~scoria.Selections.Selections.select_atoms_in_same_residue`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -1380,7 +1380,7 @@ class Molecule: # here's the actual Molecule class
         Inverts a user-defined selection (i.e., identifies all atoms that
         are not in the seleciton).
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.invert_selection`
+        Wrapper function for :meth:`~scoria.Selections.Selections.invert_selection`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -1393,12 +1393,12 @@ class Molecule: # here's the actual Molecule class
 
     def select_all(self):
         """
-        Selects all the atoms in a pymolecule.Molecule object.
+        Selects all the atoms in a scoria.Molecule object.
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_all`
+        Wrapper function for :meth:`~scoria.Selections.Selections.select_all`
         
         :returns: A numpy.array containing the indices of all atoms in the
-                    pymolecule.Molecule object.
+                    scoria.Molecule object.
         """
         
         return self.selections.select_all()
@@ -1408,13 +1408,13 @@ class Molecule: # here's the actual Molecule class
                                                     terminate_early = False):
         """
         Effectively detects steric clashes between self and another
-        pymolecule.Molecule.
+        scoria.Molecule.
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.select_close_atoms_from_different_molecules`
+        Wrapper function for :meth:`~scoria.Selections.Selections.select_close_atoms_from_different_molecules`
         
-        :param pymolecule.Molecule other_mol: A pymolecule.Molecule object of the other
+        :param scoria.Molecule other_mol: A scoria.Molecule object of the other
                     molecule.
         :param float cutoff: A float, the user-defined distance cutoff in
                     Angstroms.
@@ -1428,7 +1428,7 @@ class Molecule: # here's the actual Molecule class
 
         :returns: A tuple containing two elements. The first is a numpy.array
                     containing the indices of all nearby atoms from this
-                    pymolecule.Molecule object (self). The second is a
+                    scoria.Molecule object (self). The second is a
                     numpy.array containing the indices of all nearby atoms from
                     the other molecule.
         """
@@ -1443,7 +1443,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.selections_of_chains`
+        Wrapper function for :meth:`~scoria.Selections.Selections.selections_of_chains`
         
         :returns: A dictionary. The keys of the dictionary correspond to the
                     chainids, and the values are numpy.array objects containing
@@ -1458,7 +1458,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.Selections.Selections.selections_of_residues`
+        Wrapper function for :meth:`~scoria.Selections.Selections.selections_of_residues`
         
         :returns: A dictionary. The keys of this dictionary correspond to the
                     unique resname-resseq-chainid residue identifiers, and the
@@ -1474,7 +1474,7 @@ class Molecule: # here's the actual Molecule class
         Translates the entire molecular model (without rotating) so that the
         atom with the specified index is located at the specified coordinate.
 
-        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.set_atom_location`
+        Wrapper function for :meth:`~scoria.Manipulation.Manipulation.set_atom_location`
         
         :param int atom_index: An int, the index of the target atom.
         :param numpy.array new_location: A numpy.array specifying the new (x, y, z)
@@ -1491,7 +1491,7 @@ class Molecule: # here's the actual Molecule class
         Resets the coordinates of all atoms to those saved using the
         set_coordinate_undo_point function.
         
-        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.coordinate_undo`
+        Wrapper function for :meth:`~scoria.Manipulation.Manipulation.coordinate_undo`
         """
         
         self.manipulation.coordinate_undo()
@@ -1501,7 +1501,7 @@ class Molecule: # here's the actual Molecule class
         Translate all the atoms of the molecular model by a specified
         vector.
 
-        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.translate_molecule`
+        Wrapper function for :meth:`~scoria.Manipulation.Manipulation.translate_molecule`
 
         :param numpy.array delta: A numpy.array (delta_x, delta_y, delta_z) specifying the
             amount to move each atom along the x, y, and z coordinates.
@@ -1515,7 +1515,7 @@ class Molecule: # here's the actual Molecule class
         Rotate the molecular model about a line segment. The end points of
         the line segment are explicitly specified coordinates.
 
-        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points`
+        Wrapper function for :meth:`~scoria.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points`
         
         :param numpy.array line_point1: A numpy.array (x, y, z) corresponding to one end
                     of the line segment.
@@ -1534,7 +1534,7 @@ class Molecule: # here's the actual Molecule class
         Rotate the molecular model about a line segment. The end points of
         the line segment are atoms of specified indices.
 
-        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms`
+        Wrapper function for :meth:`~scoria.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms`
 
         :param int line_point1_index: An int, the index of the first atom at one
                     end of the line segment.
@@ -1554,7 +1554,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_point`
+        Wrapper function for :meth:`~scoria.Manipulation.Manipulation.rotate_molecule_around_pivot_point`
         
         :param numpy.array pivot: A numpy.array, the (x, y, z) coordinate about which
                     the molecular model will be rotated.
@@ -1577,7 +1577,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.Manipulation.Manipulation.rotate_molecule_around_pivot_atom`
+        Wrapper function for :meth:`~scoria.Manipulation.Manipulation.rotate_molecule_around_pivot_atom`
         
         :param int pivot_index: An int, the index of the atom about which the
                     molecular model will be rotated.
@@ -1599,7 +1599,7 @@ class Molecule: # here's the actual Molecule class
         Computes the angle (in radians) formed by three points (numpy.array
         objects).
             
-        Wrapper function for :meth:`~pymolecule.Geometry.Geometry.get_angle_between_three_points`
+        Wrapper function for :meth:`~scoria.Geometry.Geometry.get_angle_between_three_points`
         
         :param numpy.array pt1: A numpy.array (x, y, z) representing the first of the
                     three 3D points.
@@ -1619,7 +1619,7 @@ class Molecule: # here's the actual Molecule class
         Calculates the dihedral angle formed by four points (numpy.array
         objects).
 
-        Wrapper function for :meth:`~pymolecule.Geometry.Geometry.get_dihedral_angle`
+        Wrapper function for :meth:`~scoria.Geometry.Geometry.get_dihedral_angle`
         
         :param numpy.array pt1: A numpy.array (x, y, z) representing the first 3D
                     point.
@@ -1641,7 +1641,7 @@ class Molecule: # here's the actual Molecule class
         Determines how close four points (numpy.array objects) come to lying
         in a common plane.
 
-        Wrapper function for :meth:`~pymolecule.Geometry.Geometry.get_planarity_deviation`
+        Wrapper function for :meth:`~scoria.Geometry.Geometry.get_planarity_deviation`
         
         :param numpy.array pt1: A numpy.array (x, y, z) representing a 3D point.
         :param numpy.array pt2: A numpy.array (x, y, z) representing a 3D point.
@@ -1658,7 +1658,7 @@ class Molecule: # here's the actual Molecule class
         """
         Checks whether four points (numpy.array) lie in a common plane.
 
-        Wrapper function for :meth:`~pymolecule.Geometry.Geometry.is_planar`
+        Wrapper function for :meth:`~scoria.Geometry.Geometry.is_planar`
         
         :param numpy.array pt1: A numpy.array (x, y, z) representing a 3D point.
         :param numpy.array pt2: A numpy.array (x, y, z) representing a 3D point.
@@ -1676,14 +1676,14 @@ class Molecule: # here's the actual Molecule class
     # Other molecule class
     def get_other_molecules_aligned_to_this(self, other_mol, tethers):
         """
-        Aligns a molecule to self (this pymolecule.Molecule object) using a
+        Aligns a molecule to self (this scoria.Molecule object) using a
         quaternion RMSD alignment.
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_other_molecules_aligned_to_this`
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.get_other_molecules_aligned_to_this`
                 
-        :param pymolecule.Molecule other_mol: A pymolecule.Molecule that is to be aligned to
+        :param scoria.Molecule other_mol: A scoria.Molecule that is to be aligned to
                     this one.
         :param tuple tethers: A tuple of two numpy.array objects, where each array
                     contains the indices of self and other_mol, respectively,
@@ -1708,9 +1708,9 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_distance_to_another_molecules`
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.get_distance_to_another_molecules`
         
-        :param pymolecule.Molecule other_molecules: a pymolecule.Molecule, the other molecular
+        :param scoria.Molecule other_molecules: a scoria.Molecule, the other molecular
                     model.
         :param bool pairwise_comparison: An optional boolean, whether or not to
                     perform a simple pairwise distance comparison (if True) or
@@ -1727,12 +1727,12 @@ class Molecule: # here's the actual Molecule class
 
     def get_rmsd_equivalent_atoms_specified(self, other_mol, tethers):
         """
-        Calculates the RMSD between this pymolecule.Molecle object and
+        Calculates the RMSD between this scoria.Molecle object and
         another, where equivalent atoms are explicitly specified.
 
-        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_rmsd_equivalent_atoms_specified`
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.get_rmsd_equivalent_atoms_specified`
         
-        :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
+        :param scoria.Molecule other_mol: The other scoria.Molecule object.
         :param tuple tethers: A tuple of two numpy.array objects, where each array
                     contains the indices of self and other_mol, respectively,
                     such that equivalent atoms are listed in the same order.
@@ -1752,9 +1752,9 @@ class Molecule: # here's the actual Molecule class
         Calculates the RMSD between two structures, where equivalent atoms
         are listed in the same order.
 
-        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_rmsd_order_dependent`
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.get_rmsd_order_dependent`
         
-        :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
+        :param scoria.Molecule other_mol: The other scoria.Molecule object.
 
         :returns: A float, the RMSD between self and other_mol.
         """
@@ -1772,9 +1772,9 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.get_rmsd_heuristic`
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.get_rmsd_heuristic`
         
-        :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
+        :param scoria.Molecule other_mol: The other scoria.Molecule object.
             
         :returns: A float, the RMSD between self and other_mol.
         """
@@ -1784,14 +1784,14 @@ class Molecule: # here's the actual Molecule class
     def steric_clash_with_another_molecules(self, other_mol, cutoff,
                                            pairwise_comparison = True):
         """
-        Detects steric clashes between the pymolecule.Molecule (self) and
-        another pymolecule.Molecule.
+        Detects steric clashes between the scoria.Molecule (self) and
+        another scoria.Molecule.
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.steric_clash_with_another_molecules`
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.steric_clash_with_another_molecules`
         
-        :param pymolecule.Molecule other_mol: The pymolecule.Molecule object that will be
+        :param scoria.Molecule other_mol: The scoria.Molecule object that will be
                     evaluated for steric clashes.
         :param float cutoff: A float, the user-defined distance cutoff in
                     Angstroms.
@@ -1812,12 +1812,12 @@ class Molecule: # here's the actual Molecule class
         """
         Merges two molecular models into a single model.
 
-        Wrapper function for :meth:`~pymolecule.OtherMolecules.OtherMolecules.merge_with_another_molecules`
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.merge_with_another_molecules`
         
-        :param pymolecule.Molecule other_molecules: A molecular model (pymolecule.Molecule
+        :param scoria.Molecule other_molecules: A molecular model (scoria.Molecule
                     object).
 
-        :returns: A single pymolecule.Molecule object containing the atoms of
+        :returns: A single scoria.Molecule object containing the atoms of
                     this model combined with the atoms of other_molecules.
         """     
         
@@ -1865,11 +1865,11 @@ class Molecule: # here's the actual Molecule class
 
     def copy(self):
         """
-        Returns an exact copy (pymolecule.Molecule) of this Molecule object.
+        Returns an exact copy (scoria.Molecule) of this Molecule object.
         Undo points are NOT copied.
 
-        :returns: A pymolecule.Molecule, containing to the same atomic
-                    information as this pymolecule.Molecule object.
+        :returns: A scoria.Molecule, containing to the same atomic
+                    information as this scoria.Molecule object.
         """
 
 #        new_molecule = Molecule()
