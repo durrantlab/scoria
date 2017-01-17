@@ -429,11 +429,11 @@ class FileIO():
                 #toappend = [s.decode("utf-8") for s in toappend]
                 data.append(toappend)
 
-        #s1 = ["|S6","|S5","|S5","|S5","|S1","|S4","|S4","|S8","|S8","|S8","|S6","|S6","|S10","|S2","|S3"]
-        s1 = ["|U6","|U5","|U5","|U5","|U1","|U4","|U4","|U8","|U8","|U8","|U6","|U6","|U10","|U2","|U3"]
-        names = ['record_name', 'serial', 'name', 'resname', 'chainid', 'resseq', 'empty', 'x', 'y', 'z', 'occupancy', 'tempfactor', 'empty2', 'element', 'charge']
-        dtype = [l for l in zip(names, s1)]
-        source_data = numpy.array(data, dtype=dtype)
+            #s1 = ["|S6","|S5","|S5","|S5","|S1","|S4","|S4","|S8","|S8","|S8","|S6","|S6","|S10","|S2","|S3"]
+            s1 = ["|U6","|U5","|U5","|U5","|U1","|U4","|U4","|U8","|U8","|U8","|U6","|U6","|U10","|U2","|U3"]
+            names = ['record_name', 'serial', 'name', 'resname', 'chainid', 'resseq', 'empty', 'x', 'y', 'z', 'occupancy', 'tempfactor', 'empty2', 'element', 'charge']
+            dtype = [l for l in zip(names, s1)]
+            source_data = numpy.array(data, dtype=dtype)
 
         # get the remarks, if any. good to hold on to this because some of my
         # programs might retain info via remarks
