@@ -999,7 +999,7 @@ class Molecule: # here's the actual Molecule class
                     reindex the pdb resseq field. False by default.
         """
 
-        return self.fileiod.load_pdb_trajectory_into(filename, bonds_by_distance,
+        return self.fileio.load_pdb_trajectory_into(filename, bonds_by_distance,
                                         serial_reindex, resseq_reindex)
                                 
     def load_pdb_trajectory_into_using_file_object(self, file_obj,
