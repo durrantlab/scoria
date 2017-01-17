@@ -422,6 +422,8 @@ class FileIO():
 
         # print type(file_obj.read())
 
+        *******
+
         source_data = numpy.genfromtxt(
             file_obj,
             dtype = "S6,S5,S5,S5,S1,S4,S4,S8,S8,S8,S6,S6,S10,S2,S3",
@@ -432,6 +434,9 @@ class FileIO():
                    'tempfactor', 'empty2', 'element', 'charge'],
             delimiter = [6, 5, 5, 5, 1, 4, 4, 8, 8, 8, 6, 6, 10, 2, 3]
         )
+
+        print source_data
+        sdf
 
         # get the remarks, if any. good to hold on to this because some of my
         # programs might retain info via remarks
@@ -584,6 +589,18 @@ class FileIO():
         if resseq_reindex == True:
             self.__parent_molecule.resseq_reindex()
 
+    def genfromtxt_python3_replacement(fileobj):
+        data = []
+        for line in f:
+            data.append((line[:6], line[6:11], line[11:16], line[16:21], line[21:22], line[22:26], line[26:30], line[30:38], line[38:46], line[46:54], line[54:60], line[60:66], line[66:76], line[76:78], line[78:81]))
+
+        s1 = ["|S6","|S5","|S5","|S5","|S1","|S4","|S4","|S8","|S8","|S8","|S6","|S6","|S10","|S2","|S3"]
+        names = ['record_name', 'serial', 'name', 'resname', 'chainid', 'resseq', 'empty', 'x', 'y', 'z', 'occupancy', 'tempfactor', 'empty2', 'element', 'charge']
+        dtype = [l for l in zip(names, s1)]
+
+        n = numpy.array(data, dtype=dtype)
+        return n
+    
     def save_pym(self, filename, save_bonds = False, save_filename = False,
                  save_remarks = False, save_hierarchy = False,
                  save_coordinates_undo_point = False):
