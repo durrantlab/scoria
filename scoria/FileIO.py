@@ -406,6 +406,8 @@ class FileIO():
         # 'empty2', 'element', 'charge'], delimiter=[6, 5, 5, 4, 2, 4, 4, 8, 8,
         # 8, 6, 6, 10, 2, 2])
 
+
+
         source_data = numpy.genfromtxt(
             file_obj,
             dtype = "S6,S5,S5,S5,S1,S4,S4,S8,S8,S8,S6,S6,S10,S2,S3",
@@ -841,8 +843,8 @@ class FileIO():
                 return return_string
 
         else:
-            print ("ERROR: Cannot save a Molecule with no atoms " +
-                   "(file name \"" + filename + "\")")
+            print("ERROR: Cannot save a Molecule with no atoms " +
+                  "(file name \"" + filename + "\")")
 
     def _save_pdb_trajectory(self, filename = "", serial_reindex = True,
                  resseq_reindex = False, return_text = False):
