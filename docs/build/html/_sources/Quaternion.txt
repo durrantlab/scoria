@@ -1,7 +1,7 @@
-pymolecule.Quaternion module
+scoria.Quaternion module
 ============================
 
-.. automodule:: pymolecule.Quaternion
+.. automodule:: scoria.Quaternion
     :members:
     :undoc-members:
     :show-inheritance:

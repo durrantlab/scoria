@@ -4,7 +4,7 @@ The FileIO Class
 File Types and Formats
 ----------------------
 
-Pymolecule can naitvely read and write PDB, PDBQT, and PYM files. It
+scoria can naitvely read and write PDB, PDBQT, and PYM files. It
 can also read multiframe PDB and PDBQT files. It also has the ability
 to import information from :any:`MDAnalysis
 <MDAnalysis.core.AtomGroup>` objects.
@@ -12,7 +12,7 @@ to import information from :any:`MDAnalysis
 Function Definitions
 --------------------
 
-.. automodule:: pymolecule.FileIO
+.. automodule:: scoria.FileIO
     :members:
     :undoc-members:
     :show-inheritance:

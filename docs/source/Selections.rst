@@ -1,7 +1,7 @@
-pymolecule.Selections module
+scoria.Selections module
 ============================
 
-.. automodule:: pymolecule.Selections
+.. automodule:: scoria.Selections
     :members:
     :undoc-members:
     :show-inheritance:

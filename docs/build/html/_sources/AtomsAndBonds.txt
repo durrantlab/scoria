@@ -13,14 +13,14 @@ Other Classes
 ^^^^^^^^^^^^^
 
 To make modifications to the coordinate set of all atoms, use the
-functions within the :class:`~pymolecule.Manipulation` class. To look
+functions within the :class:`~scoria.Manipulation` class. To look
 at groups of atoms with similar properties, use the functions within
-the :class:`~pymolecule.Selections` class. 
+the :class:`~scoria.Selections` class. 
 
 Function Definitions
 --------------------
 
-.. automodule:: pymolecule.AtomsAndBonds
+.. automodule:: scoria.AtomsAndBonds
     :members:
     :undoc-members:
     :show-inheritance:

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>5. pymolecule.Information module &#8212; PyMolecule 2.0 documentation</title>
+    <title>5. scoria.Information module &#8212; scoria 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="PyMolecule 2.0 documentation" href="index.html" />
-    <link rel="next" title="6. pymolecule.Manipulation module" href="Manipulation.html" />
-    <link rel="prev" title="4. pymolecule.Geometry module" href="Geometry.html" /> 
+    <link rel="top" title="scoria 2.0 documentation" href="index.html" />
+    <link rel="next" title="6. scoria.Manipulation module" href="Manipulation.html" />
+    <link rel="prev" title="4. scoria.Geometry module" href="Geometry.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -38,12 +38,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Manipulation.html" title="6. pymolecule.Manipulation module"
+          <a href="Manipulation.html" title="6. scoria.Manipulation module"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="Geometry.html" title="4. pymolecule.Geometry module"
+          <a href="Geometry.html" title="4. scoria.Geometry module"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -52,28 +52,28 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-pymolecule.Information">
-<span id="pymolecule-information-module"></span><h1>5. pymolecule.Information module<a class="headerlink" href="#module-pymolecule.Information" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-scoria.Information">
+<span id="scoria-information-module"></span><h1>5. scoria.Information module<a class="headerlink" href="#module-scoria.Information" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="pymolecule.Information.Information">
-<em class="property">class </em><code class="descclassname">pymolecule.Information.</code><code class="descname">Information</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Information.Information">
+<em class="property">class </em><code class="descclassname">scoria.Information.</code><code class="descname">Information</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class for storing and accessing information about the elements of a
-pymolecule.Molecule object.</p>
+scoria.Molecule object.</p>
 <dl class="method">
-<dt id="pymolecule.Information.Information.assign_elements_from_atom_names">
-<code class="descname">assign_elements_from_atom_names</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.assign_elements_from_atom_names" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Information.Information.assign_elements_from_atom_names">
+<code class="descname">assign_elements_from_atom_names</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information.assign_elements_from_atom_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines the elements of all atoms from the atom names. Note that
 this will overwrite any existing element assignments, including those
 explicitly specified in loaded files. Note that this doesn&#8217;t populate
 elements_stripped.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.assign_elements_from_atom_names" title="pymolecule.Molecule.Molecule.assign_elements_from_atom_names"><code class="xref py py-meth docutils literal"><span class="pre">assign_elements_from_atom_names()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.assign_elements_from_atom_names" title="scoria.Molecule.Molecule.assign_elements_from_atom_names"><code class="xref py py-meth docutils literal"><span class="pre">assign_elements_from_atom_names()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; An optional numpy.array containing the indices of
 the atoms to consider when calculating the center of mass.
-If ommitted, all atoms of the pymolecule.Molecule object
+If ommitted, all atoms of the scoria.Molecule object
 will be considered.</td>
 </tr>
 </tbody>
@@ -81,20 +81,20 @@ will be considered.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Information.Information.assign_masses">
-<code class="descname">assign_masses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.assign_masses" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assigns masses to the atoms of the pymolecule.Molecule object.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.assign_masses" title="pymolecule.Molecule.Molecule.assign_masses"><code class="xref py py-meth docutils literal"><span class="pre">assign_masses()</span></code></a></p>
+<dt id="scoria.Information.Information.assign_masses">
+<code class="descname">assign_masses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information.assign_masses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns masses to the atoms of the scoria.Molecule object.</p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.assign_masses" title="scoria.Molecule.Molecule.assign_masses"><code class="xref py py-meth docutils literal"><span class="pre">assign_masses()</span></code></a></p>
 <p><strong>Note</strong>:
 This will autopopulate the masses according to their element 
 identification and takes no input.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Information.Information.belongs_to_dna">
-<code class="descname">belongs_to_dna</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.belongs_to_dna" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Information.Information.belongs_to_dna">
+<code class="descname">belongs_to_dna</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information.belongs_to_dna" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if the atom is part of DNA.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.belongs_to_dna" title="pymolecule.Molecule.Molecule.belongs_to_dna"><code class="xref py py-meth docutils literal"><span class="pre">belongs_to_dna()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.belongs_to_dna" title="scoria.Molecule.Molecule.belongs_to_dna"><code class="xref py py-meth docutils literal"><span class="pre">belongs_to_dna()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -108,11 +108,11 @@ identification and takes no input.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Information.Information.belongs_to_protein">
-<code class="descname">belongs_to_protein</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.belongs_to_protein" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Information.Information.belongs_to_protein">
+<code class="descname">belongs_to_protein</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information.belongs_to_protein" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if the atom is part of a protein. Taken primarily from Amber
 residue names.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.belongs_to_protein" title="pymolecule.Molecule.Molecule.belongs_to_protein"><code class="xref py py-meth docutils literal"><span class="pre">belongs_to_protein()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.belongs_to_protein" title="scoria.Molecule.Molecule.belongs_to_protein"><code class="xref py py-meth docutils literal"><span class="pre">belongs_to_protein()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -126,10 +126,10 @@ residue names.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Information.Information.belongs_to_rna">
-<code class="descname">belongs_to_rna</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.belongs_to_rna" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Information.Information.belongs_to_rna">
+<code class="descname">belongs_to_rna</code><span class="sig-paren">(</span><em>atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information.belongs_to_rna" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if the atom is part of RNA.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.belongs_to_rna" title="pymolecule.Molecule.Molecule.belongs_to_rna"><code class="xref py py-meth docutils literal"><span class="pre">belongs_to_rna()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.belongs_to_rna" title="scoria.Molecule.Molecule.belongs_to_rna"><code class="xref py py-meth docutils literal"><span class="pre">belongs_to_rna()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -143,21 +143,21 @@ residue names.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Information.Information.define_molecule_chain_residue_spherical_boundaries">
-<code class="descname">define_molecule_chain_residue_spherical_boundaries</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.define_molecule_chain_residue_spherical_boundaries" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Information.Information.define_molecule_chain_residue_spherical_boundaries">
+<code class="descname">define_molecule_chain_residue_spherical_boundaries</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information.define_molecule_chain_residue_spherical_boundaries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies spheres that bound (encompass) the entire molecule, the
 chains, and the residues. This information is stored in
-pymolecule.Molecule.Molecule.hierarchy.</p>
+scoria.Molecule.Molecule.hierarchy.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref any docutils literal"><span class="pre">scipy</span></code></a> libraries.</p>
 <p>Wrapper function for 
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries" title="pymolecule.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries"><code class="xref py py-meth docutils literal"><span class="pre">define_molecule_chain_residue_spherical_boundaries()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries" title="scoria.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries"><code class="xref py py-meth docutils literal"><span class="pre">define_molecule_chain_residue_spherical_boundaries()</span></code></a></p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Information.Information.delete_trajectory_frame">
-<code class="descname">delete_trajectory_frame</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.delete_trajectory_frame" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Information.Information.delete_trajectory_frame">
+<code class="descname">delete_trajectory_frame</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information.delete_trajectory_frame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a given frame from the trajectory.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.delete_trajectory_frame" title="pymolecule.Molecule.Molecule.delete_trajectory_frame"><code class="xref py py-meth docutils literal"><span class="pre">delete_trajectory_frame()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.delete_trajectory_frame" title="scoria.Molecule.Molecule.delete_trajectory_frame"><code class="xref py py-meth docutils literal"><span class="pre">delete_trajectory_frame()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -169,10 +169,10 @@ pymolecule.Molecule.Molecule.hierarchy.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Information.Information.get_atom_information">
-<code class="descname">get_atom_information</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_atom_information" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Information.Information.get_atom_information">
+<code class="descname">get_atom_information</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information.get_atom_information" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retreives the atomic information for the molecule.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_atom_information" title="pymolecule.Molecule.Molecule.get_atom_information"><code class="xref py py-meth docutils literal"><span class="pre">get_atom_information()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_atom_information" title="scoria.Molecule.Molecule.get_atom_information"><code class="xref py py-meth docutils literal"><span class="pre">get_atom_information()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -280,10 +280,10 @@ pymolecule.Molecule.Molecule.hierarchy.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Information.Information.get_bonds">
-<code class="descname">get_bonds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_bonds" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Information.Information.get_bonds">
+<code class="descname">get_bonds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information.get_bonds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retreives the bonds beteween atoms as a n x n matrix.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_bonds" title="pymolecule.Molecule.Molecule.get_bonds"><code class="xref py py-meth docutils literal"><span class="pre">get_bonds()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_bonds" title="scoria.Molecule.Molecule.get_bonds"><code class="xref py py-meth docutils literal"><span class="pre">get_bonds()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -307,10 +307,10 @@ pymolecule.Molecule.Molecule.hierarchy.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Information.Information.get_bounding_box">
-<code class="descname">get_bounding_box</code><span class="sig-paren">(</span><em>selection=None</em>, <em>padding=0.0</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_bounding_box" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Information.Information.get_bounding_box">
+<code class="descname">get_bounding_box</code><span class="sig-paren">(</span><em>selection=None</em>, <em>padding=0.0</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information.get_bounding_box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates a box that bounds (encompasses) a set of atoms.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_bounding_box" title="pymolecule.Molecule.Molecule.get_bounding_box"><code class="xref py py-meth docutils literal"><span class="pre">get_bounding_box()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_bounding_box" title="scoria.Molecule.Molecule.get_bounding_box"><code class="xref py py-meth docutils literal"><span class="pre">get_bounding_box()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -318,7 +318,7 @@ pymolecule.Molecule.Molecule.hierarchy.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; An optional numpy.array containing the indices of
 the atoms to consider. If ommitted, all atoms of the
-pymolecule.Molecule object will be considered.</li>
+scoria.Molecule object will be considered.</li>
 <li><strong>padding</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; An optional float. The bounding box will extend this
 many angstroms beyond the atoms being considered.</li>
 <li><strong>frame</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An integer indicating at which timestep the center of
@@ -339,11 +339,11 @@ and (max_x, max_y, max_z), that bound the molecule.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Information.Information.get_bounding_sphere">
-<code class="descname">get_bounding_sphere</code><span class="sig-paren">(</span><em>selection=None</em>, <em>padding=0.0</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_bounding_sphere" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Information.Information.get_bounding_sphere">
+<code class="descname">get_bounding_sphere</code><span class="sig-paren">(</span><em>selection=None</em>, <em>padding=0.0</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information.get_bounding_sphere" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates a sphere that bounds (encompasses) a set of atoms.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.18.1)"><code class="xref any docutils literal"><span class="pre">scipy</span></code></a> libraries.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_bounding_sphere" title="pymolecule.Molecule.Molecule.get_bounding_sphere"><code class="xref py py-meth docutils literal"><span class="pre">get_bounding_sphere()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_bounding_sphere" title="scoria.Molecule.Molecule.get_bounding_sphere"><code class="xref py py-meth docutils literal"><span class="pre">get_bounding_sphere()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -351,7 +351,7 @@ and (max_x, max_y, max_z), that bound the molecule.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>selection</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.11)"><em>numpy.array</em></a>) &#8211; An optional numpy.array containing the indices of
 the atoms to consider. If ommitted, all atoms of the
-pymolecule.Molecule object will be considered.</li>
+scoria.Molecule object will be considered.</li>
 <li><strong>padding</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; An optional float. The bounding sphere will extend
 this many angstroms beyond the atoms being considered.</li>
 <li><strong>frame</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An integer indicating at which timestep the center of
@@ -373,8 +373,8 @@ sphere. The second is a float, the radius of the sphere.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Information.Information.get_center_of_mass">
-<code class="descname">get_center_of_mass</code><span class="sig-paren">(</span><em>selection=None</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_center_of_mass" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.Information.Information.get_center_of_mass">
+<code class="descname">get_center_of_mass</code><span class="sig-paren">(</span><em>selection=None</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information.get_center_of_mass" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines the center of mass.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_center_of_mass" title="pymolecule.Molecule.Molecule.get_center_of_mass"><code class="xref py py-meth docutils literal"><span class="pre">get_center_of_mass()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -735,10 +735,10 @@ pymolecule.Molecule object will be considered.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Information.Information.get_trajectory">
-<code class="descname">get_trajectory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_trajectory" title="Permalink to this definition">¶</a></dt>
+<dt id="pymolecule.Information.Information.get_trajectory_coordinates">
+<code class="descname">get_trajectory_coordinates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.get_trajectory_coordinates" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the trajectory for the molecule.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_trajectory" title="pymolecule.Molecule.Molecule.get_trajectory"><code class="xref py py-meth docutils literal"><span class="pre">get_trajectory()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.get_trajectory_coordinates" title="pymolecule.Molecule.Molecule.get_trajectory_coordinates"><code class="xref py py-meth docutils literal"><span class="pre">get_trajectory_coordinates()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -754,7 +754,7 @@ pymolecule.Molecule object will be considered.</td>
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_trajectory</span><span class="p">():</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_trajectory_coordinates</span><span class="p">():</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span> <span class="n">coord</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span>
 <span class="go">[[ -30.85199928  -81.45800018  365.05499268]</span>
@@ -954,10 +954,10 @@ DEPRECIATED?</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.Information.Information.set_trajectory">
-<code class="descname">set_trajectory</code><span class="sig-paren">(</span><em>trajectory</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.set_trajectory" title="Permalink to this definition">¶</a></dt>
+<dt id="pymolecule.Information.Information.set_trajectory_coordinates">
+<code class="descname">set_trajectory_coordinates</code><span class="sig-paren">(</span><em>trajectory</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.Information.Information.set_trajectory_coordinates" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the __trajectory variable.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.set_trajectory" title="pymolecule.Molecule.Molecule.set_trajectory"><code class="xref py py-meth docutils literal"><span class="pre">set_trajectory()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.set_trajectory_coordinates" title="pymolecule.Molecule.Molecule.set_trajectory_coordinates"><code class="xref py py-meth docutils literal"><span class="pre">set_trajectory_coordinates()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

@@ -1,9 +1,9 @@
-"""pymolecule is free software: you can redistribute it and/or modify
+"""scoria is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by the
     Free Software Foundation, either version 3 of the License, or (at your
     option) any later version.
 
-    pymolecule is distributed in the hope that it will be useful, but WITHOUT
+    scoria is distributed in the hope that it will be useful, but WITHOUT
     ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
     FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
     more details.
@@ -15,10 +15,10 @@
     suggestions, please don't hesitate to contact me at jdurrant [at] ucsd
     [dot] edu.
 
-    The latest version of pymolecule can be downloaded from
+    The latest version of scoria can be downloaded from
     http://sourceforge.net/projects/autoclickchem/
 
-    If you use pymolecule in your work, please cite [REFERENCE HERE]"""
+    If you use scoria in your work, please cite [REFERENCE HERE]"""
 
 import os
 import itertools

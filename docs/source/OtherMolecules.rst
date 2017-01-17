@@ -1,7 +1,7 @@
-pymolecule.OtherMolecules module
+scoria.OtherMolecules module
 ================================
 
-.. automodule:: pymolecule.OtherMolecules
+.. automodule:: scoria.OtherMolecules
     :members:
     :undoc-members:
     :show-inheritance:

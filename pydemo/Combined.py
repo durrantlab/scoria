@@ -1,12 +1,12 @@
-import pymolecule
+import scoria
 import numpy as np
 
 # Load in a DCD/PSF trajectory.
 print("Loading Molecule...")
-mol = pymolecule.Molecule()
+mol = scoria.Molecule()
 mol.load_via_MDAnalysis(
-    "../pymolecule/sample_files/test_sim.psf", 
-    "../pymolecule/sample_files/test_sim.dcd"
+    "../scoria/sample_files/test_sim.psf", 
+    "../scoria/sample_files/test_sim.dcd"
 )
 
 # Create two new trajectories, corresponding to the shroom2

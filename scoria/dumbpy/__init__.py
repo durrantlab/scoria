@@ -177,11 +177,11 @@ def class_dependency(action, dependency):
 
     if not dependency in dependencies_available:
         t = textwrap.TextWrapper(width = 60, subsequent_indent="       ")
-        print()
-        print("\n".join(t.wrap("Error: Cannot " + action +
+        print
+        print "\n".join(t.wrap("Error: Cannot " + action +
                                ". Install this recommended dependency: " +
-                               dependency)))
-        print()
+                               dependency))
+        print
         if missing_dependency_throws_error:
             raise ImportError("The " + dependency + " module is not available.")
             return False

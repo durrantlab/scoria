@@ -1,12 +1,12 @@
-import pymolecule
-from pymolecule import dumbpy as numpy
+import scoria
+from scoria import dumbpy as numpy
 import time
 
 t1 = time.time()
 
 
-mol = pymolecule.Molecule()
-mol.load_pdb_into("pymolecule/sample_files/single_frame.pdb", False, False, False, False)
+mol = scoria.Molecule()
+mol.load_pdb_into("scoria/sample_files/single_frame.pdb", False, False, False, False)
 
 for t in range(500):
     mol.translate_molecule(numpy.array([1.0, 0.0, 0.0]))

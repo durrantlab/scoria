@@ -1,18 +1,18 @@
-from pymolecule import dumbpy as numpy
-from pymolecule.Quaternion import Quaternion
+from scoria import dumbpy as numpy
+from Quaternion import Quaternion
 
 
 class OtherMolecules():
     """
     A class for characterizing the relationships between multiple
-    pymolecule.Molecule objects.
+    scoria.Molecule objects.
     """
 
     def __init__(self, parent_molecule_object):
         """
-        Initializes the pymolecule.OtherMolecules class.
+        Initializes the scoria.OtherMolecules class.
 
-        :param pymolecule.Molecule parent_molecule_object: The pymolecule.Molecule object
+        :param scoria.Molecule parent_molecule_object: The scoria.Molecule object
                 associated with this class.
         """
 
@@ -21,14 +21,14 @@ class OtherMolecules():
     def get_other_molecules_aligned_to_this(self, other_mol, tethers,
                                            weight_mat = None):
         """
-        Aligns a molecule to self (this pymolecule.Molecule object) using a
+        Aligns a molecule to self (this scoria.Molecule object) using a
         quaternion RMSD alignment.
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_other_molecules_aligned_to_this`
+        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_other_molecules_aligned_to_this`
                 
-        :param pymolecule.Molecule other_mol: A pymolecule.Molecule that is to be aligned to
+        :param scoria.Molecule other_mol: A scoria.Molecule that is to be aligned to
                     this one.
         :param tuple tethers: A tuple of two numpy.array objects, where each array
                     contains the indices of self and other_mol, respectively,
@@ -141,14 +141,14 @@ class OtherMolecules():
     def steric_clash_with_another_molecules(self, other_mol, cutoff,
                                            pairwise_comparison = True):
         """
-        Detects steric clashes between the pymolecule.Molecule (self) and
-        another pymolecule.Molecule.
+        Detects steric clashes between the scoria.Molecule (self) and
+        another scoria.Molecule.
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.steric_clash_with_another_molecules`
+        Wrapper function for :meth:`~scoria.Molecule.Molecule.steric_clash_with_another_molecules`
 
-        :param pymolecule.Molecule other_mol: The pymolecule.Molecule object that will be
+        :param scoria.Molecule other_mol: The scoria.Molecule object that will be
                     evaluated for steric clashes.
         :param float cutoff: A float, the user-defined distance cutoff in
                     Angstroms.
@@ -191,12 +191,12 @@ class OtherMolecules():
         """
         Merges two molecular models into a single model.
 
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.merge_with_another_molecules`
+        Wrapper function for :meth:`~scoria.Molecule.Molecule.merge_with_another_molecules`
         
-        :param pymolecule.Molecule other_molecules: A molecular model (pymolecule.Molecule
+        :param scoria.Molecule other_molecules: A molecular model (scoria.Molecule
                     object).
 
-        :returns: A single pymolecule.Molecule object containing the atoms of
+        :returns: A single scoria.Molecule object containing the atoms of
                     this model combined with the atoms of other_molecules.
         """
 
@@ -266,9 +266,9 @@ class OtherMolecules():
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_distance_to_another_molecules`
+        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_distance_to_another_molecules`
 
-        :param pymolecule.Molecule other_molecules: a pymolecule.Molecule, the other molecular
+        :param scoria.Molecule other_molecules: a scoria.Molecule, the other molecular
                     model.
         :param bool pairwise_comparison: An optional boolean, whether or not to
                     perform a simple pairwise distance comparison (if True) or
@@ -327,12 +327,12 @@ class OtherMolecules():
 
     def get_rmsd_equivalent_atoms_specified(self, other_mol, tethers):
         """
-        Calculates the RMSD between this pymolecule.Molecle object and
+        Calculates the RMSD between this scoria.Molecle object and
         another, where equivalent atoms are explicitly specified.
 
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_rmsd_equivalent_atoms_specified`
+        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_rmsd_equivalent_atoms_specified`
         
-        :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
+        :param scoria.Molecule other_mol: The other scoria.Molecule object.
         :param tuple tethers: A tuple of two numpy.array objects, where each array
                     contains the indices of self and other_mol, respectively,
                     such that equivalent atoms are listed in the same order.
@@ -347,10 +347,10 @@ class OtherMolecules():
         if (len(slf_gt_crs) !=
             len(other_mol.get_coordinates())):
 
-            print("Cannot calculate RMSD: number of atoms are not equal.")
-            print("\t" + (str(len(slf_gt_crs)) +
+            print "Cannot calculate RMSD: number of atoms are not equal."
+            print "\t" + (str(len(slf_gt_crs)) +
                           " vs. " + str(len(other_mol.get_coordinates())) +
-                          " atoms."))
+                          " atoms.")
             return 99999999.0
 
         self_coors_in_order = slf_gt_crs[tethers[0]]
@@ -366,9 +366,9 @@ class OtherMolecules():
         Calculates the RMSD between two structures, where equivalent atoms
         are listed in the same order.
 
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_rmsd_order_dependent`
+        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_rmsd_order_dependent`
         
-        :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
+        :param scoria.Molecule other_mol: The other scoria.Molecule object.
 
         :returns: A float, the RMSD between self and other_mol.
         """
@@ -397,9 +397,9 @@ class OtherMolecules():
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~pymolecule.Molecule.Molecule.get_rmsd_heuristic`
+        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_rmsd_heuristic`
 
-        :param pymolecule.Molecule other_mol: The other pymolecule.Molecule object.
+        :param scoria.Molecule other_mol: The other scoria.Molecule object.
 
         :returns: A float, the RMSD between self and other_mol.
         """
