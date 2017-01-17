@@ -325,12 +325,12 @@ reindex the pdb resseq field. False by default.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.FileIO.FileIO.load_pym_into">
-<code class="descname">load_pym_into</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_pym_into" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.FileIO.FileIO.load_pym_into">
+<code class="descname">load_pym_into</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO.load_pym_into" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the molecular data contained in a pym file into the current
-pymolecule.Molecule object.</p>
-<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_pym_into" title="pymolecule.Molecule.Molecule.load_pym_into"><code class="xref py py-meth docutils literal"><span class="pre">load_pym_into()</span></code></a></p>
+scoria.Molecule object.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.load_pym_into" title="scoria.Molecule.Molecule.load_pym_into"><code class="xref py py-meth docutils literal"><span class="pre">load_pym_into()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -342,12 +342,12 @@ pymolecule.Molecule object.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.FileIO.FileIO.load_via_MDAnalysis">
-<code class="descname">load_via_MDAnalysis</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.load_via_MDAnalysis" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria.FileIO.FileIO.load_via_MDAnalysis">
+<code class="descname">load_via_MDAnalysis</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO.load_via_MDAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Allows import of molecular structure with MDAnalysis.</p>
 <p>Requires the <a class="reference external" href="https://pythonhosted.org/MDAnalysis/documentation_pages/core/AtomGroup.html#module-MDAnalysis.core.AtomGroup" title="(in MDAnalysis v0.15)"><code class="xref any docutils literal"><span class="pre">MDAnalysis</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.load_via_MDAnalysis" title="pymolecule.Molecule.Molecule.load_via_MDAnalysis"><code class="xref py py-meth docutils literal"><span class="pre">load_via_MDAnalysis()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.load_via_MDAnalysis" title="scoria.Molecule.Molecule.load_via_MDAnalysis"><code class="xref py py-meth docutils literal"><span class="pre">load_via_MDAnalysis()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -360,11 +360,11 @@ inizalize a MDAnalysis.Universe object.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.FileIO.FileIO.save_pdb">
-<code class="descname">save_pdb</code><span class="sig-paren">(</span><em>filename=''</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>return_text=False</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.save_pdb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Saves the molecular data contained in a pymolecule.Molecule object
+<dt id="scoria.FileIO.FileIO.save_pdb">
+<code class="descname">save_pdb</code><span class="sig-paren">(</span><em>filename=''</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>return_text=False</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO.save_pdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the molecular data contained in a scoria.Molecule object
 to a pdb file.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.save_pdb" title="pymolecule.Molecule.Molecule.save_pdb"><code class="xref py py-meth docutils literal"><span class="pre">save_pdb()</span></code></a></p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.save_pdb" title="scoria.Molecule.Molecule.save_pdb"><code class="xref py py-meth docutils literal"><span class="pre">save_pdb()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -397,13 +397,13 @@ returns nothing.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pymolecule.FileIO.FileIO.save_pym">
-<code class="descname">save_pym</code><span class="sig-paren">(</span><em>filename</em>, <em>save_bonds=False</em>, <em>save_filename=False</em>, <em>save_remarks=False</em>, <em>save_hierarchy=False</em>, <em>save_coordinates_undo_point=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pymolecule.FileIO.FileIO.save_pym" title="Permalink to this definition">¶</a></dt>
-<dd><p>Saves the molecular data contained in a pymolecule.Molecule object
+<dt id="scoria.FileIO.FileIO.save_pym">
+<code class="descname">save_pym</code><span class="sig-paren">(</span><em>filename</em>, <em>save_bonds=False</em>, <em>save_filename=False</em>, <em>save_remarks=False</em>, <em>save_hierarchy=False</em>, <em>save_coordinates_undo_point=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO.save_pym" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the molecular data contained in a scoria.Molecule object
 to a pym file.</p>
-<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function 
-<a class="reference internal" href="Molecule.html#pymolecule.Molecule.Molecule.save_pym" title="pymolecule.Molecule.Molecule.save_pym"><code class="xref py py-meth docutils literal"><span class="pre">save_pym()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.save_pym" title="scoria.Molecule.Molecule.save_pym"><code class="xref py py-meth docutils literal"><span class="pre">save_pym()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -445,7 +445,7 @@ default.</li>
   <ul>
 <li><a class="reference internal" href="#">3. The FileIO Class</a><ul>
 <li><a class="reference internal" href="#file-types-and-formats">3.1. File Types and Formats</a></li>
-<li><a class="reference internal" href="#module-pymolecule.FileIO">3.2. Function Definitions</a></li>
+<li><a class="reference internal" href="#module-scoria.FileIO">3.2. Function Definitions</a></li>
 </ul>
 </li>
 </ul>
@@ -455,7 +455,7 @@ default.</li>
                         title="previous chapter">2. The AtomsAndBonds Class</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="Geometry.html"
-                        title="next chapter">4. pymolecule.Geometry module</a></p>
+                        title="next chapter">4. scoria.Geometry module</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -487,12 +487,12 @@ default.</li>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Geometry.html" title="4. pymolecule.Geometry module"
+          <a href="Geometry.html" title="4. scoria.Geometry module"
              >next</a> |</li>
         <li class="right" >
           <a href="AtomsAndBonds.html" title="2. The AtomsAndBonds Class"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">PyMolecule 2.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
