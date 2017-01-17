@@ -17,8 +17,11 @@ if '__pypy__' in sys.builtin_module_names:
     # It's pypy, so don't load numpy
     force_dumbpy = True
 if len(sys.argv) > 1 and sys.argv[1].upper() == "NODEPENS":
-    # The command-line parameter indicates you shouldn't use dpeendnecies
+    # The command-line parameter indicates you shouldn't use dependencies
     force_dumbpy = True
+
+# Python3 requires soe minor tweaks
+python_version = sys.version_info[0]
 
 try:
     # Try to load traditional numpy

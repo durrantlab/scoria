@@ -1,11 +1,11 @@
 from scoria import dumbpy as numpy
-from FileIO import FileIO
-from AtomsAndBonds import AtomsAndBonds
-from Selections import Selections
-from Manipulation import Manipulation
-from Information import Information
-from OtherMolecules import OtherMolecules
-from Geometry import Geometry
+from scoria.FileIO import FileIO
+from scoria.AtomsAndBonds import AtomsAndBonds
+from scoria.Selections import Selections
+from scoria.Manipulation import Manipulation
+from scoria.Information import Information
+from scoria.OtherMolecules import OtherMolecules
+from scoria.Geometry import Geometry
 import copy
 
 
@@ -179,7 +179,7 @@ class Molecule: # here's the actual Molecule class
         return self.information.get_remarks()
 
     def get_atom_information(self):
-    	"""
+        """
         Retreives the atomic information for the molecule.
 
         Wrapper function for :meth:`~scoria.Information.Information.get_atom_information`

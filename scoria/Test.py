@@ -1,5 +1,8 @@
-from Molecule import Molecule
-import cStringIO as StringIO
+from scoria.Molecule import Molecule
+
+try: import cStringIO as StringIO  # python2
+except: from io import StringIO  # python3
+
 import os
 from scoria import dumbpy as numpy
 import inspect
@@ -261,7 +264,7 @@ class Test:
                 )
             ))
 
-        print("    select_branch()"  # Get a side chain.)
+        print("    select_branch()")  # Get a side chain.
         if numpy.class_dependency("test select_branch()", "NUMPY"):        
             if numpy.class_dependency("test select_branch()", "SCIPY"):        
                 print("        Atoms in selection: " + str(len(self.mol.select_branch(1, 4))))

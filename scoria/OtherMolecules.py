@@ -1,5 +1,5 @@
 from scoria import dumbpy as numpy
-from Quaternion import Quaternion
+from scoria.Quaternion import Quaternion
 
 
 class OtherMolecules():
