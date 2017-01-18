@@ -13,6 +13,7 @@ setup(
     description="A lightweight molecule manipulation codebase.",
     install_requires=["numpy","scipy","mdanalysis"],
     packages=find_packages(),
+    package_data={'scoria':['sample_files/*.pdb']},
     classifiers=[
         "Development Status :: 4 - Beta",
         "Natural Language :: English",
