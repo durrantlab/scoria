@@ -22,8 +22,6 @@ scoria is a lightweight molecular dynamics library
    Quaternion.rst
    Selections.rst
 
-   REST_tutorial.rst
-
 Indices and tables
 ==================
 
