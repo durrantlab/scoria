@@ -214,7 +214,7 @@ class Molecule: # here's the actual Molecule class
         An example for printing the elemental symbols of the first five atoms::
 
             >>> atom_info = mol.get_atom_information()
-            >>> print(atom_info['element_stripped'][0:5])
+            >>> print(atom_info['element'][0:5])
             ['N' 'C' 'C' 'O' 'C']
         """
 
@@ -808,7 +808,7 @@ class Molecule: # here's the actual Molecule class
         Loads the molecular data contained in a pdbqt file into the current
         scoria.Molecule object. Note that this implementation is
         incomplete. It doesn't save atomic charges, for example. The atom
-        types are stored in the "element" and "element_stripped" columns.
+        types are stored in the "element_padded" and "element" columns.
 
         Wrapper function for :meth:`~scoria.FileIO.FileIO.load_pdbqt_into`
 

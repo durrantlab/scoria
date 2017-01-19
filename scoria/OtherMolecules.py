@@ -416,7 +416,7 @@ class OtherMolecules():
         other_atom_grps = {}
 
         for i, atm in enumerate(atom_inf):
-            element_stripped = atm["element_stripped"]
+            element_stripped = atm["element"]
             if not element_stripped in self_atom_grps.keys():
                 self_atom_grps[element_stripped] = []
                 other_atom_grps[element_stripped] = []

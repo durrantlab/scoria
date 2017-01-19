@@ -274,11 +274,11 @@ class InformationTests(unittest.TestCase):
         """
         atom_inf = self.mol.get_atom_information()
         other = self.mol.get_atom_information()
-        atom_inf['element'] = []
-        
+        atom_inf['element_padded'] = []
+
         self.mol.assign_elements_from_atom_names()
-        
-        
+        self.mol.get_atom_information()['element_padded']
+
         # Assertion here, post assignment
 
     @unittest.skip("Needs test written")
@@ -316,7 +316,3 @@ class InformationTests(unittest.TestCase):
         # Assertion here, pre assignment
         self.mol.define_molecule_chain_residue_spherical_boundaries()
         # Assertion here, post assignment
-
-
-if __name__ == '__main__':
-    unittest.main()
