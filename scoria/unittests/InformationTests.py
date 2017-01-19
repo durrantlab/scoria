@@ -1,6 +1,7 @@
 import unittest
 import os
 import sys
+import copy
 
 import numpy as np
 import scipy
@@ -123,7 +124,7 @@ class InformationTests(unittest.TestCase):
         self.assertAlmostEqual(total_mass, expected_mass, self.accuracy)
 
     # Depreciated? And needs skip for dependencies
-    @unittest.skip("Deprecated Function?")
+    @unittest.skip("hierarchy related method")
     def test_get_heirarchy(self):
         """
         Tests that the hierarchy can be set.
@@ -188,7 +189,7 @@ class InformationTests(unittest.TestCase):
         # Assertation here
 
     # Depreciated? And needs skip for dependencies
-    @unittest.skip("Needs test written")
+    @unittest.skip("hierarchy related method")
     def test_set_heirarchy(self):
         """
         Tests that the hierarchy can be set.
@@ -219,14 +220,13 @@ class InformationTests(unittest.TestCase):
 
     # Similar to the bounding box tests, we need to check that all
     # parameters work properly.
-    @unittest.skip("Needs test written")
     def test_get_bounding_sphere(self):
         """
         Tests that the bounding sphere can be calculated.
         """
         mda_sphere = self.mdaU.atoms.bsphere()
         bounding_sphere = self.mol.get_bounding_sphere(None, 0.0, 0)
-        
+
         self.assertAlmostEqual(bounding_sphere[0][0], mda_sphere[1][0], self.accuracy)
         self.assertAlmostEqual(bounding_sphere[0][1], mda_sphere[1][1], self.accuracy)
         self.assertAlmostEqual(bounding_sphere[0][2], mda_sphere[1][2], self.accuracy)
@@ -236,7 +236,7 @@ class InformationTests(unittest.TestCase):
     @unittest.skip("Needs test written")
     def test_get_constants(self):
         """
-        Tests that the constants returned are as expected
+        Tests that the constants returned are as expected. How do we want to test this?
         """
         constants = self.mol.get_constants()
         # Assertation here
@@ -267,48 +267,94 @@ class InformationTests(unittest.TestCase):
         self.assertFalse(self.mol.belongs_to_rna(1))
         self.assertFalse(self.mol.belongs_to_rna(2))
 
-    @unittest.skip("Needs test written")
     def test_assign_elements_from_atom_names(self):
         """
         Tests the assignment of elements from the atom names.
         """
         atom_inf = self.mol.get_atom_information()
-        other = self.mol.get_atom_information()
-        atom_inf['element_padded'] = []
+        other = copy.deepcopy(self.mol.get_atom_information())
+
+        atoms = self.mol.get_total_number_of_atoms()
+
+        atom_inf['element'] = [' ' * 12]
+        atom_inf['element_padded'] = [' ' * 12]
+        self.mol.set_atom_information(atom_inf)
+
+        for i in xrange(atoms):
+            self.assertNotEqual(self.mol.get_atom_information()['element'][i],
+                                other['element'][i])
+            self.assertNotEqual(self.mol.get_atom_information()['element_padded'][i],
+                                other['element_padded'][i])
 
         self.mol.assign_elements_from_atom_names()
-        self.mol.get_atom_information()['element_padded']
 
-        # Assertion here, post assignment
+        for i in xrange(atoms):
+            self.assertEqual(self.mol.get_atom_information()['element'][i],
+                             other['element'][i])
+            self.assertEqual(self.mol.get_atom_information()['element_padded'][i],
+                             other['element_padded'][i])
 
-    @unittest.skip("Needs test written")
+
     def test_assign_masses(self):
         """
         Tests the assignment of masses.
         """
-        # Assertion here, pre assignment
-        self.mol.assign_masses()
-        # Assertion here, post assignment
+        atom_inf = self.mol.get_atom_information()
+        masses = self.mol.get_constants()['mass_dict']
 
-    @unittest.skip("Needs test written")
+        atoms = self.mol.get_total_number_of_atoms()
+
+        self.mol.set_atom_information(atom_inf)
+
+        with self.assertRaises(ValueError):
+            self.mol.get_atom_information()['mass']
+
+        self.mol.assign_masses()
+
+        for i in xrange(atoms):
+            element = self.mol.get_atom_information()['element'][i]
+            self.assertEqual(self.mol.get_atom_information()['mass'][i],
+                             masses[element])
+
     def test_serial_reindex(self):
         """
         Tests the reindexing of the serial field.
         """
-        # Assertion here, pre assignment
+        self.mol.delete_atom(4)
+        atom_inf = self.mol.get_atom_information()
+        atoms = self.mol.get_total_number_of_atoms()
+
+        other = range(1, atoms+1)
+
+        self.assertNotEqual(list(self.mol.get_atom_information()['serial']), other)
+
         self.mol.serial_reindex()
+
+        for i in xrange(atoms):
+            self.assertEqual(self.mol.get_atom_information()['serial'][i],
+                             other[i])
+
         # Assertion here, post assignment
 
-    @unittest.skip("Needs test written")
     def test_resseq_reindex(self):
         """
         Tests the reindexing of the resseq field.
         """
-        # Assertion here, pre assignment
-        self.mol.resseq_reindex()
-        # Assertion here, post assignment
+        self.mol.delete_atom(4)
+        atom_inf = self.mol.get_atom_information()
+        atoms = self.mol.get_total_number_of_atoms()
 
-    @unittest.skip("Needs test written")
+        other = [1, 2] + [3] * 10
+
+        self.assertNotEqual(list(self.mol.get_atom_information()['resseq']), other)
+
+        self.mol.resseq_reindex()
+
+        for i in xrange(atoms):
+            self.assertEqual(self.mol.get_atom_information()['resseq'][i],
+                             other[i])
+
+    @unittest.skip("hierarchy related method")
     def test_define_molecule_chain_residue_spherical_boundaries(self):
         """
         Tests the reindexing of the serial field.

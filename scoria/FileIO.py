@@ -928,7 +928,7 @@ class FileIO():
                 out.close()
                 return
 
-    def load_via_MDAnalysis(self, *args):
+    def load_MDAnalysis_into(self, *args):
         """
         Allows import of molecular structure with MDAnalysis.
 
@@ -952,7 +952,7 @@ class FileIO():
 
         #self.set_filename(*args)
 
-    def load_MDAnalysis_into(self, universe):
+    def load_MDAnalysis_into_using_universe_object(self, universe):
         """
         Allows import of molecular structure from an MDAnalysis object.
 

@@ -7,7 +7,7 @@ import scipy
 import scoria
 
 
-class FileIOTests(unittest.TestCase):
+class OtherMoleculeTests(unittest.TestCase):
     """
     Base Test Suite
     """
@@ -32,94 +32,52 @@ class FileIOTests(unittest.TestCase):
         # Remove all files from the tmp folder?
 
     ### Tests
+
     @unittest.skip("Needs test written")
-    def test_load_pym_into(self):
+    def test_get_other_molecules_aligned_to_this(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdbqt_trajectory_into(self):
+    def test_steric_clash_with_another_molecules(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdbqt_trajectory_into_using_file_object(self):
+    def test_merge_with_another_molecules(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdbqt_into(self):
+    def test_get_distance_to_another_molecules(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdbqt_into_using_file_object(self):
+    def test_get_rmsd_equivalent_atoms_specified(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdb_trajectory_into(self):
+    def test_get_rmsd_order_dependent(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdb_trajectory_into_using_file_object(self):
+    def test_get_rmsd_heuristic(self):
         """
         Empty test.
         """
         pass
-
-    @unittest.skip("Needs test written")
-    def test_load_pdb_into(self):
-        """
-        Empty test.
-        """
-        pass
-
-    @unittest.skip("Needs test written")
-    def test_load_pdb_into_using_file_object(self):
-        """
-        Empty test.
-        """
-        pass
-
-    @unittest.skip("Needs test written")
-    def test_save_pym(self):
-        """
-        Empty test.
-        """
-        pass
-
-    @unittest.skip("Needs test written")
-    def test_save_pdb(self):
-        """
-        Empty test.
-        """
-        pass
-
-    @unittest.skip("Needs test written")
-    def test_load_MDAnalysis_into(self):
-        """
-        Empty test.
-        """
-        pass
-
-    @unittest.skip("Needs test written")
-    def test_load_MDAnalysis_into_using_universe_object(self):
-        """
-        Empty test.
-        """
-        pass
-        

@@ -7,7 +7,7 @@ import scipy
 import scoria
 
 
-class FileIOTests(unittest.TestCase):
+class SelectionsTests(unittest.TestCase):
     """
     Base Test Suite
     """
@@ -32,94 +32,101 @@ class FileIOTests(unittest.TestCase):
         # Remove all files from the tmp folder?
 
     ### Tests
+
     @unittest.skip("Needs test written")
-    def test_load_pym_into(self):
+    def test_select_atoms(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdbqt_trajectory_into(self):
+    def test_select_atoms_in_bounding_box(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdbqt_trajectory_into_using_file_object(self):
+    def test_select_all_atoms_bound_to_selection(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdbqt_into(self):
+    def test_select_branch(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdbqt_into_using_file_object(self):
+    def test_select_atoms_from_same_molecule(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdb_trajectory_into(self):
+    def test_selections_of_constituent_molecules(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdb_trajectory_into_using_file_object(self):
+    def test_select_atoms_near_other_selection(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdb_into(self):
+    def test_select_atoms_in_same_residue(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_pdb_into_using_file_object(self):
+    def test_invert_selection(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_save_pym(self):
+    def test_select_all(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_save_pdb(self):
+    def test_select_close_atoms_from_different_molecules(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_MDAnalysis_into(self):
+    def test_get_molecule_from_selection(self):
         """
         Empty test.
         """
         pass
 
     @unittest.skip("Needs test written")
-    def test_load_MDAnalysis_into_using_universe_object(self):
+    def test_selections_of_chains(self):
         """
         Empty test.
         """
         pass
-        
+
+    @unittest.skip("Needs test written")
+    def test_selections_of_residues(self):
+        """
+        Empty test.
+        """
+        pass
