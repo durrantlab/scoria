@@ -82,9 +82,13 @@ class ManipulationTests(unittest.TestCase):
         two = np.array([1.0, 0.0, 0.0])
         radians = np.radians(180.0)
 
+        original = self.mol.get_coordinates()[0]
+
         self.mol.rotate_molecule_around_a_line_between_points(one, two, radians)
 
-        
+        new = self.mol.get_coordinates()[0]
+
+        self.assertEqual(1.0, 1.0)
 
     @unittest.skip("Needs test written")
     def test_rotate_molecule_around_a_line_between_atoms(self):
