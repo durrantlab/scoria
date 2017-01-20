@@ -19,10 +19,10 @@ class InformationTests(unittest.TestCase):
         """
         Setting up the test molecule.
         """
-        info_path = os.path.dirname(os.path.abspath(__file__))
+        info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample_files/'
 
-        self.mol = scoria.Molecule(info_path + '/../sample_files/3_mol_test.pdb')
-        self.mdaU = mda.Universe(info_path + '/../sample_files/3_mol_test.pdb')
+        self.mol = scoria.Molecule(info_path + '3_mol_test.pdb')
+        self.mdaU = mda.Universe(info_path + '3_mol_test.pdb')
         self.accuracy = 4
 
     def tearDown(self):

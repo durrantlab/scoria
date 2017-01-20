@@ -18,10 +18,9 @@ class ManipulationTests(unittest.TestCase):
         """
         Setting up the test molecule.
         """
-        if not os.path.exists("./scoria_tests_tmp"):
-            os.mkdir("./scoria_tests_tmp")
+        info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample_files/'
 
-        self.mol = scoria.Molecule()
+        self.mol = scoria.Molecule(info_path + '3_mol_test.pdb')
 
     def tearDown(self):
         """
@@ -47,26 +46,45 @@ class ManipulationTests(unittest.TestCase):
         """
         pass
 
-    @unittest.skip("Needs test written")
     def test_set_atom_location(self):
         """
         Empty test.
         """
-        pass
+        original = self.mol.get_coordinates()[1]
+        delta = self.mol.set_atom_location(0, np.array([20.0, 20.0, 20.0]))
 
-    @unittest.skip("Needs test written")
+        self.assertEqual(len(delta), 3)
+
+        distance = (original + delta)
+        moved = self.mol.get_coordinates()[1]
+
+        self.assertEqual(list(distance), list(moved))
+
     def test_translate_molecule(self):
         """
         Empty test.
         """
-        pass
+        original = self.mol.get_coordinates()[0]
+        delta = np.array([10.0, 10.0, 10.0])
 
-    @unittest.skip("Needs test written")
+        self.mol.translate_molecule(delta)
+
+        moved = self.mol.get_coordinates()[0]
+        distance = original + delta
+
+        self.assertEqual(list(moved), list(distance))
+
     def test_rotate_molecule_around_a_line_between_points(self):
         """
         Empty test.
         """
-        pass
+        one = np.array([0.0, 0.0, 0.0])
+        two = np.array([1.0, 0.0, 0.0])
+        radians = np.radians(180.0)
+
+        self.mol.rotate_molecule_around_a_line_between_points(one, two, radians)
+
+        
 
     @unittest.skip("Needs test written")
     def test_rotate_molecule_around_a_line_between_atoms(self):

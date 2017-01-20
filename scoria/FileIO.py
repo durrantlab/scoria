@@ -946,9 +946,9 @@ class FileIO():
             raise ImportError("The MDAnalysis Module is not available.")
 
         # Initializing the MDAnalysis universe with the suppplied args
-        self.__u = numpy.mda.Universe(*args)
+        universe = numpy.mda.Universe(*args)
 
-        self.load_MDAnalysis_into(self.__u)
+        self.load_MDAnalysis_into_using_universe_object(universe)
 
         #self.set_filename(*args)
 

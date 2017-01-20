@@ -20,7 +20,7 @@ class Molecule: # here's the actual Molecule class
         >>> PSF = "./test_file.psf"
         >>> DCD = "./test_file.dcd"
         >>> mol = scoria.Molecule()
-        >>> mol.load_via_MDAnalysis(PSF, DCD)
+        >>> mol.load_MDAnalysis_into(PSF, DCD)
     """
 
     def __init__(self, *args):
@@ -53,9 +53,9 @@ class Molecule: # here's the actual Molecule class
                 elif file_type == 'PYM':
                     self.load_pym_into(file)
                 else:
-                    self.load_via_MDAnalysis(file)
+                    self.load_MDAnalysis_into(file)
             else:
-                self.load_via_MDAnalysis(args)
+                self.load_MDAnalysis_into(*args)
 
     # Information methods
     ### Wrappers ###
@@ -1033,20 +1033,36 @@ class Molecule: # here's the actual Molecule class
                                                                     serial_reindex,
                                                                     resseq_reindex)
 
-    def load_via_MDAnalysis(self, *args):
+    def load_MDAnalysis_into(self, *args):
         """
         Allows import of molecular structure with MDAnalysis
 
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
 
         Wrapper function for 
-        :meth:`~scoria.FileIO.FileIO.load_via_MDAnalysis`
+        :meth:`~scoria.FileIO.FileIO.load_MDAnalysis_into`
          
         :param \*args: Filename, filenames, or list of file names. Used to
             inizalize a MDAnalysis.Universe object.
         """
 
-        self.fileio.load_via_MDAnalysis(*args)
+        self.fileio.load_MDAnalysis_into(*args)
+
+
+    def load_MDAnalysis_into_using_universe_object(self, universe):
+        """
+        Allows import of molecular structure with MDAnalysis
+
+        Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
+
+        Wrapper function for 
+        :meth:`~scoria.FileIO.FileIO.load_MDAnalysis_into_using_universe_object`
+         
+        :param MDAnalysis.core.Universe universe: MDAnalysis Universe object.
+        """
+
+        self.fileio.load_MDAnalysis_into_using_universe_object(universe)
+
 
     # Atoms and Bonds class methods
     def get_number_of_bond_partners_of_element(self, atom_index, the_element):
