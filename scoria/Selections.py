@@ -754,7 +754,7 @@ class Selections():
         new_mol = Molecule()
 
         trajectory_frames = self.__parent_molecule.get_trajectory_frame_count()
-        for frame in xrange(0, trajectory_frames):
+        for frame in range(0, trajectory_frames):
             new_mol.set_coordinates(
                 self.__parent_molecule.get_coordinates(frame)[selection],
                 frame

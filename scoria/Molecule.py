@@ -247,7 +247,7 @@ class Molecule: # here's the actual Molecule class
         An example for finding all atoms bonded with atom 153::
 
             >>> bonds = mol.get_bonds()
-            >>> for i in xrange(0,len(bonds)):
+            >>> for i in range(0,len(bonds)):
             ...     if bonds[153][i] == 1:
             ...             print(153,"-",i)
             153 - 152

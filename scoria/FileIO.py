@@ -565,7 +565,7 @@ class FileIO():
                 astr = astr.rstrip()
 
                 indices = []
-                for i in xrange(0, len(astr), 5):
+                for i in range(0, len(astr), 5):
                     indices.append(serial_to_index[int(astr[i:i + 5])])
 
                 for partner_index in indices[1:]:
