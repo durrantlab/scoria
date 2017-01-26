@@ -19,8 +19,9 @@ class ManipulationTests(unittest.TestCase):
         Setting up the test molecule.
         """
         info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample_files/'
-
         self.mol = scoria.Molecule(info_path + '3_mol_test.pdb')
+
+        self.accuracy = 4
 
     def tearDown(self):
         """
@@ -77,7 +78,7 @@ class ManipulationTests(unittest.TestCase):
     def test_rotate_molecule_around_a_line_between_points(self):
         """
         Empty test.
-        """
+        """ 
         one = np.array([0.0, 0.0, 0.0])
         two = np.array([1.0, 0.0, 0.0])
         radians = np.radians(180.0)
@@ -87,8 +88,9 @@ class ManipulationTests(unittest.TestCase):
         self.mol.rotate_molecule_around_a_line_between_points(one, two, radians)
 
         new = self.mol.get_coordinates()[0]
-
-        self.assertEqual(1.0, 1.0)
+        expected = [10.0, -10.0, -10.0]
+        for i in range(0,3):
+            self.assertAlmostEqual(list(new)[i], expected[i], self.accuracy)
 
     @unittest.skip("Needs test written")
     def test_rotate_molecule_around_a_line_between_atoms(self):
@@ -102,7 +104,7 @@ class ManipulationTests(unittest.TestCase):
         """
         Empty test.
         """
-        pass
+        self.mol.rotate_molecule_around_pivot_point([0,0,0], 0.0, 180.0, 180.0)
 
     @unittest.skip("Needs test written")
     def test_rotate_molecule_around_pivot_atom(self):
