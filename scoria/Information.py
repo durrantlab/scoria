@@ -649,9 +649,11 @@ class Information():
 
         # they should be capitalized for consistency
         fix_element_names = numpy.defchararray_upper(fix_element_names)
+        stripped_element_names = numpy.defchararray_strip(fix_element_names)
 
         # now map missing element names back
         self.__atom_information['element_padded'][selection] = fix_element_names
+        self.__atom_information['element'][selection] = stripped_element_names
 
         # element_stripped also needs to be updated try:
         # self.__parent_molecule.information.get_atom_information()

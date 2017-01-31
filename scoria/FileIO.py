@@ -514,19 +514,6 @@ class FileIO():
             )
         )
 
-        # now determine element from atom name for those entries where it's not
-        # given note that the
-        # molecule.information.assign_elements_from_atom_names function can be
-        # used to overwrite this and assign elements based on the atom name
-        # only.
-        indicies_where_element_is_not_defined = numpy.nonzero(
-            numpy.defchararray_strip(atom_inf['element_padded']) == ''
-        )[0]
-
-        self.__parent_molecule.assign_elements_from_atom_names(
-            indicies_where_element_is_not_defined
-        )
-
         # string values in
         # self.__parent_molecule.information.get_atom_information() should also
         # be provided in stripped format for easier comparison
@@ -539,6 +526,19 @@ class FileIO():
                     data = numpy.defchararray_strip(atom_inf[f + '_padded'])
                 )
             )
+
+        # now determine element from atom name for those entries where it's not
+        # given note that the
+        # molecule.information.assign_elements_from_atom_names function can be
+        # used to overwrite this and assign elements based on the atom name
+        # only.
+        indicies_where_element_is_not_defined = numpy.nonzero(
+            numpy.defchararray_strip(atom_inf['element_padded']) == ''
+        )[0]
+
+        self.__parent_molecule.assign_elements_from_atom_names(
+            indicies_where_element_is_not_defined
+        )
 
         # now, if there's conect data, load it. this part of the code is not
         # that "numpyic"
