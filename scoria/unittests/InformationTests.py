@@ -51,26 +51,54 @@ class InformationTests(unittest.TestCase):
         expected_remarks = [" This is a test file."]
         self.assertEqual(self.mol.get_remarks(), expected_remarks)
 
+
     def test_get_center_of_mass(self):
         """
         Tests the determination of the center of mass.
         """
         mda_center = self.mdaU.atoms.center_of_mass()
         center_of_mass = self.mol.get_center_of_mass()
-        
+
         self.assertAlmostEqual(center_of_mass[0], mda_center[0], self.accuracy)
         self.assertAlmostEqual(center_of_mass[1], mda_center[1], self.accuracy)
         self.assertAlmostEqual(center_of_mass[2], mda_center[2], self.accuracy)
 
-    @unittest.skip("Needs final value")
+
     def test_get_atom_information(self):
         """
         Tests the atom information.
         """
-        expected_atom_inf = [] # WRite final value here
         atom_inf = self.mol.get_atom_information()
-        self.assertListEqual(atom_inf, expected_atom_inf)
 
+        expected_record_name = ['ATOM  '] * self.mol.get_total_number_of_atoms()
+        self.assertListEqual(list(atom_inf['record_name']), expected_record_name)
+
+        expected_serial = range(1, 13)
+        self.assertListEqual(list(atom_inf['serial']), expected_serial)
+
+        expected_names = ['N1', "C2'", 'N', 'CA', 'C', 'O', 'CB', 'CG', 'ND1',
+                          'CD2', 'CE1', 'NE2']
+        self.assertListEqual(list(atom_inf['name']), expected_names)
+
+        expected_element = ['N', 'C', 'N', 'C', 'C', 'O', 'C', 'C', 'N', 'C',
+                            'C', 'N']
+        self.assertListEqual(list(atom_inf['element']), expected_element)
+
+        expected_resname = ['U', 'DT', 'HIS', 'HIS', 'HIS', 'HIS', 'HIS',
+                            'HIS', 'HIS', 'HIS', 'HIS', 'HIS']
+        self.assertListEqual(list(atom_inf['resname']), expected_resname)
+
+    def test_padded_atom_informatio_fields_are_correct(self):
+        """
+        Testing that the atom information fields are properly stripped.
+        """
+        atom_inf = self.mol.get_atom_information()
+
+        padding = ['name', 'chainid', 'resname', 'element']
+
+        for field in padding:
+            for i in xrange(self.mol.get_total_number_of_atoms()):
+                self.assertEqual(atom_inf[field][i], atom_inf[field+'_padded'][i].strip())
 
     def test_get_coordinates(self):
         """
@@ -150,7 +178,7 @@ class InformationTests(unittest.TestCase):
         self.mol.set_remarks(set_remarks)
         self.assertEqual(self.mol.get_remarks(), set_remarks)
 
-    
+
     def test_set_coordinates(self):
         """
         Tests that the coordinates can be set
@@ -160,14 +188,18 @@ class InformationTests(unittest.TestCase):
         self.mol.set_coordinates(coordinates)
         self.assertEqual(self.mol.get_coordinates(), coordinates)
 
-    @unittest.skip("Needs test written")
+
     def test_set_atomic_information(self):
         """
         Tests that the atom information can be set.
         """
-        atom_inf = {}
+        atom_inf = self.mol.get_atom_information()
+
+        atom_inf['chainid'][0] = 'X'
+
         self.mol.set_atom_information(atom_inf)
-        # Assertation here
+
+        self.assertEqual(self.mol.get_atom_information()['chainid'][0], 'X')
 
     def test_set_bonds(self):
         """

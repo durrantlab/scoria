@@ -246,23 +246,36 @@ class SelectionsTests(unittest.TestCase):
         self.assertEqual(list(selection[0]), expected_selection)
 
 
-    @unittest.skip("Needs test written")
     def test_get_molecule_from_selection(self):
         """
         Empty test.
         """
-        pass
+        desired_selection = [1]
+        new_mol = self.mol.get_molecule_from_selection(desired_selection)
 
-    @unittest.skip("Needs test written")
+        old_coordinates = self.mol.get_coordinates()
+        new_coordinates = new_mol.get_coordinates()
+
+        self.assertEqual(len(new_coordinates), 1)
+        self.assertEqual(list(new_coordinates[0]), list(old_coordinates[1]))
+
+
     def test_selections_of_chains(self):
         """
         Empty test.
         """
-        pass
+        chain_selections = self.mol.selections_of_chains()
 
-    @unittest.skip("Needs test written")
+        self.assertEqual(len(chain_selections), 2)
+        self.assertEqual(list(chain_selections['B']), [0, 1])
+        self.assertEqual(list(chain_selections['A']), range(2, 12))
+
     def test_selections_of_residues(self):
         """
         Empty test.
         """
-        pass
+        residue_selections = self.mol.selections_of_residues()
+
+        self.assertEqual(list(residue_selections['HIS-985-A']), range(2, 12))
+        self.assertEqual(list(residue_selections['U-71-B']), [0])
+        self.assertEqual(list(residue_selections['DT-13-B']), [1])
