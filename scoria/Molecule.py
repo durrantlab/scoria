@@ -47,9 +47,9 @@ class Molecule: # here's the actual Molecule class
                 file_type = file.split('.')[-1].upper()
 
                 if file_type == 'PDB':
-                    self.load_pdb_into(file)
+                    self.load_pdb_trajectory_into(file)
                 elif file_type == 'PDBQT':
-                    self.load_pdbqt_into(file)
+                    self.load_pdbqt_trajectory_into(file)
                 elif file_type == 'PYM':
                     self.load_pym_into(file)
                 else:
