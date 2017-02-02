@@ -1,4 +1,5 @@
 from scoria import dumbpy as numpy
+import copy
 
 class Manipulation():
     """
@@ -26,7 +27,7 @@ class Manipulation():
         """
 
         self.__parent_molecule.set_coordinates_undo_point(
-            self.__parent_molecule.get_coordinates().copy()
+            copy.deepcopy(self.__parent_molecule.get_trajectory_coordinates())
         )
 
     def coordinate_undo(self):
@@ -35,8 +36,8 @@ class Manipulation():
         set_coordinate_undo_point function.
         """
 
-        self.__parent_molecule.set_coordinates(
-            self.__parent_molecule.get_coordinates_undo_point().copy()
+        self.__parent_molecule.set_trajectory_coordinates(
+            copy.deepcopy(self.__parent_molecule.get_coordinates_undo_point())
         )
 
     def set_atom_location(self, atom_index, new_location):

@@ -33,30 +33,53 @@ class ManipulationTests(unittest.TestCase):
 
     ### Tests
 
-    @unittest.skip("Needs test written")
     def test_set_coordinate_undo_point(self):
         """
         Empty test.
         """
-        pass
+        original = self.mol.get_coordinates_undo_point()
+        self.assertIsNone(original)
 
-    @unittest.skip("Needs test written")
+        expected = self.mol.get_trajectory_coordinates()
+        self.mol.set_coordinates_undo_point(expected)
+        undo_point = self.mol.get_coordinates_undo_point()
+
+        for h in range(self.mol.get_trajectory_frame_count()):
+            for i in range(self.mol.get_total_number_of_atoms()):
+                for j in range(3):
+                    self.assertAlmostEqual(expected[h][i][j], undo_point[h][i][j], self.accuracy)
+
     def test_coordinate_undo(self):
         """
         Empty test.
         """
-        pass
+        expected = self.mol.get_trajectory_coordinates()
+        self.mol.set_coordinates_undo_point(expected)
+
+        self.mol.set_atom_location(0, np.array([100.0, 100.0, 100.0]))
+        shifted = self.mol.get_trajectory_coordinates()
+
+        self.mol.coordinate_undo()
+        undone = self.mol.get_trajectory_coordinates()
+
+        for h in range(self.mol.get_trajectory_frame_count()):
+            for i in range(self.mol.get_total_number_of_atoms()):
+                for j in range(3):
+                    self.assertAlmostEqual(expected[h][i][j],
+                        undone[h][i][j], self.accuracy, msg= str(i) + ' ' + str(j))
+                    self.assertNotAlmostEqual(expected[h][i][j],
+                        shifted[h][i][j], self.accuracy)
 
     def test_set_atom_location(self):
         """
         Empty test.
         """
         original = self.mol.get_coordinates()[1]
-        delta = self.mol.set_atom_location(0, np.array([20.0, 20.0, 20.0]))
+        delta = self.mol.set_atom_location(0, np.array([[20.0, 20.0, 20.0]]))
 
-        self.assertEqual(len(delta), 3)
+        self.assertEqual(len(delta[0]), 3)
 
-        distance = (original + delta)
+        distance = (original + delta[0])
         moved = self.mol.get_coordinates()[1]
 
         self.assertEqual(list(distance), list(moved))

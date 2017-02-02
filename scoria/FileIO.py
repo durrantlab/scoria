@@ -65,7 +65,7 @@ class FileIO():
         if os.path.exists(filename + 'filename'):
             prnt.set_filename(pickle.load(open(filename + 'filename', "rb")))
         
-        if prnt.get_filename() == "":  # If still no filename, set it to the one used as a parameter.
+        if prnt.get_filename() == []:  # If still no filename, set it to the one used as a parameter.
             prnt.set_filename(filename)
 
         if os.path.exists(filename + "bonds.npz"):
@@ -950,7 +950,7 @@ class FileIO():
 
         self.load_MDAnalysis_into_using_universe_object(universe)
 
-        #self.set_filename(*args)
+        self.set_filename(args)
 
     def load_MDAnalysis_into_using_universe_object(self, universe):
         """

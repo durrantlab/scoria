@@ -402,7 +402,7 @@ class Information():
     def set_remarks(self, remarks):
         """
         Sets the __remarks variable.
-        
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.set_remarks`
 
         :param list(str) remarks: List containing remarks.
@@ -412,14 +412,14 @@ class Information():
 
     def set_atom_information(self, atom_information):
         """
-        Sets the __atom_information variable. See 
+        Sets the __atom_information variable. See
         :meth:`~scoria.Molecule.Molecule.get_atom_information` for
         information on the numpy.array structure.
-        
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.set_atom_information`
 
         :param numpy.array atom_information: An array containing details
-                            on the constituent atoms. 
+                            on the constituent atoms.
         """
 
         self.__atom_information = atom_information
