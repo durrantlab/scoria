@@ -290,7 +290,7 @@ class FileIO():
                     # Make sure the list isn't just " "
                     while len(lines) > 0 and lines[0] == " ":
                         lines = lines[1:]
-                    
+
                     if len(lines) > 0:
                         # == 0 if, for example, when ENDMDL then END on next
                         # line.
@@ -298,7 +298,7 @@ class FileIO():
                         # So turn list into string and yield that value.
                         to_yield = "".join(lines)
                         yield to_yield
-                    
+
                     # Clear list (since new frame) and continue loop.
                     lines = []
                     line = " "
