@@ -20,7 +20,7 @@ class Molecule: # here's the actual Molecule class
         >>> PSF = "./test_file.psf"
         >>> DCD = "./test_file.dcd"
         >>> mol = scoria.Molecule()
-        >>> mol.load_via_MDAnalysis(PSF, DCD)
+        >>> mol.load_MDAnalysis_into(PSF, DCD)
     """
 
     def __init__(self, *args):
@@ -47,15 +47,15 @@ class Molecule: # here's the actual Molecule class
                 file_type = file.split('.')[-1].upper()
 
                 if file_type == 'PDB':
-                    self.load_pdb_into(file)
+                    self.load_pdb_trajectory_into(file)
                 elif file_type == 'PDBQT':
-                    self.load_pdbqt_into(file)
+                    self.load_pdbqt_trajectory_into(file)
                 elif file_type == 'PYM':
                     self.load_pym_into(file)
                 else:
-                    self.load_via_MDAnalysis(file)
+                    self.load_MDAnalysis_into(file)
             else:
-                self.load_via_MDAnalysis(args)
+                self.load_MDAnalysis_into(*args)
 
     # Information methods
     ### Wrappers ###
@@ -214,7 +214,7 @@ class Molecule: # here's the actual Molecule class
         An example for printing the elemental symbols of the first five atoms::
 
             >>> atom_info = mol.get_atom_information()
-            >>> print(atom_info['element_stripped'][0:5])
+            >>> print(atom_info['element'][0:5])
             ['N' 'C' 'C' 'O' 'C']
         """
 
@@ -808,7 +808,7 @@ class Molecule: # here's the actual Molecule class
         Loads the molecular data contained in a pdbqt file into the current
         scoria.Molecule object. Note that this implementation is
         incomplete. It doesn't save atomic charges, for example. The atom
-        types are stored in the "element" and "element_stripped" columns.
+        types are stored in the "element_padded" and "element" columns.
 
         Wrapper function for :meth:`~scoria.FileIO.FileIO.load_pdbqt_into`
 
@@ -1033,20 +1033,36 @@ class Molecule: # here's the actual Molecule class
                                                                     serial_reindex,
                                                                     resseq_reindex)
 
-    def load_via_MDAnalysis(self, *args):
+    def load_MDAnalysis_into(self, *args):
         """
         Allows import of molecular structure with MDAnalysis
 
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
 
         Wrapper function for 
-        :meth:`~scoria.FileIO.FileIO.load_via_MDAnalysis`
+        :meth:`~scoria.FileIO.FileIO.load_MDAnalysis_into`
          
         :param \*args: Filename, filenames, or list of file names. Used to
             inizalize a MDAnalysis.Universe object.
         """
 
-        self.fileio.load_via_MDAnalysis(*args)
+        self.fileio.load_MDAnalysis_into(*args)
+
+
+    def load_MDAnalysis_into_using_universe_object(self, universe):
+        """
+        Allows import of molecular structure with MDAnalysis
+
+        Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
+
+        Wrapper function for 
+        :meth:`~scoria.FileIO.FileIO.load_MDAnalysis_into_using_universe_object`
+         
+        :param MDAnalysis.core.Universe universe: MDAnalysis Universe object.
+        """
+
+        self.fileio.load_MDAnalysis_into_using_universe_object(universe)
+
 
     # Atoms and Bonds class methods
     def get_number_of_bond_partners_of_element(self, atom_index, the_element):

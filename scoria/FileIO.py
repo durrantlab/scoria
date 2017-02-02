@@ -139,7 +139,7 @@ class FileIO():
         Loads the molecular data contained in a pdbqt file into the current
         scoria.Molecule object. Note that this implementation is
         incomplete. It doesn't save atomic charges, for example. The atom
-        types are stored in the "element" and "element_stripped" columns.
+        types are stored in the "element_padded" and "element" columns.
 
         Should be called via the wrapper function 
         :meth:`~scoria.Molecule.Molecule.load_pdbqt_into`
@@ -203,15 +203,15 @@ class FileIO():
         atom_inf = self.__parent_molecule.get_atom_information()
 
         atom_types = numpy.defchararray_add(
-            atom_inf["element_stripped"], atom_inf["charge"]
+            atom_inf["element"], atom_inf["charge"]
         )
 
-        atom_inf["element_stripped"] = numpy.defchararray_strip(atom_types)
+        atom_inf["element"] = numpy.defchararray_strip(atom_types)
 
         atom_inf["charge"] = "\n"
 
-        atom_inf["element"] = numpy.defchararray_rjust(
-            atom_inf["element_stripped"], 2
+        atom_inf["element_padded"] = numpy.defchararray_rjust(
+            atom_inf["element"], 2
         )
 
         self.__parent_molecule.set_atom_information(atom_inf)
@@ -407,9 +407,9 @@ class FileIO():
 
         # source_data = numpy.genfromtxt(file_obj,
         # dtype="S6,S5,S5,S4,S2,S4,S4,S8,S8,S8,S6,S6,S10,S2,S2",
-        # names=['record_name', 'serial', 'name', 'resname', 'chainid',
+        # names=['record_name', 'serial', 'name_padded', 'resname_padded', 'chainid_padded',
         # 'resseq', 'empty', 'x', 'y', 'z', 'occupancy', 'tempfactor',
-        # 'empty2', 'element', 'charge'], delimiter=[6, 5, 5, 4, 2, 4, 4, 8, 8,
+        # 'empty2', 'element_padded', 'charge'], delimiter=[6, 5, 5, 4, 2, 4, 4, 8, 8,
         # 8, 6, 6, 10, 2, 2])
 
 
@@ -417,9 +417,9 @@ class FileIO():
             source_data = numpy.genfromtxt(
                 file_obj,
                 dtype = "S6,S5,S5,S5,S1,S4,S4,S8,S8,S8,S6,S6,S10,S2,S3",
-                names = ['record_name', 'serial', 'name', 'resname', 'chainid',
+                names = ['record_name', 'serial', 'name_padded', 'resname_padded', 'chainid_padded',
                     'resseq', 'empty', 'x', 'y', 'z', 'occupancy',
-                    'tempfactor', 'empty2', 'element', 'charge'],
+                    'tempfactor', 'empty2', 'element_padded', 'charge'],
                 delimiter = [6, 5, 5, 5, 1, 4, 4, 8, 8, 8, 6, 6, 10, 2, 3]
             )
         elif numpy.python_version == 3:
@@ -431,7 +431,7 @@ class FileIO():
 
             #s1 = ["|S6","|S5","|S5","|S5","|S1","|S4","|S4","|S8","|S8","|S8","|S6","|S6","|S10","|S2","|S3"]
             s1 = ["|U6","|U5","|U5","|U5","|U1","|U4","|U4","|U8","|U8","|U8","|U6","|U6","|U10","|U2","|U3"]
-            names = ['record_name', 'serial', 'name', 'resname', 'chainid', 'resseq', 'empty', 'x', 'y', 'z', 'occupancy', 'tempfactor', 'empty2', 'element', 'charge']
+            names = ['record_name', 'serial', 'name_padded', 'resname_padded', 'chainid_padded', 'resseq', 'empty', 'x', 'y', 'z', 'occupancy', 'tempfactor', 'empty2', 'element_padded', 'charge']
             dtype = [l for l in zip(names, s1)]
             source_data = numpy.array(data, dtype=dtype)
 
@@ -514,19 +514,6 @@ class FileIO():
             )
         )
 
-        # now determine element from atom name for those entries where it's not
-        # given note that the
-        # molecule.information.assign_elements_from_atom_names function can be
-        # used to overwrite this and assign elements based on the atom name
-        # only.
-        indicies_where_element_is_not_defined = numpy.nonzero(
-            numpy.defchararray_strip(atom_inf['element']) == ''
-        )[0]
-
-        self.__parent_molecule.assign_elements_from_atom_names(
-            indicies_where_element_is_not_defined
-        )
-
         # string values in
         # self.__parent_molecule.information.get_atom_information() should also
         # be provided in stripped format for easier comparison
@@ -535,10 +522,23 @@ class FileIO():
             self.__parent_molecule.set_atom_information(
                 numpy.append_fields(
                     self.__parent_molecule.get_atom_information().copy(),
-                    f + '_stripped',
-                    data = numpy.defchararray_strip(atom_inf[f])
+                    f,
+                    data = numpy.defchararray_strip(atom_inf[f + '_padded'])
                 )
             )
+
+        # now determine element from atom name for those entries where it's not
+        # given note that the
+        # molecule.information.assign_elements_from_atom_names function can be
+        # used to overwrite this and assign elements based on the atom name
+        # only.
+        indicies_where_element_is_not_defined = numpy.nonzero(
+            numpy.defchararray_strip(atom_inf['element_padded']) == ''
+        )[0]
+
+        self.__parent_molecule.assign_elements_from_atom_names(
+            indicies_where_element_is_not_defined
+        )
 
         # now, if there's conect data, load it. this part of the code is not
         # that "numpyic"
@@ -759,13 +759,13 @@ class FileIO():
             )
 
             printout = numpy.defchararray_add(printout,
-                                              atom_information['name'])
+                                              atom_information['name_padded'])
 
             printout = numpy.defchararray_add(printout,
-                                              atom_information['resname'])
+                                              atom_information['resname_padded'])
 
             printout = numpy.defchararray_add(printout,
-                                              atom_information['chainid'])
+                                              atom_information['chainid_padded'])
 
             if numpy.python_version == 2: dtype_to_use = '|S4'
             else: dtype_to_use = '|U4'  # python3 needs this instead
@@ -814,7 +814,7 @@ class FileIO():
             printout = numpy.defchararray_add(printout, '          ')
 
             printout = numpy.defchararray_add(
-                printout, atom_information['element']
+                printout, atom_information['element_padded']
             )
 
             printout = numpy.defchararray_add(
@@ -928,7 +928,7 @@ class FileIO():
                 out.close()
                 return
 
-    def load_via_MDAnalysis(self, *args):
+    def load_MDAnalysis_into(self, *args):
         """
         Allows import of molecular structure with MDAnalysis.
 
@@ -946,13 +946,13 @@ class FileIO():
             raise ImportError("The MDAnalysis Module is not available.")
 
         # Initializing the MDAnalysis universe with the suppplied args
-        self.__u = numpy.mda.Universe(*args)
+        universe = numpy.mda.Universe(*args)
 
-        self.load_MDAnalysis_into(self.__u)
+        self.load_MDAnalysis_into_using_universe_object(universe)
 
         #self.set_filename(*args)
 
-    def load_MDAnalysis_into(self, universe):
+    def load_MDAnalysis_into_using_universe_object(self, universe):
         """
         Allows import of molecular structure from an MDAnalysis object.
 
