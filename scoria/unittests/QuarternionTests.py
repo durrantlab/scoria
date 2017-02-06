@@ -34,8 +34,8 @@ class OtherMoleculeTests(unittest.TestCase):
     ### Tests
 
     @unittest.skip("Needs test written")
-    def test_nothing(self):
+    def test_realignment(self):
         """
         Empty test.
         """
-        pass
+        

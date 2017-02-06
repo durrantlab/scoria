@@ -18,7 +18,7 @@ class ManipulationTests(unittest.TestCase):
         """
         Setting up the test molecule.
         """
-        info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample_files/'
+        info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample-files/'
         self.mol = scoria.Molecule(info_path + '3_mol_test.pdb')
 
         self.accuracy = 4

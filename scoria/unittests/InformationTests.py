@@ -19,7 +19,7 @@ class InformationTests(unittest.TestCase):
         """
         Setting up the test molecule.
         """
-        info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample_files/'
+        info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample-files/'
 
         self.mol = scoria.Molecule(info_path + '3_mol_test.pdb')
         self.mdaU = mda.Universe(info_path + '3_mol_test.pdb')
@@ -41,7 +41,7 @@ class InformationTests(unittest.TestCase):
         Tests the getting of filenames.
         """
         expected_filename = [os.path.dirname(os.path.abspath(__file__)) + \
-         '/../sample_files/3_mol_test.pdb']
+         '/../sample-files/3_mol_test.pdb']
         self.assertEqual(self.mol.get_filename(), expected_filename)
 
     def test_get_remarks(self):

@@ -37,7 +37,7 @@ class Test:
         """Test the functions in FileIO."""
 
         file_io_filename = "./scoria_tests_tmp/file_io_test"
-        sample_structures_dir = os.path.dirname(inspect.stack()[0][1]) + os.sep + "sample_files" + os.sep
+        sample_structures_dir = os.path.dirname(inspect.stack()[0][1]) + os.sep + "sample-files" + os.sep
 
         print("FileIO Functions")
         print("    load_pdb_into()")
@@ -462,7 +462,7 @@ class FileIOBenchmarks:
 
     molecule = None
     times = []
-    sample_structures_dir = os.path.dirname(inspect.stack()[0][1]) + os.sep + "sample_files" + os.sep
+    sample_structures_dir = os.path.dirname(inspect.stack()[0][1]) + os.sep + "sample-files" + os.sep
     load_filename = ""
     save_filename = ""
 

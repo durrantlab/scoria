@@ -20,7 +20,7 @@ class FileIOTests(unittest.TestCase):
         """
         Setting up the test molecule.
         """
-        self.info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample_files/'
+        self.info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample-files/'
 
         if not os.path.exists(self.info_path + "scoria_tests_tmp"):
             os.mkdir(self.info_path + "scoria_tests_tmp")
