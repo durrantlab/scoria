@@ -118,12 +118,12 @@ class Selections():
         min_pt = bounding_box[0]
         max_pt = bounding_box[1]
         coordinates = self.__parent_molecule.get_coordinates()
-        sel1 = numpy.nonzero((coordinates[:, 0] > min_pt[0]))[0]
-        sel2 = numpy.nonzero((coordinates[:, 0] < max_pt[0]))[0]
-        sel3 = numpy.nonzero((coordinates[:, 1] > min_pt[1]))[0]
-        sel4 = numpy.nonzero((coordinates[:, 1] < max_pt[1]))[0]
-        sel5 = numpy.nonzero((coordinates[:, 2] > min_pt[2]))[0]
-        sel6 = numpy.nonzero((coordinates[:, 2] < max_pt[2]))[0]
+        sel1 = numpy.nonzero((coordinates[:, 0] >= min_pt[0]))[0]
+        sel2 = numpy.nonzero((coordinates[:, 0] <= max_pt[0]))[0]
+        sel3 = numpy.nonzero((coordinates[:, 1] >= min_pt[1]))[0]
+        sel4 = numpy.nonzero((coordinates[:, 1] <= max_pt[1]))[0]
+        sel5 = numpy.nonzero((coordinates[:, 2] >= min_pt[2]))[0]
+        sel6 = numpy.nonzero((coordinates[:, 2] <= max_pt[2]))[0]
         sel = numpy.intersect1d(sel1, sel2)
         sel = numpy.intersect1d(sel, sel3)
         sel = numpy.intersect1d(sel, sel4)
