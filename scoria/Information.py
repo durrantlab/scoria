@@ -207,7 +207,7 @@ class Information():
         An example for printing the elemental symbols of the first five atoms::
 
             >>> atom_info = mol.get_atom_information()
-            >>> print(atom_info['element_stripped'][0:5])
+            >>> print(atom_info['element'][0:5])
             ['N' 'C' 'C' 'O' 'C']
         """
 
@@ -404,7 +404,7 @@ class Information():
     def set_remarks(self, remarks):
         """
         Sets the __remarks variable.
-        
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.set_remarks`
 
         :param list(str) remarks: List containing remarks.
@@ -414,14 +414,14 @@ class Information():
 
     def set_atom_information(self, atom_information):
         """
-        Sets the __atom_information variable. See 
+        Sets the __atom_information variable. See
         :meth:`~scoria.Molecule.Molecule.get_atom_information` for
         information on the numpy.array structure.
-        
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.set_atom_information`
 
         :param numpy.array atom_information: An array containing details
-                            on the constituent atoms. 
+                            on the constituent atoms.
         """
 
         self.__atom_information = atom_information
@@ -505,7 +505,7 @@ class Information():
         # this function is retained for legacy reasons. past versions of
         # scoria had this functionality.
 
-        if (self.__atom_information['resname_stripped'][atom_index]
+        if (self.__atom_information['resname'][atom_index]
             in self.__constants['protein_residues']):
             return True
         return False
@@ -524,7 +524,7 @@ class Information():
         # this function is retained for legacy reasons. past versions of
         # scoria had this functionality.
 
-        if (self.__atom_information['resname_stripped'][atom_index]
+        if (self.__atom_information['resname'][atom_index]
             in self.__constants['dna_residues']):
             return True
 
@@ -545,7 +545,7 @@ class Information():
         # this function is retained for legacy reasons. past versions of
         # scoria had this functionality.
 
-        if (self.__atom_information['resname_stripped'][atom_index]
+        if (self.__atom_information['resname'][atom_index]
             in self.__constants['rna_residues']):
             return True
 
@@ -565,11 +565,11 @@ class Information():
         if not "mass" in self.__atom_information.dtype.names:
             # only assign if not been assigned previously
             masses = numpy.empty((
-                len(self.__atom_information['element_stripped'])
+                len(self.__atom_information['element'])
             ))
 
-            for i in range(len(self.__atom_information['element_stripped'])):
-                element = self.__atom_information['element_stripped'][i]
+            for i in range(len(self.__atom_information['element'])):
+                element = self.__atom_information['element'][i]
                 mass = self.__constants['mass_dict'][element]
                 masses[i] = mass
 
@@ -599,7 +599,7 @@ class Information():
 
         # get the atom names
         fix_element_names = numpy.defchararray_upper(
-            self.__atom_information['name'][selection]
+            self.__atom_information['name_padded'][selection]
         )
 
         fix_element_names = numpy.defchararray_strip(fix_element_names)
@@ -651,21 +651,23 @@ class Information():
 
         # they should be capitalized for consistency
         fix_element_names = numpy.defchararray_upper(fix_element_names)
+        stripped_element_names = numpy.defchararray_strip(fix_element_names)
 
         # now map missing element names back
-        self.__atom_information['element'][selection] = fix_element_names
+        self.__atom_information['element_padded'][selection] = fix_element_names
+        self.__atom_information['element'][selection] = stripped_element_names
 
         # element_stripped also needs to be updated try:
         # self.__parent_molecule.information.get_atom_information()
-        # ['element_stripped'][selection] =
+        # ['element'][selection] =
         # numpy.defchararray_strip(fix_element_names) except: # so
         # element_stripped hasn't been defined yet
         #    self.__parent_molecule.information.get_atom_information() =
         #    append_fields(self.__parent_molecule.
-        #    information.get_atom_information(), 'element_stripped',
+        #    information.get_atom_information(), 'element',
         #    data = numpy.defchararray_strip(
         #    self.__parent_molecule.information.
-        #    get_atom_information()['element']))
+        #    get_atom_information()['element_padded']))
 
     def get_center_of_mass(self, selection = None, frame = None):
         """
@@ -844,7 +846,7 @@ class Information():
             return 0
 
         all_hydrogens = self.__parent_molecule.select_atoms({
-            'element_stripped': 'H'
+            'element': 'H'
         })
 
         return self.get_total_number_of_atoms() - len(all_hydrogens)
@@ -1033,7 +1035,7 @@ class Information():
         """
 
         keys = numpy.defchararray_add(
-            self.__atom_information['resname_stripped'], '-'
+            self.__atom_information['resname'], '-'
         )
 
         keys = numpy.defchararray_add(
@@ -1044,7 +1046,7 @@ class Information():
         keys = numpy.defchararray_add(keys, '-')
 
         keys = numpy.defchararray_add(
-            keys, self.__atom_information['chainid_stripped']
+            keys, self.__atom_information['chainid']
         )
 
         keys2 = numpy.insert(keys, 0, '')[:-1]

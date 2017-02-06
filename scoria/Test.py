@@ -173,7 +173,7 @@ class Test:
 
         print("    set_atom_information()")
         inf = self.mol.get_atom_information()
-        inf["resname"] = " TST "
+        inf["resname_padded"] = " TST "
         self.mol.set_atom_information(inf)
         print(("        " + str(self.mol.get_atom_information()[0])))
 
@@ -232,8 +232,9 @@ class Test:
         )))
 
         print("    select_atoms()")
-        sel = self.mol.select_atoms({"resname_stripped": "TRP"})
-        print(("        Atoms in selection: " + str(len(sel))))
+
+        sel = self.mol.select_atoms({"resname": "TRP"})
+        print("        Atoms in selection: " + str(len(sel)))
 
         print("    invert_selection()")
         print(("        Atoms in selection: " + str(len(self.mol.invert_selection(sel)))))

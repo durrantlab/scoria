@@ -34,7 +34,7 @@ class Selections():
                     acceptable matches. The selection is a logical "AND"
                     between dictionary entries, but "OR" within the value lists
                     themselves. For example: {'atom':['CA', 'O'], 'chain':'A',
-                    'resname':'PRO'} would select all atoms with the names CA
+                    'resname_padded':'PRO'} would select all atoms with the names CA
                     or O that are located in the PRO residues of chain A.
 
         :returns: A numpy.array containing the indices of the atoms of the
@@ -121,12 +121,12 @@ class Selections():
         min_pt = bounding_box[0]
         max_pt = bounding_box[1]
         coordinates = self.__parent_molecule.get_coordinates()
-        sel1 = numpy.nonzero((coordinates[:, 0] > min_pt[0]))[0]
-        sel2 = numpy.nonzero((coordinates[:, 0] < max_pt[0]))[0]
-        sel3 = numpy.nonzero((coordinates[:, 1] > min_pt[1]))[0]
-        sel4 = numpy.nonzero((coordinates[:, 1] < max_pt[1]))[0]
-        sel5 = numpy.nonzero((coordinates[:, 2] > min_pt[2]))[0]
-        sel6 = numpy.nonzero((coordinates[:, 2] < max_pt[2]))[0]
+        sel1 = numpy.nonzero((coordinates[:, 0] >= min_pt[0]))[0]
+        sel2 = numpy.nonzero((coordinates[:, 0] <= max_pt[0]))[0]
+        sel3 = numpy.nonzero((coordinates[:, 1] >= min_pt[1]))[0]
+        sel4 = numpy.nonzero((coordinates[:, 1] <= max_pt[1]))[0]
+        sel5 = numpy.nonzero((coordinates[:, 2] >= min_pt[2]))[0]
+        sel6 = numpy.nonzero((coordinates[:, 2] <= max_pt[2]))[0]
         sel = numpy.intersect1d(sel1, sel2)
         sel = numpy.intersect1d(sel, sel3)
         sel = numpy.intersect1d(sel, sel4)
@@ -451,7 +451,7 @@ class Selections():
         # get string ids representing the residues of all atoms
         atm_inf = self.__parent_molecule.get_atom_information()
 
-        keys = numpy.defchararray_add(atm_inf['resname_stripped'], '-')
+        keys = numpy.defchararray_add(atm_inf['resname'], '-')
 
         keys = numpy.defchararray_add(
             keys, numpy.array([str(t) for t in atm_inf['resseq']])
@@ -459,7 +459,7 @@ class Selections():
 
         keys = numpy.defchararray_add(keys, '-')
 
-        keys = numpy.defchararray_add(keys, atm_inf['chainid_stripped'])
+        keys = numpy.defchararray_add(keys, atm_inf['chainid'])
 
         # get the unique keys of the selection
         unique_keys_of_selection = numpy.unique(keys[selection])
@@ -809,14 +809,14 @@ class Selections():
         if not 'chains' in list(prnt.get_hierarchy().keys()):
             # so it hasn't already been calculated
             unique_chainids = numpy.unique(
-                prnt.get_atom_information()['chainid_stripped']
+                prnt.get_atom_information()['chainid']
             )
 
             prnt.get_hierarchy()['chains'] = {}
             prnt.get_hierarchy()['chains']['indices'] = {}
             for chainid in unique_chainids:
                 prnt.get_hierarchy()['chains']['indices'][chainid] = (
-                    prnt.select_atoms({'chainid_stripped': chainid})
+                    prnt.select_atoms({'chainid': chainid})
                 )
 
         return prnt.get_hierarchy()['chains']['indices']
@@ -846,7 +846,7 @@ class Selections():
             # so it hasn't already been calculated
 
             keys = numpy.defchararray_add(
-                atm_inf['resname_stripped'], '-'
+                atm_inf['resname'], '-'
             )
 
             keys = numpy.defchararray_add(
@@ -856,7 +856,7 @@ class Selections():
             keys = numpy.defchararray_add(keys, '-')
 
             keys = numpy.defchararray_add(
-                keys, atm_inf['chainid_stripped']
+                keys, atm_inf['chainid']
             )
 
             unique_resnames = numpy.unique(keys)
@@ -871,8 +871,8 @@ class Selections():
 
                 prnt.get_hierarchy()['residues']['indices'][key] = (
                     prnt.select_atoms({
-                        'chainid_stripped': chainid,
-                        'resname_stripped': resname,
+                        'chainid': chainid,
+                        'resname': resname,
                         'resseq': resseq})
                 )
 
