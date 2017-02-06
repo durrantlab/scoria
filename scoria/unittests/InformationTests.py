@@ -8,6 +8,7 @@ import numpy as np
 import scipy
 import scoria
 import MDAnalysis as mda
+from six.moves import range
 
 
 class InformationTests(unittest.TestCase):
@@ -42,12 +43,9 @@ class InformationTests(unittest.TestCase):
         """
         Tests the getting of filenames.
         """
-<<<<<<< HEAD
-        expected_filename = ["./scoria/sample-files/3_mol_test.pdb"]
-=======
         expected_filename = [os.path.dirname(os.path.abspath(__file__)) + \
          '/../sample-files/3_mol_test.pdb']
->>>>>>> 24-unit-tests
+
         self.assertEqual(self.mol.get_filename(), expected_filename)
 
     def test_get_remarks(self):
@@ -79,7 +77,7 @@ class InformationTests(unittest.TestCase):
         expected_record_name = ['ATOM  '] * self.mol.get_total_number_of_atoms()
         self.assertListEqual(list(atom_inf['record_name']), expected_record_name)
 
-        expected_serial = range(1, 13)
+        expected_serial = list(range(1, 13))
         self.assertListEqual(list(atom_inf['serial']), expected_serial)
 
         expected_names = ['N1', "C2'", 'N', 'CA', 'C', 'O', 'CB', 'CG', 'ND1',
@@ -103,7 +101,7 @@ class InformationTests(unittest.TestCase):
         padding = ['name', 'chainid', 'resname', 'element']
 
         for field in padding:
-            for i in xrange(self.mol.get_total_number_of_atoms()):
+            for i in range(self.mol.get_total_number_of_atoms()):
                 self.assertEqual(atom_inf[field][i], atom_inf[field+'_padded'][i].strip())
 
     def test_get_coordinates(self):
@@ -318,7 +316,7 @@ class InformationTests(unittest.TestCase):
         atom_inf['element_padded'] = [' ' * 12]
         self.mol.set_atom_information(atom_inf)
 
-        for i in xrange(atoms):
+        for i in range(atoms):
             self.assertNotEqual(self.mol.get_atom_information()['element'][i],
                                 other['element'][i])
             self.assertNotEqual(self.mol.get_atom_information()['element_padded'][i],
@@ -326,7 +324,7 @@ class InformationTests(unittest.TestCase):
 
         self.mol.assign_elements_from_atom_names()
 
-        for i in xrange(atoms):
+        for i in range(atoms):
             self.assertEqual(self.mol.get_atom_information()['element'][i],
                              other['element'][i])
             self.assertEqual(self.mol.get_atom_information()['element_padded'][i],
@@ -349,7 +347,7 @@ class InformationTests(unittest.TestCase):
 
         self.mol.assign_masses()
 
-        for i in xrange(atoms):
+        for i in range(atoms):
             element = self.mol.get_atom_information()['element'][i]
             self.assertEqual(self.mol.get_atom_information()['mass'][i],
                              masses[element])
@@ -362,13 +360,13 @@ class InformationTests(unittest.TestCase):
         atom_inf = self.mol.get_atom_information()
         atoms = self.mol.get_total_number_of_atoms()
 
-        other = range(1, atoms+1)
+        other = list(range(1, atoms+1))
 
         self.assertNotEqual(list(self.mol.get_atom_information()['serial']), other)
 
         self.mol.serial_reindex()
 
-        for i in xrange(atoms):
+        for i in range(atoms):
             self.assertEqual(self.mol.get_atom_information()['serial'][i],
                              other[i])
 
@@ -388,7 +386,7 @@ class InformationTests(unittest.TestCase):
 
         self.mol.resseq_reindex()
 
-        for i in xrange(atoms):
+        for i in range(atoms):
             self.assertEqual(self.mol.get_atom_information()['resseq'][i],
                              other[i])
 

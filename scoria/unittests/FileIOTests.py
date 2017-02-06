@@ -22,11 +22,6 @@ class FileIOTests(unittest.TestCase):
         Setting up the test molecule.
         """
         self.info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample-files/'
-
-
-        if not os.path.exists(self.info_path + "scoria_tests_tmp"):
-            os.mkdir(self.info_path + "scoria_tests_tmp")
-
         self.mol = scoria.Molecule()
 
     def tearDown(self):
@@ -34,11 +29,6 @@ class FileIOTests(unittest.TestCase):
         Cleans up variables for the next test.
         """
         self.mol = None
-
-        temp_folder = self.info_path + "scoria_tests_tmp"
-
-        if os.path.exists(temp_folder):
-            shutil.rmtree(temp_folder)
 
     ### Tests
     # Loaders
@@ -189,7 +179,7 @@ class FileIOTests(unittest.TestCase):
         Empty test.
         """
         input_name = self.info_path + 'single_frame.pdb'
-        output_name = self.info_path + 'scoria_tests_tmp/output.pym'
+        output_name = self.info_path + 'output.pym'
 
         self.mol.load_pdb_into(input_name)
         self.mol.save_pym(output_name)
@@ -201,7 +191,7 @@ class FileIOTests(unittest.TestCase):
         Empty test.
         """
         input_name = self.info_path + 'file_io_test.pym'
-        output_name = self.info_path + 'scoria_tests_tmp/output.pdb'
+        output_name = self.info_path + 'output.pdb'
 
         self.mol.load_pym_into(input_name)
         self.mol.save_pdb(output_name)

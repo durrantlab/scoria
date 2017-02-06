@@ -1,6 +1,5 @@
-import warnings
-
 from __future__ import absolute_import
+import warnings
 import unittest
 from . import InformationTests as IT
 from . import FileIOTests as FIOT

@@ -48,37 +48,70 @@ class FileIO():
             return
 
         if filename[-1:] != os.sep: filename = filename + os.sep
-
-        # first, get the files that must exist
-        self.__parent_molecule.set_atom_information(
-            pickle.load(open(filename + 'atom_information', "rb"))
-        )
-
-        self.__parent_molecule.set_coordinates(
-            numpy.load(filename + "coordinates.npz")['arr_0']
-        )
-
-        # now look for other possible files (optional output)
-        prnt = self.__parent_molecule
-        if os.path.exists(filename + 'remarks'):
-            prnt.set_remarks(pickle.load(open(filename + 'remarks', "rb")))
-
-        if os.path.exists(filename + 'hierarchy'):
-            prnt.set_hierarchy(pickle.load(open(filename + 'hierarchy', "rb")))
-
-        if os.path.exists(filename + 'filename'):
-            prnt.set_filename(pickle.load(open(filename + 'filename', "rb")))
-        
-        if prnt.get_filename() == []:  # If still no filename, set it to the one used as a parameter.
-            prnt.set_filename(filename)
-
-        if os.path.exists(filename + "bonds.npz"):
-            prnt.set_bonds(numpy.load(filename + "bonds.npz")['arr_0'])
-
-        if os.path.exists(filename + "coordinates_undo_point.npz"):
-            prnt.set_coordinates_undo_point(
-                numpy.load(filename + "coordinates_undo_point.npz")['arr_0']
+    
+        if numpy.python_version == 2:
+            # first, get the files that must exist
+            self.__parent_molecule.set_atom_information(
+                pickle.load(open(filename + 'atom_information', "rb"))
             )
+
+            self.__parent_molecule.set_coordinates(
+                numpy.load(filename + "coordinates.npz")['arr_0']
+            )
+
+            # now look for other possible files (optional output)
+            prnt = self.__parent_molecule
+            if os.path.exists(filename + 'remarks'):
+                prnt.set_remarks(pickle.load(open(filename + 'remarks', "rb")))
+
+            if os.path.exists(filename + 'hierarchy'):
+                prnt.set_hierarchy(pickle.load(open(filename + 'hierarchy', "rb")))
+
+            if os.path.exists(filename + 'filename'):
+                prnt.set_filename(pickle.load(open(filename + 'filename', "rb")))
+            
+            if prnt.get_filename() == []:  # If still no filename, set it to the one used as a parameter.
+                prnt.set_filename(filename)
+
+            if os.path.exists(filename + "bonds.npz"):
+                prnt.set_bonds(numpy.load(filename + "bonds.npz")['arr_0'])
+
+            if os.path.exists(filename + "coordinates_undo_point.npz"):
+                prnt.set_coordinates_undo_point(
+                    numpy.load(filename + "coordinates_undo_point.npz")['arr_0']
+                )
+        else:
+            # first, get the files that must exist
+            self.__parent_molecule.set_atom_information(
+                pickle.load(open(filename + 'atom_information', "rb"),
+                            encoding='latin1')
+            )
+
+            self.__parent_molecule.set_coordinates(
+                numpy.load(filename + "coordinates.npz")['arr_0']
+            )
+
+            # now look for other possible files (optional output)
+            prnt = self.__parent_molecule
+            if os.path.exists(filename + 'remarks'):
+                prnt.set_remarks(pickle.load(open(filename + 'remarks', "rb")))
+
+            if os.path.exists(filename + 'hierarchy'):
+                prnt.set_hierarchy(pickle.load(open(filename + 'hierarchy', "rb")))
+
+            if os.path.exists(filename + 'filename'):
+                prnt.set_filename(pickle.load(open(filename + 'filename', "rb")))
+            
+            if prnt.get_filename() == []:  # If still no filename, set it to the one used as a parameter.
+                prnt.set_filename(filename)
+
+            if os.path.exists(filename + "bonds.npz"):
+                prnt.set_bonds(numpy.load(filename + "bonds.npz")['arr_0'])
+
+            if os.path.exists(filename + "coordinates_undo_point.npz"):
+                prnt.set_coordinates_undo_point(
+                    numpy.load(filename + "coordinates_undo_point.npz")['arr_0']
+                )
 
 
     def load_pdbqt_trajectory_into(self, filename, bonds_by_distance = True,
@@ -322,7 +355,7 @@ class FileIO():
         first_line = True
         trajectoryList = []
         for pdb_frame in get_next_frame(file_obj):
-            str_file_obj = StringIO.StringIO(pdb_frame)
+            str_file_obj = StringIO(pdb_frame)
             if first_line == True:
                 # First frame, load it into the current molecule
                 first_line = False

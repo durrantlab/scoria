@@ -14,7 +14,11 @@ setup(
     description="A lightweight molecule manipulation codebase.",
     install_requires=["numpy", "scipy", "mdanalysis"],
     packages=find_packages(),
-    package_data={'scoria':['sample-files/*', 'sample-files/file_io_test.pym/*']},
+    package_data={'scoria':['sample-files/*.pdb',
+                            'sample-files/*.psf',
+                            'sample-files/*.dcd',
+                            'sample-files/*.pdbqt',
+                            'sample-files/file_io_test.pym/*']},
     classifiers=[
         "Development Status :: 4 - Beta",
         "Natural Language :: English",
