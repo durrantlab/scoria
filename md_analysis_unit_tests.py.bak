@@ -1,6 +1,5 @@
 # NEVER MIND THIS FILE FOR NOW. MDANALYSIS CONSTRUCTOR STILL BEING CREATED...
 
-from __future__ import absolute_import
 import scoria
 
 #mol = scoria.Molecule()

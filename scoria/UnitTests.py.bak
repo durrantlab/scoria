@@ -1,13 +1,7 @@
-from __future__ import absolute_import
 import unittest
 import os
-import sys
 
-import numpy as np
-import scipy
 import scoria
-import MDAnalysis as mda
-
 
 class InformationTests(unittest.TestCase):
     """
@@ -23,9 +17,7 @@ class InformationTests(unittest.TestCase):
         if not os.path.exists("./scoria_tests_tmp"):
             os.mkdir("./scoria_tests_tmp")
 
-        self.mol = scoria.Molecule("./scoria/sample-files/3_mol_test.pdb")
-        self.mda = mda.Universe("./scoria/sample-files/3_mol_test.pdb")
-        self.accuracy = 4
+        self.mol = scoria.Molecule("PDB", "TEST.pdb")
 
     def tearDown(self):
         """
@@ -38,98 +30,84 @@ class InformationTests(unittest.TestCase):
     ### Tests
     # Testing Getters
 
+    @unittest.skip("Needs final value")
     def test_get_filename(self):
         """
         Tests the getting of filenames.
         """
-        expected_filename = ["./scoria/sample-files/3_mol_test.pdb"]
-        self.assertEqual(self.mol.get_filename(), expected_filename)
+        # Fill out filename.
+        self.assertEqual(self.mol.get_filename(), "TEST.pdb")
 
+    @unittest.skip("Needs final value")
     def test_get_remarks(self):
         """
         Tests the getting of remarks.
         """
-        expected_remarks = [" This is a test file."]
-        self.assertEqual(self.mol.get_remarks(), expected_remarks)
+        self.assertEqual(self.mol.get_remarks(), "REMARKS")
 
+    @unittest.skip("Need final value")
     def test_get_center_of_mass(self):
         """
         Tests the determination of the center of mass.
         """
-        expected_center = [-21.57417476, 52.60448475, -17.17966907]
         center_of_mass = self.mol.get_center_of_mass()
-        self.assertAlmostEqual(center_of_mass[0], expected_center[0], self.accuracy)
-        self.assertAlmostEqual(center_of_mass[1], expected_center[1], self.accuracy)
-        self.assertAlmostEqual(center_of_mass[2], expected_center[2], self.accuracy)
+        self.assertEqual(center_of_mass, ["Expected"])
 
-    @unittest.skip("Needs final value")
+    @unittest.skip("Needs test written")
     def test_get_atom_information(self):
         """
         Tests the atom information.
         """
-        expected_atom_inf = [] # WRite final value here
         atom_inf = self.mol.get_atom_information()
-        self.assertListEqual(atom_inf, expected_atom_inf)
+        # Assertation here, post
 
-
+    @unittest.skip("Needs test written")
     def test_get_coordinates(self):
         """
         Tests that the coordinates are returned as expected.
         """
         coordinates = self.mol.get_coordinates()
-        self.assertEqual(len(coordinates), 12)
+        # Assertation here, post
 
-        atom_zero = coordinates[0]
-        expected_atom = [10.000, 10.000, 10.000]
-        self.assertAlmostEqual(atom_zero[0], expected_atom[0], self.accuracy)
-        self.assertAlmostEqual(atom_zero[1], expected_atom[1], self.accuracy)
-        self.assertAlmostEqual(atom_zero[2], expected_atom[2], self.accuracy)
-
+    @unittest.skip("Needs test written")
     def test_get_bonds(self):
         """
         Tests that the bond values are returned.
         """
         bonds = self.mol.get_bonds()
+        # Assertation here
 
-        # Checking that it is the correct depth, length and value
-        self.assertEqual(len(bonds), 12)
-        self.assertEqual(len(bonds[0]), 12)
-        self.assertEqual(bonds[0][0], 0)
-        self.assertEqual(bonds[2][3], 1)
-
+    @unittest.skip("Needs test written")
     def test_get_geometric_center(self):
         """
         Tests that the geometric center is able to be calculated properly.
         """
-        expected_center = [-21.75291634, 52.4852562, -17.28250122]
         geo_center = self.mol.get_geometric_center()
+        # Assertation here
 
-        self.assertAlmostEqual(geo_center[0], expected_center[0], self.accuracy)
-        self.assertAlmostEqual(geo_center[1], expected_center[1], self.accuracy)
-        self.assertAlmostEqual(geo_center[2], expected_center[2], self.accuracy)
-
+    @unittest.skip("Needs test written")
     def test_get_total_number_of_atoms(self):
         """
         Tests that the number of atoms returned is correct.
         """
         number_of_atoms = self.mol.get_total_number_of_atoms()
-        self.assertEqual(number_of_atoms, 12)
+        # Assertation here
 
+    @unittest.skip("Needs test written")
     def test_get_total_mass(self):
         """
         Tests that the total mass is returned correctly.
         """
-        expected_mass = 156.104
         total_mass = self.mol.get_total_mass()
-        self.assertAlmostEqual(total_mass, expected_mass, self.accuracy)
+        # Assertation here
 
     # Depreciated? And needs skip for dependencies
-    @unittest.skip("Deprecated Function?")
+    @unittest.skip("Needs test written")
     def test_get_heirarchy(self):
         """
         Tests that the hierarchy can be set.
         """
-        hierarchy = self.mol.get_hierarchy()
+        hierarchy = self.mol.get_hierarchy() 
         # Assertation here
 
     ## Testing Setters
@@ -139,15 +117,14 @@ class InformationTests(unittest.TestCase):
         Tests the setting of filenames.
         """
         self.mol.set_filename("OtherFile.txt")
-        self.assertEqual(self.mol.get_filename(), ["OtherFile.txt"])
+        self.assertEqual(self.mol.get_filename(), "OtherFile.txt")
 
     def test_set_remarks(self):
         """
         Tests the setting of remarks.
         """
-        set_remarks = ["TEST REMARK"]
-        self.mol.set_remarks(set_remarks)
-        self.assertEqual(self.mol.get_remarks(), set_remarks)
+        self.mol.set_remarks("TEST REMARK")
+        self.assertEqual(self.mol.get_remarks(), "TEST REMARK")
 
     @unittest.skip("Needs test written")
     def test_set_coordinates(self):
@@ -300,7 +277,3 @@ class InformationTests(unittest.TestCase):
         # Assertion here, pre assignment
         self.mol.define_molecule_chain_residue_spherical_boundaries()
         # Assertion here, post assignment
-
-
-if __name__ == '__main__':
-    unittest.main()

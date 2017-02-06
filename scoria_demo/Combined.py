@@ -5,8 +5,8 @@ import numpy as np
 print("Loading Molecule...")
 mol = scoria.Molecule()
 mol.load_via_MDAnalysis(
-    "../scoria/sample_files/test_sim.psf", 
-    "../scoria/sample_files/test_sim.dcd"
+    "../scoria/sample-files/test_sim.psf", 
+    "../scoria/sample-files/test_sim.dcd"
 )
 
 # Create two new trajectories, corresponding to the shroom2

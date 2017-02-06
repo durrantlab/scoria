@@ -5,8 +5,8 @@ import Contact as con
 
 
 # Defining the input files
-PSF = "../scoria/sample_files/test_sim.psf"
-DCD = "../scoria/sample_files/test_sim.dcd"
+PSF = "../scoria/sample-files/test_sim.psf"
+DCD = "../scoria/sample-files/test_sim.dcd"
 
 # Defining the two subsections to compare by a list of resid identifiers.
 residA = range(1, 181)

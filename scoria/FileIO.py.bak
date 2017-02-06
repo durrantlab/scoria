@@ -1,12 +1,8 @@
-from __future__ import absolute_import
-from __future__ import print_function
 from scoria import dumbpy as numpy
 import os
 import sys
-from six.moves import range
-from six.moves import zip
 
-try: import six.moves.cPickle as pickle  # python2
+try: import cPickle as pickle  # python2
 except: import pickle  # python3
 
 import shutil
@@ -871,8 +867,8 @@ class FileIO():
                 return return_string
 
         else:
-            print(("ERROR: Cannot save a Molecule with no atoms " +
-                  "(file name \"" + filename + "\")"))
+            print("ERROR: Cannot save a Molecule with no atoms " +
+                  "(file name \"" + filename + "\")")
 
     def _save_pdb_trajectory(self, filename = "", serial_reindex = True,
                  resseq_reindex = False, return_text = False):

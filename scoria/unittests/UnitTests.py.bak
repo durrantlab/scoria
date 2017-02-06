@@ -1,7 +1,6 @@
-from __future__ import absolute_import
 import unittest
-from . import InformationTests as IT
-from . import FileIOTests as FIOT
+import InformationTests as IT
+import FileIOTests as FIOT
 
 class UnitTests():
     """

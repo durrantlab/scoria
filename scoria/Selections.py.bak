@@ -1,8 +1,5 @@
-from __future__ import absolute_import
-from __future__ import print_function
 from scoria import dumbpy as numpy
 import sys
-from six.moves import range
 
 class Selections():
     """
@@ -82,8 +79,8 @@ class Selections():
                         (atm_inf[key] == val)
                     )
             except ValueError:
-                print(("A non-existant field was selected for. The selectable fields are: ",))
-                print((atm_inf.dtype.names))
+                print("A non-existant field was selected for. The selectable fields are: ",)
+                print(atm_inf.dtype.names)
 
 
             # now "and" that with everything else
@@ -157,8 +154,8 @@ class Selections():
             return
 
         if self.__parent_molecule.information.get_bonds() is None:
-            print(("You need to define the bonds to use" +
-                  "select_all_atoms_bound_to_selection()."))
+            print("You need to define the bonds to use" +
+                  "select_all_atoms_bound_to_selection().")
             return
 
         #print 1, self
@@ -201,8 +198,8 @@ class Selections():
         # old version of scoria had a branch-identification function.
 
         if self.__parent_molecule.get_bonds() is None:
-            print(("To identify atoms in the same molecule as the atoms of " +
-                  "a selection, you need to define the bonds."))
+            print("To identify atoms in the same molecule as the atoms of " +
+                  "a selection, you need to define the bonds.")
             return
 
         # Make sure atoms are neighboring
@@ -211,10 +208,10 @@ class Selections():
                     numpy.array([root_atom_index]))
            ):
 
-            print(("The root and directionality atoms, with indices " +
+            print("The root and directionality atoms, with indices " +
                   str(root_atom_index) + " and " +
                   str(directionality_atom_index) +
-                  ", respectively, are not neighboring atoms."))
+                  ", respectively, are not neighboring atoms.")
 
             return
 
@@ -288,8 +285,8 @@ class Selections():
         # the selection note that bonds must be defined
 
         if self.__parent_molecule.get_bonds() is None:
-            print(("To identify atoms in the same molecule as the atoms of " +
-                  "a selection, you need to define the bonds."))
+            print("To identify atoms in the same molecule as the atoms of " +
+                  "a selection, you need to define the bonds.")
             return
 
         indices = []
@@ -753,7 +750,7 @@ class Selections():
                     user-defined selection.
         """
 
-        from .Molecule import Molecule
+        from Molecule import Molecule
         new_mol = Molecule()
 
         trajectory_frames = self.__parent_molecule.get_trajectory_frame_count()
@@ -806,7 +803,7 @@ class Selections():
 
         prnt = self.__parent_molecule
 
-        if not 'chains' in list(prnt.get_hierarchy().keys()):
+        if not 'chains' in prnt.get_hierarchy().keys():
             # so it hasn't already been calculated
             unique_chainids = numpy.unique(
                 prnt.get_atom_information()['chainid_stripped']
@@ -842,7 +839,7 @@ class Selections():
         prnt = self.__parent_molecule
         atm_inf = prnt.get_atom_information()
 
-        if not 'residues' in list(prnt.get_hierarchy().keys()) :
+        if not 'residues' in prnt.get_hierarchy().keys() :
             # so it hasn't already been calculated
 
             keys = numpy.defchararray_add(

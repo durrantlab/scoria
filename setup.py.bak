@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 from setuptools import setup, find_packages
 
 # Utility function to read the README file.
@@ -14,7 +13,6 @@ setup(
     description="A lightweight molecule manipulation codebase.",
     install_requires=["numpy","scipy","mdanalysis"],
     packages=find_packages(),
-    
     classifiers=[
         "Development Status :: 4 - Beta",
         "Natural Language :: English",

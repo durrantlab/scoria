@@ -1,6 +1,4 @@
-from __future__ import absolute_import
 from scoria import dumbpy as numpy
-from six.moves import range
 
 class Manipulation():
     """
@@ -85,7 +83,7 @@ class Manipulation():
         )
 
         hierarchy = self.__parent_molecule.get_hierarchy()
-        if hierarchy is not None and 'spheres' in list(hierarchy.keys()):
+        if hierarchy is not None and 'spheres' in hierarchy.keys():
             gt_hrchy_sph = self.__parent_molecule.get_hierarchy()['spheres']
 
             # so update location of hierarchical elements

@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 from scoria.Information import Information
 from scoria.AtomsAndBonds import AtomsAndBonds
 from scoria.FileIO import FileIO

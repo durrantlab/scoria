@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-from __future__ import print_function
 from scoria import dumbpy as numpy
 from scoria.Quaternion import Quaternion
 
@@ -350,9 +348,9 @@ class OtherMolecules():
             len(other_mol.get_coordinates())):
 
             print("Cannot calculate RMSD: number of atoms are not equal.")
-            print(("\t" + (str(len(slf_gt_crs)) +
+            print("\t" + (str(len(slf_gt_crs)) +
                           " vs. " + str(len(other_mol.get_coordinates())) +
-                          " atoms.")))
+                          " atoms."))
             return 99999999.0
 
         self_coors_in_order = slf_gt_crs[tethers[0]]
@@ -419,7 +417,7 @@ class OtherMolecules():
 
         for i, atm in enumerate(atom_inf):
             element_stripped = atm["element_stripped"]
-            if not element_stripped in list(self_atom_grps.keys()):
+            if not element_stripped in self_atom_grps.keys():
                 self_atom_grps[element_stripped] = []
                 other_atom_grps[element_stripped] = []
             self_atom_grps[element_stripped].append(self_atom_coors[i])

@@ -1,6 +1,4 @@
-from __future__ import absolute_import
 from scoria import dumbpy as numpy
-from six.moves import range
 
 
 class Information():
@@ -945,7 +943,7 @@ class Information():
             return
 
         # first, check to see if it's already been defined
-        if 'spheres' in list(self.__hierarchy.keys()):
+        if 'spheres' in self.__hierarchy.keys():
             return
 
         # set up the new structure
@@ -970,7 +968,7 @@ class Information():
         # do calcs for the chains
         hrchy['spheres']['chains']['keys'] = numpy.array(
             # numpy string array e.g. ['a', 'b', 'c']
-            list(hrchy['chains']['indices'].keys())
+            hrchy['chains']['indices'].keys()
         )
 
         hrchy['spheres']['chains']['centers'] = numpy.empty(
@@ -993,7 +991,7 @@ class Information():
 
         # do calcs for the residues
         hrchy['spheres']['residues']['keys'] = numpy.array(
-            list(hrchy['residues']['indices'].keys())
+            hrchy['residues']['indices'].keys()
         )
 
         hrchy['spheres']['residues']['centers'] = numpy.empty(
