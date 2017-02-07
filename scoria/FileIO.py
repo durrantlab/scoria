@@ -355,7 +355,11 @@ class FileIO():
         first_line = True
         trajectoryList = []
         for pdb_frame in get_next_frame(file_obj):
-            str_file_obj = StringIO(pdb_frame)
+            if numpy.python_version == 2:
+                str_file_obj = StringIO.StringIO(pdb_frame)
+            else:
+                str_file_obj = StringIO(pdb_frame)
+
             if first_line == True:
                 # First frame, load it into the current molecule
                 first_line = False
@@ -987,7 +991,7 @@ class FileIO():
 
         self.load_MDAnalysis_into_using_universe_object(universe)
 
-        self.set_filename(args)
+        self.__parent_molecule.set_filename(args)
 
     def load_MDAnalysis_into_using_universe_object(self, universe):
         """

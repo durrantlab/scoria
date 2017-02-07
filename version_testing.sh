@@ -1,0 +1,21 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+touch $DIR/temp.out
+echo
+
+sudo pip install --upgrade $DIR &> temp.out
+sudo pip3 install --upgrade $DIR &> temp.out
+
+python $DIR/test_scoria.py &> temp.out
+echo 'Python 2.7 run'
+tail -1 temp.out
+echo
+
+sudo python3 $DIR/test_scoria.py &> temp.out
+echo 'Python 3 run'
+tail -1 temp.out
+echo
+
+rm temp.out
