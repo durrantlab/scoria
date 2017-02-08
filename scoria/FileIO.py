@@ -822,9 +822,8 @@ class FileIO():
 
             printout = numpy.defchararray_add(printout, '    '.encode())
 
-            dtype_to_use = '|S6'
+            dtype_to_use = '|S7'
 
-            numpy.array(["%.3f" % t for t in numpy.get_col(coordinates, 0)])
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
                     numpy.array(
