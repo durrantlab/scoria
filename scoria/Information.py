@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 from scoria import dumbpy as numpy
 from six.moves import range
+import copy
 
 
 class Information():
@@ -596,11 +597,19 @@ class Information():
             return
 
         # get the atom names
-        fix_element_names = numpy.defchararray_upper(
-            self.__atom_information['name_padded'][selection]
-        )
+
+        fix_element_names = copy.deepcopy(self.__atom_information['name_padded']
+                                          [selection].astype('<U5'))
+
+        print(fix_element_names[0])
+
+        fix_element_names = numpy.defchararray_upper(fix_element_names)
+
+        print(fix_element_names[0])
 
         fix_element_names = numpy.defchararray_strip(fix_element_names)
+
+        print(fix_element_names[0])
 
         # first remove any numbers at the begining of these names
         fix_element_names = numpy.defchararray_lstrip(fix_element_names,
@@ -611,7 +620,8 @@ class Information():
         # including the number itself. so C2L becomes C, not CL.
         for num in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']:
             # I wish there was a more numpified way of doing this. :(
-            tmp = numpy.defchararray_split(fix_element_names, num)
+            print(fix_element_names[0])
+            tmp = numpy.defchararray_split(fix_element_names.astype('<U5'), num)
             fix_element_names = numpy.empty(len(fix_element_names),
                                             dtype = "S5")
             for i, item in enumerate(tmp):
@@ -620,17 +630,25 @@ class Information():
         # take just first two letters of each item
         fix_element_names = numpy.array(fix_element_names, dtype = "|S2")
 
+        print(fix_element_names[0])
+
         # identify ones that are two-letter elements and one-letter elements
         cnsts = self.__constants
         one_tht_shf_b_2_lttrs = (
             fix_element_names == cnsts['element_names_with_two_letters'][0]
         )
 
+        print(fix_element_names[0])
+
         for other_two_letter in cnsts['element_names_with_two_letters'][1:]:
             one_tht_shf_b_2_lttrs = numpy.logical_or(
                 one_tht_shf_b_2_lttrs,
                 (fix_element_names == other_two_letter)
             )
+
+        print(one_tht_shf_b_2_lttrs)
+
+        print(fix_element_names[0])
 
         indices_of_two_letter_elements = numpy.nonzero(
             one_tht_shf_b_2_lttrs
@@ -644,17 +662,24 @@ class Information():
         fix_element_names[indices_of_one_letter_elements] = (
             numpy.defchararray_rjust(numpy.array(
                 fix_element_names[indices_of_one_letter_elements],
-                dtype = "|S1"
+                dtype = "|S2"
             ), 2)
         )
+
+        print(fix_element_names[0])
 
         # they should be capitalized for consistency
         fix_element_names = numpy.defchararray_upper(fix_element_names)
         stripped_element_names = numpy.defchararray_strip(fix_element_names)
 
+        print(fix_element_names[0])
+        print(fix_element_names.dtype)
+
         # now map missing element names back
         self.__atom_information['element_padded'][selection] = fix_element_names
         self.__atom_information['element'][selection] = stripped_element_names
+
+        print(self.__atom_information['element_padded'])
 
         # element_stripped also needs to be updated try:
         # self.__parent_molecule.information.get_atom_information()
