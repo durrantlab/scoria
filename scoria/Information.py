@@ -232,7 +232,6 @@ class Information():
 
             >>> for coord in mol.get_trajectory_coordinates():
             >>>     print(coord)
-            >>>     print()
             [[ -30.85199928  -81.45800018  365.05499268]
              [ -31.99500084  -80.69300079  365.66900635]
              [ -32.0530014   -81.13200378  367.18200684]
@@ -240,7 +239,6 @@ class Information():
              [ -27.54199982  -96.25099945  402.83700562]
              [ -23.54199982  -94.7539978   400.41900635]
              [ -22.86100006  -93.72499847  400.55300903]]
-
             [[ -30.6779995   -81.32499695  365.73199463]
              [ -31.88100052  -80.38600159  366.0289917 ]
              [ -32.40399933  -80.62799835  367.45700073]
@@ -607,6 +605,7 @@ class Information():
         # first remove any numbers at the begining of these names
         fix_element_names = numpy.defchararray_lstrip(fix_element_names,
                                                            '0123456789')
+
 
         # remove any thing, letters or numbers, that follows a number,
         # including the number itself. so C2L becomes C, not CL.

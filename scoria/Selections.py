@@ -82,8 +82,8 @@ class Selections():
                         (atm_inf[key] == val)
                     )
             except ValueError:
-                print(("A non-existant field was selected for. The selectable fields are: ",))
-                print((atm_inf.dtype.names))
+                print("""A non-existant field was selected for.
+                         The selectable fields are: """, atm_inf.dtype.names)
 
 
             # now "and" that with everything else
@@ -157,8 +157,8 @@ class Selections():
             return
 
         if self.__parent_molecule.information.get_bonds() is None:
-            print(("You need to define the bonds to use" +
-                  "select_all_atoms_bound_to_selection()."))
+            print("You need to define the bonds to use" +
+                  "select_all_atoms_bound_to_selection().")
             return
 
         #print 1, self
@@ -201,8 +201,8 @@ class Selections():
         # old version of scoria had a branch-identification function.
 
         if self.__parent_molecule.get_bonds() is None:
-            print(("To identify atoms in the same molecule as the atoms of " +
-                  "a selection, you need to define the bonds."))
+            print("To identify atoms in the same molecule as the atoms of " +
+                  "a selection, you need to define the bonds.")
             return
 
         # Make sure atoms are neighboring
@@ -211,10 +211,10 @@ class Selections():
                     numpy.array([root_atom_index]))
            ):
 
-            print(("The root and directionality atoms, with indices " +
+            print("The root and directionality atoms, with indices " +
                   str(root_atom_index) + " and " +
                   str(directionality_atom_index) +
-                  ", respectively, are not neighboring atoms."))
+                  ", respectively, are not neighboring atoms.")
 
             return
 
@@ -288,8 +288,8 @@ class Selections():
         # the selection note that bonds must be defined
 
         if self.__parent_molecule.get_bonds() is None:
-            print(("To identify atoms in the same molecule as the atoms of " +
-                  "a selection, you need to define the bonds."))
+            print("To identify atoms in the same molecule as the atoms of " +
+                  "a selection, you need to define the bonds.")
             return
 
         indices = []

@@ -789,8 +789,10 @@ class FileIO():
             atom_information = self.__parent_molecule.get_atom_information()
             coordinates = self.__parent_molecule.get_coordinates(frame)
 
-            if numpy.python_version == 2: dtype_to_use = '|S5'
-            else: dtype_to_use = '|U5'  # python3 needs this instead
+#            if numpy.python_version == 2: 
+            dtype_to_use = '|S5'
+#            else: 
+#                dtype_to_use = '|U5'  # python3 needs this instead
 
             printout = numpy.defchararray_add(
                 atom_information['record_name'],
@@ -808,8 +810,9 @@ class FileIO():
             printout = numpy.defchararray_add(printout,
                                               atom_information['chainid_padded'])
 
-            if numpy.python_version == 2: dtype_to_use = '|S4'
-            else: dtype_to_use = '|U4'  # python3 needs this instead
+            #if numpy.python_version == 2: 
+            dtype_to_use = '|S4'
+            #else: dtype_to_use = '|U4'  # python3 needs this instead
 
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
@@ -817,58 +820,78 @@ class FileIO():
                 )
             )
 
-            printout = numpy.defchararray_add(printout, '    ')
+            printout = numpy.defchararray_add(printout, '    '.encode())
+
+            dtype_to_use = '|S6'
+
+            numpy.array(["%.3f" % t for t in numpy.get_col(coordinates, 0)])
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
-                    numpy.array(["%.3f" % t for t in numpy.get_col(coordinates, 0)]), 8
+                    numpy.array(
+                        ["%.3f" % t for t in numpy.get_col(coordinates, 0)]
+                        ).astype(dtype_to_use), 8
                 )
             )
 
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
-                    numpy.array(["%.3f" % t for t in numpy.get_col(coordinates, 1)]), 8
+                    numpy.array(
+                        ["%.3f" % t for t in numpy.get_col(coordinates, 1)]
+                        ).astype(dtype_to_use), 8
                 )
             )
 
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
-                    numpy.array(["%.3f" % t for t in numpy.get_col(coordinates, 2)]), 8
+                    numpy.array(["%.3f" % t
+                        for t in numpy.get_col(coordinates, 2)]
+                        ).astype(dtype_to_use), 8
+                )
+            )
+
+           #dtype_to_use = '|S5'
+
+            printout = numpy.defchararray_add(
+                printout, numpy.defchararray_rjust(
+                    numpy.array(["%.2f" % t
+                        for t in atom_information['occupancy']]
+                        ).astype(dtype_to_use), 6
                 )
             )
 
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
                     numpy.array(["%.2f" % t
-                                 for t in atom_information['occupancy']]),
-                    6
+                        for t in atom_information['tempfactor']]
+                        ).astype(dtype_to_use), 6
                 )
             )
 
-            printout = numpy.defchararray_add(
-                printout, numpy.defchararray_rjust(
-                    numpy.array(["%.2f" % t
-                                 for t in atom_information['tempfactor']]),
-                    6
-                )
-            )
+            printout = numpy.defchararray_add(printout, '          '.encode())
 
-            printout = numpy.defchararray_add(printout, '          ')
+            dtype_to_use = '|S2'
 
             printout = numpy.defchararray_add(
-                printout, atom_information['element_padded']
+                printout, atom_information['element_padded'].astype(dtype_to_use)
             )
 
+            dtype_to_use = '|S3'
+
             printout = numpy.defchararray_add(
-                printout, atom_information['charge']
+                printout, atom_information['charge'].astype(dtype_to_use)
             )
+
+            printout_string = []
+            for i in printout:
+                printout_string.append(str(i))
 
             if return_text == False:
-                if printout[0][-1:] == "\n":
-                    afile.write("".join(printout) + "\n")
+                if printout_string[0][-1:] == "\n":
+                    afile.write("".join(printout_string) + "\n")
                 else:
-                    afile.write("\n".join(printout) + "\n")
+                    afile.write("\n".join(printout_string) + "\n")
             else:
-                if printout[0][-1:] == "\n":
+                if printout_string[0][-1:] == "\n":
                     return_string += "".join(printout) + "\n"
                 else:
                     return_string += "\n".join(printout) + "\n"

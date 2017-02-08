@@ -8,14 +8,12 @@ echo
 sudo pip install --upgrade $DIR &> temp.out
 sudo pip3 install --upgrade $DIR &> temp.out
 
-python $DIR/test_scoria.py &> temp.out
 echo 'Python 2.7 run'
-tail -1 temp.out
+python $DIR/test_scoria.py #&> temp.out
 echo
 
-sudo python3 $DIR/test_scoria.py &> temp.out
 echo 'Python 3 run'
-tail -1 temp.out
+sudo python3 $DIR/test_scoria.py #&> temp.out
 echo
 
 rm temp.out
