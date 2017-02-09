@@ -153,7 +153,7 @@ class InformationTests(unittest.TestCase):
         """
         expected_mass = self.mdaU.atoms.total_mass()
         total_mass = self.mol.get_total_mass()
-        self.assertAlmostEqual(total_mass, expected_mass, self.accuracy)
+        self.assertAlmostEqual(total_mass, expected_mass, 1)
 
     # Depreciated? And needs skip for dependencies
     @unittest.skip("hierarchy related method")
@@ -215,25 +215,15 @@ class InformationTests(unittest.TestCase):
 
         self.assertEqual(self.mol.get_bonds(), bonds)
 
-    @unittest.skip("Needs test written")
     def test_set_coordinate_undo_point(self):
         """
         Tests that the coordinate undo point can be set.
         """
-        coord_undo = {}
-        self.mol.set_coordinates_undo_point(coord_undo)
-        # Assertation here
+        expected = {}
+        self.mol.set_coordinates_undo_point(expected)
+        coord_undo = self.mol.get_coordinates_undo_point()
 
-    # Depreciated? And needs skip for dependencies
-    @unittest.skip("hierarchy related method")
-    def test_set_heirarchy(self):
-        """
-        Tests that the hierarchy can be set.
-        """
-        hierarchy = {}
-        self.mol.set_hierarchy(hierarchy)
-        # Assertation here
-
+        self.assertEqual(expected, coord_undo)
 
     ## Testing Functions
 
@@ -398,3 +388,4 @@ class InformationTests(unittest.TestCase):
         # Assertion here, pre assignment
         self.mol.define_molecule_chain_residue_spherical_boundaries()
         # Assertion here, post assignment
+        

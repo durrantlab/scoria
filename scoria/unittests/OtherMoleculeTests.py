@@ -27,8 +27,8 @@ class OtherMoleculeTests(unittest.TestCase):
         self.accuracy = 4
 
         self.tethers = []
-        for i in range(0, self.mol.get_total_number_of_atoms()):
-            self.tethers.append(np.array([i, i]))
+        for i in range(12):
+            self.tethers.append([i, i]) 
 
     def tearDown(self):
         """

@@ -2,6 +2,7 @@ from __future__ import absolute_import
 import unittest
 import os
 import sys
+import copy
 
 import numpy as np
 import scipy
@@ -55,14 +56,27 @@ class ManipulationTests(unittest.TestCase):
         """
         Empty test.
         """
+        shifted = [[None]]
+        undone = [[None]]
+        expected = [[None]]
+
         expected = self.mol.get_trajectory_coordinates()
         self.mol.set_coordinates_undo_point(expected)
 
         self.mol.set_atom_location(0, np.array([100.0, 100.0, 100.0]))
+
+        # print(shifted[0][0], undone[0][0], expected[0][0])
+
         shifted = self.mol.get_trajectory_coordinates()
+
+        # print(shifted[0][0], undone[0][0], expected[0][0])
+
 
         self.mol.coordinate_undo()
         undone = self.mol.get_trajectory_coordinates()
+
+        # print(shifted[0][0], undone[0][0], expected[0][0])
+
 
         for h in range(self.mol.get_trajectory_frame_count()):
             for i in range(self.mol.get_total_number_of_atoms()):

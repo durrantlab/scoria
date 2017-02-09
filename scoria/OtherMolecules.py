@@ -348,6 +348,8 @@ class OtherMolecules():
         :returns: A float, the RMSD between self and other_mol.
         """
 
+        tethers = numpy.transpose(tethers)
+
         slf_gt_crs = self.__parent_molecule.get_coordinates()
         if (len(slf_gt_crs) !=
             len(other_mol.get_coordinates())):
@@ -388,7 +390,7 @@ class OtherMolecules():
 
         return self.get_rmsd_equivalent_atoms_specified(
             other_mol,
-            (self_index_in_order, other_index_in_order)
+            list(zip(self_index_in_order, other_index_in_order))
         )
 
     def get_rmsd_heuristic(self, other_mol):
