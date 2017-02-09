@@ -11,8 +11,9 @@ Other Classes
 ^^^^^^^^^^^^^
 
 The Geometry functions rely on the input of coordinate arrays which can be
-obtained from the :meth:`~scoria.Information.Information.get_coordinates` functions. Note that these
-functions work whether the molecule contains these coordinates or not.
+obtained from the :meth:`~scoria.Information.Information.get_coordinates`
+function. Note that the geometry functions work whether the coordinates exist
+as atoms in the molecule or not.
 
 Function Definitions
 --------------------

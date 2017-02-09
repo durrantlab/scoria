@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>5. scoria.Information module &#8212; scoria 2.0 documentation</title>
+    <title>6. The Information class &#8212; scoria 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="scoria 2.0 documentation" href="index.html" />
-    <link rel="next" title="6. scoria.Manipulation module" href="Manipulation.html" />
-    <link rel="prev" title="4. scoria.Geometry module" href="Geometry.html" /> 
+    <link rel="next" title="7. The Manipulation class" href="Manipulation.html" />
+    <link rel="prev" title="5. The Geometry class" href="Geometry.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -38,10 +38,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Manipulation.html" title="6. scoria.Manipulation module"
+          <a href="Manipulation.html" title="7. The Manipulation class"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="Geometry.html" title="4. scoria.Geometry module"
+          <a href="Geometry.html" title="5. The Geometry class"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
       </ul>
@@ -52,8 +52,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-scoria.Information">
-<span id="scoria-information-module"></span><h1>5. scoria.Information module<a class="headerlink" href="#module-scoria.Information" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="the-information-class">
+<h1>6. The Information class<a class="headerlink" href="#the-information-class" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rationale-of-the-information-functions">
+<h2>6.1. Rationale of the Information functions<a class="headerlink" href="#rationale-of-the-information-functions" title="Permalink to this headline">¶</a></h2>
+<p>The Information class stores, sets, and gets internal variables. Functions
+located here are used for accessing and changing internal variables, as well
+as checking properties of individual atoms.</p>
+</div>
+<div class="section" id="module-scoria.Information">
+<span id="function-definitions"></span><h2>6.2. Function Definitions<a class="headerlink" href="#module-scoria.Information" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="scoria.Information.Information">
 <em class="property">class </em><code class="descclassname">scoria.Information.</code><code class="descname">Information</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information" title="Permalink to this definition">¶</a></dt>
@@ -273,7 +281,7 @@ scoria.Molecule.Molecule.hierarchy.</p>
 </table>
 <p>An example for printing the elemental symbols of the first five atoms:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">atom_info</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_atom_information</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">atom_info</span><span class="p">[</span><span class="s1">&#39;element_stripped&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">atom_info</span><span class="p">[</span><span class="s1">&#39;element&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
 <span class="go">[&#39;N&#39; &#39;C&#39; &#39;C&#39; &#39;O&#39; &#39;C&#39;]</span>
 </pre></div>
 </div>
@@ -296,9 +304,9 @@ scoria.Molecule.Molecule.hierarchy.</p>
 </table>
 <p>An example for finding all atoms bonded with atom 153:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bonds</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_bonds</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">bonds</span><span class="p">)):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">bonds</span><span class="p">)):</span>
 <span class="gp">... </span>    <span class="k">if</span> <span class="n">bonds</span><span class="p">[</span><span class="mi">153</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="gp">... </span>            <span class="nb">print</span> <span class="mi">153</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">i</span>
+<span class="gp">... </span>            <span class="nb">print</span><span class="p">(</span><span class="mi">153</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
 <span class="go">153 - 152</span>
 <span class="go">153 - 154</span>
 <span class="go">153 - 155</span>
@@ -402,7 +410,7 @@ frame of the trajectory.</li>
 </table>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">scoria</span><span class="o">.</span><span class="n">Molecule</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">load_pdb_into</span><span class="p">(</span><span class="s2">&quot;single_frame.pdb&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_center_of_mass</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">get_center_of_mass</span><span class="p">())</span>
 <span class="go">[33.0643089093134 19.135747088722564 16.05629867850796]</span>
 </pre></div>
 </div>
@@ -502,7 +510,7 @@ frame of the trajectory.</td>
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_coordinates</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">get_coordinates</span><span class="p">())</span>
 <span class="go">[[ -30.85199928  -81.45800018  365.05499268]</span>
 <span class="go"> [ -31.99500084  -80.69300079  365.66900635]</span>
 <span class="go"> [ -32.0530014   -81.13200378  367.18200684]</span>
@@ -511,7 +519,7 @@ frame of the trajectory.</td>
 <span class="go"> [ -23.54199982  -94.7539978   400.41900635]</span>
 <span class="go"> [ -22.86100006  -93.72499847  400.55300903]]</span>
 <span class="go"> </span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_coordinates</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">get_coordinates</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 <span class="go">[[ -28.88899994  -80.45700073  365.51699829]</span>
 <span class="go"> [ -30.20000076  -79.73699951  365.99700928]</span>
 <span class="go"> [ -30.90699959  -80.5510025   367.13000488]</span>
@@ -572,7 +580,7 @@ Retreives a previously save set of coordinates to revert to.</p>
 </table>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">scoria</span><span class="o">.</span><span class="n">Molecule</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">load_pdb_into</span><span class="p">(</span><span class="s2">&quot;single_frame.pdb&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_filename</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">get_filename</span><span class="p">())</span>
 <span class="go">single_frame.pdb</span>
 </pre></div>
 </div>
@@ -608,7 +616,7 @@ frame of the trajectory.</li>
 </table>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">scoria</span><span class="o">.</span><span class="n">Molecule</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">load_pdb_into</span><span class="p">(</span><span class="s2">&quot;single_frame.pdb&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_geometric_center</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">get_geometric_center</span><span class="p">())</span>
 <span class="go">[ 33.09860848  19.1221197   16.0426808 ]</span>
 </pre></div>
 </div>
@@ -648,7 +656,7 @@ frame of the trajectory.</li>
 </table>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span> <span class="o">=</span> <span class="n">scoria</span><span class="o">.</span><span class="n">Molecule</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mol</span><span class="o">.</span><span class="n">load_pdb_into</span><span class="p">(</span><span class="s2">&quot;single_frame.pdb&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_remarks</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">get_remarks</span><span class="p">())</span>
 <span class="go">[&#39; This is a remark.&#39;]</span>
 </pre></div>
 </div>
@@ -675,7 +683,7 @@ will be considered.</td>
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_total_mass</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">get_total_mass</span><span class="p">())</span>
 <span class="go">5289.1729999999998</span>
 </pre></div>
 </div>
@@ -755,8 +763,7 @@ scoria.Molecule object will be considered.</td>
 </tbody>
 </table>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">get_trajectory_coordinates</span><span class="p">():</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span> <span class="n">coord</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
 <span class="go">[[ -30.85199928  -81.45800018  365.05499268]</span>
 <span class="go"> [ -31.99500084  -80.69300079  365.66900635]</span>
 <span class="go"> [ -32.0530014   -81.13200378  367.18200684]</span>
@@ -764,7 +771,6 @@ scoria.Molecule object will be considered.</td>
 <span class="go"> [ -27.54199982  -96.25099945  402.83700562]</span>
 <span class="go"> [ -23.54199982  -94.7539978   400.41900635]</span>
 <span class="go"> [ -22.86100006  -93.72499847  400.55300903]]</span>
-
 <span class="go">[[ -30.6779995   -81.32499695  365.73199463]</span>
 <span class="go"> [ -31.88100052  -80.38600159  366.0289917 ]</span>
 <span class="go"> [ -32.40399933  -80.62799835  367.45700073]</span>
@@ -832,7 +838,7 @@ with 1.</p>
 <dl class="method">
 <dt id="scoria.Information.Information.set_atom_information">
 <code class="descname">set_atom_information</code><span class="sig-paren">(</span><em>atom_information</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Information.Information.set_atom_information" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the __atom_information variable. See 
+<dd><p>Sets the __atom_information variable. See
 <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_atom_information" title="scoria.Molecule.Molecule.get_atom_information"><code class="xref py py-meth docutils literal"><span class="pre">get_atom_information()</span></code></a> for
 information on the numpy.array structure.</p>
 <p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.set_atom_information" title="scoria.Molecule.Molecule.set_atom_information"><code class="xref py py-meth docutils literal"><span class="pre">set_atom_information()</span></code></a></p>
@@ -971,6 +977,7 @@ DEPRECIATED?</p>
 </dd></dl>
 
 </div>
+</div>
 
 
           </div>
@@ -978,12 +985,21 @@ DEPRECIATED?</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">6. The Information class</a><ul>
+<li><a class="reference internal" href="#rationale-of-the-information-functions">6.1. Rationale of the Information functions</a></li>
+<li><a class="reference internal" href="#module-scoria.Information">6.2. Function Definitions</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="Geometry.html"
-                        title="previous chapter">4. scoria.Geometry module</a></p>
+                        title="previous chapter">5. The Geometry class</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="Manipulation.html"
-                        title="next chapter">6. scoria.Manipulation module</a></p>
+                        title="next chapter">7. The Manipulation class</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -1015,10 +1031,10 @@ DEPRECIATED?</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Manipulation.html" title="6. scoria.Manipulation module"
+          <a href="Manipulation.html" title="7. The Manipulation class"
              >next</a> |</li>
         <li class="right" >
-          <a href="Geometry.html" title="4. scoria.Geometry module"
+          <a href="Geometry.html" title="5. The Geometry class"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
       </ul>

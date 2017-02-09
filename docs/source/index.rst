@@ -3,16 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to scoria's documentation!
+Welcome to Scoria's documentation!
 ======================================
 
-scoria is a lightweight molecular dynamics library 
+Scoria is a lightweight molecular dynamics library 
 
 .. toctree::
    :maxdepth: 2
    :numbered:
 
    Molecule.rst
+   Demo.rst
    AtomsAndBonds.rst
    FileIO.rst
    Geometry.rst

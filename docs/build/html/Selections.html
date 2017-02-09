@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>9. scoria.Selections module &#8212; scoria 2.0 documentation</title>
+    <title>10. The Selections class &#8212; scoria 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="scoria 2.0 documentation" href="index.html" />
-    <link rel="next" title="10. reST Documentation Guide" href="REST_tutorial.html" />
-    <link rel="prev" title="8. scoria.Quaternion module" href="Quaternion.html" /> 
+    <link rel="prev" title="9. The Quaternion object" href="Quaternion.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -38,10 +37,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="REST_tutorial.html" title="10. reST Documentation Guide"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="Quaternion.html" title="8. scoria.Quaternion module"
+          <a href="Quaternion.html" title="9. The Quaternion object"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
       </ul>
@@ -52,8 +48,15 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-scoria.Selections">
-<span id="scoria-selections-module"></span><h1>9. scoria.Selections module<a class="headerlink" href="#module-scoria.Selections" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="the-selections-class">
+<h1>10. The Selections class<a class="headerlink" href="#the-selections-class" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="using-the-selection-functions">
+<h2>10.1. Using the Selection functions<a class="headerlink" href="#using-the-selection-functions" title="Permalink to this headline">¶</a></h2>
+<p>Functions within the Selection module search the molecule given specific
+criteria and return a list of indexes that match that criteria.</p>
+</div>
+<div class="section" id="module-scoria.Selections">
+<span id="function-definitions"></span><h2>10.2. Function Definitions<a class="headerlink" href="#module-scoria.Selections" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="scoria.Selections.Selections">
 <em class="property">class </em><code class="descclassname">scoria.Selections.</code><code class="descname">Selections</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections" title="Permalink to this definition">¶</a></dt>
@@ -162,7 +165,7 @@ structured numpy array, and the values are lists of
 acceptable matches. The selection is a logical &#8220;AND&#8221;
 between dictionary entries, but &#8220;OR&#8221; within the value lists
 themselves. For example: {&#8216;atom&#8217;:[&#8216;CA&#8217;, &#8216;O&#8217;], &#8216;chain&#8217;:&#8217;A&#8217;,
-&#8216;resname&#8217;:&#8217;PRO&#8217;} would select all atoms with the names CA
+&#8216;resname_padded&#8217;:&#8217;PRO&#8217;} would select all atoms with the names CA
 or O that are located in the PRO residues of chain A.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of the atoms of the
@@ -399,6 +402,7 @@ the associated residue atoms.</td>
 </dd></dl>
 
 </div>
+</div>
 
 
           </div>
@@ -406,12 +410,18 @@ the associated residue atoms.</td>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">10. The Selections class</a><ul>
+<li><a class="reference internal" href="#using-the-selection-functions">10.1. Using the Selection functions</a></li>
+<li><a class="reference internal" href="#module-scoria.Selections">10.2. Function Definitions</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="Quaternion.html"
-                        title="previous chapter">8. scoria.Quaternion module</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="REST_tutorial.html"
-                        title="next chapter">10. reST Documentation Guide</a></p>
+                        title="previous chapter">9. The Quaternion object</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -443,10 +453,7 @@ the associated residue atoms.</td>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="REST_tutorial.html" title="10. reST Documentation Guide"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="Quaternion.html" title="8. scoria.Quaternion module"
+          <a href="Quaternion.html" title="9. The Quaternion object"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
       </ul>
