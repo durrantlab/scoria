@@ -101,7 +101,7 @@ class FileIO():
 
             if os.path.exists(filename + 'filename'):
                 prnt.set_filename(pickle.load(open(filename + 'filename', "rb")))
-            
+
             if prnt.get_filename() == []:  # If still no filename, set it to the one used as a parameter.
                 prnt.set_filename(filename)
 
@@ -114,7 +114,7 @@ class FileIO():
                 )
 
 
-    def load_pdbqt_trajectory_into(self, filename, bonds_by_distance = True,
+    def load_pdbqt_trajectory_into(self, filename, bonds_by_distance = False,
                                    serial_reindex = True, 
                                    resseq_reindex = False):
         """
@@ -140,7 +140,7 @@ class FileIO():
         )
 
     def load_pdbqt_trajectory_into_using_file_object(self, file_obj,
-                                                     bonds_by_distance = True,
+                                                     bonds_by_distance = False,
                                                      serial_reindex = True,
                                                      resseq_reindex = False):
         """
@@ -253,7 +253,7 @@ class FileIO():
 
         self.__parent_molecule.set_atom_information(atom_inf)
 
-    def load_pdb_trajectory_into(self, filename, bonds_by_distance = True,
+    def load_pdb_trajectory_into(self, filename, bonds_by_distance = False,
                                  serial_reindex = True, 
                                  resseq_reindex = False):
         """
@@ -283,7 +283,7 @@ class FileIO():
         afile.close()
 
     def load_pdb_trajectory_into_using_file_object(self, file_obj,
-                                                   bonds_by_distance = True,
+                                                   bonds_by_distance = False,
                                                    serial_reindex = True,
                                                    resseq_reindex = False):
         """
@@ -382,7 +382,7 @@ class FileIO():
 
         self.__parent_molecule.set_trajectory_coordinates(trajectoryList)        
 
-    def load_pdb_into(self, filename, bonds_by_distance = True,
+    def load_pdb_into(self, filename, bonds_by_distance = False,
                       serial_reindex = True, resseq_reindex = False,
                       is_trajectory = False):
         """
@@ -413,7 +413,7 @@ class FileIO():
         afile.close()
 
     def load_pdb_into_using_file_object(self, file_obj,
-                                        bonds_by_distance = True,
+                                        bonds_by_distance = False,
                                         serial_reindex = True,
                                         resseq_reindex = False,
                                         is_trajectory = False):
@@ -441,7 +441,7 @@ class FileIO():
 
         if is_trajectory == True:
             self.load_pdb_trajectory_into_using_file_object(
-                file_obj, bonds_by_distance = True, serial_reindex = True,
+                file_obj, bonds_by_distance = False, serial_reindex = True,
                 resseq_reindex = False
             )
             return
