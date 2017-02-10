@@ -1,5 +1,8 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from scoria import dumbpy as numpy
 import sys
+from six.moves import range
 
 class Selections():
     """
@@ -79,8 +82,8 @@ class Selections():
                         (atm_inf[key] == val)
                     )
             except ValueError:
-                print("A non-existant field was selected for. The selectable fields are: ",)
-                print(atm_inf.dtype.names)
+                print("""A non-existant field was selected for.
+                         The selectable fields are: """, atm_inf.dtype.names)
 
 
             # now "and" that with everything else
@@ -118,12 +121,12 @@ class Selections():
         min_pt = bounding_box[0]
         max_pt = bounding_box[1]
         coordinates = self.__parent_molecule.get_coordinates()
-        sel1 = numpy.nonzero((coordinates[:, 0] > min_pt[0]))[0]
-        sel2 = numpy.nonzero((coordinates[:, 0] < max_pt[0]))[0]
-        sel3 = numpy.nonzero((coordinates[:, 1] > min_pt[1]))[0]
-        sel4 = numpy.nonzero((coordinates[:, 1] < max_pt[1]))[0]
-        sel5 = numpy.nonzero((coordinates[:, 2] > min_pt[2]))[0]
-        sel6 = numpy.nonzero((coordinates[:, 2] < max_pt[2]))[0]
+        sel1 = numpy.nonzero((coordinates[:, 0] >= min_pt[0]))[0]
+        sel2 = numpy.nonzero((coordinates[:, 0] <= max_pt[0]))[0]
+        sel3 = numpy.nonzero((coordinates[:, 1] >= min_pt[1]))[0]
+        sel4 = numpy.nonzero((coordinates[:, 1] <= max_pt[1]))[0]
+        sel5 = numpy.nonzero((coordinates[:, 2] >= min_pt[2]))[0]
+        sel6 = numpy.nonzero((coordinates[:, 2] <= max_pt[2]))[0]
         sel = numpy.intersect1d(sel1, sel2)
         sel = numpy.intersect1d(sel, sel3)
         sel = numpy.intersect1d(sel, sel4)
@@ -750,11 +753,11 @@ class Selections():
                     user-defined selection.
         """
 
-        from Molecule import Molecule
+        from .Molecule import Molecule
         new_mol = Molecule()
 
         trajectory_frames = self.__parent_molecule.get_trajectory_frame_count()
-        for frame in xrange(0, trajectory_frames):
+        for frame in range(0, trajectory_frames):
             new_mol.set_coordinates(
                 self.__parent_molecule.get_coordinates(frame)[selection],
                 frame
@@ -803,7 +806,7 @@ class Selections():
 
         prnt = self.__parent_molecule
 
-        if not 'chains' in prnt.get_hierarchy().keys():
+        if not 'chains' in list(prnt.get_hierarchy().keys()):
             # so it hasn't already been calculated
             unique_chainids = numpy.unique(
                 prnt.get_atom_information()['chainid']
@@ -839,7 +842,7 @@ class Selections():
         prnt = self.__parent_molecule
         atm_inf = prnt.get_atom_information()
 
-        if not 'residues' in prnt.get_hierarchy().keys() :
+        if not 'residues' in list(prnt.get_hierarchy().keys()) :
             # so it hasn't already been calculated
 
             keys = numpy.defchararray_add(

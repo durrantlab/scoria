@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import unittest
 import os
 import sys
@@ -7,6 +8,7 @@ import numpy as np
 import scipy
 import MDAnalysis
 import scoria
+import shutil
 
 
 class FileIOTests(unittest.TestCase):
@@ -20,12 +22,10 @@ class FileIOTests(unittest.TestCase):
         """
         Setting up the test molecule.
         """
-        self.info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample_files/'
-
-        if not os.path.exists(self.info_path + "scoria_tests_tmp"):
-            os.mkdir(self.info_path + "scoria_tests_tmp")
-
+        self.info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample-files/'
         self.mol = scoria.Molecule()
+
+        self.output_name = None
 
     def tearDown(self):
         """
@@ -33,10 +33,11 @@ class FileIOTests(unittest.TestCase):
         """
         self.mol = None
 
-        temp_folder = self.info_path + "scoria_tests_tmp"
-
-        if os.path.exists(temp_folder):
-            shutil.rmtree(temp_folder)
+        if self.output_name is not None:
+            if os.path.isdir(self.output_name):
+                shutil.rmtree(self.output_name)
+            elif os.path.isfile(self.output_name):
+                os.remove(self.output_name)
 
     ### Tests
     # Loaders
@@ -187,22 +188,22 @@ class FileIOTests(unittest.TestCase):
         Empty test.
         """
         input_name = self.info_path + 'single_frame.pdb'
-        output_name = self.info_path + 'scoria_tests_tmp/output.pym'
+        self.output_name = 'output.pym'
 
         self.mol.load_pdb_into(input_name)
-        self.mol.save_pym(output_name)
+        self.mol.save_pym(self.output_name)
 
-        self.assertTrue(os.path.exists(output_name))
+        self.assertTrue(os.path.exists(self.output_name))
 
     def test_save_pdb(self):
         """
         Empty test.
         """
         input_name = self.info_path + 'file_io_test.pym'
-        output_name = self.info_path + 'scoria_tests_tmp/output.pdb'
+        self.output_name = 'output.pdb'
 
         self.mol.load_pym_into(input_name)
-        self.mol.save_pdb(output_name)
+        self.mol.save_pdb(self.output_name)
 
-        self.assertTrue(os.path.exists(output_name))
+        self.assertTrue(os.path.exists(self.output_name))
 

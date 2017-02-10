@@ -5,8 +5,8 @@ import numpy as np
 print("Loading Molecule...")
 mol = scoria.Molecule()
 mol.load_via_MDAnalysis(
-    "../scoria/sample_files/test_sim.psf", 
-    "../scoria/sample_files/test_sim.dcd"
+    "../scoria/sample-files/test_sim.psf", 
+    "../scoria/sample-files/test_sim.dcd"
 )
 
 # Create two new trajectories, corresponding to the shroom2
@@ -39,7 +39,7 @@ rock1_counts = np.zeros(
 # Go through each frame and compare shroom2 and rock1
 # atoms, keeping track of close-contact counts.
 traj_length = mol.get_trajectory_frame_count()
-for frame in xrange(0, traj_length):
+for frame in range(0, traj_length):
     # Set the current trajectoyr frame for each model.
     shroom2.set_default_trajectory_frame(frame)
     rock1.set_default_trajectory_frame(frame)

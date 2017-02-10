@@ -1,4 +1,7 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from scoria import dumbpy as numpy
+from six.moves import range
 
 
 class AtomsAndBonds():
@@ -77,6 +80,7 @@ class AtomsAndBonds():
 
                 try: bond_dist = consts['bond_length_dict'][key]
                 except:
+
                     print("ERROR: Unknown bond distance between elements " +
                         atom_inf['element'][index1] + ' and ' +
                         atom_inf['element'][index2] +
@@ -234,8 +238,8 @@ class AtomsAndBonds():
         try:
             bonds[index1][index2] = 0
             bonds[index2][index1] = 0
-        except: print("Could not delete bond between " + str(index1) +
-                       " and " + str(index2) + ".")
+        except: print(("Could not delete bond between " + str(index1) +
+                       " and " + str(index2) + "."))
 
     def add_bond(self, index1, index2, order = 1):
         """

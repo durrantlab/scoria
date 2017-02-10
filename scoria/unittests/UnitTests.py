@@ -1,12 +1,12 @@
+from __future__ import absolute_import
 import warnings
-
 import unittest
-import InformationTests as IT
-import FileIOTests as FIOT
-import GeometryTests as GT
-import ManipulationTests as MT
-import OtherMoleculeTests as OMT
-import SelectionTests as ST
+from . import InformationTests as IT
+from . import FileIOTests as FIOT
+from . import GeometryTests as GT
+from . import ManipulationTests as MT
+from . import OtherMoleculeTests as OMT
+from . import SelectionTests as ST
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 

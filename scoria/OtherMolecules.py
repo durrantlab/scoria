@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from scoria import dumbpy as numpy
 from scoria.Quaternion import Quaternion
 
@@ -346,14 +348,16 @@ class OtherMolecules():
         :returns: A float, the RMSD between self and other_mol.
         """
 
+        tethers = numpy.transpose(tethers)
+
         slf_gt_crs = self.__parent_molecule.get_coordinates()
         if (len(slf_gt_crs) !=
             len(other_mol.get_coordinates())):
 
             print("Cannot calculate RMSD: number of atoms are not equal.")
-            print("\t" + (str(len(slf_gt_crs)) +
+            print(("\t" + (str(len(slf_gt_crs)) +
                           " vs. " + str(len(other_mol.get_coordinates())) +
-                          " atoms."))
+                          " atoms.")))
             return 99999999.0
 
         self_coors_in_order = slf_gt_crs[tethers[0]]
@@ -386,7 +390,7 @@ class OtherMolecules():
 
         return self.get_rmsd_equivalent_atoms_specified(
             other_mol,
-            (self_index_in_order, other_index_in_order)
+            list(zip(self_index_in_order, other_index_in_order))
         )
 
     def get_rmsd_heuristic(self, other_mol):

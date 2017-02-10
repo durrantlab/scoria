@@ -1,11 +1,12 @@
+from __future__ import absolute_import
 from scoria import dumbpy as numpy
-from scoria.FileIO import FileIO
-from scoria.AtomsAndBonds import AtomsAndBonds
-from scoria.Selections import Selections
-from scoria.Manipulation import Manipulation
-from scoria.Information import Information
-from scoria.OtherMolecules import OtherMolecules
-from scoria.Geometry import Geometry
+from .FileIO import FileIO
+from .AtomsAndBonds import AtomsAndBonds
+from .Selections import Selections
+from .Manipulation import Manipulation
+from .Information import Information
+from .OtherMolecules import OtherMolecules
+from .Geometry import Geometry
 import copy
 
 
@@ -247,7 +248,7 @@ class Molecule: # here's the actual Molecule class
         An example for finding all atoms bonded with atom 153::
 
             >>> bonds = mol.get_bonds()
-            >>> for i in xrange(0,len(bonds)):
+            >>> for i in range(0,len(bonds)):
             ...     if bonds[153][i] == 1:
             ...             print(153,"-",i)
             153 - 152

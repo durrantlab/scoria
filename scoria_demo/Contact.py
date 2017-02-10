@@ -51,10 +51,10 @@ class Contact():
 
         """
         Should be faster with numpy arrays...
-        for index in xrange(0, len(self.__serials1)):
+        for index in range(0, len(self.__serials1)):
             self.__contact_count[0][index] = float(0.0)
 
-        for index in xrange(0, len(self.__serials2)):
+        for index in range(0, len(self.__serials2)):
             self.__contact_count[1][index] = float(0.0)
         """
 
@@ -83,7 +83,7 @@ class Contact():
 
         trajectory_length = self.__molecule.get_trajectory_frame_count()
 
-        for frame in xrange(0, trajectory_length):
+        for frame in range(0, trajectory_length):
             self.__subsection_1.set_default_trajectory_frame(frame)
             self.__subsection_2.set_default_trajectory_frame(frame)
             self.__contacts = self.__subsection_1.select_close_atoms_from_different_molecules(self.__subsection_2, 3)

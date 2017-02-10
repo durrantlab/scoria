@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import unittest
 import os
 import sys
@@ -93,4 +94,4 @@ class GeometryTests(unittest.TestCase):
 
         deviation = self.mol.get_planarity_deviation(one, two, three, four)
 
-        self.assertAlmostEqual(deviation, 5.0, self.accuracy)
+        self.assertAlmostEqual(deviation, 5.0, 1)

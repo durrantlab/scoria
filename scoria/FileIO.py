@@ -1,8 +1,12 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from scoria import dumbpy as numpy
 import os
 import sys
+from six.moves import range
+from six.moves import zip
 
-try: import cPickle as pickle  # python2
+try: import six.moves.cPickle as pickle  # python2
 except: import pickle  # python3
 
 import shutil
@@ -44,40 +48,73 @@ class FileIO():
             return
 
         if filename[-1:] != os.sep: filename = filename + os.sep
-
-        # first, get the files that must exist
-        self.__parent_molecule.set_atom_information(
-            pickle.load(open(filename + 'atom_information', "rb"))
-        )
-
-        self.__parent_molecule.set_coordinates(
-            numpy.load(filename + "coordinates.npz")['arr_0']
-        )
-
-        # now look for other possible files (optional output)
-        prnt = self.__parent_molecule
-        if os.path.exists(filename + 'remarks'):
-            prnt.set_remarks(pickle.load(open(filename + 'remarks', "rb")))
-
-        if os.path.exists(filename + 'hierarchy'):
-            prnt.set_hierarchy(pickle.load(open(filename + 'hierarchy', "rb")))
-
-        if os.path.exists(filename + 'filename'):
-            prnt.set_filename(pickle.load(open(filename + 'filename', "rb")))
-        
-        if prnt.get_filename() == "":  # If still no filename, set it to the one used as a parameter.
-            prnt.set_filename(filename)
-
-        if os.path.exists(filename + "bonds.npz"):
-            prnt.set_bonds(numpy.load(filename + "bonds.npz")['arr_0'])
-
-        if os.path.exists(filename + "coordinates_undo_point.npz"):
-            prnt.set_coordinates_undo_point(
-                numpy.load(filename + "coordinates_undo_point.npz")['arr_0']
+    
+        if numpy.python_version == 2:
+            # first, get the files that must exist
+            self.__parent_molecule.set_atom_information(
+                pickle.load(open(filename + 'atom_information', "rb"))
             )
 
+            self.__parent_molecule.set_coordinates(
+                numpy.load(filename + "coordinates.npz")['arr_0']
+            )
 
-    def load_pdbqt_trajectory_into(self, filename, bonds_by_distance = True,
+            # now look for other possible files (optional output)
+            prnt = self.__parent_molecule
+            if os.path.exists(filename + 'remarks'):
+                prnt.set_remarks(pickle.load(open(filename + 'remarks', "rb")))
+
+            if os.path.exists(filename + 'hierarchy'):
+                prnt.set_hierarchy(pickle.load(open(filename + 'hierarchy', "rb")))
+
+            if os.path.exists(filename + 'filename'):
+                prnt.set_filename(pickle.load(open(filename + 'filename', "rb")))
+            
+            if prnt.get_filename() == []:  # If still no filename, set it to the one used as a parameter.
+                prnt.set_filename(filename)
+
+            if os.path.exists(filename + "bonds.npz"):
+                prnt.set_bonds(numpy.load(filename + "bonds.npz")['arr_0'])
+
+            if os.path.exists(filename + "coordinates_undo_point.npz"):
+                prnt.set_coordinates_undo_point(
+                    numpy.load(filename + "coordinates_undo_point.npz")['arr_0']
+                )
+        else:
+            # first, get the files that must exist
+            self.__parent_molecule.set_atom_information(
+                pickle.load(open(filename + 'atom_information', "rb"),
+                            encoding='latin1')
+            )
+
+            self.__parent_molecule.set_coordinates(
+                numpy.load(filename + "coordinates.npz")['arr_0']
+            )
+
+            # now look for other possible files (optional output)
+            prnt = self.__parent_molecule
+            if os.path.exists(filename + 'remarks'):
+                prnt.set_remarks(pickle.load(open(filename + 'remarks', "rb")))
+
+            if os.path.exists(filename + 'hierarchy'):
+                prnt.set_hierarchy(pickle.load(open(filename + 'hierarchy', "rb")))
+
+            if os.path.exists(filename + 'filename'):
+                prnt.set_filename(pickle.load(open(filename + 'filename', "rb")))
+
+            if prnt.get_filename() == []:  # If still no filename, set it to the one used as a parameter.
+                prnt.set_filename(filename)
+
+            if os.path.exists(filename + "bonds.npz"):
+                prnt.set_bonds(numpy.load(filename + "bonds.npz")['arr_0'])
+
+            if os.path.exists(filename + "coordinates_undo_point.npz"):
+                prnt.set_coordinates_undo_point(
+                    numpy.load(filename + "coordinates_undo_point.npz")['arr_0']
+                )
+
+
+    def load_pdbqt_trajectory_into(self, filename, bonds_by_distance = False,
                                    serial_reindex = True, 
                                    resseq_reindex = False):
         """
@@ -103,7 +140,7 @@ class FileIO():
         )
 
     def load_pdbqt_trajectory_into_using_file_object(self, file_obj,
-                                                     bonds_by_distance = True,
+                                                     bonds_by_distance = False,
                                                      serial_reindex = True,
                                                      resseq_reindex = False):
         """
@@ -216,7 +253,7 @@ class FileIO():
 
         self.__parent_molecule.set_atom_information(atom_inf)
 
-    def load_pdb_trajectory_into(self, filename, bonds_by_distance = True,
+    def load_pdb_trajectory_into(self, filename, bonds_by_distance = False,
                                  serial_reindex = True, 
                                  resseq_reindex = False):
         """
@@ -246,7 +283,7 @@ class FileIO():
         afile.close()
 
     def load_pdb_trajectory_into_using_file_object(self, file_obj,
-                                                   bonds_by_distance = True,
+                                                   bonds_by_distance = False,
                                                    serial_reindex = True,
                                                    resseq_reindex = False):
         """
@@ -290,7 +327,7 @@ class FileIO():
                     # Make sure the list isn't just " "
                     while len(lines) > 0 and lines[0] == " ":
                         lines = lines[1:]
-                    
+
                     if len(lines) > 0:
                         # == 0 if, for example, when ENDMDL then END on next
                         # line.
@@ -298,7 +335,7 @@ class FileIO():
                         # So turn list into string and yield that value.
                         to_yield = "".join(lines)
                         yield to_yield
-                    
+
                     # Clear list (since new frame) and continue loop.
                     lines = []
                     line = " "
@@ -318,7 +355,11 @@ class FileIO():
         first_line = True
         trajectoryList = []
         for pdb_frame in get_next_frame(file_obj):
-            str_file_obj = StringIO.StringIO(pdb_frame)
+            if numpy.python_version == 2:
+                str_file_obj = StringIO.StringIO(pdb_frame)
+            else:
+                str_file_obj = StringIO(pdb_frame)
+
             if first_line == True:
                 # First frame, load it into the current molecule
                 first_line = False
@@ -341,7 +382,7 @@ class FileIO():
 
         self.__parent_molecule.set_trajectory_coordinates(trajectoryList)        
 
-    def load_pdb_into(self, filename, bonds_by_distance = True,
+    def load_pdb_into(self, filename, bonds_by_distance = False,
                       serial_reindex = True, resseq_reindex = False,
                       is_trajectory = False):
         """
@@ -372,7 +413,7 @@ class FileIO():
         afile.close()
 
     def load_pdb_into_using_file_object(self, file_obj,
-                                        bonds_by_distance = True,
+                                        bonds_by_distance = False,
                                         serial_reindex = True,
                                         resseq_reindex = False,
                                         is_trajectory = False):
@@ -400,7 +441,7 @@ class FileIO():
 
         if is_trajectory == True:
             self.load_pdb_trajectory_into_using_file_object(
-                file_obj, bonds_by_distance = True, serial_reindex = True,
+                file_obj, bonds_by_distance = False, serial_reindex = True,
                 resseq_reindex = False
             )
             return
@@ -565,7 +606,7 @@ class FileIO():
                 astr = astr.rstrip()
 
                 indices = []
-                for i in xrange(0, len(astr), 5):
+                for i in range(0, len(astr), 5):
                     indices.append(serial_to_index[int(astr[i:i + 5])])
 
                 for partner_index in indices[1:]:
@@ -748,8 +789,10 @@ class FileIO():
             atom_information = self.__parent_molecule.get_atom_information()
             coordinates = self.__parent_molecule.get_coordinates(frame)
 
-            if numpy.python_version == 2: dtype_to_use = '|S5'
-            else: dtype_to_use = '|U5'  # python3 needs this instead
+#            if numpy.python_version == 2: 
+            dtype_to_use = '|S5'
+#            else: 
+#                dtype_to_use = '|U5'  # python3 needs this instead
 
             printout = numpy.defchararray_add(
                 atom_information['record_name'],
@@ -767,8 +810,9 @@ class FileIO():
             printout = numpy.defchararray_add(printout,
                                               atom_information['chainid_padded'])
 
-            if numpy.python_version == 2: dtype_to_use = '|S4'
-            else: dtype_to_use = '|U4'  # python3 needs this instead
+            #if numpy.python_version == 2: 
+            dtype_to_use = '|S4'
+            #else: dtype_to_use = '|U4'  # python3 needs this instead
 
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
@@ -776,58 +820,77 @@ class FileIO():
                 )
             )
 
-            printout = numpy.defchararray_add(printout, '    ')
+            printout = numpy.defchararray_add(printout, '    '.encode())
+
+            dtype_to_use = '|S7'
+
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
-                    numpy.array(["%.3f" % t for t in numpy.get_col(coordinates, 0)]), 8
+                    numpy.array(
+                        ["%.3f" % t for t in numpy.get_col(coordinates, 0)]
+                        ).astype(dtype_to_use), 8
                 )
             )
 
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
-                    numpy.array(["%.3f" % t for t in numpy.get_col(coordinates, 1)]), 8
+                    numpy.array(
+                        ["%.3f" % t for t in numpy.get_col(coordinates, 1)]
+                        ).astype(dtype_to_use), 8
                 )
             )
 
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
-                    numpy.array(["%.3f" % t for t in numpy.get_col(coordinates, 2)]), 8
+                    numpy.array(["%.3f" % t
+                        for t in numpy.get_col(coordinates, 2)]
+                        ).astype(dtype_to_use), 8
+                )
+            )
+
+           #dtype_to_use = '|S5'
+
+            printout = numpy.defchararray_add(
+                printout, numpy.defchararray_rjust(
+                    numpy.array(["%.2f" % t
+                        for t in atom_information['occupancy']]
+                        ).astype(dtype_to_use), 6
                 )
             )
 
             printout = numpy.defchararray_add(
                 printout, numpy.defchararray_rjust(
                     numpy.array(["%.2f" % t
-                                 for t in atom_information['occupancy']]),
-                    6
+                        for t in atom_information['tempfactor']]
+                        ).astype(dtype_to_use), 6
                 )
             )
 
-            printout = numpy.defchararray_add(
-                printout, numpy.defchararray_rjust(
-                    numpy.array(["%.2f" % t
-                                 for t in atom_information['tempfactor']]),
-                    6
-                )
-            )
+            printout = numpy.defchararray_add(printout, '          '.encode())
 
-            printout = numpy.defchararray_add(printout, '          ')
+            dtype_to_use = '|S2'
 
             printout = numpy.defchararray_add(
-                printout, atom_information['element_padded']
+                printout, atom_information['element_padded'].astype(dtype_to_use)
             )
 
+            dtype_to_use = '|S3'
+
             printout = numpy.defchararray_add(
-                printout, atom_information['charge']
+                printout, atom_information['charge'].astype(dtype_to_use)
             )
+
+            printout_string = []
+            for i in printout:
+                printout_string.append(str(i))
 
             if return_text == False:
-                if printout[0][-1:] == "\n":
-                    afile.write("".join(printout) + "\n")
+                if printout_string[0][-1:] == "\n":
+                    afile.write("".join(printout_string) + "\n")
                 else:
-                    afile.write("\n".join(printout) + "\n")
+                    afile.write("\n".join(printout_string) + "\n")
             else:
-                if printout[0][-1:] == "\n":
+                if printout_string[0][-1:] == "\n":
                     return_string += "".join(printout) + "\n"
                 else:
                     return_string += "\n".join(printout) + "\n"
@@ -867,8 +930,8 @@ class FileIO():
                 return return_string
 
         else:
-            print("ERROR: Cannot save a Molecule with no atoms " +
-                  "(file name \"" + filename + "\")")
+            print(("ERROR: Cannot save a Molecule with no atoms " +
+                  "(file name \"" + filename + "\")"))
 
     def _save_pdb_trajectory(self, filename = "", serial_reindex = True,
                  resseq_reindex = False, return_text = False):
@@ -950,7 +1013,7 @@ class FileIO():
 
         self.load_MDAnalysis_into_using_universe_object(universe)
 
-        #self.set_filename(*args)
+        self.__parent_molecule.set_filename(args)
 
     def load_MDAnalysis_into_using_universe_object(self, universe):
         """

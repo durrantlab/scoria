@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import unittest
 import os
 import sys
@@ -18,9 +19,6 @@ class OtherMoleculeTests(unittest.TestCase):
         """
         Setting up the test molecule.
         """
-        if not os.path.exists("./scoria_tests_tmp"):
-            os.mkdir("./scoria_tests_tmp")
-
         self.mol = scoria.Molecule()
 
     def tearDown(self):
@@ -34,8 +32,8 @@ class OtherMoleculeTests(unittest.TestCase):
     ### Tests
 
     @unittest.skip("Needs test written")
-    def test_nothing(self):
+    def test_realignment(self):
         """
         Empty test.
         """
-        pass
+        

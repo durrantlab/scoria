@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import unittest
 import os
 import sys
@@ -7,6 +8,7 @@ import numpy as np
 import scipy
 import scoria
 import MDAnalysis as mda
+from six.moves import range
 
 
 class InformationTests(unittest.TestCase):
@@ -19,7 +21,8 @@ class InformationTests(unittest.TestCase):
         """
         Setting up the test molecule.
         """
-        info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample_files/'
+        info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample-files/'
+
 
         self.mol = scoria.Molecule(info_path + '3_mol_test.pdb')
         self.mdaU = mda.Universe(info_path + '3_mol_test.pdb')
@@ -41,7 +44,8 @@ class InformationTests(unittest.TestCase):
         Tests the getting of filenames.
         """
         expected_filename = [os.path.dirname(os.path.abspath(__file__)) + \
-         '/../sample_files/3_mol_test.pdb']
+         '/../sample-files/3_mol_test.pdb']
+
         self.assertEqual(self.mol.get_filename(), expected_filename)
 
     def test_get_remarks(self):
@@ -73,7 +77,7 @@ class InformationTests(unittest.TestCase):
         expected_record_name = ['ATOM  '] * self.mol.get_total_number_of_atoms()
         self.assertListEqual(list(atom_inf['record_name']), expected_record_name)
 
-        expected_serial = range(1, 13)
+        expected_serial = list(range(1, 13))
         self.assertListEqual(list(atom_inf['serial']), expected_serial)
 
         expected_names = ['N1', "C2'", 'N', 'CA', 'C', 'O', 'CB', 'CG', 'ND1',
@@ -97,7 +101,7 @@ class InformationTests(unittest.TestCase):
         padding = ['name', 'chainid', 'resname', 'element']
 
         for field in padding:
-            for i in xrange(self.mol.get_total_number_of_atoms()):
+            for i in range(self.mol.get_total_number_of_atoms()):
                 self.assertEqual(atom_inf[field][i], atom_inf[field+'_padded'][i].strip())
 
     def test_get_coordinates(self):
@@ -149,7 +153,7 @@ class InformationTests(unittest.TestCase):
         """
         expected_mass = self.mdaU.atoms.total_mass()
         total_mass = self.mol.get_total_mass()
-        self.assertAlmostEqual(total_mass, expected_mass, self.accuracy)
+        self.assertAlmostEqual(total_mass, expected_mass, 1)
 
     # Depreciated? And needs skip for dependencies
     @unittest.skip("hierarchy related method")
@@ -211,25 +215,15 @@ class InformationTests(unittest.TestCase):
 
         self.assertEqual(self.mol.get_bonds(), bonds)
 
-    @unittest.skip("Needs test written")
     def test_set_coordinate_undo_point(self):
         """
         Tests that the coordinate undo point can be set.
         """
-        coord_undo = {}
-        self.mol.set_coordinates_undo_point(coord_undo)
-        # Assertation here
+        expected = {}
+        self.mol.set_coordinates_undo_point(expected)
+        coord_undo = self.mol.get_coordinates_undo_point()
 
-    # Depreciated? And needs skip for dependencies
-    @unittest.skip("hierarchy related method")
-    def test_set_heirarchy(self):
-        """
-        Tests that the hierarchy can be set.
-        """
-        hierarchy = {}
-        self.mol.set_hierarchy(hierarchy)
-        # Assertation here
-
+        self.assertEqual(expected, coord_undo)
 
     ## Testing Functions
 
@@ -312,7 +306,7 @@ class InformationTests(unittest.TestCase):
         atom_inf['element_padded'] = [' ' * 12]
         self.mol.set_atom_information(atom_inf)
 
-        for i in xrange(atoms):
+        for i in range(atoms):
             self.assertNotEqual(self.mol.get_atom_information()['element'][i],
                                 other['element'][i])
             self.assertNotEqual(self.mol.get_atom_information()['element_padded'][i],
@@ -320,7 +314,7 @@ class InformationTests(unittest.TestCase):
 
         self.mol.assign_elements_from_atom_names()
 
-        for i in xrange(atoms):
+        for i in range(atoms):
             self.assertEqual(self.mol.get_atom_information()['element'][i],
                              other['element'][i])
             self.assertEqual(self.mol.get_atom_information()['element_padded'][i],
@@ -343,7 +337,7 @@ class InformationTests(unittest.TestCase):
 
         self.mol.assign_masses()
 
-        for i in xrange(atoms):
+        for i in range(atoms):
             element = self.mol.get_atom_information()['element'][i]
             self.assertEqual(self.mol.get_atom_information()['mass'][i],
                              masses[element])
@@ -356,13 +350,13 @@ class InformationTests(unittest.TestCase):
         atom_inf = self.mol.get_atom_information()
         atoms = self.mol.get_total_number_of_atoms()
 
-        other = range(1, atoms+1)
+        other = list(range(1, atoms+1))
 
         self.assertNotEqual(list(self.mol.get_atom_information()['serial']), other)
 
         self.mol.serial_reindex()
 
-        for i in xrange(atoms):
+        for i in range(atoms):
             self.assertEqual(self.mol.get_atom_information()['serial'][i],
                              other[i])
 
@@ -382,7 +376,7 @@ class InformationTests(unittest.TestCase):
 
         self.mol.resseq_reindex()
 
-        for i in xrange(atoms):
+        for i in range(atoms):
             self.assertEqual(self.mol.get_atom_information()['resseq'][i],
                              other[i])
 
@@ -394,3 +388,4 @@ class InformationTests(unittest.TestCase):
         # Assertion here, pre assignment
         self.mol.define_molecule_chain_residue_spherical_boundaries()
         # Assertion here, post assignment
+        

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>7. scoria.OtherMolecules module &#8212; scoria 2.0 documentation</title>
+    <title>8. The OtherMolecules class &#8212; scoria 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="scoria 2.0 documentation" href="index.html" />
-    <link rel="next" title="8. scoria.Quaternion module" href="Quaternion.html" />
-    <link rel="prev" title="6. scoria.Manipulation module" href="Manipulation.html" /> 
+    <link rel="next" title="9. The Quaternion object" href="Quaternion.html" />
+    <link rel="prev" title="7. The Manipulation class" href="Manipulation.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -38,10 +38,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Quaternion.html" title="8. scoria.Quaternion module"
+          <a href="Quaternion.html" title="9. The Quaternion object"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="Manipulation.html" title="6. scoria.Manipulation module"
+          <a href="Manipulation.html" title="7. The Manipulation class"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
       </ul>
@@ -52,8 +52,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-scoria.OtherMolecules">
-<span id="scoria-othermolecules-module"></span><h1>7. scoria.OtherMolecules module<a class="headerlink" href="#module-scoria.OtherMolecules" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="the-othermolecules-class">
+<h1>8. The OtherMolecules class<a class="headerlink" href="#the-othermolecules-class" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="using-the-othermolecules-functions">
+<h2>8.1. Using the OtherMolecules functions<a class="headerlink" href="#using-the-othermolecules-functions" title="Permalink to this headline">¶</a></h2>
+<p>The functions within OtherMolecules allow the Molecule class to interact with
+other Molecules objects. The major functions are to compare coordinate sets
+and add other molecules.</p>
+</div>
+<div class="section" id="module-scoria.OtherMolecules">
+<span id="function-definitions"></span><h2>8.2. Function Definitions<a class="headerlink" href="#module-scoria.OtherMolecules" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="scoria.OtherMolecules.OtherMolecules">
 <em class="property">class </em><code class="descclassname">scoria.OtherMolecules.</code><code class="descname">OtherMolecules</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.OtherMolecules.OtherMolecules" title="Permalink to this definition">¶</a></dt>
@@ -102,12 +110,15 @@ quaternion RMSD alignment.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>other_mol</strong> (<a class="reference internal" href="Molecule.html#module-scoria.Molecule" title="scoria.Molecule"><em>scoria.Molecule</em></a>) &#8211; A scoria.Molecule that is to be aligned to
 this one.</li>
-<li><strong>tethers</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; A tuple of two numpy.array objects, where each array
-contains the indices of self and other_mol, respectively,
-such that equivalent atoms are listed in the same order.
-So, for example, if (atom 1, self = atom 3, other) and
-(atom2, self = atom6, other) than the tethers would be
-(numpy.array([1, 2]), numpy.array([3, 6])).</li>
+<li><strong>tethers</strong> (<em>list[list]</em>) &#8211; A list of lists, where the inner list is
+(tether1_index, tether2_index). That inner list can
+also be a numpy array. Each inner array contains the
+indices of self and other_mol, respectively, such
+that equivalent atoms are listed in the same order.
+So, for example, if (atom 1, self = atom 3, other)
+and (atom2,  self = atom6, other) than the tethers
+would be (numpy.array([1, 2]), numpy.array([3, 6])),
+or [(1, 2), (3, 6)].</li>
 </ul>
 </td>
 </tr>
@@ -240,6 +251,7 @@ are not.</p>
 </dd></dl>
 
 </div>
+</div>
 
 
           </div>
@@ -247,12 +259,21 @@ are not.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">8. The OtherMolecules class</a><ul>
+<li><a class="reference internal" href="#using-the-othermolecules-functions">8.1. Using the OtherMolecules functions</a></li>
+<li><a class="reference internal" href="#module-scoria.OtherMolecules">8.2. Function Definitions</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="Manipulation.html"
-                        title="previous chapter">6. scoria.Manipulation module</a></p>
+                        title="previous chapter">7. The Manipulation class</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="Quaternion.html"
-                        title="next chapter">8. scoria.Quaternion module</a></p>
+                        title="next chapter">9. The Quaternion object</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -284,10 +305,10 @@ are not.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Quaternion.html" title="8. scoria.Quaternion module"
+          <a href="Quaternion.html" title="9. The Quaternion object"
              >next</a> |</li>
         <li class="right" >
-          <a href="Manipulation.html" title="6. scoria.Manipulation module"
+          <a href="Manipulation.html" title="7. The Manipulation class"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
       </ul>

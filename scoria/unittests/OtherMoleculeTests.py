@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import unittest
 import os
 import sys
@@ -5,6 +6,7 @@ import sys
 import numpy as np
 import scipy
 import scoria
+from six.moves import range
 
 
 class OtherMoleculeTests(unittest.TestCase):
@@ -18,15 +20,15 @@ class OtherMoleculeTests(unittest.TestCase):
         """
         Setting up the test molecules.
         """
-        info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample_files/'
+        info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample-files/'
         self.mol = scoria.Molecule(info_path + '3_mol_test.pdb')
         self.other_mol = scoria.Molecule(info_path + 'other_mol_test.pdb')
 
         self.accuracy = 4
 
         self.tethers = []
-        for i in xrange(0, self.mol.get_total_number_of_atoms()):
-            self.tethers.append(np.array([i, i]))
+        for i in range(12):
+            self.tethers.append([i, i]) 
 
     def tearDown(self):
         """
@@ -49,8 +51,8 @@ class OtherMoleculeTests(unittest.TestCase):
         origianl_coords = self.mol.get_coordinates()
         aligned_coords = rotated.get_coordinates()
 
-        for i in xrange(0, len(origianl_coords)):
-            for j in xrange(0, 3):
+        for i in range(0, len(origianl_coords)):
+            for j in range(0, 3):
                 self.assertAlmostEqual(origianl_coords[i][j], aligned_coords[i][j], self.accuracy)
 
 
