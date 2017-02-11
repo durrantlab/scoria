@@ -4,9 +4,8 @@ import os
 import sys
 import shutil
 
-import numpy as np
-import scipy
-import MDAnalysis
+#import numpy as np
+from scoria import dumbpy as np
 import scoria
 import shutil
 

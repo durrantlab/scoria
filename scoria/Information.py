@@ -597,7 +597,6 @@ class Information():
             return
 
         # get the atom names
-
         fix_element_names = copy.deepcopy(self.__atom_information['name_padded']
                                           [selection].astype('<U5'))
 
@@ -608,7 +607,6 @@ class Information():
         # first remove any numbers at the begining of these names
         fix_element_names = numpy.defchararray_lstrip(fix_element_names,
                                                            '0123456789')
-
 
         # remove any thing, letters or numbers, that follows a number,
         # including the number itself. so C2L becomes C, not CL.
@@ -622,6 +620,7 @@ class Information():
 
         # take just first two letters of each item
         fix_element_names = numpy.array(fix_element_names, dtype = "|S2")
+
 
         # identify ones that are two-letter elements and one-letter elements
         cnsts = self.__constants
@@ -642,14 +641,15 @@ class Information():
             numpy.logical_not(one_tht_shf_b_2_lttrs)
         )[0]
 
+        fix_element_names_as_s1 = numpy.array(
+            fix_element_names[indices_of_one_letter_elements]
+        ).astype("|S1")
+
         # get ones that are one-letter elements
         fix_element_names[indices_of_one_letter_elements] = (
-            numpy.defchararray_rjust(numpy.array(
-                fix_element_names[indices_of_one_letter_elements],
-                dtype = "|S1"
-            ), 2)
+            numpy.defchararray_rjust(fix_element_names_as_s1, 2)
         )
-
+        
         # they should be capitalized for consistency
         fix_element_names = numpy.defchararray_upper(fix_element_names)
         stripped_element_names = numpy.defchararray_strip(fix_element_names)
@@ -1023,7 +1023,10 @@ class Information():
         
         Wrapper function for :meth:`~scoria.Molecule.Molecule.serial_reindex`
         """
-
+        
+        if type(self.__atom_information['serial']) is int:
+            self.__atom_information['serial'] = [self.__atom_information['serial']]
+        
         for i in range(len(self.__atom_information['serial'])):
             self.__atom_information['serial'][i] = i + 1
 
@@ -1051,6 +1054,7 @@ class Information():
         )
 
         keys2 = numpy.insert(keys, 0, '')[:-1]
+
         index_of_change = numpy.nonzero(numpy.logical_not(keys == keys2))[0]
         index_of_change = numpy.append(index_of_change,
                                        len(self.__atom_information))

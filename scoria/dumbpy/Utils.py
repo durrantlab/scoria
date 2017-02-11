@@ -91,6 +91,8 @@ def logical_or(arr1, arr2):
             An boolean array.
     """
 
+    arr1 = array(arr1)  # Make sure it's an array
+
     if len(arr1.shape) == 1:
         or_result = [x or y for x,y in zip(arr1, arr2)]
         return array(or_result)
@@ -105,6 +107,8 @@ def logical_and(arr1, arr2):
         Returns:
             An boolean array.
     """
+
+    arr1 = array(arr1)  # Make sure it's an array
 
     if len(arr1.shape) == 1:
         and_result = [x and y for x,y in zip(arr1, arr2)]
@@ -121,6 +125,7 @@ def logical_not(arr):
     """
 
     # Only for 1D arrays
+    arr = array(arr)  # Make sure it's an array
     return array([not i for i in arr])
 
 def defchararray_strip(arr):
@@ -352,7 +357,7 @@ def append(arr1, to_append):
     lst = arr1.lst[:]
 
     # First, assume to_append is a list.
-    if var_type(to_append) == "list":
+    if var_type(to_append) in ["list", "1D"]:
         lst.extend(to_append)
     else:
         # It's not a list.
@@ -389,6 +394,10 @@ def get_col(lst, num):
         Returns:
             The specified column.
     """
+
+    # If it's a 1D array, make it a 2D array.
+    if lst.type == "1D":
+        lst = array([lst])
 
     return array([a[num] for a in lst])
 
@@ -690,3 +699,24 @@ def stack_arrays(arr_list, usemask = False):
         dict[key] = to_list(arr1[key]) + to_list(arr2[key])
 
     return RecArray(dict)
+
+def transpose(arr):
+    """Transpose an array.
+
+        Args:
+            arr -- A list or array.
+
+        Returns:
+            The transposed array.
+    """
+
+    # Make sure it's an array
+    arr = array(arr)
+
+    # Looking at the behavior of numpy, the transpose of a 1D array is just
+    # that array.
+    if var_type(arr) == "1D":
+        return arr
+
+    # Return the transpose, because it must be a 2D array.
+    return arr.T

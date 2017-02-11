@@ -47,14 +47,29 @@ class Selections():
             len(self.__parent_molecule.get_atom_information()),
             dtype = bool
         )
-
+        
         for key in selection_criteria.keys():
 
             vals = selection_criteria[key]
 
             # make sure the vals are in a list
             # if it's a single value, put it in a list
-            if not type(vals) is list and not type(vals) is tuple and not type(vals) is numpy.ndarray:
+            make_list = True
+            if type(vals) in [list, tuple]:
+                make_list = False
+            else:
+                if "NUMPY" in numpy.dependencies_available:
+                    if type(vals) is numpy.ndarray:
+                        make_list = False
+                else:
+                    # Using DUMBPY
+                    try:
+                        if vals.type in ["1D", "2D"]:
+                            make_list = False
+                    except:
+                        pass
+
+            if make_list:
                 vals = [vals]
 
             # make sure the vals are in the right format
@@ -476,6 +491,8 @@ class Selections():
         # let's use this instead, faster for large systems.
         new_selection = numpy.array([], dtype = int)
         for key in unique_keys_of_selection:
+            # print(new_selection)
+            # print(numpy.nonzero(keys == key)[0])
             new_selection = numpy.append(
                 new_selection, numpy.nonzero(keys == key)[0]
             )
@@ -771,6 +788,7 @@ class Selections():
             )
         except:
             new_mol.information.set_coordinates_undo_point(None)
+
 
         new_mol.set_atom_information(
             self.__parent_molecule.get_atom_information()[selection]

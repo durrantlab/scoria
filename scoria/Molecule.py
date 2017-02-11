@@ -743,7 +743,7 @@ class Molecule: # here's the actual Molecule class
         
         self.fileio.load_pym_into(filename)
 
-    def load_pdb_into(self, filename, bonds_by_distance = True,
+    def load_pdb_into(self, filename, bonds_by_distance = False,
                       serial_reindex = True, resseq_reindex = False,
                       is_trajectory = False):
         """
@@ -754,7 +754,7 @@ class Molecule: # here's the actual Molecule class
 
         :param str filename: A string, the filename of the pdb file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
-                    determine atomic bonds based on atom proximity. True by
+                    determine atomic bonds based on atom proximity. False by
                     default.
         :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
@@ -770,7 +770,7 @@ class Molecule: # here's the actual Molecule class
         )
 
     def load_pdb_into_using_file_object(self, file_obj,
-                                        bonds_by_distance = True,
+                                        bonds_by_distance = False,
                                         serial_reindex = True,
                                         resseq_reindex = False,
                                         is_trajectory = False):
@@ -787,7 +787,7 @@ class Molecule: # here's the actual Molecule class
         :param file file_obj: A python file object, containing pdb-formatted
                     data.
         :param bool bonds_by_distance: An optional boolean, whether or not to
-                    determine atomic bonds based on atom proximity. True by
+                    determine atomic bonds based on atom proximity. False by
                     default.
         :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
@@ -927,7 +927,7 @@ class Molecule: # here's the actual Molecule class
             filename, serial_reindex, resseq_reindex, return_text, frame
         )
 
-    def load_pdbqt_trajectory_into(self, filename, bonds_by_distance = True,
+    def load_pdbqt_trajectory_into(self, filename, bonds_by_distance = False,
                                    serial_reindex = True, 
                                    resseq_reindex = False):
         """
@@ -939,7 +939,7 @@ class Molecule: # here's the actual Molecule class
 
         :param str filename: A string, the filename of the pdbqt file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
-                    determine atomic bonds based on atom proximity. True by
+                    determine atomic bonds based on atom proximity. False by
                     default.
         :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
@@ -953,7 +953,7 @@ class Molecule: # here's the actual Molecule class
                                              resseq_reindex)
         
     def load_pdbqt_trajectory_into_using_file_object(self, file_obj,
-                                                     bonds_by_distance = True,
+                                                     bonds_by_distance = False,
                                                      serial_reindex = True,
                                                      resseq_reindex = False):
         """
@@ -969,7 +969,7 @@ class Molecule: # here's the actual Molecule class
         :param file file_obj: A python file object, containing pdbqt-formatted
                     trajectory data.
         :param bool bonds_by_distance: An optional boolean, whether or not to
-                    determine atomic bonds based on atom proximity. True by
+                    determine atomic bonds based on atom proximity. False by
                     default.
         :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
@@ -982,7 +982,7 @@ class Molecule: # here's the actual Molecule class
                                                      serial_reindex,
                                                      resseq_reindex)
 
-    def load_pdb_trajectory_into(self, filename, bonds_by_distance = True,
+    def load_pdb_trajectory_into(self, filename, bonds_by_distance = False,
                                  serial_reindex = True, 
                                  resseq_reindex = False):
         """
@@ -1006,7 +1006,7 @@ class Molecule: # here's the actual Molecule class
                                         serial_reindex, resseq_reindex)
                                 
     def load_pdb_trajectory_into_using_file_object(self, file_obj,
-                                                   bonds_by_distance = True,
+                                                   bonds_by_distance = False,
                                                    serial_reindex = True,
                                                    resseq_reindex = False):
         """
@@ -1021,7 +1021,7 @@ class Molecule: # here's the actual Molecule class
         :param file file_obj: A python file object, containing pdb-formatted
                     trajectory data.
         :param bool bonds_by_distance: An optional boolean, whether or not to
-                    determine atomic bonds based on atom proximity. True by
+                    determine atomic bonds based on atom proximity. False by
                     default.
         :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.

@@ -139,6 +139,7 @@ except:
     from .Utils import norm
     from .Utils import fabs
     from .Utils import stack_arrays
+    from .Utils import transpose
 
     dependencies_available.append("DUMBPY")
 

@@ -24,6 +24,7 @@ def array(lst, dtype=""):
     # If it's a 1D array with non-list elements, just return it.
     try:
         if var_type(lst) == "1D":
+            lst.dtype = dtype
             if var_type(lst[0]) in ["number", "string"]:
                 return lst
     except: pass
@@ -54,6 +55,7 @@ class ArrayParent:
     lst = []
     shape = ()
     type = ""
+    dtype = ""
 
     def __iter__(self):
         # So you could use for... in...
@@ -73,23 +75,32 @@ class ArrayParent:
         # If selection is itself an array, convert it to a list.
         selection = to_list(selection)
 
+        # Determine if selection is iterable
+        # See http://stackoverflow.com/questions/1952464/in-python-how-do-i-determine-if-an-object-is-iterable
         try:
+            selection_iterator = iter(selection)
+            selection_is_iterable = True
+        except TypeError, te:
+            selection_is_iterable = False
+
+        if selection_is_iterable:
             # Assume the selection is iterable.
             for i in selection:
                 new_lst.append(self.lst[i])
-        except:
+
+            new_arr = array(new_lst)
+            new_arr.set_shape()
+            return new_arr
+        else:
             # selection must not be iterable. Just a number.
-            new_lst.append(self.lst[selection])
-    
-        # If it's just one item, then just return the value, not the value in
-        # an array
-        if len(new_lst) == 1:
-            return new_lst[0]
-
-        new_arr = array(new_lst)
-        new_arr.set_shape()
-
-        return new_arr
+            tokeep = self.lst[selection]
+            if var_type(tokeep) == "1D":
+                # A 2D array
+                new_arr = array(tokeep.lst)
+                new_arr.set_shape()
+                return new_arr
+            else:
+                return tokeep
     
     def __setitem__(self, key, item):       
         if var_type(key) in ["string", "number"]:
@@ -126,6 +137,7 @@ class Array1D(ArrayParent):
         if dtype != "":
             for i, val in enumerate(lst):
                 lst[i] = dtypeClass.convert(dtype, val)
+            self.dtype = dtype
 
         self.lst = lst
 
@@ -137,10 +149,16 @@ class Array1D(ArrayParent):
         self.shape = (len(self.lst),)
 
     def __eq__(self, other):
-        bools = copy.deepcopy(self.lst)
-        for x in range(self.shape[0]):
-            bools[x] = (bools[x] == other)
-        return array(bools)
+        # If other is a list
+        if var_type(other) == "list":
+            bools = [i == j for i, j in zip(self.lst, other)]
+            return array(bools)
+        else:
+            # Assume other is a single value.
+            bools = copy.deepcopy(self.lst)
+            for x in range(self.shape[0]):
+                bools[x] = (bools[x] == other)
+            return array(bools)
 
     def astype(self, dtype):
         """Casts this array as a given type.
@@ -151,9 +169,10 @@ class Array1D(ArrayParent):
             Returns:
                 Self, in case chaining is required.
         """
-    
+
         for i, val in enumerate(self.lst):
             self.lst[i] = dtypeClass.convert(dtype, val)
+        self.dtype = dtype
         return self
 
     def __mul__(self, other):
@@ -212,6 +231,7 @@ class Array2D(ArrayParent):
         self.lst = []
         for row in lst:
             self.lst.append(array(row))
+        self.dtype = dtype
         
         self.set_shape()
     
@@ -354,8 +374,6 @@ class RecArray:
                 if str_key in list(self.dict.keys()):
                     new_dict[str_key] = self.dict[str_key]
             
-            #print "DDD", new_dict.keys()
-
             updated_dict = RecArray({})
             updated_dict.dict = new_dict
 
@@ -375,6 +393,10 @@ class RecArray:
             new_dict = {}
             for str_key in cp_dict.keys():
                 new_col = cp_dict[str_key][lookup_key]
+
+                if type(new_col) in [float, str, int]:
+                    new_col = array([new_col])
+
                 new_dict[str_key] = new_col
 
             new_array = self.clone()

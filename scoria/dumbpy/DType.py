@@ -69,7 +69,15 @@ class dtype():
             return int(val)
         
         if tp[:1].upper() == "S":
-            return str(val)
+            str_size = int(tp[1:])
+            return str(val)[:str_size]  # Because type S1 should only keep first letter.
+
+        if tp[:1].upper() == "U":
+            str_size = int(tp[1:])
+            s = str(val)[:str_size]
+            return unicode(s, "utf-8")
+
+        print "ERROR! Could not convert to type " + tp
 
     @property
     def names(self):
