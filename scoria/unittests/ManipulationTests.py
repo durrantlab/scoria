@@ -4,8 +4,8 @@ import os
 import sys
 import copy
 
-#import numpy as np
-from scoria import dumbpy as np
+import numpy as np
+import scipy
 import scoria
 from six.moves import range
 

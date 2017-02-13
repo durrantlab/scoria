@@ -4,8 +4,8 @@ import os
 import sys
 import copy
 
-#import numpy as np
-from scoria import dumbpy as np
+import numpy as np
+import scipy
 import scoria
 import MDAnalysis as mda
 from six.moves import range
@@ -302,8 +302,8 @@ class InformationTests(unittest.TestCase):
 
         atoms = self.mol.get_total_number_of_atoms()
 
-        atom_inf['element'] = np.array([' '] * 12)  # There are 12 atoms
-        atom_inf['element_padded'] = np.array([' '] * 12)
+        atom_inf['element'] = [' ' * 12]
+        atom_inf['element_padded'] = [' ' * 12]
         self.mol.set_atom_information(atom_inf)
 
         for i in range(atoms):
@@ -325,14 +325,17 @@ class InformationTests(unittest.TestCase):
         """
         Tests the assignment of masses.
         """
+        atom_inf = self.mol.get_atom_information()
         masses = self.mol.get_constants()['mass_dict']
 
         atoms = self.mol.get_total_number_of_atoms()
 
-        self.mol.assign_masses()
+        self.mol.set_atom_information(atom_inf)
 
-        # with self.assertRaises(ValueError):
-        #     self.mol.get_atom_information()['mass']
+        with self.assertRaises(ValueError):
+            self.mol.get_atom_information()['mass']
+
+        self.mol.assign_masses()
 
         for i in range(atoms):
             element = self.mol.get_atom_information()['element'][i]

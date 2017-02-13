@@ -126,7 +126,7 @@ class FileIO():
 
         :param str filename: A string, the filename of the pdbqt file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
-                    determine atomic bonds based on atom proximity. False by
+                    determine atomic bonds based on atom proximity. True by
                     default.
         :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
@@ -156,7 +156,7 @@ class FileIO():
         :param file file_obj: A python file object, containing pdbqt-formatted
                     trajectory data.
         :param bool bonds_by_distance: An optional boolean, whether or not to
-                    determine atomic bonds based on atom proximity. False by
+                    determine atomic bonds based on atom proximity. True by
                     default.
         :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
@@ -265,7 +265,7 @@ class FileIO():
         :param str filename: A string, the filename of the pdb trajectory
                    file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
-                    determine atomic bonds based on atom proximity. False by
+                    determine atomic bonds based on atom proximity. True by
                     default.
         :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
@@ -298,7 +298,7 @@ class FileIO():
         :param file file_obj: A python file object, containing pdb-formatted
                     trajectory data.
         :param bool bonds_by_distance: An optional boolean, whether or not to
-                    determine atomic bonds based on atom proximity. False by
+                    determine atomic bonds based on atom proximity. True by
                     default.
         :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
@@ -393,7 +393,7 @@ class FileIO():
 
         :param str filename: A string, the filename of the pdb file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
-                    determine atomic bonds based on atom proximity. False by
+                    determine atomic bonds based on atom proximity. True by
                     default.
         :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
@@ -429,7 +429,7 @@ class FileIO():
         :param file file_obj: A python file object, containing pdb-formatted
                     data.
         :param bool bonds_by_distance: An optional boolean, whether or not to
-                    determine atomic bonds based on atom proximity. False by
+                    determine atomic bonds based on atom proximity. True by
                     default.
         :param bool serial_reindex: An optional boolean, whether or not to
                     reindex the pdb serial field. True by default.
