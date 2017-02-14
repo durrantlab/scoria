@@ -3,7 +3,7 @@ from __future__ import print_function
 import scoria
 from scoria import dumbpy as numpy
 import time
-from six.moves import range
+from .six.moves import range
 
 t1 = time.time()
 
