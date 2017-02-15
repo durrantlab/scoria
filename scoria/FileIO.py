@@ -882,21 +882,23 @@ class FileIO():
 
             printout_string = []
             for i in printout:
-                printout_string.append(str(i))
+                printout_string.append(i.decode('utf-8'))
 
             if return_text == False:
                 if printout_string[0][-1:] == "\n":
                     out = "".join(printout_string) + "\n"
-                    afile.write(out.encode('unicode'))
+                    afile.write(out)
                 else:
                     out = "\n".join(printout_string) + "\n"
-                    afile.write(out.encode('unicode'))
+                    afile.write(out)
             else:
                 if printout_string[0][-1:] == "\n":
-                    
-                    return_string += 
+                    out = "".join(printout) + "\n"
+                    return_string += out
                 else:
-                    return_string += "\n".join(printout) + "\n"
+                    out = "\n".join(printout) + "\n"
+                    out.lstrip("b'").strip("'")
+                    return_string += out
 
             # print out connect
             prnt = self.__parent_molecule
