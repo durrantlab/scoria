@@ -12,7 +12,7 @@ setup(
     author="Jacob Durrant",
     author_email="durrantj@gmail.com",
     description="A lightweight molecule manipulation codebase.",
-    install_requires=["numpy", "scipy", "mdanalysis"],
+    install_requires=["numpy", "scipy", "six", "mdanalysis"],
     packages=find_packages(),
     package_data={'scoria':['sample-files/*.pdb',
                             'sample-files/*.psf',
