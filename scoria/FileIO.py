@@ -886,19 +886,14 @@ class FileIO():
 
             if return_text == False:
                 if printout_string[0][-1:] == "\n":
-                    out = "".join(printout_string) + "\n"
-                    afile.write(out)
+                    afile.write("".join(printout_string) + "\n")
                 else:
-                    out = "\n".join(printout_string) + "\n"
-                    afile.write(out)
+                    afile.write("\n".join(printout_string) + "\n")
             else:
                 if printout_string[0][-1:] == "\n":
-                    out = "".join(printout) + "\n"
-                    return_string += out
+                    return_string += "".join(printout) + "\n"
                 else:
-                    out = "\n".join(printout) + "\n"
-                    out.lstrip("b'").strip("'")
-                    return_string += out
+                    return_string += "\n".join(printout) + "\n"
 
             # print out connect
             prnt = self.__parent_molecule
