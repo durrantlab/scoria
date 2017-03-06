@@ -789,26 +789,26 @@ class FileIO():
             atom_information = self.__parent_molecule.get_atom_information()
             coordinates = self.__parent_molecule.get_coordinates(frame)
 
-#            if numpy.python_version == 2: 
+            #if numpy.python_version == 2: 
             dtype_to_use = '|S5'
-#            else: 
-#                dtype_to_use = '|U5'  # python3 needs this instead
+            #else: 
+            #    dtype_to_use = '|U5'  # python3 needs this instead
 
             printout = numpy.defchararray_add(
-                atom_information['record_name'],
+                atom_information['record_name'].astype('|S6'),
                 numpy.defchararray_rjust(
-                    atom_information['serial'].astype(dtype_to_use), 5
+                    atom_information['serial'].astype('|S5'), 5
                 )
             )
 
             printout = numpy.defchararray_add(printout,
-                                              atom_information['name_padded'])
+                                              atom_information['name_padded'].astype('|S5'))
 
             printout = numpy.defchararray_add(printout,
-                                              atom_information['resname_padded'])
+                                              atom_information['resname_padded'].astype('|S5'))
 
             printout = numpy.defchararray_add(printout,
-                                              atom_information['chainid_padded'])
+                                              atom_information['chainid_padded'].astype('|S1'))
 
             #if numpy.python_version == 2: 
             dtype_to_use = '|S4'
@@ -882,7 +882,7 @@ class FileIO():
 
             printout_string = []
             for i in printout:
-                printout_string.append(str(i))
+                printout_string.append(i.decode('utf-8'))
 
             if return_text == False:
                 if printout_string[0][-1:] == "\n":
