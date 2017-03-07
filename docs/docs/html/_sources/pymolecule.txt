@@ -1,0 +1,94 @@
+pymolecule package
+==================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    pymolecule.dumbpy
+
+Submodules
+----------
+
+pymolecule.AtomsAndBonds module
+-------------------------------
+
+.. automodule:: pymolecule.AtomsAndBonds
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymolecule.FileIO module
+------------------------
+
+.. automodule:: pymolecule.FileIO
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymolecule.Geometry module
+--------------------------
+
+.. automodule:: pymolecule.Geometry
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymolecule.Information module
+-----------------------------
+
+.. automodule:: pymolecule.Information
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymolecule.Manipulation module
+------------------------------
+
+.. automodule:: pymolecule.Manipulation
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+pymolecule.OtherMolecules module
+--------------------------------
+
+.. automodule:: pymolecule.OtherMolecules
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymolecule.Quaternion module
+----------------------------
+
+.. automodule:: pymolecule.Quaternion
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymolecule.Selections module
+----------------------------
+
+.. automodule:: pymolecule.Selections
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymolecule.Test module
+----------------------
+
+.. automodule:: pymolecule.Test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: pymolecule
+    :members:
+    :undoc-members:
+    :show-inheritance:
