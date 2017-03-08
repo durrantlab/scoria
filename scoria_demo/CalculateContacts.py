@@ -20,7 +20,7 @@ Component_B_out = "./Component_B.pdb"
 # Load in a DCD/PSF trajectory and create a contact object within it.
 print("Loading Molecule...             ",)
 MOL = scoria.Molecule()
-MOL.load_via_MDAnalysis(PSF, DCD)
+MOL.load_MDAnalysis_into(PSF, DCD)
 contacts = con.Contact(MOL)
 print(" done")
 

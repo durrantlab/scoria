@@ -58,7 +58,7 @@ class FileIOTests(unittest.TestCase):
         self.assertEqual(self.mol.get_total_number_of_atoms(), 401)
         self.assertEqual(self.mol.get_remarks(), [' This is a remark.'])
 
-    @unittest.skip("Needs  multiframe pdbqt")
+    @unittest.skip("Needs multiframe pdbqt")
     def test_load_pdbqt_trajectory_into(self):
         """
         Testing the ability of the FileIO module to import pdbqt trajectories
@@ -66,7 +66,7 @@ class FileIOTests(unittest.TestCase):
         """
         self.mol.load_pdbqt_trajectory_into(self.info_path + '')
 
-    @unittest.skip("Needs  multiframe pdbqt")
+    @unittest.skip("Needs multiframe pdbqt")
     def test_load_pdbqt_trajectory_into_using_file_object(self):
         """
         Testing the ability of the FileIO module to import pdbqt trajectories
@@ -163,7 +163,6 @@ class FileIOTests(unittest.TestCase):
         self.assertEqual(self.mol.get_remarks()[0:2],
                          ['     Created by DCD plugin\x00',
                           '     \x00\x00\x00REMARKS Created 03 January, 2017 at'])
-
 
     def test_load_MDAnalysis_into_using_universe_object(self):
         """
