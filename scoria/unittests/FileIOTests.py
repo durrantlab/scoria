@@ -4,9 +4,12 @@ import os
 import sys
 import shutil
 
-import numpy as np
-import scipy
-import MDAnalysis
+#import numpy as np
+from scoria import dumbpy as np
+
+try: import MDAnalysis  # pypy shouldn't be able to load this.
+except: pass
+
 import scoria
 import shutil
 
@@ -198,10 +201,15 @@ class FileIOTests(unittest.TestCase):
         """
         Empty test.
         """
-        input_name = self.info_path + 'file_io_test.pym'
+
+        # Don't use pym file here. It's not compatible with pypy.
+        #input_name = self.info_path + 'file_io_test.pym'
+        #self.mol.load_pym_into(input_name)
+
+        input_name = self.info_path + 'single_frame.pdb'
         self.output_name = 'output.pdb'
 
-        self.mol.load_pym_into(input_name)
+        self.mol.load_pdb_into(input_name)
         self.mol.save_pdb(self.output_name)
 
         self.assertTrue(os.path.exists(self.output_name))

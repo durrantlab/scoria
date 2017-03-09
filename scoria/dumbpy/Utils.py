@@ -91,6 +91,9 @@ def logical_or(arr1, arr2):
             An boolean array.
     """
 
+    if var_type(arr1) == "list":
+        arr1 = array(arr1)
+
     if len(arr1.shape) == 1:
         or_result = [x or y for x,y in zip(arr1, arr2)]
         return array(or_result)
@@ -690,3 +693,18 @@ def stack_arrays(arr_list, usemask = False):
         dict[key] = to_list(arr1[key]) + to_list(arr2[key])
 
     return RecArray(dict)
+
+def transpose(arr):
+    """Transpose an array
+
+        Args:
+            arr -- The array to transpose.
+
+        Returns:
+            The transposed array.
+    """
+    
+    if var_type(arr) == "list":
+        arr = array(arr)
+
+    return arr.T
