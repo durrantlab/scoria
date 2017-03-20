@@ -231,7 +231,7 @@ def vstack(arrays):
     
     raise ValueError('Could not perform vstack. Try installing NUMPY/SCIPY.')
 
-def append_fields(arr, field_name, data):
+def append_fields(arr, field_name, data, usemask=False):
     """Append columns to a rec array.
 
         Args:
