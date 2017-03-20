@@ -3,8 +3,7 @@ import numpy as np
 
 # Load in a DCD/PSF trajectory.
 print("Loading Molecule...")
-mol = scoria.Molecule()
-mol.load_via_MDAnalysis(
+mol = scoria.Molecule(
     "../scoria/sample-files/test_sim.psf", 
     "../scoria/sample-files/test_sim.dcd"
 )

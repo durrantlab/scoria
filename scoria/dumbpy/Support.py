@@ -1,5 +1,6 @@
 from __future__ import absolute_import
-import ..six
+import scoria.six as six
+#from .six import string_types as six_string_types
 
 
 def var_type(var):

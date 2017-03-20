@@ -999,7 +999,7 @@ class FileIO():
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.load_via_MDAnalysis`
+        :meth:`~scoria.Molecule.Molecule.load_MDAnalysis_into`
 
         :params \*args: Filename, filenames, or list of file names. Used to
             inizalize a MDAnalysis.Universe object.
@@ -1023,7 +1023,7 @@ class FileIO():
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.load_via_MDAnalysis`
+        :meth:`~scoria.Molecule.Molecule.load_MDAnalysis_into`
 
         :param mdanalysis.universe universe: An MDAnalysis universe object to
             import.

@@ -10,7 +10,7 @@ The Latest Version
 ------------------
 
 The latest version of scoria can be found on the Durrant gitlab under
-https://git.durrantlab.com/jdurrant/pymolecule2
+https://git.durrantlab.com/jdurrant/scoria
 
 Documentation
 -------------

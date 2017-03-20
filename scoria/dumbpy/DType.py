@@ -68,8 +68,10 @@ class dtype():
         if tp[:1].upper() == "I":
             return int(val)
         
-        if tp[:1].upper() == "S":
-            return str(val)
+        if tp[:1].upper() == "S" or tp[:1].upper() == "U":
+            str_len = int(tp[1:])  # Get the number part
+            val = str(val)[:str_len] # Keep only the correct few letters
+            return val
 
     @property
     def names(self):

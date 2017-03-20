@@ -1505,6 +1505,17 @@ class Molecule: # here's the actual Molecule class
         
         return self.manipulation.set_atom_location(atom_index, new_location)
 
+    def set_coordinate_undo_point(self):
+        """
+        Sets ("saves") the undo point of the atom coordinates. Any
+        subsequent manipulations of atomic coordinates can be "undone" by
+        reseting to this configuration via the coordinate_undo function.
+
+        Wrapper function for :meth:`~scoria.Manipulation.Manipulation.set_coordinate_undo_point`
+        """
+
+        self.manipulation.set_coordinate_undo_point()
+
     def coordinate_undo(self):
         """
         Resets the coordinates of all atoms to those saved using the
