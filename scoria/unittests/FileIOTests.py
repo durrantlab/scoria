@@ -10,6 +10,9 @@ from scoria import dumbpy as np
 try: import MDAnalysis  # pypy shouldn't be able to load this.
 except: pass
 
+try: import prody
+except: pass
+
 import scoria
 import shutil
 
@@ -182,6 +185,42 @@ class FileIOTests(unittest.TestCase):
         self.assertEqual(self.mol.get_remarks()[0:2],
                          ['     Created by DCD plugin\x00',
                           '     \x00\x00\x00REMARKS Created 03 January, 2017 at'])
+
+    def test_load_ProDy_into_using_trajectory(self):
+        """
+        Empty test.
+        """
+        test_dcd = self.info_path + 'single_frame.dcd'
+        pdb_file_name = self.info_path + 'single_frame.pdb'
+
+        traj = prody.Trajectory(test_dcd)
+        traj.link(prody.parsePDB(pdb_file_name))
+
+        self.mol.load_ProDy_into_using_Trajectory(traj)
+        self.assertEqual(self.mol.get_total_number_of_atoms(), 401)
+
+
+    def test_load_ProDy_into_using_trajectory_fail_without_atomgroup(self):
+        """
+        Empty test.
+        """
+        test_dcd = self.info_path + 'single_frame.dcd'
+
+        traj = prody.Trajectory(test_dcd)
+
+        with self.assertRaises(ValueError):
+            self.mol.load_ProDy_into_using_Trajectory(traj)
+
+
+    def test_load_ProDy_into_using_AtomGroup(self):
+        """
+        Empty test.
+        """
+        pdb_file_name = self.info_path + 'single_frame.pdb'
+        atoms = prody.parsePDB(pdb_file_name)
+
+        self.mol.load_ProDy_into_using_AtomGroup(atoms)
+        self.assertEqual(self.mol.get_total_number_of_atoms(), 401)
 
     # Test Save functions
 

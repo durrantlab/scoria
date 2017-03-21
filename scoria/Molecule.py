@@ -1065,6 +1065,37 @@ class Molecule: # here's the actual Molecule class
         self.fileio.load_MDAnalysis_into_using_universe_object(universe)
 
 
+    def load_ProDy_into_using_AtomGroup(self, atomgroup):
+        """
+        Allows import of molecular structure from an ProDy group.
+
+        Requires the :any:`ProDy <prody.atomic>` library.
+
+        Should be called via the wrapper function
+        :meth:`~scoria.FileIO.FileIO.load_ProDy_into_using_AtomGroup`
+
+        :param prody.atomgroup atomgroup: A ProDy AtomGroup object to
+            import.
+        """
+
+        self.fileio.load_ProDy_into_using_AtomGroup(atomgroup)
+
+    def load_ProDy_into_using_Trajectory(self, trajectory, atomset=0):
+        """
+        Allows import of molecular structure from an ProDy group.
+        While the trajectory object can hold multiple files, the 
+
+        Requires the :any:`ProDy <prody.atomic>` library.
+
+        Should be called via the wrapper function
+        :meth:`~scoria.FileIO.FileIO.load_ProDy_into_using_Trajectory`
+
+        :param prody.trajectory trajectory: A ProDy Trajectory object to
+            import.
+        """
+
+        self.fileio.load_ProDy_into_using_Trajectory(trajectory, atomset)
+
     # Atoms and Bonds class methods
     def get_number_of_bond_partners_of_element(self, atom_index, the_element):
         """

@@ -12,6 +12,6 @@ from scoria.Test import Test
 
 # By default, leave these commented out. They require numpy and so break pypy
 # compatibility. Just uncomment when you want to test.
-# from scoria.unittests.UnitTests import UnitTests
+from scoria.unittests.UnitTests import UnitTests
 
 __version__ = "2.0"

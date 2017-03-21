@@ -1062,7 +1062,7 @@ class FileIO():
         Requires the :any:`ProDy <prody.atomic>` library.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.load_ProDy_using_AtomGroup`
+        :meth:`~scoria.Molecule.Molecule.load_ProDy_into_using_AtomGroup`
 
         :param prody.atomgroup atomgroup: A ProDy AtomGroup object to
             import.
@@ -1071,14 +1071,14 @@ class FileIO():
         if not numpy.class_dependency("load ProDy into atomgroup", "PRODY"):
             return
 
-        fileDescriptor, tempPDB = tempfile.mkstemp(".PDB")
+        fileDescriptor, tempPDB = tempfile.mkstemp(".pdb")
         try:
             numpy.prody.writePDB(tempPDB, atomgroup)
-            self.load_pdb_trajectory_into(tempPDB)
+            self.load_pdb_into(tempPDB)
         finally:
             os.remove(tempPDB)
 
-    def load_ProDy_into_using_trajectory(self, trajectory, atomset=0):
+    def load_ProDy_into_using_Trajectory(self, trajectory, atomset=0):
         """
         Allows import of molecular structure from an ProDy group.
         While the trajectory object can hold multiple files, the 
@@ -1086,14 +1086,17 @@ class FileIO():
         Requires the :any:`ProDy <prody.atomic>` library.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.load_ProDy_using_AtomGroup`
+        :meth:`~scoria.Molecule.Molecule.load_ProDy_into_using_Trajectory`
 
-        :param prody.atomgroup atomgroup: A ProDy AtomGroup object to
+        :param prody.trajectory trajectory: A ProDy Trajectory object to
             import.
         """
 
         if not numpy.class_dependency("load ProDy into trajectory", "PRODY"):
             return
+
+        if trajectory.getAtoms() == None:
+            raise ValueError("Missing linked AtomGroup!")           
 
         self.load_ProDy_into_using_AtomGroup(trajectory.getAtoms())
 
@@ -1105,6 +1108,6 @@ class FileIO():
             
             # We cannot handle multiple files at this point in time.
             # Instead we take the indicated set as parameterized.
-            trajectoryList.append(frame[atomset])
+            trajectoryList.append(frame.getCoords())
 
         self.__parent_molecule.set_trajectory_coordinates(trajectoryList)

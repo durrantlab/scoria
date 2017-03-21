@@ -172,6 +172,7 @@ try:
     
     import prody
     dependencies_available.append("PRODY")
+    prody.confProDy(verbosity='none')
 except:
     pass
 
