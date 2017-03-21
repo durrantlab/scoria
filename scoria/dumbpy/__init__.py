@@ -166,6 +166,14 @@ try:
 except:
     pass
 
+try:
+    if force_dumbpy:
+        raise ValueError('Using dumbpy')
+    
+    import prody
+    dependencies_available.append("PRODY")
+except:
+    pass
 
 def class_dependency(action, dependency):
     """Determines whether or not a given dependency is available.

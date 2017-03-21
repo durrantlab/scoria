@@ -1054,3 +1054,57 @@ class FileIO():
             trajectoryList.append(numpy.vstack(frameList))
 
         self.__parent_molecule.set_trajectory_coordinates(trajectoryList)
+
+    def load_ProDy_into_using_AtomGroup(self, atomgroup):
+        """
+        Allows import of molecular structure from an ProDy group.
+
+        Requires the :any:`ProDy <prody.atomic>` library.
+
+        Should be called via the wrapper function
+        :meth:`~scoria.Molecule.Molecule.load_ProDy_using_AtomGroup`
+
+        :param prody.atomgroup atomgroup: A ProDy AtomGroup object to
+            import.
+        """
+
+        if not numpy.class_dependency("load ProDy into atomgroup", "PRODY"):
+            return
+
+        fileDescriptor, tempPDB = tempfile.mkstemp(".PDB")
+        try:
+            numpy.prody.writePDB(tempPDB, atomgroup)
+            self.load_pdb_trajectory_into(tempPDB)
+        finally:
+            os.remove(tempPDB)
+
+    def load_ProDy_into_using_trajectory(self, trajectory, atomset=0):
+        """
+        Allows import of molecular structure from an ProDy group.
+        While the trajectory object can hold multiple files, the 
+
+        Requires the :any:`ProDy <prody.atomic>` library.
+
+        Should be called via the wrapper function
+        :meth:`~scoria.Molecule.Molecule.load_ProDy_using_AtomGroup`
+
+        :param prody.atomgroup atomgroup: A ProDy AtomGroup object to
+            import.
+        """
+
+        if not numpy.class_dependency("load ProDy into trajectory", "PRODY"):
+            return
+
+        self.load_ProDy_into_using_AtomGroup(trajectory.getAtoms())
+
+        trajectory.reset()
+        trajectoryList = []
+        for i in range(trajectory.numFrames()):
+            frameList = []
+            frame = trajectory.next()
+            
+            # We cannot handle multiple files at this point in time.
+            # Instead we take the indicated set as parameterized.
+            trajectoryList.append(frame[atomset])
+
+        self.__parent_molecule.set_trajectory_coordinates(trajectoryList)
