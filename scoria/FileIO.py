@@ -587,7 +587,8 @@ class FileIO():
                 numpy.append_fields(
                     self.__parent_molecule.get_atom_information().copy(),
                     f,
-                    data = numpy.defchararray_strip(atom_inf[f + '_padded'])
+                    data = numpy.defchararray_strip(atom_inf[f + '_padded']),
+                    usemask=False
                 )
             )
 
