@@ -1,4 +1,5 @@
 Scoria
+======
 
 What is it?
 -----------
@@ -41,7 +42,7 @@ https://git.durrantlab.com/jdurrant/pymolecule2/issues
 Licensing
 ---------
 
-Please see the file called LICENSING
+Please see the LICENSING.txt file
 
 Authors and Contacts
 --------------------
