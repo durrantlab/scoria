@@ -1,6 +1,9 @@
 """Note that this code is NOT a replacement for numpy. It imitates numpy just
 well enough to run some of the scoria functions that couldn't run
-otherwise. Installing numpy/scipy is strongly recommended."""
+otherwise. Installing numpy/scipy is strongly recommended.
+
+Copyright (c) 2017 Jacob Durrant. MIT license. Please see LICENSE.txt for full details.
+"""
 
 from __future__ import absolute_import
 import copy
