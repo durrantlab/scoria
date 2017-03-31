@@ -25,8 +25,13 @@ Installation
 The scoria libarary can be installed via pip as 
 
 ```bash
-sudo pip install path/to/file/scoria
+# for python 2
+pip install scoria
+
+# for python 3
+pip3 install scoria
 ```
+
 
 Scoria requires Numpy, Scipy and can utilize the MDAnalysis library
 for additional import methods. These dependancies should be
@@ -42,7 +47,7 @@ https://git.durrantlab.com/jdurrant/scoria/issues
 Licensing
 ---------
 
-Please see the file called LICENSING
+Please see the LICENCE.txt file
 
 Authors and Contacts
 --------------------
