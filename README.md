@@ -17,7 +17,7 @@ Documentation
 -------------
 
 Thorough documenation for the scoria library can be found at
-https://where.are.we.putting.this.com/scoria_documenation
+https://durrantlab.com/scoria/
 
 Installation
 ------------
@@ -25,8 +25,13 @@ Installation
 The scoria libarary can be installed via pip as 
 
 ```bash
-sudo pip install path/to/file/scoria
+# for python 2
+pip install scoria
+
+# for python 3
+pip3 install scoria
 ```
+
 
 Scoria requires Numpy, Scipy and can utilize the MDAnalysis library
 for additional import methods. These dependancies should be
@@ -37,15 +42,15 @@ Issues and Concerns
 
 If you have any implementation questions or have located a bug in the
 library, please raise an issue the gitlab page for this project
-https://git.durrantlab.com/jdurrant/pymolecule2/issues
+https://git.durrantlab.com/jdurrant/scoria/issues
 
 Licensing
 ---------
 
-Please see the LICENSING.txt file
+Please see the LICENCE.txt file
 
 Authors and Contacts
 --------------------
 
-This library was produced by Jacob Durrant (pitt email or gmail?) with
+This library was produced by Jacob Durrant (durrantj@pitt.edu) with
 the assistance of Patrick Ropp and Aaron Friedman.
