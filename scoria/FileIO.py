@@ -1078,7 +1078,7 @@ class FileIO():
         finally:
             os.remove(tempPDB)
 
-    def load_ProDy_into_using_Trajectory(self, trajectory, atomset=0):
+    def load_ProDy_into_using_Trajectory(self, trajectory, atomgroup=None):
         """
         Allows import of molecular structure from an ProDy group.
         While the trajectory object can hold multiple files, the 
@@ -1095,12 +1095,13 @@ class FileIO():
         if not numpy.class_dependency("load ProDy into trajectory", "PRODY"):
             return
 
-        if trajectory.getAtoms() == None:
+        if atomgroup is not None:
+            self.load_ProDy_into_using_AtomGroup(atomgroup)
+        elif trajectory.getAtoms() is not None:
+            self.load_ProDy_into_using_AtomGroup(trajectory.getAtoms())
+        else:
             raise ValueError("Missing linked AtomGroup!")           
 
-        self.load_ProDy_into_using_AtomGroup(trajectory.getAtoms())
-
-        trajectory.reset()
         trajectoryList = []
         for i in range(trajectory.numFrames()):
             frameList = []
