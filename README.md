@@ -10,14 +10,13 @@ importing, manipulating, and exporting molecular models.
 The Latest Version
 ------------------
 
-The latest version of scoria can be found on the Durrant gitlab under
-https://git.durrantlab.com/jdurrant/scoria
+Visit [https://durrantlab.com/scoria/](https://durrantlab.com/scoria/) to:
 
-Documentation
--------------
-
-Thorough documenation for the scoria library can be found at
-https://durrantlab.com/scoria/
+* download the latest version
+* read the documenation
+* suggest an improvement
+* point out a bug
+* ask a question about usage
 
 Installation
 ------------
@@ -32,22 +31,14 @@ pip install scoria
 pip3 install scoria
 ```
 
-
-Scoria requires Numpy, Scipy and can utilize the MDAnalysis library
-for additional import methods. These dependancies should be
+Scoria runs best with NumPy and SciPy. It can also use the MDAnalysis library
+for additional import methods. The first two dependancies should be
 automatically installed alongside the package.
-
-Issues and Concerns
--------------------
-
-If you have any implementation questions or have located a bug in the
-library, please raise an issue the gitlab page for this project
-https://git.durrantlab.com/jdurrant/scoria/issues
 
 Licensing
 ---------
 
-Please see the LICENCE.txt file
+Scoria is released under the MIT License. See LICENCE.txt for details.
 
 Authors and Contacts
 --------------------
