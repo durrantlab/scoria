@@ -11,8 +11,7 @@ mol = scoria.Molecule(
 # Create two new trajectories, corresponding to the shroom2
 # protein and the rock1 dimer, respectively. Shroom2 is 
 # resid 1 to 181, and the rock1 dimer is 182 to 297.
-print("Splitting trajectory into shroom2 and",)
-print("rock1...")
+print("Splitting trajectory into shroom2 and rock1...")
 shroom2 = mol.get_molecule_from_selection(
     mol.select_atoms({
         "resseq": range(1, 181)
@@ -45,10 +44,9 @@ for frame in range(0, traj_length):
 
     # Find the indices of the atoms that come in close
     # contact with atoms of the other model.
-    shroom2_indx, rock1_indx = 
-        shroom2.select_close_atoms_from_different_molecules(
-            rock1, 3.0
-        )
+    shroom2_indx, rock1_indx = shroom2.select_close_atoms_from_different_molecules(
+        rock1, 3.0
+    )
 
     # Update the counts
     shroom2_counts[shroom2_indx] += 1
