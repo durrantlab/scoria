@@ -266,7 +266,7 @@ class OtherMolecules():
 
         return merged
 
-    def get_distance_to_another_molecules(self, other_molecules,
+    def get_distance_to_another_molecule(self, other_molecules,
                                          pairwise_comparison = True):
         """
         Computes the minimum distance between any of the atoms of this
