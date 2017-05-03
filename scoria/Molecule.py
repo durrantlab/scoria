@@ -1768,7 +1768,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.get_distance_to_another_molecules`
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.get_distance_to_another_molecule`
         
         :param scoria.Molecule other_molecules: a scoria.Molecule, the other molecular
                     model.
@@ -1844,12 +1844,13 @@ class Molecule: # here's the actual Molecule class
     def steric_clash_with_another_molecules(self, other_mol, cutoff,
                                            pairwise_comparison = True):
         """
+        DEPRECATION WARNING: Please use :meth:`~scoria.Molecule.Molecule.steric_clash_with_another_molecule`
         Detects steric clashes between the scoria.Molecule (self) and
         another scoria.Molecule.
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.steric_clash_with_another_molecules`
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule`
         
         :param scoria.Molecule other_mol: The scoria.Molecule object that will be
                     evaluated for steric clashes.
@@ -1864,15 +1865,43 @@ class Molecule: # here's the actual Molecule class
                     are not.
         """
 
-        return self.other_molecules.steric_clash_with_another_molecules(
+        return self.other_molecules.steric_clash_with_another_molecule(
+            other_mol, cutoff, pairwise_comparison
+        )
+
+    def steric_clash_with_another_molecule(self, other_mol, cutoff,
+                                           pairwise_comparison = True):
+        """
+        Detects steric clashes between the scoria.Molecule (self) and
+        another scoria.Molecule.
+
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
+
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule`
+        
+        :param scoria.Molecule other_mol: The scoria.Molecule object that will be
+                    evaluated for steric clashes.
+        :param float cutoff: A float, the user-defined distance cutoff in
+                    Angstroms.
+        :param bool pairwise_comparison: An optional boolean, whether or not to
+                    perform a simple pairwise distance comparison (if True) or
+                    to use a more sophisitcated method (if False). True by
+                    default.
+
+        :returns: A boolean. True if steric clashes are present, False if they
+                    are not.
+        """
+
+        return self.other_molecules.steric_clash_with_another_molecule(
             other_mol, cutoff, pairwise_comparison
         )
 
     def merge_with_another_molecules(self, other_molecules):
         """
+        DEPRECATION WARNING: Please use :meth:`~scoria.Molecule.Molecule.merge_with_another_molecule`
         Merges two molecular models into a single model.
 
-        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.merge_with_another_molecules`
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.merge_with_another_molecule`
         
         :param scoria.Molecule other_molecules: A molecular model (scoria.Molecule
                     object).
@@ -1881,7 +1910,22 @@ class Molecule: # here's the actual Molecule class
                     this model combined with the atoms of other_molecules.
         """     
         
-        return self.other_molecules.merge_with_another_molecules(other_molecules)
+        return self.other_molecules.merge_with_another_molecule(other_molecules)
+
+    def merge_with_another_molecule(self, other_molecules):
+        """
+        Merges two molecular models into a single model.
+
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.merge_with_another_molecule`
+        
+        :param scoria.Molecule other_molecules: A molecular model (scoria.Molecule
+                    object).
+
+        :returns: A single scoria.Molecule object containing the atoms of
+                    this model combined with the atoms of other_molecules.
+        """     
+        
+        return self.other_molecules.merge_with_another_molecule(other_molecules)
 
     ######## Supporting functions ########
 
