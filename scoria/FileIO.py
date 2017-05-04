@@ -242,17 +242,20 @@ class FileIO():
         # Now merge the last two columns.
         atom_inf = self.__parent_molecule.get_atom_information()
 
-        atom_types = numpy.defchararray_add(
-            atom_inf["element"], atom_inf["charge"]
-        )
+        # In some instances, the atom information value can be None
+        if atom_inf is not None:
 
-        atom_inf["element"] = numpy.defchararray_strip(atom_types)
+            atom_types = numpy.defchararray_add(
+                atom_inf["element"], atom_inf["charge"]
+            )
 
-        atom_inf["charge"] = "\n"
+            atom_inf["element"] = numpy.defchararray_strip(atom_types)
 
-        atom_inf["element_padded"] = numpy.defchararray_rjust(
-            atom_inf["element"], 2
-        )
+            atom_inf["charge"] = "\n"
+
+            atom_inf["element_padded"] = numpy.defchararray_rjust(
+                atom_inf["element"], 2
+            )
 
         self.__parent_molecule.set_atom_information(atom_inf)
 
