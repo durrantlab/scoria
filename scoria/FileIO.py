@@ -444,8 +444,9 @@ class FileIO():
 
         if is_trajectory == True:
             self.load_pdb_trajectory_into_using_file_object(
-                file_obj, bonds_by_distance = False, serial_reindex = True,
-                resseq_reindex = False
+                file_obj, bonds_by_distance = bonds_by_distance,
+                serial_reindex = serial_reindex, resseq_reindex =
+                resseq_reindex
             )
             return
 
