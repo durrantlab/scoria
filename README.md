@@ -18,11 +18,12 @@ Visit [https://durrantlab.com/scoria/](https://durrantlab.com/scoria/) to:
 * point out a bug
 * ask a question about usage
 
-Versions with the `mda` extension include MDAnalysis support (GNU General
-Public License version 3.0).
+Licensing
+---------
 
-Versions without the `mda` extension are released under the Apache 2.0
-license.
+Scoria versions with the `mda` extension include MDAnalysis support (GNU
+General Public License version 3.0). Other versions are are released under the
+Apache 2.0 license. See LICENCE.txt for details.
 
 Installation
 ------------
@@ -40,11 +41,6 @@ pip3 install scoria
 Scoria runs best with NumPy and SciPy. It can also use the MDAnalysis library
 for additional import methods. The first two dependancies should be
 automatically installed alongside the package.
-
-Licensing
----------
-
-Scoria is released under the MIT License. See LICENCE.txt for details.
 
 Authors and Contacts
 --------------------
