@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3. The AtomsAndBonds Class &#8212; scoria 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="scoria 2.0 documentation" href="index.html" />
+    <link rel="next" title="4. The FileIO Class" href="FileIO.html" />
+    <link rel="prev" title="2. Scoria Demo" href="Demo.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="FileIO.html" title="4. The FileIO Class"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Demo.html" title="2. Scoria Demo"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-atomsandbonds-class">
+<h1>3. The AtomsAndBonds Class<a class="headerlink" href="#the-atomsandbonds-class" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rationale-of-the-atomsandbonds-functions">
+<h2>3.1. Rationale of the AtomsAndBonds functions<a class="headerlink" href="#rationale-of-the-atomsandbonds-functions" title="Permalink to this headline">¶</a></h2>
+<p>The functions within the AtomsAndBonds framework all involve the
+addition, deletion, and manipulation of individual atoms and their
+bonds within the molecular framework.</p>
+<div class="section" id="other-classes">
+<h3>3.1.1. Other Classes<a class="headerlink" href="#other-classes" title="Permalink to this headline">¶</a></h3>
+<p>To make modifications to the coordinate set of all atoms, use the
+functions within the <a class="reference internal" href="Manipulation.html#module-scoria.Manipulation" title="scoria.Manipulation"><code class="xref py py-class docutils literal"><span class="pre">Manipulation</span></code></a> class. To look
+at groups of atoms with similar properties, use the functions within
+the <a class="reference internal" href="Selections.html#module-scoria.Selections" title="scoria.Selections"><code class="xref py py-class docutils literal"><span class="pre">Selections</span></code></a> class.</p>
+</div>
+</div>
+<div class="section" id="module-scoria.AtomsAndBonds">
+<span id="function-definitions"></span><h2>3.2. Function Definitions<a class="headerlink" href="#module-scoria.AtomsAndBonds" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds">
+<em class="property">class </em><code class="descclassname">scoria.AtomsAndBonds.</code><code class="descname">AtomsAndBonds</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class for adding and deleting atoms and bonds. Subclass to the
+<a class="reference internal" href="Molecule.html#module-scoria.Molecule" title="scoria.Molecule"><code class="xref py py-class docutils literal"><span class="pre">scoria.Molecule</span></code></a> class.</p>
+<dl class="method">
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.add_atom">
+<code class="descname">add_atom</code><span class="sig-paren">(</span><em>record_name='ATOM'</em>, <em>serial=1</em>, <em>name='X'</em>, <em>resname='XXX'</em>, <em>chainid='X'</em>, <em>resseq=1</em>, <em>occupancy=0.0</em>, <em>tempfactor=0.0</em>, <em>charge=''</em>, <em>element='X'</em>, <em>coordinates=array([ 0.</em>, <em>0.</em>, <em>0.])</em>, <em>autoindex=True</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.add_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds an atom.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.add_atom" title="scoria.Molecule.Molecule.add_atom"><code class="xref py py-meth docutils literal"><span class="pre">add_atom()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>record_name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the record name of the atom.
+&#8220;ATOM&#8221; is the default.</li>
+<li><strong>serial</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An optional int, the serial field of the atom. 1 is
+the default.</li>
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the name of the atom. &#8216;X&#8217; is the
+default.</li>
+<li><strong>resname</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the resname of the atom. &#8216;XXX&#8217;
+is the default.</li>
+<li><strong>chainid</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, chainid of the atom. &#8216;X&#8217; is the
+default.</li>
+<li><strong>resseq</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An optional int, the resseq field of the atom. 1 is
+the default.</li>
+<li><strong>occupancy</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; An optional float, the occupancy of the atom. 0.0
+is the default.</li>
+<li><strong>tempfactor</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; An optional float, the tempfactor of the atom.
+0.0 is the default.</li>
+<li><strong>charge</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the charge of the atom. &#8216;&#8217; is the
+default.</li>
+<li><strong>element</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An optional string, the element of the atom. &#8216;X&#8217; is
+the default.</li>
+<li><strong>coordinates</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.12)"><em>numpy.array</em></a>) &#8211; An optional numpy.array, the (x, y, z)
+coordinates of the atom. numpy.array([0.0, 0.0, 0.0]) is
+the default.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.add_bond">
+<code class="descname">add_bond</code><span class="sig-paren">(</span><em>index1</em>, <em>index2</em>, <em>order=1</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.add_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a bond.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.add_bond" title="scoria.Molecule.Molecule.add_bond"><code class="xref py py-meth docutils literal"><span class="pre">add_bond()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>index1</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the first atom of the bonded
+pair.</li>
+<li><strong>index2</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the second atom of the bonded
+pair.</li>
+<li><strong>order</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An optional int, the order of the bond. 1 by default.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance">
+<code class="descname">create_bonds_by_distance</code><span class="sig-paren">(</span><em>remove_old_bond_data=True</em>, <em>delete_excessive_bonds=True</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines which atoms are bound to each other based on their
+proximity.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.19.0)"><code class="xref any docutils literal"><span class="pre">scipy</span></code></a> libraries.</p>
+<p>Should be called via the wrapper function
+<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.create_bonds_by_distance" title="scoria.Molecule.Molecule.create_bonds_by_distance"><code class="xref py py-meth docutils literal"><span class="pre">create_bonds_by_distance()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>remove_old_bond_data</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not to
+discard old bond data before adding in bonds determined by
+distance. True by default.</li>
+<li><strong>delete_excessive_bonds</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; An optional boolean, whether or not
+to check for and delete excessive bonds. True by default.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.delete_atom">
+<code class="descname">delete_atom</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.delete_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes an atom.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.delete_atom" title="scoria.Molecule.Molecule.delete_atom"><code class="xref py py-meth docutils literal"><span class="pre">delete_atom()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the atom to delete.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.delete_bond">
+<code class="descname">delete_bond</code><span class="sig-paren">(</span><em>index1</em>, <em>index2</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.delete_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a bond.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.delete_bond" title="scoria.Molecule.Molecule.delete_bond"><code class="xref py py-meth docutils literal"><span class="pre">delete_bond()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>index1</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the first atom of the bonded
+pair.</li>
+<li><strong>index2</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the second atom of the bonded
+pair.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element">
+<code class="descname">get_index_of_first_bond_partner_of_element</code><span class="sig-paren">(</span><em>atom_index</em>, <em>the_element</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a given atom of interest, returns the index of the first
+neighbor of a specified element.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref py py-mod docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.19.0)"><code class="xref py py-mod docutils literal"><span class="pre">scipy.spatial</span></code></a> libraries.</p>
+<p>Should be called via the wrapper function
+<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_index_of_first_bond_partner_of_element" title="scoria.Molecule.Molecule.get_index_of_first_bond_partner_of_element"><code class="xref py py-meth docutils literal"><span class="pre">get_index_of_first_bond_partner_of_element()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>atom_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the atom of interest.</li>
+<li><strong>the_element</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; A string specifying the desired element of the
+neighbor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An int, the index of the first neighbor atom of the specified
+element. If no such neighbor exists, returns -1.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>int</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="scoria.AtomsAndBonds.AtomsAndBonds.get_number_of_bond_partners_of_element">
+<code class="descname">get_number_of_bond_partners_of_element</code><span class="sig-paren">(</span><em>atom_index</em>, <em>the_element</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.AtomsAndBonds.AtomsAndBonds.get_number_of_bond_partners_of_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts the number of atoms of a given element bonded to a specified
+atom of interest.</p>
+<p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
+<p>Should be called via the wrapper function
+<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_number_of_bond_partners_of_element" title="scoria.Molecule.Molecule.get_number_of_bond_partners_of_element"><code class="xref py py-meth docutils literal"><span class="pre">get_number_of_bond_partners_of_element()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>atom_index</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An int, the index of the atom of interest.</li>
+<li><strong>the_element</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; A string describing the element of the neighbors
+to be counted.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An int, the number of neighboring atoms of the specified
+element.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>int</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. The AtomsAndBonds Class</a><ul>
+<li><a class="reference internal" href="#rationale-of-the-atomsandbonds-functions">3.1. Rationale of the AtomsAndBonds functions</a><ul>
+<li><a class="reference internal" href="#other-classes">3.1.1. Other Classes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-scoria.AtomsAndBonds">3.2. Function Definitions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Demo.html"
+                        title="previous chapter">2. Scoria Demo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="FileIO.html"
+                        title="next chapter">4. The FileIO Class</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/AtomsAndBonds.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="FileIO.html" title="4. The FileIO Class"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Demo.html" title="2. Scoria Demo"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Jacob Durrant.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>
