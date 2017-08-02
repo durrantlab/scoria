@@ -1,3 +1,0 @@
-PyMolecule Library
-==================
-
