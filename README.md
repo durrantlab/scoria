@@ -18,6 +18,12 @@ Visit [https://durrantlab.com/scoria/](https://durrantlab.com/scoria/) to:
 * point out a bug
 * ask a question about usage
 
+Versions with the `mda` extension include MDAnalysis support (GNU General
+Public License version 3.0).
+
+Versions without the `mda` extension are released under the Apache 2.0
+license.
+
 Installation
 ------------
 
