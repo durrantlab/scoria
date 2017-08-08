@@ -97,10 +97,10 @@ class Test:
             True
         )
 
-        # No MDAnalysis in Apache 2.0 version! #print("    load_MDAnalysis_into()")
-        # No MDAnalysis in Apache 2.0 version! #self.mol = Molecule()
-        # No MDAnalysis in Apache 2.0 version! #self.mol.load_MDAnalysis_into(sample_structures_dir + "M2_traj.psf",
-        # No MDAnalysis in Apache 2.0 version! #                             sample_structures_dir + "M2_traj.dcd")
+        print("    load_MDAnalysis_into()")
+        self.mol = Molecule()
+        self.mol.load_MDAnalysis_into(sample_structures_dir + "M2_traj.psf",
+                                     sample_structures_dir + "M2_traj.dcd")
     
         # Temporarily commented out because no dumbpy implementation needed.
         print("    load_pym_into()")
@@ -511,13 +511,13 @@ class FileIOBenchmarks:
         self.timeit(self.load_pym, self.reset_test_vars_standard, self.new_molecule)
         print()
 
-        # No MDAnalysis in Apache 2.0 version! #print("Load DCD (single frame)")
-        # No MDAnalysis in Apache 2.0 version! #self.timeit(self.load_dcd, self.reset_test_vars_standard, self.new_molecule)
-        # No MDAnalysis in Apache 2.0 version! #print()
+        print("Load DCD (single frame)")
+        self.timeit(self.load_dcd, self.reset_test_vars_standard, self.new_molecule)
+        print()
 
-        # No MDAnalysis in Apache 2.0 version! #print("Load DCD (100 frames)")
-        # No MDAnalysis in Apache 2.0 version! #self.timeit(self.load_dcd_100_frames, self.reset_test_vars_standard, self.new_molecule)
-        # No MDAnalysis in Apache 2.0 version! #print()
+        print("Load DCD (100 frames)")
+        self.timeit(self.load_dcd_100_frames, self.reset_test_vars_standard, self.new_molecule)
+        print()
 
         # Clean up
         if os.path.exists("tmptmp.pdb"):
@@ -585,11 +585,11 @@ class FileIOBenchmarks:
     def load_pym(self):
         self.molecule.load_pym_into(self.load_filename)
     
-    # No MDAnalysis in Apache 2.0 version! #def load_dcd(self):
-    # No MDAnalysis in Apache 2.0 version! #    if "MDANALYSIS" in numpy.dependencies_available:
-    # No MDAnalysis in Apache 2.0 version! #        self.molecule.load_MDAnalysis_into(self.sample_structures_dir + "single_frame.psf", self.sample_structures_dir + "single_frame.dcd")
+    def load_dcd(self):
+        if "MDANALYSIS" in numpy.dependencies_available:
+            self.molecule.load_MDAnalysis_into(self.sample_structures_dir + "single_frame.psf", self.sample_structures_dir + "single_frame.dcd")
     
-    # No MDAnalysis in Apache 2.0 version! #def load_dcd_100_frames(self):
-    # No MDAnalysis in Apache 2.0 version! #    if "MDANALYSIS" in numpy.dependencies_available:
-    # No MDAnalysis in Apache 2.0 version! #        self.molecule.load_MDAnalysis_into(self.sample_structures_dir + "single_frame.psf", self.sample_structures_dir + "single_frame.100.dcd")
+    def load_dcd_100_frames(self):
+        if "MDANALYSIS" in numpy.dependencies_available:
+            self.molecule.load_MDAnalysis_into(self.sample_structures_dir + "single_frame.psf", self.sample_structures_dir + "single_frame.100.dcd")
         

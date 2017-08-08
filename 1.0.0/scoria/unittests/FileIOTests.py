@@ -21,8 +21,8 @@ import shutil
 #import numpy as np
 from scoria import dumbpy as np
 
-# No MDAnalysis in Apache 2.0 version! #try: import MDAnalysis  # pypy shouldn't be able to load this.
-# No MDAnalysis in Apache 2.0 version! #except: pass
+try: import MDAnalysis  # pypy shouldn't be able to load this.
+except: pass
 
 import scoria
 import shutil
@@ -167,35 +167,35 @@ class FileIOTests(unittest.TestCase):
             self.assertEqual(self.mol.get_total_number_of_atoms(), 401)
             self.assertEqual(self.mol.get_remarks(), [" This is a remark."])
 
-    # No MDAnalysis in Apache 2.0 version! #def test_load_MDAnalysis_into(self):
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #    Empty test.
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #    test_dcd = self.info_path + 'single_frame.dcd'
-    # No MDAnalysis in Apache 2.0 version! #    test_psf = self.info_path + 'single_frame.psf'
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    self.mol.load_MDAnalysis_into(test_psf, test_dcd)
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    self.assertEqual(self.mol.get_total_number_of_atoms(), 401)
-    # No MDAnalysis in Apache 2.0 version! #    self.assertEqual(self.mol.get_remarks()[0:2],
-    # No MDAnalysis in Apache 2.0 version! #                     ['     Created by DCD plugin\x00',
-    # No MDAnalysis in Apache 2.0 version! #                      '     \x00\x00\x00REMARKS Created 03 January, 2017 at'])
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #def test_load_MDAnalysis_into_using_universe_object(self):
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #    Empty test.
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #    test_dcd = self.info_path + 'single_frame.dcd'
-    # No MDAnalysis in Apache 2.0 version! #    test_psf = self.info_path + 'single_frame.psf'
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    universe = MDAnalysis.Universe(test_psf, test_dcd)
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    self.mol.load_MDAnalysis_into_using_universe_object(universe)
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    self.assertEqual(self.mol.get_total_number_of_atoms(), 401)
-    # No MDAnalysis in Apache 2.0 version! #    self.assertEqual(self.mol.get_remarks()[0:2],
-    # No MDAnalysis in Apache 2.0 version! #                     ['     Created by DCD plugin\x00',
-    # No MDAnalysis in Apache 2.0 version! #                      '     \x00\x00\x00REMARKS Created 03 January, 2017 at'])
+    def test_load_MDAnalysis_into(self):
+        """
+        Empty test.
+        """
+        test_dcd = self.info_path + 'single_frame.dcd'
+        test_psf = self.info_path + 'single_frame.psf'
+    
+        self.mol.load_MDAnalysis_into(test_psf, test_dcd)
+    
+        self.assertEqual(self.mol.get_total_number_of_atoms(), 401)
+        self.assertEqual(self.mol.get_remarks()[0:2],
+                         ['     Created by DCD plugin\x00',
+                          '     \x00\x00\x00REMARKS Created 03 January, 2017 at'])
+    
+    def test_load_MDAnalysis_into_using_universe_object(self):
+        """
+        Empty test.
+        """
+        test_dcd = self.info_path + 'single_frame.dcd'
+        test_psf = self.info_path + 'single_frame.psf'
+    
+        universe = MDAnalysis.Universe(test_psf, test_dcd)
+    
+        self.mol.load_MDAnalysis_into_using_universe_object(universe)
+    
+        self.assertEqual(self.mol.get_total_number_of_atoms(), 401)
+        self.assertEqual(self.mol.get_remarks()[0:2],
+                         ['     Created by DCD plugin\x00',
+                          '     \x00\x00\x00REMARKS Created 03 January, 2017 at'])
 
     # Test Save functions
 

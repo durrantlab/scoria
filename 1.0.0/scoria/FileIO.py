@@ -1007,65 +1007,65 @@ class FileIO():
                 out.close()
                 return
 
-    # No MDAnalysis in Apache 2.0 version! #def load_MDAnalysis_into(self, *args):
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #    Allows import of molecular structure with MDAnalysis.
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    Should be called via the wrapper function
-    # No MDAnalysis in Apache 2.0 version! #    :meth:`~scoria.Molecule.Molecule.load_MDAnalysis_into`
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    :params \*args: Filename, filenames, or list of file names. Used to
-    # No MDAnalysis in Apache 2.0 version! #        inizalize a MDAnalysis.Universe object.
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #    # Throwing an informative error for missing module.
-    # No MDAnalysis in Apache 2.0 version! #    if "MDAnalysis" not in sys.modules:
-    # No MDAnalysis in Apache 2.0 version! #        raise ImportError("The MDAnalysis Module is not available.")
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #   # Initializing the MDAnalysis universe with the suppplied args
-    # No MDAnalysis in Apache 2.0 version! #   universe = numpy.mda.Universe(*args)
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #   self.load_MDAnalysis_into_using_universe_object(universe)
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #   self.__parent_molecule.set_filename(args)
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #def load_MDAnalysis_into_using_universe_object(self, universe):
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #    Allows import of molecular structure from an MDAnalysis object.
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    Should be called via the wrapper function
-    # No MDAnalysis in Apache 2.0 version! #    :meth:`~scoria.Molecule.Molecule.load_MDAnalysis_into`
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    :param mdanalysis.universe universe: An MDAnalysis universe object to
-    # No MDAnalysis in Apache 2.0 version! #        import.
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    # Throwing an informative error for missing module.
-    # No MDAnalysis in Apache 2.0 version! #    if not numpy.class_dependency("load MDAnalysis into", "MDANALYSIS"):
-    # No MDAnalysis in Apache 2.0 version! #        return
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    # Initializing the MDAnalysis universe with the suppplied args
-    # No MDAnalysis in Apache 2.0 version! #    self.__u = universe
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    # Writing to and reading from a temporary PDB file for atom information
-    # No MDAnalysis in Apache 2.0 version! #    fileDescriptor, tempPDB = tempfile.mkstemp(".PDB")
-    # No MDAnalysis in Apache 2.0 version! #    try:
-    # No MDAnalysis in Apache 2.0 version! #        self.__u.atoms.write(tempPDB)
-    # No MDAnalysis in Apache 2.0 version! #        self.load_pdb_into(tempPDB)
-    # No MDAnalysis in Apache 2.0 version! #    finally:
-    # No MDAnalysis in Apache 2.0 version! #        os.remove(tempPDB)
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    # Converting the MDA.trajectory data structure to our structure
-    # No MDAnalysis in Apache 2.0 version! #    trajectoryList = []
-    # No MDAnalysis in Apache 2.0 version! #    for frame in self.__u.trajectory:
-    # No MDAnalysis in Apache 2.0 version! #        frameList = []
-    # No MDAnalysis in Apache 2.0 version! #        for coord in frame:
-    # No MDAnalysis in Apache 2.0 version! #            coordList = numpy.vstack(coord).T
-    # No MDAnalysis in Apache 2.0 version! #            frameList.append(coordList)
-    # No MDAnalysis in Apache 2.0 version! #        trajectoryList.append(numpy.vstack(frameList))
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    self.__parent_molecule.set_trajectory_coordinates(trajectoryList)
+    def load_MDAnalysis_into(self, *args):
+        """
+        Allows import of molecular structure with MDAnalysis.
+    
+        Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
+    
+        Should be called via the wrapper function
+        :meth:`~scoria.Molecule.Molecule.load_MDAnalysis_into`
+    
+        :params \*args: Filename, filenames, or list of file names. Used to
+            inizalize a MDAnalysis.Universe object.
+    
+        """
+        # Throwing an informative error for missing module.
+        if "MDAnalysis" not in sys.modules:
+            raise ImportError("The MDAnalysis Module is not available.")
+    
+       # Initializing the MDAnalysis universe with the suppplied args
+       universe = numpy.mda.Universe(*args)
+    
+       self.load_MDAnalysis_into_using_universe_object(universe)
+    
+       self.__parent_molecule.set_filename(args)
+    
+    def load_MDAnalysis_into_using_universe_object(self, universe):
+        """
+        Allows import of molecular structure from an MDAnalysis object.
+    
+        Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
+    
+        Should be called via the wrapper function
+        :meth:`~scoria.Molecule.Molecule.load_MDAnalysis_into`
+    
+        :param mdanalysis.universe universe: An MDAnalysis universe object to
+            import.
+        """
+    
+        # Throwing an informative error for missing module.
+        if not numpy.class_dependency("load MDAnalysis into", "MDANALYSIS"):
+            return
+    
+        # Initializing the MDAnalysis universe with the suppplied args
+        self.__u = universe
+    
+        # Writing to and reading from a temporary PDB file for atom information
+        fileDescriptor, tempPDB = tempfile.mkstemp(".PDB")
+        try:
+            self.__u.atoms.write(tempPDB)
+            self.load_pdb_into(tempPDB)
+        finally:
+            os.remove(tempPDB)
+    
+        # Converting the MDA.trajectory data structure to our structure
+        trajectoryList = []
+        for frame in self.__u.trajectory:
+            frameList = []
+            for coord in frame:
+                coordList = numpy.vstack(coord).T
+                frameList.append(coordList)
+            trajectoryList.append(numpy.vstack(frameList))
+    
+        self.__parent_molecule.set_trajectory_coordinates(trajectoryList)

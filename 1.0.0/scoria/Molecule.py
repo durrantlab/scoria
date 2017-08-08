@@ -67,10 +67,10 @@ class Molecule: # here's the actual Molecule class
                     self.load_pdbqt_trajectory_into(file)
                 elif file_type == 'PYM':
                     self.load_pym_into(file)
-            # No MDAnalysis in Apache 2.0 version! #    else:
-            # No MDAnalysis in Apache 2.0 version! #        self.load_MDAnalysis_into(file)
-            # No MDAnalysis in Apache 2.0 version! #else:
-            # No MDAnalysis in Apache 2.0 version! #    self.load_MDAnalysis_into(*args)
+                else:
+                    self.load_MDAnalysis_into(file)
+            else:
+                self.load_MDAnalysis_into(*args)
 
     # Information methods
     ### Wrappers ###
@@ -1048,35 +1048,35 @@ class Molecule: # here's the actual Molecule class
                                                                     serial_reindex,
                                                                     resseq_reindex)
 
-    # No MDAnalysis in Apache 2.0 version! #def load_MDAnalysis_into(self, *args):
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #    Allows import of molecular structure with MDAnalysis
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    Wrapper function for 
-    # No MDAnalysis in Apache 2.0 version! #    :meth:`~scoria.FileIO.FileIO.load_MDAnalysis_into`
-    # No MDAnalysis in Apache 2.0 version! #     
-    # No MDAnalysis in Apache 2.0 version! #    :param \*args: Filename, filenames, or list of file names. Used to
-    # No MDAnalysis in Apache 2.0 version! #        inizalize a MDAnalysis.Universe object.
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    self.fileio.load_MDAnalysis_into(*args)
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #def load_MDAnalysis_into_using_universe_object(self, universe):
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #    Allows import of molecular structure with MDAnalysis
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    Wrapper function for 
-    # No MDAnalysis in Apache 2.0 version! #    :meth:`~scoria.FileIO.FileIO.load_MDAnalysis_into_using_universe_object`
-    # No MDAnalysis in Apache 2.0 version! #     
-    # No MDAnalysis in Apache 2.0 version! #    :param MDAnalysis.core.Universe universe: MDAnalysis Universe object.
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    self.fileio.load_MDAnalysis_into_using_universe_object(universe)
+    def load_MDAnalysis_into(self, *args):
+        """
+        Allows import of molecular structure with MDAnalysis
+    
+        Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
+    
+        Wrapper function for 
+        :meth:`~scoria.FileIO.FileIO.load_MDAnalysis_into`
+         
+        :param \*args: Filename, filenames, or list of file names. Used to
+            inizalize a MDAnalysis.Universe object.
+        """
+    
+        self.fileio.load_MDAnalysis_into(*args)
+    
+    
+    def load_MDAnalysis_into_using_universe_object(self, universe):
+        """
+        Allows import of molecular structure with MDAnalysis
+    
+        Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
+    
+        Wrapper function for 
+        :meth:`~scoria.FileIO.FileIO.load_MDAnalysis_into_using_universe_object`
+         
+        :param MDAnalysis.core.Universe universe: MDAnalysis Universe object.
+        """
+    
+        self.fileio.load_MDAnalysis_into_using_universe_object(universe)
 
 
     # Atoms and Bonds class methods

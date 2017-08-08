@@ -23,8 +23,8 @@ from scoria import dumbpy as np
 
 import scoria
 
-# No MDAnalysis in Apache 2.0 version! #try: import MDAnalysis as mda  # pypy shouldn't be able to load this.
-# No MDAnalysis in Apache 2.0 version! #except: pass
+try: import MDAnalysis as mda  # pypy shouldn't be able to load this.
+except: pass
 
 from ..six.moves import range
 
@@ -45,8 +45,8 @@ class InformationTests(unittest.TestCase):
         self.mol = scoria.Molecule(info_path + '3_mol_test.pdb')
         
         self.mdaU = None
-        # No MDAnalysis in Apache 2.0 version! #try: self.mdaU = mda.Universe(info_path + '3_mol_test.pdb')
-        # No MDAnalysis in Apache 2.0 version! #except: self.mdaU = None  # In case of pypy use
+        try: self.mdaU = mda.Universe(info_path + '3_mol_test.pdb')
+        except: self.mdaU = None  # In case of pypy use
 
         self.accuracy = 4
 
@@ -89,8 +89,8 @@ class InformationTests(unittest.TestCase):
         mda_center = center_of_mass  # pypy case. Basically now just error
                                         # checking for pypy, since below will
                                         # always be true.
-        # No MDAnalysis in Apache 2.0 version! #if self.mdaU is not None:
-        # No MDAnalysis in Apache 2.0 version! #    mda_center = self.mdaU.atoms.center_of_mass()
+        if self.mdaU is not None:
+            mda_center = self.mdaU.atoms.center_of_mass()
 
         self.assertAlmostEqual(center_of_mass[0], mda_center[0], self.accuracy)
         self.assertAlmostEqual(center_of_mass[1], mda_center[1], self.accuracy)
@@ -167,8 +167,8 @@ class InformationTests(unittest.TestCase):
         mda_center = geo_center  # pypy case. Basically now just error
                                     # checking for pypy, since below will
                                     # always be true.
-        # No MDAnalysis in Apache 2.0 version! #if self.mdaU is not None:
-        # No MDAnalysis in Apache 2.0 version! #    mda_center = self.mdaU.atoms.center_of_geometry()
+        if self.mdaU is not None:
+            mda_center = self.mdaU.atoms.center_of_geometry()
 
         self.assertAlmostEqual(geo_center[0], mda_center[0], self.accuracy)
         self.assertAlmostEqual(geo_center[1], mda_center[1], self.accuracy)
@@ -190,8 +190,8 @@ class InformationTests(unittest.TestCase):
         expected_mass = total_mass  # pypy case. Basically now just error
                                     # checking for pypy, since below will
                                     # always be true.
-        # No MDAnalysis in Apache 2.0 version! #if self.mdaU is not None:
-        # No MDAnalysis in Apache 2.0 version! #    expected_mass = self.mdaU.atoms.total_mass()
+        if self.mdaU is not None:
+            expected_mass = self.mdaU.atoms.total_mass()
 
         self.assertAlmostEqual(total_mass, expected_mass, 1)
 
@@ -269,35 +269,35 @@ class InformationTests(unittest.TestCase):
 
     # The bounding box, having several parameters, should have some
     # comprehensive tests written for it.
-    # No MDAnalysis in Apache 2.0 version! #def test_get_default_bounding_box(self):
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #    Tests that the bounding box can be calculated.
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #    test_box = self.mdaU.atoms.bbox()
-    # No MDAnalysis in Apache 2.0 version! #    bounding_box = self.mol.get_bounding_box(None, 0.0, 0)
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    self.assertAlmostEqual(bounding_box[0][0], test_box[0][0], self.accuracy)
-    # No MDAnalysis in Apache 2.0 version! #    self.assertAlmostEqual(bounding_box[0][1], test_box[0][1], self.accuracy)
-    # No MDAnalysis in Apache 2.0 version! #    self.assertAlmostEqual(bounding_box[0][2], test_box[0][2], self.accuracy)
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    self.assertAlmostEqual(bounding_box[1][0], test_box[1][0], self.accuracy)
-    # No MDAnalysis in Apache 2.0 version! #    self.assertAlmostEqual(bounding_box[1][1], test_box[1][1], self.accuracy)
-    # No MDAnalysis in Apache 2.0 version! #    self.assertAlmostEqual(bounding_box[1][2], test_box[1][2], self.accuracy)
+    def test_get_default_bounding_box(self):
+        """
+        Tests that the bounding box can be calculated.
+        """
+        test_box = self.mdaU.atoms.bbox()
+        bounding_box = self.mol.get_bounding_box(None, 0.0, 0)
+    
+        self.assertAlmostEqual(bounding_box[0][0], test_box[0][0], self.accuracy)
+        self.assertAlmostEqual(bounding_box[0][1], test_box[0][1], self.accuracy)
+        self.assertAlmostEqual(bounding_box[0][2], test_box[0][2], self.accuracy)
+    
+        self.assertAlmostEqual(bounding_box[1][0], test_box[1][0], self.accuracy)
+        self.assertAlmostEqual(bounding_box[1][1], test_box[1][1], self.accuracy)
+        self.assertAlmostEqual(bounding_box[1][2], test_box[1][2], self.accuracy)
 
     # Similar to the bounding box tests, we need to check that all
     # parameters work properly.
-    # No MDAnalysis in Apache 2.0 version! #def test_get_bounding_sphere(self):
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #    Tests that the bounding sphere can be calculated.
-    # No MDAnalysis in Apache 2.0 version! #    """
-    # No MDAnalysis in Apache 2.0 version! #    mda_sphere = self.mdaU.atoms.bsphere()
-    # No MDAnalysis in Apache 2.0 version! #    bounding_sphere = self.mol.get_bounding_sphere(None, 0.0, 0)
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    self.assertAlmostEqual(bounding_sphere[0][0], mda_sphere[1][0], self.accuracy)
-    # No MDAnalysis in Apache 2.0 version! #    self.assertAlmostEqual(bounding_sphere[0][1], mda_sphere[1][1], self.accuracy)
-    # No MDAnalysis in Apache 2.0 version! #    self.assertAlmostEqual(bounding_sphere[0][2], mda_sphere[1][2], self.accuracy)
-    # No MDAnalysis in Apache 2.0 version! #
-    # No MDAnalysis in Apache 2.0 version! #    self.assertAlmostEqual(bounding_sphere[1], mda_sphere[0], self.accuracy)
+    def test_get_bounding_sphere(self):
+        """
+        Tests that the bounding sphere can be calculated.
+        """
+        mda_sphere = self.mdaU.atoms.bsphere()
+        bounding_sphere = self.mol.get_bounding_sphere(None, 0.0, 0)
+    
+        self.assertAlmostEqual(bounding_sphere[0][0], mda_sphere[1][0], self.accuracy)
+        self.assertAlmostEqual(bounding_sphere[0][1], mda_sphere[1][1], self.accuracy)
+        self.assertAlmostEqual(bounding_sphere[0][2], mda_sphere[1][2], self.accuracy)
+    
+        self.assertAlmostEqual(bounding_sphere[1], mda_sphere[0], self.accuracy)
 
     @unittest.skip("Needs test written")
     def test_get_constants(self):

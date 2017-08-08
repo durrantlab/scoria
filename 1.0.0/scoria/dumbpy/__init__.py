@@ -175,8 +175,8 @@ except:
 try:
     if force_dumbpy: raise ValueError('Using dumbpy')
 
-    # No MDAnalysis in Apache 2.0 version! #import MDAnalysis as mda
-    # No MDAnalysis in Apache 2.0 version! #dependencies_available.append("MDANALYSIS")
+    import MDAnalysis as mda
+    dependencies_available.append("MDANALYSIS")
 except:
     pass
 
