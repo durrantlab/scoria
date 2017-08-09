@@ -1,18 +1,18 @@
 # Scoria MDA is a program for manipulating 3D molecular models
 # that includes MDAnalysis support.
-# 
+#
 # Copyright (C) 2017  Jacob D. Durrant
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -24,8 +24,8 @@ from __future__ import absolute_import
 from setuptools import setup, find_packages
 
 setup(
-    name="scoria",
-    version="1.0",
+    name="scoria_mda",
+    version="1.0.0",
     author="Jacob Durrant",
     author_email="durrantj@gmail.com",
     description="A lightweight molecule manipulation codebase.",
@@ -42,7 +42,7 @@ setup(
         "Development Status :: 5 - Production/Stable",
         "Natural Language :: English",
         "Operating System :: OS Independent",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
         "Topic :: Scientific/Engineering :: Bio-Informatics",
