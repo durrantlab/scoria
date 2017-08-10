@@ -23,10 +23,7 @@ from scoria import dumbpy as np
 
 import scoria
 
-try: import MDAnalysis as mda  # pypy shouldn't be able to load this.
-except: pass
-
-from ..six.moves import range
+from scoria.six.moves import range
 
 
 class InformationTests(unittest.TestCase):
@@ -43,10 +40,6 @@ class InformationTests(unittest.TestCase):
 
 
         self.mol = scoria.Molecule(info_path + '3_mol_test.pdb')
-        
-        self.mdaU = None
-        try: self.mdaU = mda.Universe(info_path + '3_mol_test.pdb')
-        except: self.mdaU = None  # In case of pypy use
 
         self.accuracy = 4
 
@@ -84,17 +77,15 @@ class InformationTests(unittest.TestCase):
         """
 
         center_of_mass = self.mol.get_center_of_mass()
-        
 
-        mda_center = center_of_mass  # pypy case. Basically now just error
+
+        center = center_of_mass  # pypy case. Basically now just error
                                         # checking for pypy, since below will
                                         # always be true.
-        if self.mdaU is not None:
-            mda_center = self.mdaU.atoms.center_of_mass()
 
-        self.assertAlmostEqual(center_of_mass[0], mda_center[0], self.accuracy)
-        self.assertAlmostEqual(center_of_mass[1], mda_center[1], self.accuracy)
-        self.assertAlmostEqual(center_of_mass[2], mda_center[2], self.accuracy)
+        self.assertAlmostEqual(center_of_mass[0], center[0], self.accuracy)
+        self.assertAlmostEqual(center_of_mass[1], center[1], self.accuracy)
+        self.assertAlmostEqual(center_of_mass[2], center[2], self.accuracy)
 
 
     def test_get_atom_information(self):
@@ -164,15 +155,13 @@ class InformationTests(unittest.TestCase):
         """
         geo_center = self.mol.get_geometric_center()
 
-        mda_center = geo_center  # pypy case. Basically now just error
+        center = geo_center  # pypy case. Basically now just error
                                     # checking for pypy, since below will
                                     # always be true.
-        if self.mdaU is not None:
-            mda_center = self.mdaU.atoms.center_of_geometry()
 
-        self.assertAlmostEqual(geo_center[0], mda_center[0], self.accuracy)
-        self.assertAlmostEqual(geo_center[1], mda_center[1], self.accuracy)
-        self.assertAlmostEqual(geo_center[2], mda_center[2], self.accuracy)
+        self.assertAlmostEqual(geo_center[0], center[0], self.accuracy)
+        self.assertAlmostEqual(geo_center[1], center[1], self.accuracy)
+        self.assertAlmostEqual(geo_center[2], center[2], self.accuracy)
 
     def test_get_total_number_of_atoms(self):
         """
@@ -190,8 +179,6 @@ class InformationTests(unittest.TestCase):
         expected_mass = total_mass  # pypy case. Basically now just error
                                     # checking for pypy, since below will
                                     # always be true.
-        if self.mdaU is not None:
-            expected_mass = self.mdaU.atoms.total_mass()
 
         self.assertAlmostEqual(total_mass, expected_mass, 1)
 
@@ -269,11 +256,12 @@ class InformationTests(unittest.TestCase):
 
     # The bounding box, having several parameters, should have some
     # comprehensive tests written for it.
+    @unittest.skip("Need Bounding Box")
     def test_get_default_bounding_box(self):
         """
         Tests that the bounding box can be calculated.
         """
-        test_box = self.mdaU.atoms.bbox()
+        test_box = []
         bounding_box = self.mol.get_bounding_box(None, 0.0, 0)
     
         self.assertAlmostEqual(bounding_box[0][0], test_box[0][0], self.accuracy)
@@ -286,18 +274,19 @@ class InformationTests(unittest.TestCase):
 
     # Similar to the bounding box tests, we need to check that all
     # parameters work properly.
+    @unittest.skip("Need Bounding SPhere")
     def test_get_bounding_sphere(self):
         """
         Tests that the bounding sphere can be calculated.
         """
-        mda_sphere = self.mdaU.atoms.bsphere()
+        sphere = []
         bounding_sphere = self.mol.get_bounding_sphere(None, 0.0, 0)
     
-        self.assertAlmostEqual(bounding_sphere[0][0], mda_sphere[1][0], self.accuracy)
-        self.assertAlmostEqual(bounding_sphere[0][1], mda_sphere[1][1], self.accuracy)
-        self.assertAlmostEqual(bounding_sphere[0][2], mda_sphere[1][2], self.accuracy)
+        self.assertAlmostEqual(bounding_sphere[0][0], sphere[1][0], self.accuracy)
+        self.assertAlmostEqual(bounding_sphere[0][1], sphere[1][1], self.accuracy)
+        self.assertAlmostEqual(bounding_sphere[0][2], sphere[1][2], self.accuracy)
     
-        self.assertAlmostEqual(bounding_sphere[1], mda_sphere[0], self.accuracy)
+        self.assertAlmostEqual(bounding_sphere[1], sphere[0], self.accuracy)
 
     @unittest.skip("Needs test written")
     def test_get_constants(self):

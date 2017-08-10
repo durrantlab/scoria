@@ -1009,6 +1009,8 @@ class FileIO():
 
     def load_MDAnalysis_into(self, *args):
         """
+        ***Note this function is only functional in Scoria_MDA***
+
         Allows import of molecular structure with MDAnalysis.
     
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
@@ -1020,19 +1022,12 @@ class FileIO():
             inizalize a MDAnalysis.Universe object.
     
         """
-        # Throwing an informative error for missing module.
-        if "MDAnalysis" not in sys.modules:
-            raise ImportError("The MDAnalysis Module is not available.")
-    
-       # Initializing the MDAnalysis universe with the suppplied args
-       universe = numpy.mda.Universe(*args)
-    
-       self.load_MDAnalysis_into_using_universe_object(universe)
-    
-       self.__parent_molecule.set_filename(args)
+        print("Compatibility with MDAnalysis objects is not supported in this version.")
     
     def load_MDAnalysis_into_using_universe_object(self, universe):
         """
+        ***Note this function is only functional in Scoria_MDA***
+        
         Allows import of molecular structure from an MDAnalysis object.
     
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
@@ -1043,29 +1038,4 @@ class FileIO():
         :param mdanalysis.universe universe: An MDAnalysis universe object to
             import.
         """
-    
-        # Throwing an informative error for missing module.
-        if not numpy.class_dependency("load MDAnalysis into", "MDANALYSIS"):
-            return
-    
-        # Initializing the MDAnalysis universe with the suppplied args
-        self.__u = universe
-    
-        # Writing to and reading from a temporary PDB file for atom information
-        fileDescriptor, tempPDB = tempfile.mkstemp(".PDB")
-        try:
-            self.__u.atoms.write(tempPDB)
-            self.load_pdb_into(tempPDB)
-        finally:
-            os.remove(tempPDB)
-    
-        # Converting the MDA.trajectory data structure to our structure
-        trajectoryList = []
-        for frame in self.__u.trajectory:
-            frameList = []
-            for coord in frame:
-                coordList = numpy.vstack(coord).T
-                frameList.append(coordList)
-            trajectoryList.append(numpy.vstack(frameList))
-    
-        self.__parent_molecule.set_trajectory_coordinates(trajectoryList)
+        print("Compatibility with MDAnalysis objects is not supported in this version.")

@@ -32,10 +32,9 @@ class Molecule: # here's the actual Molecule class
     Examples assume::
 
         >>> import scoria
-        >>> PSF = "./test_file.psf"
-        >>> DCD = "./test_file.dcd"
+        >>> PDB = "./test_file.pdb"
         >>> mol = scoria.Molecule()
-        >>> mol.load_MDAnalysis_into(PSF, DCD)
+        >>> mol.load_pdb_into(PDB)
     """
 
     def __init__(self, *args):
@@ -55,7 +54,6 @@ class Molecule: # here's the actual Molecule class
         self.geometry = Geometry(self)
 
         # Based on the file type, we will attempt to open the file.
-        # If the type is not one we recognize, we'll attempt to use MDAnalysis.
         if len(args) > 0:
             if len(args) == 1:
                 file = args[0]
@@ -67,10 +65,6 @@ class Molecule: # here's the actual Molecule class
                     self.load_pdbqt_trajectory_into(file)
                 elif file_type == 'PYM':
                     self.load_pym_into(file)
-                else:
-                    self.load_MDAnalysis_into(file)
-            else:
-                self.load_MDAnalysis_into(*args)
 
     # Information methods
     ### Wrappers ###
