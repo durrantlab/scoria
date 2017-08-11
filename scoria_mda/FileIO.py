@@ -1032,12 +1032,12 @@ class FileIO():
         if "MDAnalysis" not in sys.modules:
             raise ImportError("The MDAnalysis Module is not available.")
     
-       # Initializing the MDAnalysis universe with the suppplied args
-       universe = numpy.mda.Universe(*args)
+        # Initializing the MDAnalysis universe with the suppplied args
+        universe = numpy.mda.Universe(*args)
     
-       self.load_MDAnalysis_into_using_universe_object(universe)
+        self.load_MDAnalysis_into_using_universe_object(universe)
     
-       self.__parent_molecule.set_filename(args)
+        self.__parent_molecule.set_filename(args)
     
     def load_MDAnalysis_into_using_universe_object(self, universe):
         """
