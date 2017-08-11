@@ -30,7 +30,7 @@ setup(
     author_email="durrantj@gmail.com",
     description="A lightweight molecule manipulation codebase.",
     url="https://git.durrantlab.com/jdurrant/scoria",
-    download_url="https://git.durrantlab.com/jdurrant/scoria/repository/archive.tar.gz",
+    download_url="https://git.durrantlab.com/jdurrant/scoria/repository/archive.tar.gz?ref=1.0.0_mda",
     install_requires=["numpy", "scipy"],
     packages=find_packages(),
     package_data={'scoria':['sample-files/*.pdb',
