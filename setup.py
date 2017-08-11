@@ -17,12 +17,12 @@ from setuptools import setup, find_packages
 
 setup(
     name="scoria",
-    version="1.0",
+    version="1.0.0",
     author="Jacob Durrant",
     author_email="durrantj@gmail.com",
     description="A lightweight molecule manipulation codebase.",
     url="https://git.durrantlab.com/jdurrant/scoria",
-    download_url="https://git.durrantlab.com/jdurrant/scoria/repository/archive.tar.gz",
+    download_url="https://git.durrantlab.com/jdurrant/scoria/repository/archive.tar.gz?ref=1.0.0",
     install_requires=["numpy", "scipy"],
     packages=find_packages(),
     package_data={'scoria':['sample-files/*.pdb',
