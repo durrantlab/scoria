@@ -21,15 +21,12 @@ import shutil
 #import numpy as np
 from scoria import dumbpy as np
 
-<<<<<<< HEAD
 try: import MDAnalysis  # pypy shouldn't be able to load this.
 except: pass
 
 try: import prody
 except: pass
 
-=======
->>>>>>> master
 import scoria
 import shutil
 
@@ -174,7 +171,6 @@ class FileIOTests(unittest.TestCase):
             self.assertEqual(self.mol.get_total_number_of_atoms(), 401)
             self.assertEqual(self.mol.get_remarks(), [" This is a remark."])
 
-<<<<<<< HEAD
     def test_load_MDAnalysis_into(self):
         """
         Empty test.
@@ -241,8 +237,6 @@ class FileIOTests(unittest.TestCase):
         self.mol.load_ProDy_into_using_AtomGroup(atoms)
         self.assertEqual(self.mol.get_total_number_of_atoms(), 401)
 
-=======
->>>>>>> master
     # Test Save functions
 
     def test_save_pym(self):
