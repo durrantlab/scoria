@@ -102,16 +102,16 @@ class OtherMoleculeTests(unittest.TestCase):
         self.assertEqual(new_mol.get_total_number_of_atoms(), expected_total)
 
 
-    def test_get_distance_to_another_molecules(self):
+    def test_get_distance_to_another_molecule(self):
         """
         Empty test.
         """
         expected_distance = 20.0
-        distance = self.mol.get_distance_to_another_molecules(self.other_mol)
+        distance = self.mol.get_distance_to_another_molecule(self.other_mol)
 
         self.assertAlmostEqual(expected_distance, distance, self.accuracy)
 
-        distance = self.mol.get_distance_to_another_molecules(self.mol)
+        distance = self.mol.get_distance_to_another_molecule(self.mol)
 
         self.assertAlmostEqual(0.0, distance, self.accuracy)
 

@@ -393,14 +393,14 @@ class Test:
         mol2.translate_molecule(numpy.array([10.0, 10.0, 10.0]))
 
         # Temporarily commented out because no dumbpy implementation needed.
-        print("    steric_clash_with_another_molecules()")
+        print("    steric_clash_with_another_molecule()")
         print(("        " + str(mol1.steric_clash_with_another_molecules(mol2, 5.0, False))))
         print(("        " + str(mol1.steric_clash_with_another_molecules(mol2, 5.0, True))))
 
         # Temporarily commented out because no dumbpy implementation needed.
-        print("    get_distance_to_another_molecules()")
-        print(("        " + str(mol1.get_distance_to_another_molecules(mol2, False))))
-        print(("        " + str(mol1.get_distance_to_another_molecules(mol2, True))))
+        print("    get_distance_to_another_molecule()")
+        print(("        " + str(mol1.get_distance_to_another_molecule(mol2, False))))
+        print(("        " + str(mol1.get_distance_to_another_molecule(mol2, True))))
 
         print("    get_rmsd_order_dependent()")
         print(("        " + str(mol1.get_rmsd_order_dependent(mol2))))
