@@ -10,7 +10,8 @@ importing, manipulating, and exporting molecular models.
 The Latest Version
 ------------------
 
-Visit [https://durrantlab.com/scoria/](https://durrantlab.com/scoria/) to:
+Visit [https://git.durrantlab.com/jdurrant/scoria/tree/1.0.0](https://git.durrantlab.com/jdurrant/scoria/tree/1.0.0)
+to:
 
 * download the latest version
 * read the documenation
@@ -18,12 +19,15 @@ Visit [https://durrantlab.com/scoria/](https://durrantlab.com/scoria/) to:
 * point out a bug
 * ask a question about usage
 
+For MDAnalysis support, download Scoria MDA instead: [https://git.durrantlab.com/jdurrant/scoria/tree/1.0.0_mda](https://git.durrantlab.com/jdurrant/scoria/tree/1.0.0_mda).
+
 Licensing
 ---------
 
-Scoria versions with the `mda` extension include MDAnalysis support (GNU
-General Public License version 3.0). Other versions are released under the
-Apache 2.0 license. See LICENCE.txt for details.
+Scoria is released under the Apache 2.0 license. See LICENCE.txt for details.
+
+Scoria MDA is derived from Scoria and includes MDAnalysis support. It is
+released under the GNU General Public License version 3.0.
 
 Installation
 ------------
