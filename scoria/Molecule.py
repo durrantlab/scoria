@@ -1,3 +1,17 @@
+# Copyright 2017 Jacob D. Durrant
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 from __future__ import absolute_import
 from scoria import dumbpy as numpy
 from .FileIO import FileIO
@@ -18,10 +32,9 @@ class Molecule: # here's the actual Molecule class
     Examples assume::
 
         >>> import scoria
-        >>> PSF = "./test_file.psf"
-        >>> DCD = "./test_file.dcd"
+        >>> PDB = "./test_file.pdb"
         >>> mol = scoria.Molecule()
-        >>> mol.load_MDAnalysis_into(PSF, DCD)
+        >>> mol.load_pdb_into(PDB)
     """
 
     def __init__(self, *args):
@@ -41,7 +54,6 @@ class Molecule: # here's the actual Molecule class
         self.geometry = Geometry(self)
 
         # Based on the file type, we will attempt to open the file.
-        # If the type is not one we recognize, we'll attempt to use MDAnalysis.
         if len(args) > 0:
             if len(args) == 1:
                 file = args[0]
@@ -53,10 +65,6 @@ class Molecule: # here's the actual Molecule class
                     self.load_pdbqt_trajectory_into(file)
                 elif file_type == 'PYM':
                     self.load_pym_into(file)
-                else:
-                    self.load_MDAnalysis_into(file)
-            else:
-                self.load_MDAnalysis_into(*args)
 
     # Information methods
     ### Wrappers ###
@@ -1037,31 +1045,31 @@ class Molecule: # here's the actual Molecule class
     def load_MDAnalysis_into(self, *args):
         """
         Allows import of molecular structure with MDAnalysis
-
+    
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
-
+    
         Wrapper function for 
         :meth:`~scoria.FileIO.FileIO.load_MDAnalysis_into`
          
         :param \*args: Filename, filenames, or list of file names. Used to
             inizalize a MDAnalysis.Universe object.
         """
-
+    
         self.fileio.load_MDAnalysis_into(*args)
-
-
+    
+    
     def load_MDAnalysis_into_using_universe_object(self, universe):
         """
         Allows import of molecular structure with MDAnalysis
-
+    
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
-
+    
         Wrapper function for 
         :meth:`~scoria.FileIO.FileIO.load_MDAnalysis_into_using_universe_object`
          
         :param MDAnalysis.core.Universe universe: MDAnalysis Universe object.
         """
-
+    
         self.fileio.load_MDAnalysis_into_using_universe_object(universe)
 
 
@@ -1761,7 +1769,7 @@ class Molecule: # here's the actual Molecule class
             other_mol, tethers
         )
 
-    def get_distance_to_another_molecules(self, other_molecules,
+    def get_distance_to_another_molecule(self, other_molecules,
                                          pairwise_comparison = True):
         """
         Computes the minimum distance between any of the atoms of this
@@ -1769,7 +1777,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.get_distance_to_another_molecules`
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.get_distance_to_another_molecule`
         
         :param scoria.Molecule other_molecules: a scoria.Molecule, the other molecular
                     model.
@@ -1782,7 +1790,34 @@ class Molecule: # here's the actual Molecule class
                 specified molecular models (self and other_molecules).
         """
 
-        return self.other_molecules.get_distance_to_another_molecules(
+        return self.other_molecules.get_distance_to_another_molecule(
+            other_molecules, pairwise_comparison
+        )
+
+    def get_distance_to_another_molecules(self, other_molecules,
+                                         pairwise_comparison = True):
+        """
+        DEPRECATION WARNING: Please use :meth:`~scoria.Molecule.Molecule.get_distance_to_another_molecule`
+
+        Computes the minimum distance between any of the atoms of this
+        molecular model and any of the atoms of a second specified model.
+
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
+
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.get_distance_to_another_molecule`
+        
+        :param scoria.Molecule other_molecules: a scoria.Molecule, the other molecular
+                    model.
+        :param bool pairwise_comparison: An optional boolean, whether or not to
+                    perform a simple pairwise distance comparison (if True) or
+                    to use a more sophisitcated method (if False). True by
+                    default.
+
+        :returns: A float, the minimum distance between any two atoms of the two
+                specified molecular models (self and other_molecules).
+        """
+
+        return self.other_molecules.get_distance_to_another_molecule(
             other_molecules, pairwise_comparison
         )
 
@@ -1845,12 +1880,13 @@ class Molecule: # here's the actual Molecule class
     def steric_clash_with_another_molecules(self, other_mol, cutoff,
                                            pairwise_comparison = True):
         """
+        DEPRECATION WARNING: Please use :meth:`~scoria.Molecule.Molecule.steric_clash_with_another_molecule`
         Detects steric clashes between the scoria.Molecule (self) and
         another scoria.Molecule.
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.steric_clash_with_another_molecules`
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule`
         
         :param scoria.Molecule other_mol: The scoria.Molecule object that will be
                     evaluated for steric clashes.
@@ -1865,15 +1901,43 @@ class Molecule: # here's the actual Molecule class
                     are not.
         """
 
-        return self.other_molecules.steric_clash_with_another_molecules(
+        return self.other_molecules.steric_clash_with_another_molecule(
+            other_mol, cutoff, pairwise_comparison
+        )
+
+    def steric_clash_with_another_molecule(self, other_mol, cutoff,
+                                           pairwise_comparison = True):
+        """
+        Detects steric clashes between the scoria.Molecule (self) and
+        another scoria.Molecule.
+
+        Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
+
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.steric_clash_with_another_molecule`
+        
+        :param scoria.Molecule other_mol: The scoria.Molecule object that will be
+                    evaluated for steric clashes.
+        :param float cutoff: A float, the user-defined distance cutoff in
+                    Angstroms.
+        :param bool pairwise_comparison: An optional boolean, whether or not to
+                    perform a simple pairwise distance comparison (if True) or
+                    to use a more sophisitcated method (if False). True by
+                    default.
+
+        :returns: A boolean. True if steric clashes are present, False if they
+                    are not.
+        """
+
+        return self.other_molecules.steric_clash_with_another_molecule(
             other_mol, cutoff, pairwise_comparison
         )
 
     def merge_with_another_molecules(self, other_molecules):
         """
+        DEPRECATION WARNING: Please use :meth:`~scoria.Molecule.Molecule.merge_with_another_molecule`
         Merges two molecular models into a single model.
 
-        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.merge_with_another_molecules`
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.merge_with_another_molecule`
         
         :param scoria.Molecule other_molecules: A molecular model (scoria.Molecule
                     object).
@@ -1882,7 +1946,22 @@ class Molecule: # here's the actual Molecule class
                     this model combined with the atoms of other_molecules.
         """     
         
-        return self.other_molecules.merge_with_another_molecules(other_molecules)
+        return self.other_molecules.merge_with_another_molecule(other_molecules)
+
+    def merge_with_another_molecule(self, other_molecules):
+        """
+        Merges two molecular models into a single model.
+
+        Wrapper function for :meth:`~scoria.OtherMolecules.OtherMolecules.merge_with_another_molecule`
+        
+        :param scoria.Molecule other_molecules: A molecular model (scoria.Molecule
+                    object).
+
+        :returns: A single scoria.Molecule object containing the atoms of
+                    this model combined with the atoms of other_molecules.
+        """     
+        
+        return self.other_molecules.merge_with_another_molecule(other_molecules)
 
     ######## Supporting functions ########
 

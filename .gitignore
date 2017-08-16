@@ -3,3 +3,4 @@
 *.pyc
 scoria_tests_tmp
 rsync_htc.bash
+.DS_Store

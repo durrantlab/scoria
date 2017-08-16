@@ -1,3 +1,17 @@
+# Copyright 2017 Jacob D. Durrant
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 import scoria
 import numpy as np
 
@@ -11,8 +25,7 @@ mol = scoria.Molecule(
 # Create two new trajectories, corresponding to the shroom2
 # protein and the rock1 dimer, respectively. Shroom2 is 
 # resid 1 to 181, and the rock1 dimer is 182 to 297.
-print("Splitting trajectory into shroom2 and",)
-print("rock1...")
+print("Splitting trajectory into shroom2 and rock1...")
 shroom2 = mol.get_molecule_from_selection(
     mol.select_atoms({
         "resseq": range(1, 181)
@@ -45,10 +58,9 @@ for frame in range(0, traj_length):
 
     # Find the indices of the atoms that come in close
     # contact with atoms of the other model.
-    shroom2_indx, rock1_indx = 
-        shroom2.select_close_atoms_from_different_molecules(
-            rock1, 3.0
-        )
+    shroom2_indx, rock1_indx = shroom2.select_close_atoms_from_different_molecules(
+        rock1, 3.0
+    )
 
     # Update the counts
     shroom2_counts[shroom2_indx] += 1
