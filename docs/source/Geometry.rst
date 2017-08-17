@@ -11,14 +11,14 @@ Other Classes
 ^^^^^^^^^^^^^
 
 The Geometry functions rely on the input of coordinate arrays which can be
-obtained from the :meth:`~scoria.Information.Information.get_coordinates`
+obtained from the :meth:`~scoria_mda.Information.Information.get_coordinates`
 function. Note that the geometry functions work whether the coordinates exist
 as atoms in the molecule or not.
 
 Function Definitions
 --------------------
 
-.. automodule:: scoria.Geometry
+.. automodule:: scoria_mda.Geometry
     :members:
     :undoc-members:
     :show-inheritance:

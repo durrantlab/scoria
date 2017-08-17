@@ -27,7 +27,7 @@
 
 # However, software can combine copylefted and permissive components as long
 # as it is released under a copylefted license. This script automatically adds
-# MDAnalysis support to Scoria. The resulting derivative work is released
+# MDAnalysis support to scoria_mda. The resulting derivative work is released
 # under the GPLv3 license, without impacting the original Apache 2.0 license
 # of the original Scoria source code.
 

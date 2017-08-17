@@ -40,14 +40,14 @@ except: from io import StringIO  # python3
 import scoria
 
 class FileIO():
-    """A class for saving and loading molecular data into a scoria.Molecule
+    """A class for saving and loading molecular data into a scoria_mda.Molecule
     object."""
 
     def __init__(self, parent_molecule_object):
         """
-        Initializes the scoria.FileIO class.
+        Initializes the scoria_mda.FileIO class.
 
-        :param scoria.Molecule parent_molecule_object: The scoria.Molecule object
+        :param scoria_mda.Molecule parent_molecule_object: The scoria_mda.Molecule object
                     associated with this class.
         """
 
@@ -57,11 +57,11 @@ class FileIO():
     def load_pym_into(self, filename):
         """
         Loads the molecular data contained in a pym file into the current
-        scoria.Molecule object.
+        scoria_mda.Molecule object.
 
         Requires the :any:`numpy` library.
 
-        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.load_pym_into`
+        Should be called via the wrapper function :meth:`~scoria_mda.Molecule.Molecule.load_pym_into`
 
         :param str filename: A string, the filename of the pym file.
         """
@@ -141,10 +141,10 @@ class FileIO():
                                    resseq_reindex = False):
         """
         Loads the molecular data contained in a pdbqt trajectoy file (e.g., an
-        AutoDock Vina output file) into the current scoria.Molecule
+        AutoDock Vina output file) into the current scoria_mda.Molecule
         object.
 
-        Should be called via the wrapper function :meth:`scoria.Molecule.Molecule.load_pdbqt_trajectory_into`
+        Should be called via the wrapper function :meth:`scoria_mda.Molecule.Molecule.load_pdbqt_trajectory_into`
 
         :param str filename: A string, the filename of the pdbqt file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
@@ -167,13 +167,13 @@ class FileIO():
                                                      resseq_reindex = False):
         """
         Loads molecular data from a python file object (pdbqt trajectory
-        formatted) into the current scoria.Molecule object. Note that most
+        formatted) into the current scoria_mda.Molecule object. Note that most
         users will want to use the load_pdbqt_trajectory_into() function
         instead, which is identical except that it accepts a filename string
         instead of a python file object.
 
         Should be called via the wrapper function
-        :meth:`scoria.Molecule.Molecule.load_pdbqt_trajectory_into_using_file_object`
+        :meth:`scoria_mda.Molecule.Molecule.load_pdbqt_trajectory_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdbqt-formatted
                     trajectory data.
@@ -196,12 +196,12 @@ class FileIO():
                       is_trajectory = False):
         """
         Loads the molecular data contained in a pdbqt file into the current
-        scoria.Molecule object. Note that this implementation is
+        scoria_mda.Molecule object. Note that this implementation is
         incomplete. It doesn't save atomic charges, for example. The atom
         types are stored in the "element_padded" and "element" columns.
 
         Should be called via the wrapper function 
-        :meth:`~scoria.Molecule.Molecule.load_pdbqt_into`
+        :meth:`~scoria_mda.Molecule.Molecule.load_pdbqt_into`
 
         :param str filename: A string, the filename of the pdbqt file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
@@ -233,13 +233,13 @@ class FileIO():
                                           is_trajectory = False):
         """
         Loads molecular data from a python file object (pdbqt formatted)
-        into the current scoria.Molecule object. Note that most users will
+        into the current scoria_mda.Molecule object. Note that most users will
         want to use the load_pdb_into() function instead, which is identical
         except that it accepts a filename string instead of a python file
         object.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.load_pdbqt_into_using_file_object`
+        :meth:`~scoria_mda.Molecule.Molecule.load_pdbqt_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdb-formatted
                     data.
@@ -283,9 +283,9 @@ class FileIO():
                                  resseq_reindex = False):
         """
         Loads the molecular data contained in a pdb trajectory file into the
-        current scoria.Molecule object.
+        current scoria_mda.Molecule object.
 
-        Should be called via the wrapper function :meth:`scoria.Molecule.Molecule.load_pdb_trajectory_into`
+        Should be called via the wrapper function :meth:`scoria_mda.Molecule.Molecule.load_pdb_trajectory_into`
 
         :param str filename: A string, the filename of the pdb trajectory
                    file.
@@ -313,12 +313,12 @@ class FileIO():
                                                    resseq_reindex = False):
         """
         Loads molecular data from a python file object (pdb trajectory
-        formatted) into the current scoria.Molecule object. Note that most
+        formatted) into the current scoria_mda.Molecule object. Note that most
         users will want to use the load_pdb_trajectory_into() function
         instead, which is identical except that it accepts a filename string
         instead of a python file object.
 
-        Should be called via the wrapper function :meth:`scoria.Molecule.Molecule.load_pdb_trajectory_into_using_file_object`
+        Should be called via the wrapper function :meth:`scoria_mda.Molecule.Molecule.load_pdb_trajectory_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdb-formatted
                     trajectory data.
@@ -396,7 +396,7 @@ class FileIO():
             else:
                 # subsequent frames, load it into a tmp molecule and copy over
                 # the coordinates.
-                tmp_mol = scoria.Molecule()
+                tmp_mol = scoria_mda.Molecule()
                 tmp_mol.load_pdb_into_using_file_object(
                     str_file_obj, bonds_by_distance = False, 
                     serial_reindex = False, resseq_reindex = False,
@@ -412,9 +412,9 @@ class FileIO():
                       is_trajectory = False):
         """
         Loads the molecular data contained in a pdb file into the current
-        scoria.Molecule object.
+        scoria_mda.Molecule object.
 
-        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.load_pdb_into`
+        Should be called via the wrapper function :meth:`~scoria_mda.Molecule.Molecule.load_pdb_into`
 
         :param str filename: A string, the filename of the pdb file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
@@ -444,12 +444,12 @@ class FileIO():
                                         is_trajectory = False):
         """
         Loads molecular data from a python file object (pdb formatted) into
-        the current scoria.Molecule object. Note that most users will want
+        the current scoria_mda.Molecule object. Note that most users will want
         to use the load_pdb_into() function instead, which is identical except
         that it accepts a filename string instead of a python file object.
 
         Should be called via the wrapper function 
-        :meth:`~scoria.Molecule.Molecule.load_pdb_into_using_file_object`
+        :meth:`~scoria_mda.Molecule.Molecule.load_pdb_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdb-formatted
                     data.
@@ -658,13 +658,13 @@ class FileIO():
                  save_remarks = False, save_hierarchy = False,
                  save_coordinates_undo_point = False):
         """
-        Saves the molecular data contained in a scoria.Molecule object
+        Saves the molecular data contained in a scoria_mda.Molecule object
         to a pym file.
 
         Requires the :any:`numpy` library.
 
         Should be called via the wrapper function 
-        :meth:`~scoria.Molecule.Molecule.save_pym`
+        :meth:`~scoria_mda.Molecule.Molecule.save_pym`
 
         :param str filename: An string, the filename to use for saving. (Note
                     that this is actually a directory, not a file.)
@@ -756,10 +756,10 @@ class FileIO():
     def save_pdb(self, filename = "", serial_reindex = True, resseq_reindex = False,
                  return_text = False, frame = None):
         """
-        Saves the molecular data contained in a scoria.Molecule object
+        Saves the molecular data contained in a scoria_mda.Molecule object
         to a pdb file.
 
-        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.save_pdb`
+        Should be called via the wrapper function :meth:`~scoria_mda.Molecule.Molecule.save_pdb`
 
         :param str filename: An string, the filename to use for saving.
         :param bool serial_reindex: An optional boolean, whether or not to
@@ -963,10 +963,10 @@ class FileIO():
     def _save_pdb_trajectory(self, filename = "", serial_reindex = True,
                  resseq_reindex = False, return_text = False):
         """
-        Saves the molecular trajectory data contained in a scoria.Molecule
+        Saves the molecular trajectory data contained in a scoria_mda.Molecule
         object to a pdb file.
 
-        Should be called via the wrapper function :meth:`scoria.Molecule.Molecule.save_pdb`
+        Should be called via the wrapper function :meth:`scoria_mda.Molecule.Molecule.save_pdb`
 
         :param str filename: An string, the filename to use for saving.
         :param bool serial_reindex: An optional boolean, whether or not to
@@ -1025,7 +1025,7 @@ class FileIO():
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
     
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.load_MDAnalysis_into`
+        :meth:`~scoria_mda.Molecule.Molecule.load_MDAnalysis_into`
     
         :params \*args: Filename, filenames, or list of file names. Used to
             inizalize a MDAnalysis.Universe object.
@@ -1049,7 +1049,7 @@ class FileIO():
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
     
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.load_MDAnalysis_into`
+        :meth:`~scoria_mda.Molecule.Molecule.load_MDAnalysis_into`
     
         :param mdanalysis.universe universe: An MDAnalysis universe object to
             import.

@@ -50,7 +50,7 @@ class InformationTests(unittest.TestCase):
         info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample-files/'
 
 
-        self.mol = scoria.Molecule(info_path + '3_mol_test.pdb')
+        self.mol = scoria_mda.Molecule(info_path + '3_mol_test.pdb')
         
         self.mdaU = None
         try: self.mdaU = mda.Universe(info_path + '3_mol_test.pdb')

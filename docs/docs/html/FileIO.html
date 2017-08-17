@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="scoria 2.0 documentation" href="index.html" />
-    <link rel="next" title="4. scoria.Geometry module" href="Geometry.html" />
+    <link rel="next" title="4. scoria_mda.Geometry module" href="Geometry.html" />
     <link rel="prev" title="2. The AtomsAndBonds Class" href="AtomsAndBonds.html" /> 
   </head>
   <body role="document">
@@ -38,7 +38,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Geometry.html" title="4. scoria.Geometry module"
+          <a href="Geometry.html" title="4. scoria_mda.Geometry module"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="AtomsAndBonds.html" title="2. The AtomsAndBonds Class"
@@ -60,20 +60,20 @@
 can also read multiframe PDB and PDBQT files. It also has the ability
 to import information from <a class="reference external" href="https://pythonhosted.org/MDAnalysis/documentation_pages/core/AtomGroup.html#module-MDAnalysis.core.AtomGroup" title="(in MDAnalysis v0.15)"><code class="xref any docutils literal"><span class="pre">MDAnalysis</span></code></a> objects.</p>
 </div>
-<div class="section" id="module-scoria.FileIO">
-<span id="function-definitions"></span><h2>3.2. Function Definitions<a class="headerlink" href="#module-scoria.FileIO" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-scoria_mda.FileIO">
+<span id="function-definitions"></span><h2>3.2. Function Definitions<a class="headerlink" href="#module-scoria_mda.FileIO" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="scoria.FileIO.FileIO">
-<em class="property">class </em><code class="descclassname">scoria.FileIO.</code><code class="descname">FileIO</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class for saving and loading molecular data into a scoria.Molecule
+<dt id="scoria_mda.FileIO.FileIO">
+<em class="property">class </em><code class="descclassname">scoria_mda.FileIO.</code><code class="descname">FileIO</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.FileIO.FileIO" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class for saving and loading molecular data into a scoria_mda.Molecule
 object.</p>
 <dl class="method">
-<dt id="scoria.FileIO.FileIO.load_MDAnalysis_into">
-<code class="descname">load_MDAnalysis_into</code><span class="sig-paren">(</span><em>universe</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO.load_MDAnalysis_into" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.FileIO.FileIO.load_MDAnalysis_into">
+<code class="descname">load_MDAnalysis_into</code><span class="sig-paren">(</span><em>universe</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.FileIO.FileIO.load_MDAnalysis_into" title="Permalink to this definition">¶</a></dt>
 <dd><p>Allows import of molecular structure from an MDAnalysis object.</p>
 <p>Requires the <a class="reference external" href="https://pythonhosted.org/MDAnalysis/documentation_pages/core/AtomGroup.html#module-MDAnalysis.core.AtomGroup" title="(in MDAnalysis v0.15)"><code class="xref any docutils literal"><span class="pre">MDAnalysis</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.load_via_MDAnalysis" title="scoria.Molecule.Molecule.load_via_MDAnalysis"><code class="xref py py-meth docutils literal"><span class="pre">load_via_MDAnalysis()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.load_via_MDAnalysis" title="scoria_mda.Molecule.Molecule.load_via_MDAnalysis"><code class="xref py py-meth docutils literal"><span class="pre">load_via_MDAnalysis()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -86,11 +86,11 @@ import.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.FileIO.FileIO.load_pdb_into">
-<code class="descname">load_pdb_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>is_trajectory=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO.load_pdb_into" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.FileIO.FileIO.load_pdb_into">
+<code class="descname">load_pdb_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>is_trajectory=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.FileIO.FileIO.load_pdb_into" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the molecular data contained in a pdb file into the current
-scoria.Molecule object.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.load_pdb_into" title="scoria.Molecule.Molecule.load_pdb_into"><code class="xref py py-meth docutils literal"><span class="pre">load_pdb_into()</span></code></a></p>
+scoria_mda.Molecule object.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.load_pdb_into" title="scoria_mda.Molecule.Molecule.load_pdb_into"><code class="xref py py-meth docutils literal"><span class="pre">load_pdb_into()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -114,15 +114,15 @@ is multi-frame.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.FileIO.FileIO.load_pdb_into_using_file_object">
-<code class="descname">load_pdb_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>is_trajectory=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO.load_pdb_into_using_file_object" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.FileIO.FileIO.load_pdb_into_using_file_object">
+<code class="descname">load_pdb_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>is_trajectory=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.FileIO.FileIO.load_pdb_into_using_file_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads molecular data from a python file object (pdb formatted) into
-the current scoria.Molecule object. Note that most users will want
+the current scoria_mda.Molecule object. Note that most users will want
 to use the load_pdb_into() function instead, which is identical except
 that it accepts a filename string instead of a python file object.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function 
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.load_pdb_into_using_file_object" title="scoria.Molecule.Molecule.load_pdb_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">load_pdb_into_using_file_object()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.load_pdb_into_using_file_object" title="scoria_mda.Molecule.Molecule.load_pdb_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">load_pdb_into_using_file_object()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -147,11 +147,11 @@ is multi-frame.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.FileIO.FileIO.load_pdb_trajectory_into">
-<code class="descname">load_pdb_trajectory_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO.load_pdb_trajectory_into" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.FileIO.FileIO.load_pdb_trajectory_into">
+<code class="descname">load_pdb_trajectory_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.FileIO.FileIO.load_pdb_trajectory_into" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the molecular data contained in a pdb trajectory file into the
-current scoria.Molecule object.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.load_pdb_trajectory_into" title="scoria.Molecule.Molecule.load_pdb_trajectory_into"><code class="xref py py-meth docutils literal"><span class="pre">scoria.Molecule.Molecule.load_pdb_trajectory_into()</span></code></a></p>
+current scoria_mda.Molecule object.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.load_pdb_trajectory_into" title="scoria_mda.Molecule.Molecule.load_pdb_trajectory_into"><code class="xref py py-meth docutils literal"><span class="pre">scoria_mda.Molecule.Molecule.load_pdb_trajectory_into()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -174,14 +174,14 @@ reindex the pdb resseq field. False by default.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.FileIO.FileIO.load_pdb_trajectory_into_using_file_object">
-<code class="descname">load_pdb_trajectory_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO.load_pdb_trajectory_into_using_file_object" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.FileIO.FileIO.load_pdb_trajectory_into_using_file_object">
+<code class="descname">load_pdb_trajectory_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.FileIO.FileIO.load_pdb_trajectory_into_using_file_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads molecular data from a python file object (pdb trajectory
-formatted) into the current scoria.Molecule object. Note that most
+formatted) into the current scoria_mda.Molecule object. Note that most
 users will want to use the load_pdb_trajectory_into() function
 instead, which is identical except that it accepts a filename string
 instead of a python file object.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.load_pdb_trajectory_into_using_file_object" title="scoria.Molecule.Molecule.load_pdb_trajectory_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">scoria.Molecule.Molecule.load_pdb_trajectory_into_using_file_object()</span></code></a></p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.load_pdb_trajectory_into_using_file_object" title="scoria_mda.Molecule.Molecule.load_pdb_trajectory_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">scoria_mda.Molecule.Molecule.load_pdb_trajectory_into_using_file_object()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -204,14 +204,14 @@ reindex the pdb resseq field. False by default.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.FileIO.FileIO.load_pdbqt_into">
-<code class="descname">load_pdbqt_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=False</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>is_trajectory=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO.load_pdbqt_into" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.FileIO.FileIO.load_pdbqt_into">
+<code class="descname">load_pdbqt_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=False</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>is_trajectory=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.FileIO.FileIO.load_pdbqt_into" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the molecular data contained in a pdbqt file into the current
-scoria.Molecule object. Note that this implementation is
+scoria_mda.Molecule object. Note that this implementation is
 incomplete. It doesn&#8217;t save atomic charges, for example. The atom
 types are stored in the &#8220;element&#8221; and &#8220;element_stripped&#8221; columns.</p>
 <p>Should be called via the wrapper function 
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.load_pdbqt_into" title="scoria.Molecule.Molecule.load_pdbqt_into"><code class="xref py py-meth docutils literal"><span class="pre">load_pdbqt_into()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.load_pdbqt_into" title="scoria_mda.Molecule.Molecule.load_pdbqt_into"><code class="xref py py-meth docutils literal"><span class="pre">load_pdbqt_into()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -235,16 +235,16 @@ is multi-frame. Defaults of False.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.FileIO.FileIO.load_pdbqt_into_using_file_object">
-<code class="descname">load_pdbqt_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=False</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>is_trajectory=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO.load_pdbqt_into_using_file_object" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.FileIO.FileIO.load_pdbqt_into_using_file_object">
+<code class="descname">load_pdbqt_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=False</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em>, <em>is_trajectory=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.FileIO.FileIO.load_pdbqt_into_using_file_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads molecular data from a python file object (pdbqt formatted)
-into the current scoria.Molecule object. Note that most users will
+into the current scoria_mda.Molecule object. Note that most users will
 want to use the load_pdb_into() function instead, which is identical
 except that it accepts a filename string instead of a python file
 object.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.11)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.load_pdbqt_into_using_file_object" title="scoria.Molecule.Molecule.load_pdbqt_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">load_pdbqt_into_using_file_object()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.load_pdbqt_into_using_file_object" title="scoria_mda.Molecule.Molecule.load_pdbqt_into_using_file_object"><code class="xref py py-meth docutils literal"><span class="pre">load_pdbqt_into_using_file_object()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -269,12 +269,12 @@ is multi-frame.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.FileIO.FileIO.load_pdbqt_trajectory_into">
-<code class="descname">load_pdbqt_trajectory_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO.load_pdbqt_trajectory_into" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.FileIO.FileIO.load_pdbqt_trajectory_into">
+<code class="descname">load_pdbqt_trajectory_into</code><span class="sig-paren">(</span><em>filename</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.FileIO.FileIO.load_pdbqt_trajectory_into" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the molecular data contained in a pdbqt trajectoy file (e.g., an
-AutoDock Vina output file) into the current scoria.Molecule
+AutoDock Vina output file) into the current scoria_mda.Molecule
 object.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.load_pdbqt_trajectory_into" title="scoria.Molecule.Molecule.load_pdbqt_trajectory_into"><code class="xref py py-meth docutils literal"><span class="pre">scoria.Molecule.Molecule.load_pdbqt_trajectory_into()</span></code></a></p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.load_pdbqt_trajectory_into" title="scoria_mda.Molecule.Molecule.load_pdbqt_trajectory_into"><code class="xref py py-meth docutils literal"><span class="pre">scoria_mda.Molecule.Molecule.load_pdbqt_trajectory_into()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -296,10 +296,10 @@ reindex the pdb resseq field. False by default.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.FileIO.FileIO.load_pdbqt_trajectory_into_using_file_object">
-<code class="descname">load_pdbqt_trajectory_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.FileIO.FileIO.load_pdbqt_trajectory_into_using_file_object" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.FileIO.FileIO.load_pdbqt_trajectory_into_using_file_object">
+<code class="descname">load_pdbqt_trajectory_into_using_file_object</code><span class="sig-paren">(</span><em>file_obj</em>, <em>bonds_by_distance=True</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.FileIO.FileIO.load_pdbqt_trajectory_into_using_file_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads molecular data from a python file object (pdbqt trajectory
-formatted) into the current scoria.Molecule object. Note that most
+formatted) into the current scoria_mda.Molecule object. Note that most
 users will want to use the load_pdbqt_trajectory_into() function
 instead, which is identical except that it accepts a filename string
 instead of a python file object.</p>

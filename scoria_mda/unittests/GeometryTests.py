@@ -42,7 +42,7 @@ class GeometryTests(unittest.TestCase):
         """
         Setting up the test molecule.
         """
-        self.mol = scoria.Molecule()
+        self.mol = scoria_mda.Molecule()
         self.accuracy = 4
 
     def tearDown(self):

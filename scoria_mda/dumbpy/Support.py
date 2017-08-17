@@ -21,7 +21,7 @@
 # Apache 2.0 license.
 
 from __future__ import absolute_import
-import scoria.six as six
+import scoria_mda.six as six
 #from .six import string_types as six_string_types
 
 

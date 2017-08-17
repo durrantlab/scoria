@@ -30,9 +30,9 @@ import copy
 from .DType import dtype as dtypeClass
 from .Support import to_list
 from .Support import var_type
-from scoria.six.moves import range
-from scoria.six.moves import zip
-import scoria.six as six
+from scoria_mda.six.moves import range
+from scoria_mda.six.moves import zip
+import scoria_mda.six as six
 
 #from .six import string_types as six_string_types 
 

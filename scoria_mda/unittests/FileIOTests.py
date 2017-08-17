@@ -48,7 +48,7 @@ class FileIOTests(unittest.TestCase):
         Setting up the test molecule.
         """
         self.info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample-files/'
-        self.mol = scoria.Molecule()
+        self.mol = scoria_mda.Molecule()
 
         self.output_name = None
 

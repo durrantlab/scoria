@@ -91,9 +91,9 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/scoria.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/scoria_mda.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/scoria.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/scoria_mda.qhc"
 
 .PHONY: applehelp
 applehelp:

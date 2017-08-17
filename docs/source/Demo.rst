@@ -18,7 +18,7 @@ near future.)
 ::
 
     print("Loading Molecule...")
-    mol = scoria.Molecule()
+    mol = scoria_mda.Molecule()
     mol.load_via_MDAnalysis(
         "../scoria/sample-files/test_sim.psf", 
         "../scoria/sample-files/test_sim.dcd"

@@ -10,7 +10,7 @@ criteria and return a list of indexes that match that criteria.
 Function Definitions
 --------------------
 
-.. automodule:: scoria.Selections
+.. automodule:: scoria_mda.Selections
     :members:
     :undoc-members:
     :show-inheritance:

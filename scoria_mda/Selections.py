@@ -29,15 +29,15 @@ from .six.moves import range
 class Selections():
     """
     A class for selecting atoms. Subclass to the
-    :py:class:`scoria.Molecule` class.
+    :py:class:`scoria_mda.Molecule` class.
     """
 
     ######## selections ########
     def __init__(self, parent_molecule_object):
         """
-        Initializes the scoria.Selections class.
+        Initializes the scoria_mda.Selections class.
 
-        :param scoria.Molecule parent_molecule_object: The scoria.Molecule object
+        :param scoria_mda.Molecule parent_molecule_object: The scoria_mda.Molecule object
                     associated with this class.
         """
 
@@ -47,7 +47,7 @@ class Selections():
         """
         Select a set of atoms based on user-specified criteria.
 
-        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.select_atoms`.
+        Should be called via the wrapper function :meth:`~scoria_mda.Molecule.Molecule.select_atoms`.
 
         :param dict selection_criteria: A dictionary, where the keys correspond
                     to keys in the
@@ -127,7 +127,7 @@ class Selections():
         Requires the :any:`numpy` library.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.select_atoms_in_bounding_box`.
+        :meth:`~scoria_mda.Molecule.Molecule.select_atoms_in_bounding_box`.
 
         :param numpy.array bounding_box: A 2x3 numpy.array containing the minimum and
                     maximum points of the bounding box. Example:
@@ -164,7 +164,7 @@ class Selections():
         Requires the :any:`numpy` library.
 
         Should be called via the wrapper function 
-        :meth:`~scoria.Molecule.Molecule.select_all_atoms_bound_to_selection`.
+        :meth:`~scoria_mda.Molecule.Molecule.select_all_atoms_bound_to_selection`.
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-specified selection.
@@ -206,7 +206,7 @@ class Selections():
         Requires the :any:`numpy` library.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.select_branch`.
+        :meth:`~scoria_mda.Molecule.Molecule.select_branch`.
 
         :param int root_atom_index: An int, the index of the first atom in the
                 branch (the "root").
@@ -285,14 +285,14 @@ class Selections():
     def select_atoms_from_same_molecule(self, selection):
         """
         Selects all the atoms that belong to the same molecule as a
-        user-defined selection, assuming that the scoria.Molecule object
+        user-defined selection, assuming that the scoria_mda.Molecule object
         actually contains multiple physically distinct molecules that are not
         bound to each other via covalent bonds.
 
         Requires the :any:`numpy` library.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.select_atoms_from_same_molecule`.
+        :meth:`~scoria_mda.Molecule.Molecule.select_atoms_from_same_molecule`.
 
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -370,24 +370,24 @@ class Selections():
     def selections_of_constituent_molecules(self):
         """
         Identifies the indices of atoms belonging to separate molecules,
-        assuming that the scoria.Molecule object actually contains multiple
+        assuming that the scoria_mda.Molecule object actually contains multiple
         physically distinct molecules that are not bound to each other via
         covalent bonds.
 
         Requires the :any:`numpy` library.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.selections_of_constituent_molecules`.
+        :meth:`~scoria_mda.Molecule.Molecule.selections_of_constituent_molecules`.
 
         :Returns: A python list of numpy.array objects containing the indices of
                     the atoms belonging to each molecule of the composite
-                    scoria.Molecule object.
+                    scoria_mda.Molecule object.
         """
 
         if not numpy.class_dependency("select atoms of constituent molecules", "NUMPY"):
             return
 
-        # If your scoria.Molecule object contains multiple molecules (e.g.,
+        # If your scoria_mda.Molecule object contains multiple molecules (e.g.,
         # several chains), this will return a list of selections corresponding
         # to the atoms of each molecule.
 
@@ -419,7 +419,7 @@ class Selections():
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.select_atoms_near_other_selection`.
+        :meth:`~scoria_mda.Molecule.Molecule.select_atoms_near_other_selection`.
 
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -460,7 +460,7 @@ class Selections():
         have a unique combination of resname, resseq, and chainid fields.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.select_atoms_in_same_residue`.
+        :meth:`~scoria_mda.Molecule.Molecule.select_atoms_in_same_residue`.
 
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -510,7 +510,7 @@ class Selections():
         are not in the seleciton).
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.invert_selection`.
+        :meth:`~scoria_mda.Molecule.Molecule.invert_selection`.
 
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -530,12 +530,12 @@ class Selections():
 
     def select_all(self):
         """
-        Selects all the atoms in a scoria.Molecule object.
+        Selects all the atoms in a scoria_mda.Molecule object.
 
-        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.select_all`.
+        Should be called via the wrapper function :meth:`~scoria_mda.Molecule.Molecule.select_all`.
         
         :returns: A numpy.array containing the indices of all atoms in the
-                    scoria.Molecule object.
+                    scoria_mda.Molecule object.
         """
 
         return self.select_atoms({})
@@ -545,14 +545,14 @@ class Selections():
                                                     terminate_early = False):
         """
         Effectively detects steric clashes between self and another
-        scoria.Molecule.
+        scoria_mda.Molecule.
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.select_close_atoms_from_different_molecules`.
+        :meth:`~scoria_mda.Molecule.Molecule.select_close_atoms_from_different_molecules`.
         
-        :param scoria.Molecule other_mol: A scoria.Molecule object of the other
+        :param scoria_mda.Molecule other_mol: A scoria_mda.Molecule object of the other
                     molecule.
         :param float cutoff: A float, the user-defined distance cutoff in
                     Angstroms.
@@ -566,7 +566,7 @@ class Selections():
 
         :returns: A tuple containing two elements. The first is a numpy.array
                     containing the indices of all nearby atoms from this
-                    scoria.Molecule object (self). The second is a
+                    scoria_mda.Molecule object (self). The second is a
                     numpy.array containing the indices of all nearby atoms from
                     the other molecule.
         """
@@ -760,9 +760,9 @@ class Selections():
     def get_molecule_from_selection(self, selection, serial_reindex = True,
                                     resseq_reindex = False):
         """
-        Creates a scoria.Molecule from a user-defined atom selection.
+        Creates a scoria_mda.Molecule from a user-defined atom selection.
 
-        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.get_molecule_from_selection`.
+        Should be called via the wrapper function :meth:`~scoria_mda.Molecule.Molecule.get_molecule_from_selection`.
 
         :param numpy.array selection: A numpy.array containing the indices of the atoms
                     in the user-defined selection.
@@ -771,7 +771,7 @@ class Selections():
         :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the atom resseq fields. Default is False.
 
-        :returns: A scoria.Molecule object containing the atoms of the
+        :returns: A scoria_mda.Molecule object containing the atoms of the
                     user-defined selection.
         """
 
@@ -816,7 +816,7 @@ class Selections():
 
         Requires the :any:`numpy` library.
 
-        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.selections_of_chains`.
+        Should be called via the wrapper function :meth:`~scoria_mda.Molecule.Molecule.selections_of_chains`.
         
         :returns: A dictionary. The keys of the dictionary correspond to the
                     chainids, and the values are numpy.array objects containing
@@ -850,7 +850,7 @@ class Selections():
         Requires the :any:`numpy` library.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.selections_of_residues`.
+        :meth:`~scoria_mda.Molecule.Molecule.selections_of_residues`.
         
         :returns: A dictionary. The keys of this dictionary correspond to the
                     unique resname-resseq-chainid residue identifiers, and the

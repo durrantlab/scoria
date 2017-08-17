@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4. scoria.Geometry module &#8212; scoria 2.0 documentation</title>
+    <title>4. scoria_mda.Geometry module &#8212; scoria 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="scoria 2.0 documentation" href="index.html" />
-    <link rel="next" title="5. scoria.Information module" href="Information.html" />
-    <link rel="prev" title="3. scoria.FileIO module" href="FileIO.html" /> 
+    <link rel="next" title="5. scoria_mda.Information module" href="Information.html" />
+    <link rel="prev" title="3. scoria_mda.FileIO module" href="FileIO.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -38,10 +38,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Information.html" title="5. scoria.Information module"
+          <a href="Information.html" title="5. scoria_mda.Information module"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="FileIO.html" title="3. scoria.FileIO module"
+          <a href="FileIO.html" title="3. scoria_mda.FileIO module"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
       </ul>
@@ -52,19 +52,19 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-scoria.Geometry">
-<span id="scoria-geometry-module"></span><h1>4. scoria.Geometry module<a class="headerlink" href="#module-scoria.Geometry" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-scoria_mda.Geometry">
+<span id="scoria-geometry-module"></span><h1>4. scoria_mda.Geometry module<a class="headerlink" href="#module-scoria_mda.Geometry" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="scoria.Geometry.Geometry">
-<em class="property">class </em><code class="descclassname">scoria.Geometry.</code><code class="descname">Geometry</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Geometry.Geometry" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Geometry.Geometry">
+<em class="property">class </em><code class="descclassname">scoria_mda.Geometry.</code><code class="descname">Geometry</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Geometry.Geometry" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class containing a few geometry functions. Note that numpy should be
 used for most geometry functions.</p>
 <dl class="method">
-<dt id="scoria.Geometry.Geometry.get_angle_between_three_points">
-<code class="descname">get_angle_between_three_points</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Geometry.Geometry.get_angle_between_three_points" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Geometry.Geometry.get_angle_between_three_points">
+<code class="descname">get_angle_between_three_points</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Geometry.Geometry.get_angle_between_three_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the angle (in radians) formed by three points (numpy.array
 objects).</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_angle_between_three_points" title="scoria.Molecule.Molecule.get_angle_between_three_points"><code class="xref py py-meth docutils literal"><span class="pre">get_angle_between_three_points()</span></code></a></p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.get_angle_between_three_points" title="scoria_mda.Molecule.Molecule.get_angle_between_three_points"><code class="xref py py-meth docutils literal"><span class="pre">get_angle_between_three_points()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -88,11 +88,11 @@ radians.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Geometry.Geometry.get_dihedral_angle">
-<code class="descname">get_dihedral_angle</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Geometry.Geometry.get_dihedral_angle" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Geometry.Geometry.get_dihedral_angle">
+<code class="descname">get_dihedral_angle</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Geometry.Geometry.get_dihedral_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the dihedral angle formed by four points (numpy.array
 objects).</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_dihedral_angle" title="scoria.Molecule.Molecule.get_dihedral_angle"><code class="xref py py-meth docutils literal"><span class="pre">get_dihedral_angle()</span></code></a></p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.get_dihedral_angle" title="scoria_mda.Molecule.Molecule.get_dihedral_angle"><code class="xref py py-meth docutils literal"><span class="pre">get_dihedral_angle()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -118,11 +118,11 @@ in radians.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Geometry.Geometry.get_planarity_deviation">
-<code class="descname">get_planarity_deviation</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Geometry.Geometry.get_planarity_deviation" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Geometry.Geometry.get_planarity_deviation">
+<code class="descname">get_planarity_deviation</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Geometry.Geometry.get_planarity_deviation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines how close four points (numpy.array objects) come to lying
 in a common plane.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_planarity_deviation" title="scoria.Molecule.Molecule.get_planarity_deviation"><code class="xref py py-meth docutils literal"><span class="pre">get_planarity_deviation()</span></code></a></p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.get_planarity_deviation" title="scoria_mda.Molecule.Molecule.get_planarity_deviation"><code class="xref py py-meth docutils literal"><span class="pre">get_planarity_deviation()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -144,10 +144,10 @@ formed by the other three.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Geometry.Geometry.is_planar">
-<code class="descname">is_planar</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em>, <em>planarity_cutoff=0.2</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Geometry.Geometry.is_planar" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Geometry.Geometry.is_planar">
+<code class="descname">is_planar</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em>, <em>planarity_cutoff=0.2</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Geometry.Geometry.is_planar" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks whether four points (numpy.array) lie in a common plane.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.is_planar" title="scoria.Molecule.Molecule.is_planar"><code class="xref py py-meth docutils literal"><span class="pre">is_planar()</span></code></a></p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.is_planar" title="scoria_mda.Molecule.Molecule.is_planar"><code class="xref py py-meth docutils literal"><span class="pre">is_planar()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -182,10 +182,10 @@ default is 0.2.</li>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="FileIO.html"
-                        title="previous chapter">3. scoria.FileIO module</a></p>
+                        title="previous chapter">3. scoria_mda.FileIO module</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="Information.html"
-                        title="next chapter">5. scoria.Information module</a></p>
+                        title="next chapter">5. scoria_mda.Information module</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -217,10 +217,10 @@ default is 0.2.</li>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Information.html" title="5. scoria.Information module"
+          <a href="Information.html" title="5. scoria_mda.Information module"
              >next</a> |</li>
         <li class="right" >
-          <a href="FileIO.html" title="3. scoria.FileIO module"
+          <a href="FileIO.html" title="3. scoria_mda.FileIO module"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">scoria 2.0 documentation</a> &#187;</li> 
       </ul>

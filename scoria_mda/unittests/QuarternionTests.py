@@ -42,7 +42,7 @@ class OtherMoleculeTests(unittest.TestCase):
         """
         Setting up the test molecule.
         """
-        self.mol = scoria.Molecule()
+        self.mol = scoria_mda.Molecule()
 
     def tearDown(self):
         """

@@ -29,14 +29,14 @@ import copy
 class Information():
     """
     A class for storing and accessing information about the elements of a
-    scoria.Molecule object.
+    scoria_mda.Molecule object.
     """
 
     def __init__(self, parent_molecule_object):
         """
-        Initializes the scoria.Information class.
+        Initializes the scoria_mda.Information class.
 
-        :param scoria.Molecule parent_molecule_object: The scoria.Molecule object
+        :param scoria_mda.Molecule parent_molecule_object: The scoria_mda.Molecule object
                     associated with this class.
 
         """
@@ -155,7 +155,7 @@ class Information():
         """
         Returns the filename that the molecule was originally loaded from.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_filename`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_filename`
         
         :returns: The names of the files as a list.
 
@@ -163,7 +163,7 @@ class Information():
 
         ::
 
-            >>> mol = scoria.Molecule()
+            >>> mol = scoria_mda.Molecule()
             >>> mol.load_pdb_into("single_frame.pdb")
             >>> print(mol.get_filename())
             single_frame.pdb
@@ -180,7 +180,7 @@ class Information():
         """
         Returns the remarks from the file the molecule was loaded from.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_remarks`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_remarks`
         
         :returns: The remarks from the file an a list of strings.
 
@@ -188,7 +188,7 @@ class Information():
 
         ::
 
-            >>> mol = scoria.Molecule()
+            >>> mol = scoria_mda.Molecule()
             >>> mol.load_pdb_into("single_frame.pdb")
             >>> print(mol.get_remarks())
             [' This is a remark.']
@@ -200,7 +200,7 @@ class Information():
         """
         Retreives the atomic information for the molecule.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_atom_information`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_atom_information`
 
         :returns: A masked array containing the atom information.
 
@@ -240,7 +240,7 @@ class Information():
         """
         Returns the trajectory for the molecule.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_trajectory_coordinates`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_trajectory_coordinates`
         
         :returns: The set of all coordinates.
                     ::
@@ -278,7 +278,7 @@ class Information():
         """
         Returns the set of coordinates from the specified frame.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_coordinates`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_coordinates`
 
         :param int frame: The timestep from which the coordinates shoule be 
                         returned. If ommitted, it defaults to the first 
@@ -325,7 +325,7 @@ class Information():
         NEEDS CLARIFICATION.
         Retreives a previously save set of coordinates to revert to.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_coordinates_undo_point`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_coordinates_undo_point`
 
         :returns: A set of coordinates from which to return to.
 
@@ -338,7 +338,7 @@ class Information():
         """
         Retreives the bonds beteween atoms as a n x n matrix.
         
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_bonds`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_bonds`
 
         :returns: A binary n x n matrix, where bonds are represented by 1.
 
@@ -365,7 +365,7 @@ class Information():
         """
         NEEDS CLARIFICATION.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_hierarchy`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_hierarchy`
 
         :returns: A dictionary?
 
@@ -381,7 +381,7 @@ class Information():
         """
         Returns a dictionary containing the constants assumed for the molecular model.
         
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_constants`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_constants`
 
         :returns: The constants assumed by the model.
 
@@ -412,7 +412,7 @@ class Information():
         Sets the __filename variable. Note: this does not reload or modify the
         molecule in anyway.
         
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.set_filename`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.set_filename`
          
         :param str filename: String representation of the filename.
         """
@@ -426,7 +426,7 @@ class Information():
         """
         Sets the __remarks variable.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.set_remarks`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.set_remarks`
 
         :param list(str) remarks: List containing remarks.
         """
@@ -436,10 +436,10 @@ class Information():
     def set_atom_information(self, atom_information):
         """
         Sets the __atom_information variable. See
-        :meth:`~scoria.Molecule.Molecule.get_atom_information` for
+        :meth:`~scoria_mda.Molecule.Molecule.get_atom_information` for
         information on the numpy.array structure.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.set_atom_information`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.set_atom_information`
 
         :param numpy.array atom_information: An array containing details
                             on the constituent atoms.
@@ -451,7 +451,7 @@ class Information():
         """
         Sets the __trajectory variable.
         
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.set_trajectory_coordinates`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.set_trajectory_coordinates`
 
         :param numpy.array trajectory: An array of atomic coordinates.
         """
@@ -462,7 +462,7 @@ class Information():
         """
         Sets a specified frame of the __trajectory variable.
         
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.set_coordinates`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.set_coordinates`
         
         :param numpy.array coordinates: An array of atomic coordinates.
         :param int frame: An integer represeting the frame of the trajectory to be modified
@@ -480,7 +480,7 @@ class Information():
         """
         Sets the __coordinates_undo_point variable.
         
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.set_coordinates_undo_point`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.set_coordinates_undo_point`
         
         :param numpy.array coordinates_undo_point: A coordinate set to revert 
             to after modification.
@@ -491,10 +491,10 @@ class Information():
     def set_bonds(self, bonds):
         """
         Sets the __bonds variable. See 
-        :meth:`~scoria.Molecule.Molecule.get_bonds` for additional 
+        :meth:`~scoria_mda.Molecule.Molecule.get_bonds` for additional 
         information.
         
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.set_bonds`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.set_bonds`
         
         :param numpy.array bonds: A binary n x n matrix containing bonding 
             information.
@@ -506,7 +506,7 @@ class Information():
         """Sets the __hierarchy variable.
         DEPRECIATED?
         
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.set_hierarchy`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.set_hierarchy`
         """
 
         self.__hierarchy = hierarchy
@@ -516,7 +516,7 @@ class Information():
         Checks if the atom is part of a protein. Taken primarily from Amber
         residue names.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.belongs_to_protein`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.belongs_to_protein`
         
         :param int atom_index: An int, the index of the atom to consider.
 
@@ -535,7 +535,7 @@ class Information():
         """
         Checks if the atom is part of DNA.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.belongs_to_dna`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.belongs_to_dna`
 
         :param int atom_index: An int, the index of the atom to consider.
 
@@ -555,7 +555,7 @@ class Information():
         """
         Checks if the atom is part of RNA.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.belongs_to_rna`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.belongs_to_rna`
 
         :param int atom_index: An int, the index of the atom to consider.
 
@@ -574,9 +574,9 @@ class Information():
 
     def assign_masses(self):
         """
-        Assigns masses to the atoms of the scoria.Molecule object. 
+        Assigns masses to the atoms of the scoria_mda.Molecule object. 
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.assign_masses`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.assign_masses`
 
         **Note**:
         This will autopopulate the masses according to their element 
@@ -604,11 +604,11 @@ class Information():
         explicitly specified in loaded files. Note that this doesn't populate
         elements_stripped.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.assign_elements_from_atom_names`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.assign_elements_from_atom_names`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to consider when calculating the center of mass.
-                    If ommitted, all atoms of the scoria.Molecule object
+                    If ommitted, all atoms of the scoria_mda.Molecule object
                     will be considered.
         """
 
@@ -696,11 +696,11 @@ class Information():
         """
         Determines the center of mass.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_center_of_mass`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_center_of_mass`
 
         :param numpy.array selection: The indices of
                           the atoms to consider when calculating the center of mass.
-                          If ommitted, all atoms of the scoria.Molecule object
+                          If ommitted, all atoms of the scoria_mda.Molecule object
                           will be considered.
 
         :param int frame: The timestep at which the center of mass
@@ -713,7 +713,7 @@ class Information():
 
         ::
 
-            >>> mol = scoria.Molecule()
+            >>> mol = scoria_mda.Molecule()
             >>> mol.load_pdb_into("single_frame.pdb")
             >>> print(mol.get_center_of_mass())
             [33.0643089093134 19.135747088722564 16.05629867850796]
@@ -752,11 +752,11 @@ class Information():
         """
         Determines the geometric center of the molecule.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_geometric_center`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_geometric_center`
 
         :param numpy.array selection: The indices of
                           the atoms to consider when calculating the geometric.
-                          If ommitted, all atoms of the scoria.Molecule object
+                          If ommitted, all atoms of the scoria_mda.Molecule object
                           will be considered.
 
         :param int frame: The timestep at which the geometric center 
@@ -769,7 +769,7 @@ class Information():
 
         ::
 
-            >>> mol = scoria.Molecule()
+            >>> mol = scoria_mda.Molecule()
             >>> mol.load_pdb_into("single_frame.pdb")
             >>> print(mol.get_geometric_center())
             [ 33.09860848  19.1221197   16.0426808 ]
@@ -789,11 +789,11 @@ class Information():
         Returns the total mass of all atoms within the molecule, or of a given
         selection.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_total_mass`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_total_mass`
 
         :param numpy.array selection: The indices of
                         the atoms to consider when calculating the geometric.
-                        If ommitted, all atoms of the scoria.Molecule object
+                        If ommitted, all atoms of the scoria_mda.Molecule object
                         will be considered.
 
         :returns: The total mass of the atom or selection
@@ -821,11 +821,11 @@ class Information():
         Counts the number of atoms.
         
         Wrapper function for 
-        :meth:`~scoria.Molecule.Molecule.get_total_number_of_atoms`
+        :meth:`~scoria_mda.Molecule.Molecule.get_total_number_of_atoms`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to count. If ommitted, all atoms of the
-                    scoria.Molecule object will be considered.
+                    scoria_mda.Molecule object will be considered.
         :param int frame: An integer indicating at which timestep the center of
                     mass should be calculated. If ommitted, it defaults to the 
                     first frame of the trajectory.
@@ -852,11 +852,11 @@ class Information():
         hydrogens). 
 
         Wrapper function for 
-        :meth:`~scoria.Molecule.Molecule.get_total_number_of_heavy_atoms`
+        :meth:`~scoria_mda.Molecule.Molecule.get_total_number_of_heavy_atoms`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to count. If ommitted, all atoms of the
-                    scoria.Molecule object will be considered.
+                    scoria_mda.Molecule object will be considered.
 
         :returns: The total number of heavy (non-hydrogen) atoms.
         :rtype: *int*
@@ -878,11 +878,11 @@ class Information():
         """
         Calculates a box that bounds (encompasses) a set of atoms.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_bounding_box`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_bounding_box`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to consider. If ommitted, all atoms of the
-                    scoria.Molecule object will be considered.
+                    scoria_mda.Molecule object will be considered.
         :param float padding: An optional float. The bounding box will extend this
                     many angstroms beyond the atoms being considered.
         :param int frame: An integer indicating at which timestep the center of
@@ -910,11 +910,11 @@ class Information():
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_bounding_sphere`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_bounding_sphere`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to consider. If ommitted, all atoms of the
-                    scoria.Molecule object will be considered.
+                    scoria_mda.Molecule object will be considered.
         :param float padding: An optional float. The bounding sphere will extend
                     this many angstroms beyond the atoms being considered.
         :param int frame: An integer indicating at which timestep the center of
@@ -955,12 +955,12 @@ class Information():
         """
         Identifies spheres that bound (encompass) the entire molecule, the
         chains, and the residues. This information is stored in
-        scoria.Molecule.Molecule.hierarchy.
+        scoria_mda.Molecule.Molecule.hierarchy.
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
         Wrapper function for 
-        :meth:`~scoria.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries`
+        :meth:`~scoria_mda.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries`
         """
 
         if not numpy.class_dependency("calculate the spherical boundaries around molecules, chains, and residues", "NUMPY"):
@@ -1043,7 +1043,7 @@ class Information():
         Reindexes the serial field of the atoms in the molecule, starting
         with 1.
         
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.serial_reindex`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.serial_reindex`
         """
 
         for i in range(len(self.__atom_information['serial'])):
@@ -1054,7 +1054,7 @@ class Information():
         Reindexes the resseq field of the atoms in the molecule, starting
         with 1.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.resseq_reindex`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.resseq_reindex`
         """
 
         keys = numpy.defchararray_add(
@@ -1093,7 +1093,7 @@ class Information():
         """
         Inserts a new coordinate frame at the end of the trajectory.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.insert_trajectory_frame`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.insert_trajectory_frame`
 
         :param numpy.array coordinates: A single frame of coordinates to append.
         :param int index: The location where the frame should be added.
@@ -1107,7 +1107,7 @@ class Information():
         """
         Removes a given frame from the trajectory.
   
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.delete_trajectory_frame`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.delete_trajectory_frame`
 
         :param int index: Integer of the frame to remove.
         """
@@ -1118,7 +1118,7 @@ class Information():
         """
         Returns the number of frames in __trajectory.
 
-        Wrapper function for :meth:`~scoria.Molecule.Molecule.get_trajectory_frame_count`
+        Wrapper function for :meth:`~scoria_mda.Molecule.Molecule.get_trajectory_frame_count`
 
         :returns: The number of frames in the trajectory.
         :rtype: *int*

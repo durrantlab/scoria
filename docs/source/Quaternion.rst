@@ -9,7 +9,7 @@ Test. Needs additional Documentation.
 Function Definitions
 --------------------
 
-.. automodule:: scoria.Quaternion
+.. automodule:: scoria_mda.Quaternion
     :members:
     :undoc-members:
     :show-inheritance:

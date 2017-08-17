@@ -11,7 +11,7 @@ as checking properties of individual atoms.
 Function Definitions
 --------------------
 
-.. automodule:: scoria.Information
+.. automodule:: scoria_mda.Information
     :members:
     :undoc-members:
     :show-inheritance:

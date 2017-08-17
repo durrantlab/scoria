@@ -44,8 +44,8 @@ class OtherMoleculeTests(unittest.TestCase):
         Setting up the test molecules.
         """
         info_path = os.path.dirname(os.path.abspath(__file__)) + '/../sample-files/'
-        self.mol = scoria.Molecule(info_path + '3_mol_test.pdb')
-        self.other_mol = scoria.Molecule(info_path + 'other_mol_test.pdb')
+        self.mol = scoria_mda.Molecule(info_path + '3_mol_test.pdb')
+        self.other_mol = scoria_mda.Molecule(info_path + 'other_mol_test.pdb')
 
         self.accuracy = 4
 

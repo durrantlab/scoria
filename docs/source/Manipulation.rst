@@ -11,7 +11,7 @@ criteria.
 Function Definitions
 --------------------
 
-.. automodule:: scoria.Manipulation
+.. automodule:: scoria_mda.Manipulation
     :members:
     :undoc-members:
     :show-inheritance:

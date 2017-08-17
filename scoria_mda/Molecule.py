@@ -42,7 +42,7 @@ class Molecule: # here's the actual Molecule class
         >>> import scoria
         >>> PSF = "./test_file.psf"
         >>> DCD = "./test_file.dcd"
-        >>> mol = scoria.Molecule()
+        >>> mol = scoria_mda.Molecule()
         >>> mol.load_MDAnalysis_into(PSF, DCD)
     """
 
@@ -87,7 +87,7 @@ class Molecule: # here's the actual Molecule class
         """
         Returns the set of coordinates from the specified frame.
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_coordinates`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_coordinates`
 
         :param int frame: The timestep from which the coordinates shoule be
                         returned. If ommitted, it defaults to the first
@@ -127,7 +127,7 @@ class Molecule: # here's the actual Molecule class
         """
         Returns the trajectory for the molecule.
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_trajectory_coordinates`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_trajectory_coordinates`
         
         :returns: The set of all coordinates.
                     ::
@@ -167,7 +167,7 @@ class Molecule: # here's the actual Molecule class
         """
         Returns the filename that the molecule was originally loaded from.
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_filename`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_filename`
         
         :returns: The name of the file.
 
@@ -175,7 +175,7 @@ class Molecule: # here's the actual Molecule class
 
         ::
 
-            >>> mol = scoria.Molecule()
+            >>> mol = scoria_mda.Molecule()
             >>> mol.load_pdb_into("single_frame.pdb")
             >>> print(mol.get_filename())
             single_frame.pdb
@@ -187,7 +187,7 @@ class Molecule: # here's the actual Molecule class
         """
         Returns the remarks from the file the molecule was loaded from.
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_remarks`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_remarks`
         
         :returns: The remarks from the file an a list of strings.
 
@@ -195,7 +195,7 @@ class Molecule: # here's the actual Molecule class
 
         ::
 
-            >>> mol = scoria.Molecule()
+            >>> mol = scoria_mda.Molecule()
             >>> mol.load_pdb_into("single_frame.pdb")
             >>> print(mol.get_remarks())
             [' This is a remark.']
@@ -207,7 +207,7 @@ class Molecule: # here's the actual Molecule class
         """
         Retreives the atomic information for the molecule.
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_atom_information`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_atom_information`
 
         :returns: A masked array containing the atom information.
 
@@ -248,7 +248,7 @@ class Molecule: # here's the actual Molecule class
         NEEDS CLARIFICATION.
         Retreives a previously save set of coordinates to revert to.
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_coordinates_undo_point`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_coordinates_undo_point`
 
         :returns: A set of coordinates from which to return to.
 
@@ -261,7 +261,7 @@ class Molecule: # here's the actual Molecule class
         """
         Retreives the bonds beteween atoms as a n x n matrix.
         
-        Wrapper function for :meth:`~scoria.Information.Information.get_bonds`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_bonds`
 
         :returns: A binary n x n matrix, where bonds are represented by 1.
 
@@ -284,7 +284,7 @@ class Molecule: # here's the actual Molecule class
         """
         NEEDS CLARIFICATION.
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_hierarchy`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_hierarchy`
 
         :returns: A dictionary?
 
@@ -297,7 +297,7 @@ class Molecule: # here's the actual Molecule class
         """
         Returns a dictionary containing the constants assumed for the molecular model.
         
-        Wrapper function for :meth:`~scoria.Information.Information.get_constants`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_constants`
 
         :returns: The constants assumed by the model.
 
@@ -326,11 +326,11 @@ class Molecule: # here's the actual Molecule class
         """
         Determines the center of mass.
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_center_of_mass`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_center_of_mass`
 
         :param numpy.array selection: The indices of
                           the atoms to consider when calculating the center of mass. 
-                          If ommitted, all atoms of the scoria.Molecule object 
+                          If ommitted, all atoms of the scoria_mda.Molecule object 
                           will be considered.
 
         :param int frame: The timestep at which the center of mass
@@ -343,7 +343,7 @@ class Molecule: # here's the actual Molecule class
 
         ::
 
-            >>> mol = scoria.Molecule()
+            >>> mol = scoria_mda.Molecule()
             >>> mol.load_pdb_into("single_frame.pdb")
             >>> print(mol.get_center_of_mass())
             [33.0643089093134 19.135747088722564 16.05629867850796]
@@ -355,11 +355,11 @@ class Molecule: # here's the actual Molecule class
         """
         Determines the geometric center of the molecule.
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_geometric_center`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_geometric_center`
 
         :param numpy.array selection: The indices of
                           the atoms to consider when calculating the geometric.
-                          If ommitted, all atoms of the scoria.Molecule object
+                          If ommitted, all atoms of the scoria_mda.Molecule object
                           will be considered.
 
         :param int frame: The timestep at which the geometric center
@@ -372,7 +372,7 @@ class Molecule: # here's the actual Molecule class
 
         ::
 
-            >>> mol = scoria.Molecule()
+            >>> mol = scoria_mda.Molecule()
             >>> mol.load_pdb_into("single_frame.pdb")
             >>> print(mol.get_geometric_center())
             [ 33.09860848  19.1221197   16.0426808 ]
@@ -385,11 +385,11 @@ class Molecule: # here's the actual Molecule class
         Returns the total mass of all atoms within the molecule, or of a given 
         selection. 
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_total_mass`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_total_mass`
 
         :param numpy.array selection: The indices of
                         the atoms to consider when calculating the geometric. 
-                        If ommitted, all atoms of the scoria.Molecule object
+                        If ommitted, all atoms of the scoria_mda.Molecule object
                         will be considered.
 
         :returns: The total mass of the atom or selection
@@ -410,11 +410,11 @@ class Molecule: # here's the actual Molecule class
         Counts the number of atoms.
         
         Wrapper function for 
-        :meth:`~scoria.Information.Information.get_total_number_of_atoms`
+        :meth:`~scoria_mda.Information.Information.get_total_number_of_atoms`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to count. If ommitted, all atoms of the
-                    scoria.Molecule object will be considered.
+                    scoria_mda.Molecule object will be considered.
         :param int frame: An integer indicating at which timestep the center of
                     mass should be calculated. If ommitted, it defaults to the 
                     first frame of the trajectory.
@@ -431,11 +431,11 @@ class Molecule: # here's the actual Molecule class
         hydrogens). 
 
         Wrapper function for 
-        :meth:`~scoria.Information.Information.get_total_number_of_heavy_atoms`
+        :meth:`~scoria_mda.Information.Information.get_total_number_of_heavy_atoms`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to count. If ommitted, all atoms of the
-                    scoria.Molecule object will be considered.
+                    scoria_mda.Molecule object will be considered.
 
         :returns: The total number of heavy (non-hydrogen) atoms.
         :rtype: :any:`int`
@@ -447,11 +447,11 @@ class Molecule: # here's the actual Molecule class
         """
         Calculates a box that bounds (encompasses) a set of atoms.
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_bounding_box`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_bounding_box`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to consider. If ommitted, all atoms of the
-                    scoria.Molecule object will be considered.
+                    scoria_mda.Molecule object will be considered.
         :param float padding: An optional float. The bounding box will extend this
                     many angstroms beyond the atoms being considered.
         :param int frame: An integer indicating at which timestep the center of
@@ -471,11 +471,11 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_bounding_sphere`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_bounding_sphere`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to consider. If ommitted, all atoms of the
-                    scoria.Molecule object will be considered.
+                    scoria_mda.Molecule object will be considered.
         :param float padding: An optional float. The bounding sphere will extend
                     this many angstroms beyond the atoms being considered.
         :param int frame: An integer indicating at which timestep the center of
@@ -494,7 +494,7 @@ class Molecule: # here's the actual Molecule class
         """
         Retreives the default trajectory frame index.
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_default_trajectory_frame`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_default_trajectory_frame`
 
         :returns: An *int* representing the index of the default trajectory frame.
         """
@@ -508,7 +508,7 @@ class Molecule: # here's the actual Molecule class
         Sets the __filename variable. Note: this does not reload or modify the
         molecule in anyway.
         
-        Wrapper function for :meth:`~scoria.Information.Information.set_filename`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.set_filename`
          
         :param str filename: String representation of the filename.
         """
@@ -519,7 +519,7 @@ class Molecule: # here's the actual Molecule class
         """
         Sets the __remarks variable.
         
-        Wrapper function for :meth:`~scoria.Information.Information.set_remarks`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.set_remarks`
 
         :param list(str) remarks: List containing remarks.
         """
@@ -529,10 +529,10 @@ class Molecule: # here's the actual Molecule class
     def set_atom_information(self, atom_information):
         """
         Sets the __atom_information variable. See 
-        :meth:`~scoria.Molecule.Molecule.get_atom_information` for
+        :meth:`~scoria_mda.Molecule.Molecule.get_atom_information` for
         information on the numpy.array structure.
         
-        Wrapper function for :meth:`~scoria.Information.Information.set_atom_information`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.set_atom_information`
 
         :param numpy.array atom_information: An array containing details
                             on the constituent atoms. 
@@ -544,7 +544,7 @@ class Molecule: # here's the actual Molecule class
         """
         Sets a specified frame of the __trajectory variable.
         
-        Wrapper function for :meth:`~scoria.Information.Information.set_coordinates`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.set_coordinates`
         
         :param numpy.array coordinates: An array of atomic coordinates.
         :param int frame: An integer represeting the frame of the trajectory to be modified
@@ -556,7 +556,7 @@ class Molecule: # here's the actual Molecule class
         """
         Sets the __trajectory variable.
         
-        Wrapper function for :meth:`~scoria.Information.Information.set_trajectory_coordinates`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.set_trajectory_coordinates`
 
         :param numpy.array trajectory: An array of atomic coordinates.
         """
@@ -567,7 +567,7 @@ class Molecule: # here's the actual Molecule class
         """
         Sets the __coordinates_undo_point variable.
         
-        Wrapper function for :meth:`~scoria.Information.Information.set_coordinates_undo_point`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.set_coordinates_undo_point`
         
         :param numpy.array coordinates_undo_point: A coordinate set to revert 
             to after modification.
@@ -578,10 +578,10 @@ class Molecule: # here's the actual Molecule class
     def set_bonds(self, bonds):
         """
         Sets the __bonds variable. See 
-        :meth:`~scoria.Molecule.Molecule.get_bonds` for additional 
+        :meth:`~scoria_mda.Molecule.Molecule.get_bonds` for additional 
         information.
         
-        Wrapper function for :meth:`~scoria.Information.Information.set_bonds`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.set_bonds`
         
         :param numpy.array bonds: A binary n x n matrix containing bonding 
             information.
@@ -593,7 +593,7 @@ class Molecule: # here's the actual Molecule class
         """
         DEPRECIATED?
         
-        Wrapper function for :meth:`~scoria.Information.Information.set_hierarchy`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.set_hierarchy`
         """
         
         self.information.set_hierarchy(hierarchy)
@@ -602,7 +602,7 @@ class Molecule: # here's the actual Molecule class
         """
         Set's the default trajectory frame for various calculations. 
 
-        Wrapper function for :meth:`~scoria.Information.Information.set_default_trajectory_frame`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.set_default_trajectory_frame`
 
         :param int frame: The default frame for coordinate selection.
         """
@@ -612,9 +612,9 @@ class Molecule: # here's the actual Molecule class
     # Information functions
     def assign_masses(self):
         """
-        Assigns masses to the atoms of the scoria.Molecule object. 
+        Assigns masses to the atoms of the scoria_mda.Molecule object. 
 
-        Wrapper function for :meth:`~scoria.Information.Information.assign_masses`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.assign_masses`
 
         ``Note``:
         This will autopopulate the masses according to their element 
@@ -630,11 +630,11 @@ class Molecule: # here's the actual Molecule class
         explicitly specified in loaded files. Note that this doesn't populate
         elements_stripped.
 
-        Wrapper function for :meth:`~scoria.Information.Information.assign_elements_from_atom_names`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.assign_elements_from_atom_names`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to consider when calculating the center of mass.
-                    If ommitted, all atoms of the scoria.Molecule object
+                    If ommitted, all atoms of the scoria_mda.Molecule object
                     will be considered.
         """
         
@@ -644,12 +644,12 @@ class Molecule: # here's the actual Molecule class
         """
         Identifies spheres that bound (encompass) the entire molecule, the
         chains, and the residues. This information is stored in
-        scoria.Information.Information.hierarchy.
+        scoria_mda.Information.Information.hierarchy.
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
         Wrapper function for 
-        :meth:`~scoria.Information.Information.define_molecule_chain_residue_spherical_boundaries`
+        :meth:`~scoria_mda.Information.Information.define_molecule_chain_residue_spherical_boundaries`
         """
         
         self.information.define_molecule_chain_residue_spherical_boundaries()
@@ -659,7 +659,7 @@ class Molecule: # here's the actual Molecule class
         Reindexes the serial field of the atoms in the molecule, starting
         with 1.
         
-        Wrapper function for :meth:`~scoria.Information.Information.serial_reindex`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.serial_reindex`
         """
         
         self.information.serial_reindex()
@@ -669,7 +669,7 @@ class Molecule: # here's the actual Molecule class
         Reindexes the resseq field of the atoms in the molecule, starting
         with 1.
 
-        Wrapper function for :meth:`~scoria.Information.Information.resseq_reindex`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.resseq_reindex`
         """
         
         self.information.resseq_reindex()
@@ -679,7 +679,7 @@ class Molecule: # here's the actual Molecule class
         Checks if the atom is part of a protein. Taken primarily from Amber
         residue names.
 
-        Wrapper function for :meth:`~scoria.Information.Information.belongs_to_protein`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.belongs_to_protein`
         
         :param int atom_index: An int, the index of the atom to consider.
 
@@ -692,7 +692,7 @@ class Molecule: # here's the actual Molecule class
         """
         Checks if the atom is part of RNA.
 
-        Wrapper function for :meth:`~scoria.Information.Information.belongs_to_rna`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.belongs_to_rna`
 
         :param int atom_index: An int, the index of the atom to consider.
 
@@ -706,7 +706,7 @@ class Molecule: # here's the actual Molecule class
         """
         Checks if the atom is part of DNA.
 
-        Wrapper function for :meth:`~scoria.Information.Information.belongs_to_dna`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.belongs_to_dna`
 
         :param int atom_index: An int, the index of the atom to consider.
 
@@ -719,7 +719,7 @@ class Molecule: # here's the actual Molecule class
         """
         Inserts a new coordinate frame at the end of the trajectory.
 
-        Wrapper function for :meth:`~scoria.Information.Information.insert_trajectory_frame`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.insert_trajectory_frame`
 
         :param numpy.array coordinates: A single frame of coordinates to append.
         :param int index: The location where the frame should be added.
@@ -731,7 +731,7 @@ class Molecule: # here's the actual Molecule class
         """
         Removes a given frame from the trajectory.
   
-        Wrapper function for :meth:`~scoria.Information.Information.delete_trajectory_frame`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.delete_trajectory_frame`
 
         :param int index: Integer of the frame to remove.
         """
@@ -742,7 +742,7 @@ class Molecule: # here's the actual Molecule class
         """
         Returns the number of frames in __trajectory.
 
-        Wrapper function for :meth:`~scoria.Information.Information.get_trajectory_frame_count`
+        Wrapper function for :meth:`~scoria_mda.Information.Information.get_trajectory_frame_count`
 
         :returns: The number of frames in the trajectory.
         :rtype: :any:`int`
@@ -754,11 +754,11 @@ class Molecule: # here's the actual Molecule class
     def load_pym_into(self, filename):
         """
         Loads the molecular data contained in a pym file into the current
-        scoria.Molecule object.
+        scoria_mda.Molecule object.
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~scoria.FileIO.FileIO.load_pym_into`
+        Wrapper function for :meth:`~scoria_mda.FileIO.FileIO.load_pym_into`
 
         :param str filename: A string, the filename of the pym file.
         """
@@ -770,9 +770,9 @@ class Molecule: # here's the actual Molecule class
                       is_trajectory = False):
         """
         Loads the molecular data contained in a pdb file into the current
-        scoria.Molecule object.
+        scoria_mda.Molecule object.
 
-        Wrapper function for :meth:`~scoria.FileIO.FileIO.load_pdb_into`
+        Wrapper function for :meth:`~scoria_mda.FileIO.FileIO.load_pdb_into`
 
         :param str filename: A string, the filename of the pdb file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
@@ -798,13 +798,13 @@ class Molecule: # here's the actual Molecule class
                                         is_trajectory = False):
         """
         Loads molecular data from a python file object (pdb formatted) into
-        the current scoria.Molecule object. Note that most users will want
+        the current scoria_mda.Molecule object. Note that most users will want
         to use the load_pdb_into() function instead, which is identical except
         that it accepts a filename string instead of a python file object.
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~scoria.FileIO.FileIO.load_pdb_into_using_file_object`
+        Wrapper function for :meth:`~scoria_mda.FileIO.FileIO.load_pdb_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdb-formatted
                     data.
@@ -829,11 +829,11 @@ class Molecule: # here's the actual Molecule class
                       is_trajectory = False):
         """
         Loads the molecular data contained in a pdbqt file into the current
-        scoria.Molecule object. Note that this implementation is
+        scoria_mda.Molecule object. Note that this implementation is
         incomplete. It doesn't save atomic charges, for example. The atom
         types are stored in the "element_padded" and "element" columns.
 
-        Wrapper function for :meth:`~scoria.FileIO.FileIO.load_pdbqt_into`
+        Wrapper function for :meth:`~scoria_mda.FileIO.FileIO.load_pdbqt_into`
 
         :param str filename: A string, the filename of the pdbqt file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
@@ -859,14 +859,14 @@ class Molecule: # here's the actual Molecule class
                                         is_trajectory = False):
         """
         Loads molecular data from a python file object (pdbqt formatted)
-        into the current scoria.Molecule object. Note that most users will
+        into the current scoria_mda.Molecule object. Note that most users will
         want to use the load_pdb_into() function instead, which is identical
         except that it accepts a filename string instead of a python file
         object.
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~scoria.FileIO.FileIO.load_pdbqt_into_using_file_object`
+        Wrapper function for :meth:`~scoria_mda.FileIO.FileIO.load_pdbqt_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdb-formatted
                     data.
@@ -890,12 +890,12 @@ class Molecule: # here's the actual Molecule class
                  save_remarks = False, save_hierarchy = False,
                  save_coordinates_undo_point = False):
         """
-        Saves the molecular data contained in a scoria.Molecule object
+        Saves the molecular data contained in a scoria_mda.Molecule object
         to a pym file.
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~scoria.FileIO.FileIO.save_pym`
+        Wrapper function for :meth:`~scoria_mda.FileIO.FileIO.save_pym`
 
         :param str filename: An string, the filename to use for saving. (Note
                     that this is actually a directory, not a file.)
@@ -921,10 +921,10 @@ class Molecule: # here's the actual Molecule class
     def save_pdb(self, filename = "", serial_reindex = True,
                  resseq_reindex = False, return_text = False, frame = None):
         """
-        Saves the molecular data contained in a scoria.Molecule object
+        Saves the molecular data contained in a scoria_mda.Molecule object
         to a pdb file.
 
-        Wrapper function for :meth:`~scoria.FileIO.FileIO.save_pdb`
+        Wrapper function for :meth:`~scoria_mda.FileIO.FileIO.save_pdb`
 
         :param str filename: An string, the filename to use for saving.
         :param bool serial_reindex: An optional boolean, whether or not to
@@ -954,10 +954,10 @@ class Molecule: # here's the actual Molecule class
                                    resseq_reindex = False):
         """
         Loads the molecular data contained in a pdbqt trajectoy file (e.g., an
-        AutoDock Vina output file) into the current scoria.Molecule
+        AutoDock Vina output file) into the current scoria_mda.Molecule
         object.
 
-        Should be called via the wrapper function :meth:`scoria.Molecule.Molecule.load_pdbqt_trajectory_into`
+        Should be called via the wrapper function :meth:`scoria_mda.Molecule.Molecule.load_pdbqt_trajectory_into`
 
         :param str filename: A string, the filename of the pdbqt file.
         :param bool bonds_by_distance: An optional boolean, whether or not to
@@ -980,13 +980,13 @@ class Molecule: # here's the actual Molecule class
                                                      resseq_reindex = False):
         """
         Loads molecular data from a python file object (pdbqt trajectory
-        formatted) into the current scoria.Molecule object. Note that most
+        formatted) into the current scoria_mda.Molecule object. Note that most
         users will want to use the load_pdbqt_trajectory_into() function
         instead, which is identical except that it accepts a filename string
         instead of a python file object.
 
         Wrapper function for
-        :meth:`~scoria.FileIO.FileIO.load_pdbqt_trajectory_into_using_file_object`
+        :meth:`~scoria_mda.FileIO.FileIO.load_pdbqt_trajectory_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdbqt-formatted
                     trajectory data.
@@ -1009,9 +1009,9 @@ class Molecule: # here's the actual Molecule class
                                  resseq_reindex = False):
         """
         Loads the molecular data contained in a pdb trajectory file into the
-        current scoria.Molecule object.
+        current scoria_mda.Molecule object.
 
-        Should be called via the wrapper function :meth:`scoria.Molecule.Molecule.load_pdb_trajectory_into`
+        Should be called via the wrapper function :meth:`scoria_mda.Molecule.Molecule.load_pdb_trajectory_into`
 
         :param str filename: A string, the filename of the pdb trajectory
                    file.
@@ -1033,12 +1033,12 @@ class Molecule: # here's the actual Molecule class
                                                    resseq_reindex = False):
         """
         Loads molecular data from a python file object (pdb trajectory
-        formatted) into the current scoria.Molecule object. Note that most
+        formatted) into the current scoria_mda.Molecule object. Note that most
         users will want to use the load_pdb_trajectory_into() function
         instead, which is identical except that it accepts a filename string
         instead of a python file object.
 
-        Should be called via the wrapper function :meth:`scoria.Molecule.Molecule.load_pdb_trajectory_into_using_file_object`
+        Should be called via the wrapper function :meth:`scoria_mda.Molecule.Molecule.load_pdb_trajectory_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdb-formatted
                     trajectory data.
@@ -1063,7 +1063,7 @@ class Molecule: # here's the actual Molecule class
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
     
         Wrapper function for 
-        :meth:`~scoria.FileIO.FileIO.load_MDAnalysis_into`
+        :meth:`~scoria_mda.FileIO.FileIO.load_MDAnalysis_into`
          
         :param \*args: Filename, filenames, or list of file names. Used to
             inizalize a MDAnalysis.Universe object.
@@ -1079,7 +1079,7 @@ class Molecule: # here's the actual Molecule class
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
     
         Wrapper function for 
-        :meth:`~scoria.FileIO.FileIO.load_MDAnalysis_into_using_universe_object`
+        :meth:`~scoria_mda.FileIO.FileIO.load_MDAnalysis_into_using_universe_object`
          
         :param MDAnalysis.core.Universe universe: MDAnalysis Universe object.
         """
@@ -1096,7 +1096,7 @@ class Molecule: # here's the actual Molecule class
         Requires the :any:`numpy` library.
         
         Wrapper function for 
-        :meth:`~scoria.AtomsAndBonds.AtomsAndBonds.get_number_of_bond_partners_of_element`
+        :meth:`~scoria_mda.AtomsAndBonds.AtomsAndBonds.get_number_of_bond_partners_of_element`
 
         :param int atom_index: An int, the index of the atom of interest.
         :param str the_element: A string describing the element of the neighbors
@@ -1117,7 +1117,7 @@ class Molecule: # here's the actual Molecule class
         For a given atom of interest, returns the index of the first
         neighbor of a specified element.
 
-        Wrapper function for :meth:`~scoria.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element`
+        Wrapper function for :meth:`~scoria_mda.AtomsAndBonds.AtomsAndBonds.get_index_of_first_bond_partner_of_element`
 
         :param int atom_index: An int, the index of the atom of interest.
         :param str the_element: A string specifying the desired element of the
@@ -1141,7 +1141,7 @@ class Molecule: # here's the actual Molecule class
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
         Wrapper function for 
-        :meth:`~scoria.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance`
+        :meth:`~scoria_mda.AtomsAndBonds.AtomsAndBonds.create_bonds_by_distance`
 
         :param bool remove_old_bond_data: An optional boolean, whether or not to
                     discard old bond data before adding in bonds determined by
@@ -1158,7 +1158,7 @@ class Molecule: # here's the actual Molecule class
         """
         Deletes a bond.
 
-        Wrapper function for :meth:`~scoria.AtomsAndBonds.AtomsAndBonds.delete_bond`
+        Wrapper function for :meth:`~scoria_mda.AtomsAndBonds.AtomsAndBonds.delete_bond`
         
         :param int index1: An int, the index of the first atom of the bonded
                     pair.
@@ -1172,7 +1172,7 @@ class Molecule: # here's the actual Molecule class
         """
         Adds a bond.
 
-        Wrapper function for :meth:`~scoria.AtomsAndBonds.AtomsAndBonds.add_bond`
+        Wrapper function for :meth:`~scoria_mda.AtomsAndBonds.AtomsAndBonds.add_bond`
 
         :param int index1: An int, the index of the first atom of the bonded
                     pair.
@@ -1187,7 +1187,7 @@ class Molecule: # here's the actual Molecule class
         """
         Deletes an atom.
 
-        Wrapper function for :meth:`~scoria.AtomsAndBonds.AtomsAndBonds.delete_atom`
+        Wrapper function for :meth:`~scoria_mda.AtomsAndBonds.AtomsAndBonds.delete_atom`
 
         :param int index: An int, the index of the atom to delete.
         """
@@ -1201,7 +1201,7 @@ class Molecule: # here's the actual Molecule class
         """
         Adds an atom.
 
-        Wrapper function for :meth:`~scoria.AtomsAndBonds.AtomsAndBonds.add_atom`
+        Wrapper function for :meth:`~scoria_mda.AtomsAndBonds.AtomsAndBonds.add_atom`
 
         :param str record_name: An optional string, the record name of the atom.
                     "ATOM" is the default.
@@ -1237,9 +1237,9 @@ class Molecule: # here's the actual Molecule class
     def get_molecule_from_selection(self, selection, serial_reindex = True,
                                     resseq_reindex = False):
         """
-        Creates a scoria.Molecule from a user-defined atom selection.
+        Creates a scoria_mda.Molecule from a user-defined atom selection.
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.get_molecule_from_selection`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.get_molecule_from_selection`
 
         :param numpy.array selection: A numpy.array containing the indices of the atoms
                     in the user-defined selection.
@@ -1248,7 +1248,7 @@ class Molecule: # here's the actual Molecule class
         :param bool resseq_reindex: An optional boolean, whether or not to
                     reindex the atom resseq fields. Default is False.
 
-        :returns: A scoria.Molecule object containing the atoms of the
+        :returns: A scoria_mda.Molecule object containing the atoms of the
                     user-defined selection.
         """
 
@@ -1260,7 +1260,7 @@ class Molecule: # here's the actual Molecule class
         """
         Select a set of atoms based on user-specified criteria.
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.select_atoms`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.select_atoms`
 
         :param dict selection_criteria: A dictionary, where the keys correspond
                     to keys in the
@@ -1284,7 +1284,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.select_atoms_in_bounding_box`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.select_atoms_in_bounding_box`
     
         :param numpy.array bounding_box: A 2x3 numpy.array containing the minimum and
                     maximum points of the bounding box. Example:
@@ -1305,7 +1305,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.select_branch`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.select_branch`
 
         :param int root_atom_index: An int, the index of the first atom in the
                 branch (the "root").
@@ -1325,7 +1325,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.select_all_atoms_bound_to_selection`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.select_all_atoms_bound_to_selection`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-specified selection.
@@ -1341,13 +1341,13 @@ class Molecule: # here's the actual Molecule class
     def select_atoms_from_same_molecule(self, selection):
         """
         Selects all the atoms that belong to the same molecule as a
-        user-defined selection, assuming that the scoria.Molecule object
+        user-defined selection, assuming that the scoria_mda.Molecule object
         actually contains multiple physically distinct molecules that are not
         bound to each other via covalent bonds.
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.select_atoms_from_same_molecule`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.select_atoms_from_same_molecule`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -1362,17 +1362,17 @@ class Molecule: # here's the actual Molecule class
     def selections_of_constituent_molecules(self):
         """
         Identifies the indices of atoms belonging to separate molecules,
-        assuming that the scoria.Molecule object actually contains multiple
+        assuming that the scoria_mda.Molecule object actually contains multiple
         physically distinct molecules that are not bound to each other via
         covalent bonds.
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.selections_of_constituent_molecules`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.selections_of_constituent_molecules`
         
         :Returns: A python list of numpy.array objects containing the indices of
                     the atoms belonging to each molecule of the composite
-                    scoria.Molecule object.
+                    scoria_mda.Molecule object.
         """
         
         return self.selections.selections_of_constituent_molecules()
@@ -1384,7 +1384,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.select_atoms_near_other_selection`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.select_atoms_near_other_selection`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -1405,7 +1405,7 @@ class Molecule: # here's the actual Molecule class
         of a user-defined seleciton. Residues are considered unique if they
         have a unique combination of resname, resseq, and chainid fields.
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.select_atoms_in_same_residue`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.select_atoms_in_same_residue`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -1421,7 +1421,7 @@ class Molecule: # here's the actual Molecule class
         Inverts a user-defined selection (i.e., identifies all atoms that
         are not in the seleciton).
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.invert_selection`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.invert_selection`
         
         :param numpy.array selection: A numpy.array containing the indices of the
                     user-defined selection.
@@ -1434,12 +1434,12 @@ class Molecule: # here's the actual Molecule class
 
     def select_all(self):
         """
-        Selects all the atoms in a scoria.Molecule object.
+        Selects all the atoms in a scoria_mda.Molecule object.
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.select_all`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.select_all`
         
         :returns: A numpy.array containing the indices of all atoms in the
-                    scoria.Molecule object.
+                    scoria_mda.Molecule object.
         """
         
         return self.selections.select_all()
@@ -1449,13 +1449,13 @@ class Molecule: # here's the actual Molecule class
                                                     terminate_early = False):
         """
         Effectively detects steric clashes between self and another
-        scoria.Molecule.
+        scoria_mda.Molecule.
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.select_close_atoms_from_different_molecules`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.select_close_atoms_from_different_molecules`
         
-        :param scoria.Molecule other_mol: A scoria.Molecule object of the other
+        :param scoria_mda.Molecule other_mol: A scoria_mda.Molecule object of the other
                     molecule.
         :param float cutoff: A float, the user-defined distance cutoff in
                     Angstroms.
@@ -1469,7 +1469,7 @@ class Molecule: # here's the actual Molecule class
 
         :returns: A tuple containing two elements. The first is a numpy.array
                     containing the indices of all nearby atoms from this
-                    scoria.Molecule object (self). The second is a
+                    scoria_mda.Molecule object (self). The second is a
                     numpy.array containing the indices of all nearby atoms from
                     the other molecule.
         """
@@ -1484,7 +1484,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.selections_of_chains`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.selections_of_chains`
         
         :returns: A dictionary. The keys of the dictionary correspond to the
                     chainids, and the values are numpy.array objects containing
@@ -1499,7 +1499,7 @@ class Molecule: # here's the actual Molecule class
 
         Requires the :any:`numpy` library.
 
-        Wrapper function for :meth:`~scoria.Selections.Selections.selections_of_residues`
+        Wrapper function for :meth:`~scoria_mda.Selections.Selections.selections_of_residues`
         
         :returns: A dictionary. The keys of this dictionary correspond to the
                     unique resname-resseq-chainid residue identifiers, and the
@@ -1515,7 +1515,7 @@ class Molecule: # here's the actual Molecule class
         Translates the entire molecular model (without rotating) so that the
         atom with the specified index is located at the specified coordinate.
 
-        Wrapper function for :meth:`~scoria.Manipulation.Manipulation.set_atom_location`
+        Wrapper function for :meth:`~scoria_mda.Manipulation.Manipulation.set_atom_location`
         
         :param int atom_index: An int, the index of the target atom.
         :param numpy.array new_location: A numpy.array specifying the new (x, y, z)
@@ -1533,7 +1533,7 @@ class Molecule: # here's the actual Molecule class
         subsequent manipulations of atomic coordinates can be "undone" by
         reseting to this configuration via the coordinate_undo function.
 
-        Wrapper function for :meth:`~scoria.Manipulation.Manipulation.set_coordinate_undo_point`
+        Wrapper function for :meth:`~scoria_mda.Manipulation.Manipulation.set_coordinate_undo_point`
         """
 
         self.manipulation.set_coordinate_undo_point()
@@ -1543,7 +1543,7 @@ class Molecule: # here's the actual Molecule class
         Resets the coordinates of all atoms to those saved using the
         set_coordinate_undo_point function.
         
-        Wrapper function for :meth:`~scoria.Manipulation.Manipulation.coordinate_undo`
+        Wrapper function for :meth:`~scoria_mda.Manipulation.Manipulation.coordinate_undo`
         """
         
         self.manipulation.coordinate_undo()
@@ -1553,7 +1553,7 @@ class Molecule: # here's the actual Molecule class
         Translate all the atoms of the molecular model by a specified
         vector.
 
-        Wrapper function for :meth:`~scoria.Manipulation.Manipulation.translate_molecule`
+        Wrapper function for :meth:`~scoria_mda.Manipulation.Manipulation.translate_molecule`
 
         :param numpy.array delta: A numpy.array (delta_x, delta_y, delta_z) specifying the
             amount to move each atom along the x, y, and z coordinates.
@@ -1567,7 +1567,7 @@ class Molecule: # here's the actual Molecule class
         Rotate the molecular model about a line segment. The end points of
         the line segment are explicitly specified coordinates.
 
-        Wrapper function for :meth:`~scoria.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points`
+        Wrapper function for :meth:`~scoria_mda.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points`
         
         :param numpy.array line_point1: A numpy.array (x, y, z) corresponding to one end
                     of the line segment.

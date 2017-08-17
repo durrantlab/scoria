@@ -12,7 +12,7 @@ to import information from :any:`MDAnalysis
 Function Definitions
 --------------------
 
-.. automodule:: scoria.FileIO
+.. automodule:: scoria_mda.FileIO
     :members:
     :undoc-members:
     :show-inheritance:

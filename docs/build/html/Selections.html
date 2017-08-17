@@ -55,18 +55,18 @@
 <p>Functions within the Selection module search the molecule given specific
 criteria and return a list of indexes that match that criteria.</p>
 </div>
-<div class="section" id="module-scoria.Selections">
-<span id="function-definitions"></span><h2>10.2. Function Definitions<a class="headerlink" href="#module-scoria.Selections" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-scoria_mda.Selections">
+<span id="function-definitions"></span><h2>10.2. Function Definitions<a class="headerlink" href="#module-scoria_mda.Selections" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="scoria.Selections.Selections">
-<em class="property">class </em><code class="descclassname">scoria.Selections.</code><code class="descname">Selections</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Selections.Selections">
+<em class="property">class </em><code class="descclassname">scoria_mda.Selections.</code><code class="descname">Selections</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class for selecting atoms. Subclass to the
-<a class="reference internal" href="Molecule.html#module-scoria.Molecule" title="scoria.Molecule"><code class="xref py py-class docutils literal"><span class="pre">scoria.Molecule</span></code></a> class.</p>
+<a class="reference internal" href="Molecule.html#module-scoria_mda.Molecule" title="scoria_mda.Molecule"><code class="xref py py-class docutils literal"><span class="pre">scoria_mda.Molecule</span></code></a> class.</p>
 <dl class="method">
-<dt id="scoria.Selections.Selections.get_molecule_from_selection">
-<code class="descname">get_molecule_from_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.get_molecule_from_selection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a scoria.Molecule from a user-defined atom selection.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.get_molecule_from_selection" title="scoria.Molecule.Molecule.get_molecule_from_selection"><code class="xref py py-meth docutils literal"><span class="pre">get_molecule_from_selection()</span></code></a>.</p>
+<dt id="scoria_mda.Selections.Selections.get_molecule_from_selection">
+<code class="descname">get_molecule_from_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>serial_reindex=True</em>, <em>resseq_reindex=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.get_molecule_from_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a scoria_mda.Molecule from a user-defined atom selection.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.get_molecule_from_selection" title="scoria_mda.Molecule.Molecule.get_molecule_from_selection"><code class="xref py py-meth docutils literal"><span class="pre">get_molecule_from_selection()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -81,7 +81,7 @@ reindex the atom resseq fields. Default is False.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A scoria.Molecule object containing the atoms of the
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A scoria_mda.Molecule object containing the atoms of the
 user-defined selection.</p>
 </td>
 </tr>
@@ -90,12 +90,12 @@ user-defined selection.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Selections.Selections.invert_selection">
-<code class="descname">invert_selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.invert_selection" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Selections.Selections.invert_selection">
+<code class="descname">invert_selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.invert_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inverts a user-defined selection (i.e., identifies all atoms that
 are not in the seleciton).</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.invert_selection" title="scoria.Molecule.Molecule.invert_selection"><code class="xref py py-meth docutils literal"><span class="pre">invert_selection()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.invert_selection" title="scoria_mda.Molecule.Molecule.invert_selection"><code class="xref py py-meth docutils literal"><span class="pre">invert_selection()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -111,28 +111,28 @@ in the user-defined seleciton.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Selections.Selections.select_all">
-<code class="descname">select_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Selects all the atoms in a scoria.Molecule object.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_all" title="scoria.Molecule.Molecule.select_all"><code class="xref py py-meth docutils literal"><span class="pre">select_all()</span></code></a>.</p>
+<dt id="scoria_mda.Selections.Selections.select_all">
+<code class="descname">select_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.select_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects all the atoms in a scoria_mda.Molecule object.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.select_all" title="scoria_mda.Molecule.Molecule.select_all"><code class="xref py py-meth docutils literal"><span class="pre">select_all()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A numpy.array containing the indices of all atoms in the
-scoria.Molecule object.</td>
+scoria_mda.Molecule object.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Selections.Selections.select_all_atoms_bound_to_selection">
-<code class="descname">select_all_atoms_bound_to_selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_all_atoms_bound_to_selection" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Selections.Selections.select_all_atoms_bound_to_selection">
+<code class="descname">select_all_atoms_bound_to_selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.select_all_atoms_bound_to_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all the atoms that are bound to a user-specified selection.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function 
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_all_atoms_bound_to_selection" title="scoria.Molecule.Molecule.select_all_atoms_bound_to_selection"><code class="xref py py-meth docutils literal"><span class="pre">select_all_atoms_bound_to_selection()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.select_all_atoms_bound_to_selection" title="scoria_mda.Molecule.Molecule.select_all_atoms_bound_to_selection"><code class="xref py py-meth docutils literal"><span class="pre">select_all_atoms_bound_to_selection()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -150,10 +150,10 @@ original user-specified selection.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Selections.Selections.select_atoms">
-<code class="descname">select_atoms</code><span class="sig-paren">(</span><em>selection_criteria</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_atoms" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Selections.Selections.select_atoms">
+<code class="descname">select_atoms</code><span class="sig-paren">(</span><em>selection_criteria</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.select_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select a set of atoms based on user-specified criteria.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_atoms" title="scoria.Molecule.Molecule.select_atoms"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.select_atoms" title="scoria_mda.Molecule.Molecule.select_atoms"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -176,15 +176,15 @@ selection.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Selections.Selections.select_atoms_from_same_molecule">
-<code class="descname">select_atoms_from_same_molecule</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_atoms_from_same_molecule" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Selections.Selections.select_atoms_from_same_molecule">
+<code class="descname">select_atoms_from_same_molecule</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.select_atoms_from_same_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all the atoms that belong to the same molecule as a
-user-defined selection, assuming that the scoria.Molecule object
+user-defined selection, assuming that the scoria_mda.Molecule object
 actually contains multiple physically distinct molecules that are not
 bound to each other via covalent bonds.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_atoms_from_same_molecule" title="scoria.Molecule.Molecule.select_atoms_from_same_molecule"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_from_same_molecule()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.select_atoms_from_same_molecule" title="scoria_mda.Molecule.Molecule.select_atoms_from_same_molecule"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_from_same_molecule()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -201,12 +201,12 @@ selection.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Selections.Selections.select_atoms_in_bounding_box">
-<code class="descname">select_atoms_in_bounding_box</code><span class="sig-paren">(</span><em>bounding_box</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_atoms_in_bounding_box" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Selections.Selections.select_atoms_in_bounding_box">
+<code class="descname">select_atoms_in_bounding_box</code><span class="sig-paren">(</span><em>bounding_box</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.select_atoms_in_bounding_box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all the atoms that are within a bounding box.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_atoms_in_bounding_box" title="scoria.Molecule.Molecule.select_atoms_in_bounding_box"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_in_bounding_box()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.select_atoms_in_bounding_box" title="scoria_mda.Molecule.Molecule.select_atoms_in_bounding_box"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_in_bounding_box()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -223,13 +223,13 @@ within the bounding box.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Selections.Selections.select_atoms_in_same_residue">
-<code class="descname">select_atoms_in_same_residue</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_atoms_in_same_residue" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Selections.Selections.select_atoms_in_same_residue">
+<code class="descname">select_atoms_in_same_residue</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.select_atoms_in_same_residue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all atoms that are in the same residue as any of the atoms
 of a user-defined seleciton. Residues are considered unique if they
 have a unique combination of resname, resseq, and chainid fields.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_atoms_in_same_residue" title="scoria.Molecule.Molecule.select_atoms_in_same_residue"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_in_same_residue()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.select_atoms_in_same_residue" title="scoria_mda.Molecule.Molecule.select_atoms_in_same_residue"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_in_same_residue()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -245,13 +245,13 @@ residue as any of the atoms of the user-defined selection.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Selections.Selections.select_atoms_near_other_selection">
-<code class="descname">select_atoms_near_other_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>cutoff</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_atoms_near_other_selection" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Selections.Selections.select_atoms_near_other_selection">
+<code class="descname">select_atoms_near_other_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>cutoff</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.select_atoms_near_other_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects all atoms that are near the atoms of a user-defined
 selection.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.19.0)"><code class="xref any docutils literal"><span class="pre">scipy</span></code></a> libraries.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_atoms_near_other_selection" title="scoria.Molecule.Molecule.select_atoms_near_other_selection"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_near_other_selection()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.select_atoms_near_other_selection" title="scoria_mda.Molecule.Molecule.select_atoms_near_other_selection"><code class="xref py py-meth docutils literal"><span class="pre">select_atoms_near_other_selection()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -273,15 +273,15 @@ user-defined selection themselves.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Selections.Selections.select_branch">
-<code class="descname">select_branch</code><span class="sig-paren">(</span><em>root_atom_index</em>, <em>directionality_atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_branch" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Selections.Selections.select_branch">
+<code class="descname">select_branch</code><span class="sig-paren">(</span><em>root_atom_index</em>, <em>directionality_atom_index</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.select_branch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identify an isolated &#8220;branch&#8221; of a molecular model. Assumes the
 atoms with indices root_atom_index and directionality_atom_index are
 bound to one another and that the branch starts at root_atom_index one
 and &#8220;points&#8221; in the direction of directionality_atom_index.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_branch" title="scoria.Molecule.Molecule.select_branch"><code class="xref py py-meth docutils literal"><span class="pre">select_branch()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.select_branch" title="scoria_mda.Molecule.Molecule.select_branch"><code class="xref py py-meth docutils literal"><span class="pre">select_branch()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -302,19 +302,19 @@ in the branch, used to establish directionality</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Selections.Selections.select_close_atoms_from_different_molecules">
-<code class="descname">select_close_atoms_from_different_molecules</code><span class="sig-paren">(</span><em>other_mol</em>, <em>cutoff</em>, <em>pairwise_comparison=True</em>, <em>terminate_early=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.select_close_atoms_from_different_molecules" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Selections.Selections.select_close_atoms_from_different_molecules">
+<code class="descname">select_close_atoms_from_different_molecules</code><span class="sig-paren">(</span><em>other_mol</em>, <em>cutoff</em>, <em>pairwise_comparison=True</em>, <em>terminate_early=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.select_close_atoms_from_different_molecules" title="Permalink to this definition">¶</a></dt>
 <dd><p>Effectively detects steric clashes between self and another
-scoria.Molecule.</p>
+scoria_mda.Molecule.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/spatial.html#module-scipy.spatial" title="(in SciPy v0.19.0)"><code class="xref any docutils literal"><span class="pre">scipy</span></code></a> libraries.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.select_close_atoms_from_different_molecules" title="scoria.Molecule.Molecule.select_close_atoms_from_different_molecules"><code class="xref py py-meth docutils literal"><span class="pre">select_close_atoms_from_different_molecules()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.select_close_atoms_from_different_molecules" title="scoria_mda.Molecule.Molecule.select_close_atoms_from_different_molecules"><code class="xref py py-meth docutils literal"><span class="pre">select_close_atoms_from_different_molecules()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>other_mol</strong> (<a class="reference internal" href="Molecule.html#module-scoria.Molecule" title="scoria.Molecule"><em>scoria.Molecule</em></a>) &#8211; A scoria.Molecule object of the other
+<li><strong>other_mol</strong> (<a class="reference internal" href="Molecule.html#module-scoria_mda.Molecule" title="scoria_mda.Molecule"><em>scoria_mda.Molecule</em></a>) &#8211; A scoria_mda.Molecule object of the other
 molecule.</li>
 <li><strong>cutoff</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A float, the user-defined distance cutoff in
 Angstroms.</li>
@@ -330,7 +330,7 @@ default.</li>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A tuple containing two elements. The first is a numpy.array
 containing the indices of all nearby atoms from this
-scoria.Molecule object (self). The second is a
+scoria_mda.Molecule object (self). The second is a
 numpy.array containing the indices of all nearby atoms from
 the other molecule.</p>
 </td>
@@ -340,11 +340,11 @@ the other molecule.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Selections.Selections.selections_of_chains">
-<code class="descname">selections_of_chains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.selections_of_chains" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Selections.Selections.selections_of_chains">
+<code class="descname">selections_of_chains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.selections_of_chains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the atom selections of each chain.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
-<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.selections_of_chains" title="scoria.Molecule.Molecule.selections_of_chains"><code class="xref py py-meth docutils literal"><span class="pre">selections_of_chains()</span></code></a>.</p>
+<p>Should be called via the wrapper function <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.selections_of_chains" title="scoria_mda.Molecule.Molecule.selections_of_chains"><code class="xref py py-meth docutils literal"><span class="pre">selections_of_chains()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -358,34 +358,34 @@ the indices of the associated chain atoms.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Selections.Selections.selections_of_constituent_molecules">
-<code class="descname">selections_of_constituent_molecules</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.selections_of_constituent_molecules" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Selections.Selections.selections_of_constituent_molecules">
+<code class="descname">selections_of_constituent_molecules</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.selections_of_constituent_molecules" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the indices of atoms belonging to separate molecules,
-assuming that the scoria.Molecule object actually contains multiple
+assuming that the scoria_mda.Molecule object actually contains multiple
 physically distinct molecules that are not bound to each other via
 covalent bonds.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.selections_of_constituent_molecules" title="scoria.Molecule.Molecule.selections_of_constituent_molecules"><code class="xref py py-meth docutils literal"><span class="pre">selections_of_constituent_molecules()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.selections_of_constituent_molecules" title="scoria_mda.Molecule.Molecule.selections_of_constituent_molecules"><code class="xref py py-meth docutils literal"><span class="pre">selections_of_constituent_molecules()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A python list of numpy.array objects containing the indices of
 the atoms belonging to each molecule of the composite
-scoria.Molecule object.</td>
+scoria_mda.Molecule object.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Selections.Selections.selections_of_residues">
-<code class="descname">selections_of_residues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Selections.Selections.selections_of_residues" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Selections.Selections.selections_of_residues">
+<code class="descname">selections_of_residues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Selections.Selections.selections_of_residues" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies the atom selections of each residue.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
 <p>Should be called via the wrapper function
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.selections_of_residues" title="scoria.Molecule.Molecule.selections_of_residues"><code class="xref py py-meth docutils literal"><span class="pre">selections_of_residues()</span></code></a>.</p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.selections_of_residues" title="scoria_mda.Molecule.Molecule.selections_of_residues"><code class="xref py py-meth docutils literal"><span class="pre">selections_of_residues()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -414,7 +414,7 @@ the associated residue atoms.</td>
   <ul>
 <li><a class="reference internal" href="#">10. The Selections class</a><ul>
 <li><a class="reference internal" href="#using-the-selection-functions">10.1. Using the Selection functions</a></li>
-<li><a class="reference internal" href="#module-scoria.Selections">10.2. Function Definitions</a></li>
+<li><a class="reference internal" href="#module-scoria_mda.Selections">10.2. Function Definitions</a></li>
 </ul>
 </li>
 </ul>

@@ -29,14 +29,14 @@ from .six.moves import range
 class AtomsAndBonds():
     """
     A class for adding and deleting atoms and bonds. Subclass to the
-    :py:class:`scoria.Molecule` class.
+    :py:class:`scoria_mda.Molecule` class.
     """
 
     def __init__(self, parent_molecule_object):
         """
-        Initializes the scoria.AtomsAndBonds class.
+        Initializes the scoria_mda.AtomsAndBonds class.
 
-        :param scoria.Molecule parent_molecule_object: The scoria.Molecule object
+        :param scoria_mda.Molecule parent_molecule_object: The scoria_mda.Molecule object
                     associated with this class.
 
         """
@@ -52,7 +52,7 @@ class AtomsAndBonds():
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.create_bonds_by_distance`.
+        :meth:`~scoria_mda.Molecule.Molecule.create_bonds_by_distance`.
 
         :param bool remove_old_bond_data: An optional boolean, whether or not to
                     discard old bond data before adding in bonds determined by
@@ -176,7 +176,7 @@ class AtomsAndBonds():
         Requires the :any:`numpy` library.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.get_number_of_bond_partners_of_element`.
+        :meth:`~scoria_mda.Molecule.Molecule.get_number_of_bond_partners_of_element`.
 
         :param int atom_index: An int, the index of the atom of interest.
         :param str the_element: A string describing the element of the neighbors
@@ -211,7 +211,7 @@ class AtomsAndBonds():
         Requires the :mod:`numpy` and :mod:`scipy.spatial` libraries.
 
         Should be called via the wrapper function
-        :meth:`~scoria.Molecule.Molecule.get_index_of_first_bond_partner_of_element`.
+        :meth:`~scoria_mda.Molecule.Molecule.get_index_of_first_bond_partner_of_element`.
 
         :param int atom_index: An int, the index of the atom of interest.
         :param str the_element: A string specifying the desired element of the
@@ -245,7 +245,7 @@ class AtomsAndBonds():
         """
         Deletes a bond.
 
-        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.delete_bond`.
+        Should be called via the wrapper function :meth:`~scoria_mda.Molecule.Molecule.delete_bond`.
         
         :param int index1: An int, the index of the first atom of the bonded
                     pair.
@@ -267,7 +267,7 @@ class AtomsAndBonds():
         """
         Adds a bond.
 
-        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.add_bond`.
+        Should be called via the wrapper function :meth:`~scoria_mda.Molecule.Molecule.add_bond`.
 
         :param int index1: An int, the index of the first atom of the bonded
                     pair.
@@ -288,7 +288,7 @@ class AtomsAndBonds():
         """
         Deletes an atom.
 
-        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.delete_atom`.
+        Should be called via the wrapper function :meth:`~scoria_mda.Molecule.Molecule.delete_atom`.
 
         :param int index: An int, the index of the atom to delete.
         """
@@ -347,7 +347,7 @@ class AtomsAndBonds():
         """
         Adds an atom.
 
-        Should be called via the wrapper function :meth:`~scoria.Molecule.Molecule.add_atom`.
+        Should be called via the wrapper function :meth:`~scoria_mda.Molecule.Molecule.add_atom`.
 
         :param str record_name: An optional string, the record name of the atom.
                     "ATOM" is the default.

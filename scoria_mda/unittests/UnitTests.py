@@ -34,7 +34,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 class UnitTests(object):
     """
-    Unit testing object for scoria.
+    Unit testing object for scoria_mda.
     """
     def __init__(self):
         """

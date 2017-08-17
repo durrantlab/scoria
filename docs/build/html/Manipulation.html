@@ -60,27 +60,27 @@
 Molecule. The coordinate set can be shifted and rotated based on several
 criteria.</p>
 </div>
-<div class="section" id="module-scoria.Manipulation">
-<span id="function-definitions"></span><h2>7.2. Function Definitions<a class="headerlink" href="#module-scoria.Manipulation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-scoria_mda.Manipulation">
+<span id="function-definitions"></span><h2>7.2. Function Definitions<a class="headerlink" href="#module-scoria_mda.Manipulation" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="scoria.Manipulation.Manipulation">
-<em class="property">class </em><code class="descclassname">scoria.Manipulation.</code><code class="descname">Manipulation</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Manipulation.Manipulation" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Manipulation.Manipulation">
+<em class="property">class </em><code class="descclassname">scoria_mda.Manipulation.</code><code class="descname">Manipulation</code><span class="sig-paren">(</span><em>parent_molecule_object</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Manipulation.Manipulation" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class for translating and rotating the atomic coordinates of a
-scoria.Molecule object</p>
+scoria_mda.Molecule object</p>
 <dl class="method">
-<dt id="scoria.Manipulation.Manipulation.coordinate_undo">
-<code class="descname">coordinate_undo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Manipulation.Manipulation.coordinate_undo" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Manipulation.Manipulation.coordinate_undo">
+<code class="descname">coordinate_undo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Manipulation.Manipulation.coordinate_undo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets the coordinates of all atoms to those saved using the
 set_coordinate_undo_point function.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms">
-<code class="descname">rotate_molecule_around_a_line_between_atoms</code><span class="sig-paren">(</span><em>line_point1_index</em>, <em>line_point2_index</em>, <em>rotate</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms">
+<code class="descname">rotate_molecule_around_a_line_between_atoms</code><span class="sig-paren">(</span><em>line_point1_index</em>, <em>line_point2_index</em>, <em>rotate</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Manipulation.Manipulation.rotate_molecule_around_a_line_between_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate the molecular model about a line segment. The end points of
 the line segment are atoms of specified indices.</p>
 <p>Wrapper function for 
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.rotate_molecule_around_a_line_between_atoms" title="scoria.Molecule.Molecule.rotate_molecule_around_a_line_between_atoms"><code class="xref py py-meth docutils literal"><span class="pre">rotate_molecule_around_a_line_between_atoms()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.rotate_molecule_around_a_line_between_atoms" title="scoria_mda.Molecule.Molecule.rotate_molecule_around_a_line_between_atoms"><code class="xref py py-meth docutils literal"><span class="pre">rotate_molecule_around_a_line_between_atoms()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -99,12 +99,12 @@ the other end of the line segment.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points">
-<code class="descname">rotate_molecule_around_a_line_between_points</code><span class="sig-paren">(</span><em>line_point1</em>, <em>line_point2</em>, <em>rotate</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points">
+<code class="descname">rotate_molecule_around_a_line_between_points</code><span class="sig-paren">(</span><em>line_point1</em>, <em>line_point2</em>, <em>rotate</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Manipulation.Manipulation.rotate_molecule_around_a_line_between_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate the molecular model about a line segment. The end points of
 the line segment are explicitly specified coordinates.</p>
 <p>Wrapper function for 
-<a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.rotate_molecule_around_a_line_between_points" title="scoria.Molecule.Molecule.rotate_molecule_around_a_line_between_points"><code class="xref py py-meth docutils literal"><span class="pre">rotate_molecule_around_a_line_between_points()</span></code></a></p>
+<a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.rotate_molecule_around_a_line_between_points" title="scoria_mda.Molecule.Molecule.rotate_molecule_around_a_line_between_points"><code class="xref py py-meth docutils literal"><span class="pre">rotate_molecule_around_a_line_between_points()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -123,11 +123,11 @@ other end of the line segment.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Manipulation.Manipulation.rotate_molecule_around_pivot_atom">
-<code class="descname">rotate_molecule_around_pivot_atom</code><span class="sig-paren">(</span><em>pivot_index</em>, <em>thetax</em>, <em>thetay</em>, <em>thetaz</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Manipulation.Manipulation.rotate_molecule_around_pivot_atom" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Manipulation.Manipulation.rotate_molecule_around_pivot_atom">
+<code class="descname">rotate_molecule_around_pivot_atom</code><span class="sig-paren">(</span><em>pivot_index</em>, <em>thetax</em>, <em>thetay</em>, <em>thetaz</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Manipulation.Manipulation.rotate_molecule_around_pivot_atom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate the molecular model around a specified atom.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.rotate_molecule_around_pivot_atom" title="scoria.Molecule.Molecule.rotate_molecule_around_pivot_atom"><code class="xref py py-meth docutils literal"><span class="pre">rotate_molecule_around_pivot_atom()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.rotate_molecule_around_pivot_atom" title="scoria_mda.Molecule.Molecule.rotate_molecule_around_pivot_atom"><code class="xref py py-meth docutils literal"><span class="pre">rotate_molecule_around_pivot_atom()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -149,11 +149,11 @@ in radians.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Manipulation.Manipulation.rotate_molecule_around_pivot_point">
-<code class="descname">rotate_molecule_around_pivot_point</code><span class="sig-paren">(</span><em>pivot</em>, <em>thetax</em>, <em>thetay</em>, <em>thetaz</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Manipulation.Manipulation.rotate_molecule_around_pivot_point" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Manipulation.Manipulation.rotate_molecule_around_pivot_point">
+<code class="descname">rotate_molecule_around_pivot_point</code><span class="sig-paren">(</span><em>pivot</em>, <em>thetax</em>, <em>thetay</em>, <em>thetaz</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Manipulation.Manipulation.rotate_molecule_around_pivot_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate the molecular model around a specified atom.</p>
 <p>Requires the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.12)"><code class="xref any docutils literal"><span class="pre">numpy</span></code></a> library.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.rotate_molecule_around_pivot_point" title="scoria.Molecule.Molecule.rotate_molecule_around_pivot_point"><code class="xref py py-meth docutils literal"><span class="pre">rotate_molecule_around_pivot_point()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.rotate_molecule_around_pivot_point" title="scoria_mda.Molecule.Molecule.rotate_molecule_around_pivot_point"><code class="xref py py-meth docutils literal"><span class="pre">rotate_molecule_around_pivot_point()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -175,11 +175,11 @@ in radians.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Manipulation.Manipulation.set_atom_location">
-<code class="descname">set_atom_location</code><span class="sig-paren">(</span><em>atom_index</em>, <em>new_location</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Manipulation.Manipulation.set_atom_location" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Manipulation.Manipulation.set_atom_location">
+<code class="descname">set_atom_location</code><span class="sig-paren">(</span><em>atom_index</em>, <em>new_location</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Manipulation.Manipulation.set_atom_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Translates the entire molecular model (without rotating) so that the
 atom with the specified index is located at the specified coordinate.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.set_atom_location" title="scoria.Molecule.Molecule.set_atom_location"><code class="xref py py-meth docutils literal"><span class="pre">set_atom_location()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.set_atom_location" title="scoria_mda.Molecule.Molecule.set_atom_location"><code class="xref py py-meth docutils literal"><span class="pre">set_atom_location()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -200,19 +200,19 @@ by which the pmolecule.Molecule was translated.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Manipulation.Manipulation.set_coordinate_undo_point">
-<code class="descname">set_coordinate_undo_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Manipulation.Manipulation.set_coordinate_undo_point" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Manipulation.Manipulation.set_coordinate_undo_point">
+<code class="descname">set_coordinate_undo_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Manipulation.Manipulation.set_coordinate_undo_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets (&#8220;saves&#8221;) the undo point of the atom coordinates. Any
 subsequent manipulations of atomic coordinates can be &#8220;undone&#8221; by
 reseting to this configuration via the coordinate_undo function.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="scoria.Manipulation.Manipulation.translate_molecule">
-<code class="descname">translate_molecule</code><span class="sig-paren">(</span><em>delta</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria.Manipulation.Manipulation.translate_molecule" title="Permalink to this definition">¶</a></dt>
+<dt id="scoria_mda.Manipulation.Manipulation.translate_molecule">
+<code class="descname">translate_molecule</code><span class="sig-paren">(</span><em>delta</em><span class="sig-paren">)</span><a class="headerlink" href="#scoria_mda.Manipulation.Manipulation.translate_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Translate all the atoms of the molecular model by a specified
 vector.</p>
-<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria.Molecule.Molecule.translate_molecule" title="scoria.Molecule.Molecule.translate_molecule"><code class="xref py py-meth docutils literal"><span class="pre">translate_molecule()</span></code></a></p>
+<p>Wrapper function for <a class="reference internal" href="Molecule.html#scoria_mda.Molecule.Molecule.translate_molecule" title="scoria_mda.Molecule.Molecule.translate_molecule"><code class="xref py py-meth docutils literal"><span class="pre">translate_molecule()</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -239,7 +239,7 @@ amount to move each atom along the x, y, and z coordinates.</td>
   <ul>
 <li><a class="reference internal" href="#">7. The Manipulation class</a><ul>
 <li><a class="reference internal" href="#rationale-of-the-manipulation-functions">7.1. Rationale of the Manipulation functions</a></li>
-<li><a class="reference internal" href="#module-scoria.Manipulation">7.2. Function Definitions</a></li>
+<li><a class="reference internal" href="#module-scoria_mda.Manipulation">7.2. Function Definitions</a></li>
 </ul>
 </li>
 </ul>

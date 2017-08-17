@@ -11,7 +11,7 @@ and add other molecules.
 Function Definitions
 --------------------
 
-.. automodule:: scoria.OtherMolecules
+.. automodule:: scoria_mda.OtherMolecules
     :members:
     :undoc-members:
     :show-inheritance:
