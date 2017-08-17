@@ -34,6 +34,6 @@ from scoria_mda.Selections import Selections
 
 # By default, leave these commented out. They require numpy and so break pypy
 # compatibility. Just uncomment when you want to test.
-from scoria_mda.unittests.UnitTests import UnitTests
+# from scoria_mda.unittests.UnitTests import UnitTests
 
 __version__ = "2.0"
