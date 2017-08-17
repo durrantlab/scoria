@@ -20,7 +20,7 @@
 # derived from the original Scoria source code, which retains its
 # Apache 2.0 license.
 
-import scoria
+import scoria_mda
 import numpy as np
 
 # Load in a DCD/PSF trajectory.

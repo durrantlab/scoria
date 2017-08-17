@@ -22,7 +22,7 @@
 
 from __future__ import absolute_import
 from __future__ import print_function
-from scoria import dumbpy as numpy
+from scoria_mda import dumbpy as numpy
 import os
 import sys
 from .six.moves import range
@@ -37,7 +37,7 @@ import tempfile
 try: import cStringIO as StringIO  # python2
 except: from io import StringIO  # python3
 
-import scoria
+import scoria_mda
 
 class FileIO():
     """A class for saving and loading molecular data into a scoria_mda.Molecule

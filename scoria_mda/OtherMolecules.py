@@ -22,7 +22,7 @@
 
 from __future__ import absolute_import
 from __future__ import print_function
-from scoria import dumbpy as numpy
+from scoria_mda import dumbpy as numpy
 from scoria_mda.Quaternion import Quaternion
 
 

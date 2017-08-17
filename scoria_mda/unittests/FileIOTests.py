@@ -27,12 +27,12 @@ import sys
 import shutil
 
 #import numpy as np
-from scoria import dumbpy as np
+from scoria_mda import dumbpy as np
 
 try: import MDAnalysis  # pypy shouldn't be able to load this.
 except: pass
 
-import scoria
+import scoria_mda
 import shutil
 
 

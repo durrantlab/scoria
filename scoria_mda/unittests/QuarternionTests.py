@@ -26,9 +26,9 @@ import os
 import sys
 
 #import numpy as np
-from scoria import dumbpy as np
+from scoria_mda import dumbpy as np
 
-import scoria
+import scoria_mda
 
 
 class OtherMoleculeTests(unittest.TestCase):

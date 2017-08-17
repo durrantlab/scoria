@@ -27,9 +27,9 @@ import sys
 import copy
 
 #import numpy as np
-from scoria import dumbpy as np
+from scoria_mda import dumbpy as np
 
-import scoria
+import scoria_mda
 from ..six.moves import range
 
 

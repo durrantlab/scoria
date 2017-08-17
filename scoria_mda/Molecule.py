@@ -21,7 +21,7 @@
 # Apache 2.0 license.
 
 from __future__ import absolute_import
-from scoria import dumbpy as numpy
+from scoria_mda import dumbpy as numpy
 from .FileIO import FileIO
 from .AtomsAndBonds import AtomsAndBonds
 from .Selections import Selections
@@ -39,7 +39,7 @@ class Molecule: # here's the actual Molecule class
 
     Examples assume::
 
-        >>> import scoria
+        >>> import scoria_mda
         >>> PSF = "./test_file.psf"
         >>> DCD = "./test_file.dcd"
         >>> mol = scoria_mda.Molecule()

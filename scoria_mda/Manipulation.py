@@ -21,7 +21,7 @@
 # Apache 2.0 license.
 
 from __future__ import absolute_import
-from scoria import dumbpy as numpy
+from scoria_mda import dumbpy as numpy
 from .six.moves import range
 import copy
 

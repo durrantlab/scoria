@@ -29,7 +29,7 @@ try: import cStringIO as StringIO  # python2
 except: from io import StringIO  # python3
 
 import os
-from scoria import dumbpy as numpy
+from scoria_mda import dumbpy as numpy
 import inspect
 from time import time
 import shutil
