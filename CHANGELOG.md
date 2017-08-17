@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.0.2] 2017-08-17
+### Fixed
+- Corrected imports from `scoria` to `scoria_mda`
+
 ## [1.0.1] 2017-08-16
 ### Added
 - Change log
