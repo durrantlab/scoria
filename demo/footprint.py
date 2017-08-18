@@ -24,7 +24,11 @@ else:
 
 # Load in a PDB trajectory.
 print("Loading Molecule...")
-mol = scoria.Molecule("../scoria/sample-files/test_sim.pdb")
+mol = scoria.Molecule(
+    "../" + 
+    ("scoria" if os.path.exists("../scoria") else "scoria_mda") + 
+    "/sample-files/test_sim.pdb"
+)
 
 # Create two new trajectories, corresponding to the shroom2
 # protein and the rock1 dimer, respectively. Shroom2 is 
