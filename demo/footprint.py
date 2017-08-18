@@ -12,15 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import scoria
+import sys
+import os
 import numpy as np
 
-# Load in a DCD/PSF trajectory.
+sys.path.insert(0, os.path.abspath("../"))
+if os.path.exists("../scoria"):
+    import scoria
+else:
+    import scoria_mda as scoria
+
+# Load in a PDB trajectory.
 print("Loading Molecule...")
-mol = scoria.Molecule(
-    "../scoria/sample-files/test_sim.psf", 
-    "../scoria/sample-files/test_sim.dcd"
-)
+mol = scoria.Molecule("../scoria/sample-files/test_sim.pdb")
 
 # Create two new trajectories, corresponding to the shroom2
 # protein and the rock1 dimer, respectively. Shroom2 is 
