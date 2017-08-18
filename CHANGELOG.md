@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [1.0.2] 2017-08-18
+### Added
+- Supporting PDB file for demo script
+
+### Fixed
+- Fixed demo script
+
+### Removed
+- Removed PSF & DCD testing files  
+
 ## [1.0.1] 2017-08-16
 ### Added
 - Change log
