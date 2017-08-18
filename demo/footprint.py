@@ -16,18 +16,23 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Note that this version of Scoria (with MDAnalysis integration) is
-# derived from the original Scoria source code, which retains its
-# Apache 2.0 license.
 
-import scoria_mda
+import sys
+import os
 import numpy as np
 
-# Load in a DCD/PSF trajectory.
+sys.path.insert(0, os.path.abspath("../"))
+if os.path.exists("../scoria"):
+    import scoria
+else:
+    import scoria_mda as scoria
+
+# Load in a PDB trajectory.
 print("Loading Molecule...")
-mol = scoria_mda.Molecule(
-    "../scoria/sample-files/test_sim.psf", 
-    "../scoria/sample-files/test_sim.dcd"
+mol = scoria.Molecule(
+    "../" + 
+    ("scoria" if os.path.exists("../scoria") else "scoria_mda") + 
+    "/sample-files/test_sim.pdb"
 )
 
 # Create two new trajectories, corresponding to the shroom2
