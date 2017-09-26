@@ -25,7 +25,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="scoria_mda",
-    version="1.0.3",
+    version="1.0.4",
     author="Jacob Durrant",
     author_email="durrantj@gmail.com",
     description="A lightweight molecule manipulation codebase.",
@@ -41,8 +41,7 @@ setup(
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Natural Language :: English",
-        "Operating System :: OS Independent",
-        "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+        "Operating System :: OS Independent",        "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
         "Topic :: Scientific/Engineering :: Bio-Informatics",

@@ -46,6 +46,10 @@ Scoria runs best with NumPy and SciPy. Some versions can also use the
 MDAnalysis library for additional import methods. The first two dependancies
 should be automatically installed alongside the package.
 
+Citation
+--------
+Ropp, Patrick, Aaron Friedman, and Jacob D. Durrant. "Scoria: a Python module for manipulating 3D molecular data." Journal of Cheminformatics 9, no. 1 (2017): 52.
+
 Authors and Contacts
 --------------------
 

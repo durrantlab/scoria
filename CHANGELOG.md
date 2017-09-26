@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.0.4] 2017-09-26
+### Added
+- Added citation for paper to README.md
+
 ## [1.0.3] 2017-08-18
 ### Added
 - Supporting PDB file for demo script
@@ -15,6 +19,7 @@
 ## [1.0.2] 2017-08-17
 ### Fixed
 - Corrected imports from `scoria` to `scoria_mda`
+
 
 ## [1.0.1] 2017-08-16
 ### Added
