@@ -11,9 +11,10 @@ The Latest Version
 ------------------
 
 Visit [https://git.durrantlab.com/jdurrant/scoria/tree/1.0.0](https://git.durrantlab.com/jdurrant/scoria/tree/1.0.0)
-to:
+to download the latest version. The same version is mirrored on GitHub.
 
-* download the latest version
+Visit [http://durrantlab.com/scoria/](http://durrantlab.com/scoria/) to:
+
 * read the documenation
 * suggest an improvement
 * point out a bug
