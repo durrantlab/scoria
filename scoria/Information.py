@@ -37,12 +37,13 @@ class Information():
 
         self.__constants = {}
         # Removed HG from this list to avoid capturing gamma hydrogens
-        self.__constants['element_names_with_two_letters'] = ['BR', 'CL', 'BI',
-                                                              'AS', 'AG', 'LI',
-                                                              'MG', 'RH', 'ZN',
-                                                              'MN']
+        self.__constants['element_names_with_two_letters'] = [b'BR', b'CL', b'BI',
+                                                              b'AS', b'AG', b'LI',
+                                                              b'MG', b'RH', b'ZN',
+                                                              b'MN']
 
-        # SHORTEN LENGTH OF BOND_LENGTH_DICT
+        # SHORTEN LENGTH OF BOND_LENGTH_DICT. Per tests, keys don't need to be
+        # byte strings.
         self.__constants['bond_length_dict'] = {
             'C-C': 1.53, 'N-N': 1.425, 'O-O': 1.469, 'S-S': 2.048,
             'C-H': 1.059, 'H-C': 1.059, 'C-N': 1.469, 'N-C': 1.469,
@@ -73,6 +74,7 @@ class Information():
 
         #INCLUDE ALL N AND C TERMINAL
 
+        # Note: In tests I've found that these don't need to be byte strings.
         self.__constants['protein_residues'] = ["ALA", "ARG", "ASH", "ASN",
                                                 "ASP", "CYM", "CYS", "CYX",
                                                 "GLN", "GLH", "GLU", "GLY",
@@ -94,16 +96,19 @@ class Information():
                                                 'NMET', 'NPHE', 'NPRO', 'NSER',
                                                 'NTHR', 'NTRP', 'NTYR', 'NVAL']
 
+        # Note: In tests I've found that these don't need to be byte strings.
         self.__constants['dna_residues'] = ["A", "C", "G", "T", "DA", "DA3",
                                             "DA5", "DAN", "DC", "DC3", "DC4",
                                             "DC5", "DCN", "DG", "DG3", "DG5",
                                             "DGN", "DT", "DT3", "DT5", "DTN"]
 
+        # Note: In tests I've found that these don't need to be byte strings.
         self.__constants['rna_residues'] = ["A", "C", "G", "U", "RA", "RA3",
                                             "RA5", "RAN", "RC", "RC3", "RC4",
                                             "RC5", "RCN", "RG", "RG3", "RG5",
                                             "RGN", "RU", "RU3", "RU5", "RUN"]
 
+        # Confirmed that keys here don't have to be byte strings.
         self.__constants['mass_dict'] = {
             'H': 1.00794, 'C': 12.0107, 'N': 14.0067, 'O': 15.9994,
             'S': 32.065, 'P': 30.973762, 'NA': 22.9897, 'MG': 24.3050,
@@ -148,7 +153,7 @@ class Information():
         Returns the filename that the molecule was originally loaded from.
 
         Wrapper function for :meth:`~scoria.Molecule.Molecule.get_filename`
-        
+
         :returns: The names of the files as a list.
 
         :rtype: :any:`list`
@@ -160,7 +165,7 @@ class Information():
             >>> print(mol.get_filename())
             single_frame.pdb
         """
-        
+
         #if len(self.__filename) == 1:
         #    return self.__filename[0]
         #else:
@@ -173,7 +178,7 @@ class Information():
         Returns the remarks from the file the molecule was loaded from.
 
         Wrapper function for :meth:`~scoria.Molecule.Molecule.get_remarks`
-        
+
         :returns: The remarks from the file an a list of strings.
 
         :rtype: *list*
@@ -233,13 +238,13 @@ class Information():
         Returns the trajectory for the molecule.
 
         Wrapper function for :meth:`~scoria.Molecule.Molecule.get_trajectory_coordinates`
-        
+
         :returns: The set of all coordinates.
                     ::
-                
+
                         [[[x11, y11, z11], ... [x1n, y1n, z1n]],
                          ...,
-                         [[xm1, ym1, zm1], ... [xmn, ymn, zmn]]] 
+                         [[xm1, ym1, zm1], ... [xmn, ymn, zmn]]]
 
         :rtype: *numpy.array*
 
@@ -250,14 +255,14 @@ class Information():
             [[ -30.85199928  -81.45800018  365.05499268]
              [ -31.99500084  -80.69300079  365.66900635]
              [ -32.0530014   -81.13200378  367.18200684]
-             ..., 
+             ...,
              [ -27.54199982  -96.25099945  402.83700562]
              [ -23.54199982  -94.7539978   400.41900635]
              [ -22.86100006  -93.72499847  400.55300903]]
             [[ -30.6779995   -81.32499695  365.73199463]
              [ -31.88100052  -80.38600159  366.0289917 ]
              [ -32.40399933  -80.62799835  367.45700073]
-             ..., 
+             ...,
              [ -27.44400024  -96.71099854  402.64700317]
              [ -23.79199982  -94.58899689  400.63598633]
              [ -23.10700035  -93.56300354  400.79598999]]
@@ -272,10 +277,10 @@ class Information():
 
         Wrapper function for :meth:`~scoria.Molecule.Molecule.get_coordinates`
 
-        :param int frame: The timestep from which the coordinates shoule be 
-                        returned. If ommitted, it defaults to the first 
+        :param int frame: The timestep from which the coordinates shoule be
+                        returned. If ommitted, it defaults to the first
                         frame of the trajectory.
-        
+
         :returns: The set of coordinates from the specified frame.
                     ::
 
@@ -289,16 +294,16 @@ class Information():
             [[ -30.85199928  -81.45800018  365.05499268]
              [ -31.99500084  -80.69300079  365.66900635]
              [ -32.0530014   -81.13200378  367.18200684]
-             ..., 
+             ...,
              [ -27.54199982  -96.25099945  402.83700562]
              [ -23.54199982  -94.7539978   400.41900635]
              [ -22.86100006  -93.72499847  400.55300903]]
-             
+
             >>> print(mol.get_coordinates(2))
             [[ -28.88899994  -80.45700073  365.51699829]
              [ -30.20000076  -79.73699951  365.99700928]
              [ -30.90699959  -80.5510025   367.13000488]
-             ..., 
+             ...,
              [ -26.0189991   -97.28099823  403.52600098]
              [ -23.2140007   -94.73999786  400.94699097]
              [ -22.52899933  -93.73300171  400.81399536]]
@@ -329,7 +334,7 @@ class Information():
     def get_bonds(self):
         """
         Retreives the bonds beteween atoms as a n x n matrix.
-        
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.get_bonds`
 
         :returns: A binary n x n matrix, where bonds are represented by 1.
@@ -372,7 +377,7 @@ class Information():
     def get_constants(self):
         """
         Returns a dictionary containing the constants assumed for the molecular model.
-        
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.get_constants`
 
         :returns: The constants assumed by the model.
@@ -388,7 +393,7 @@ class Information():
         vdw_dict                       dict{str:float} Van der Waals force of elements
         i8_fields                      list(str)       Atom Information integers
         protein_residues               list(str)       Protein residue names
-        bond_length_dict               dict{str:float} Element-pair bond length 
+        bond_length_dict               dict{str:float} Element-pair bond length
         element_names_with_two_letters list(str)       Element symbols with 2 letters
         max_number_of_bonds_permitted  dict{str:int}   Max bonds per element
         dna_residues                   list(str)       DNA reside names
@@ -403,9 +408,9 @@ class Information():
         """
         Sets the __filename variable. Note: this does not reload or modify the
         molecule in anyway.
-        
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.set_filename`
-         
+
         :param str filename: String representation of the filename.
         """
 
@@ -442,7 +447,7 @@ class Information():
     def set_trajectory_coordinates(self, trajectory):
         """
         Sets the __trajectory variable.
-        
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.set_trajectory_coordinates`
 
         :param numpy.array trajectory: An array of atomic coordinates.
@@ -453,9 +458,9 @@ class Information():
     def set_coordinates(self, coordinates, frame = None):
         """
         Sets a specified frame of the __trajectory variable.
-        
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.set_coordinates`
-        
+
         :param numpy.array coordinates: An array of atomic coordinates.
         :param int frame: An integer represeting the frame of the trajectory to be modified
         """
@@ -471,10 +476,10 @@ class Information():
     def set_coordinates_undo_point(self, coordinates_undo_point):
         """
         Sets the __coordinates_undo_point variable.
-        
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.set_coordinates_undo_point`
-        
-        :param numpy.array coordinates_undo_point: A coordinate set to revert 
+
+        :param numpy.array coordinates_undo_point: A coordinate set to revert
             to after modification.
         """
 
@@ -482,13 +487,13 @@ class Information():
 
     def set_bonds(self, bonds):
         """
-        Sets the __bonds variable. See 
-        :meth:`~scoria.Molecule.Molecule.get_bonds` for additional 
+        Sets the __bonds variable. See
+        :meth:`~scoria.Molecule.Molecule.get_bonds` for additional
         information.
-        
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.set_bonds`
-        
-        :param numpy.array bonds: A binary n x n matrix containing bonding 
+
+        :param numpy.array bonds: A binary n x n matrix containing bonding
             information.
         """
 
@@ -497,7 +502,7 @@ class Information():
     def set_hierarchy(self, hierarchy):
         """Sets the __hierarchy variable.
         DEPRECIATED?
-        
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.set_hierarchy`
         """
 
@@ -509,7 +514,7 @@ class Information():
         residue names.
 
         Wrapper function for :meth:`~scoria.Molecule.Molecule.belongs_to_protein`
-        
+
         :param int atom_index: An int, the index of the atom to consider.
 
         :returns: A boolean. True if part of protein, False if not.
@@ -566,12 +571,12 @@ class Information():
 
     def assign_masses(self):
         """
-        Assigns masses to the atoms of the scoria.Molecule object. 
+        Assigns masses to the atoms of the scoria.Molecule object.
 
         Wrapper function for :meth:`~scoria.Molecule.Molecule.assign_masses`
 
         **Note**:
-        This will autopopulate the masses according to their element 
+        This will autopopulate the masses according to their element
         identification and takes no input.
         """
 
@@ -650,11 +655,9 @@ class Information():
             one_tht_shd_b_2_lttrs
         )[0]
 
-
         indices_of_one_letter_elements = numpy.nonzero(
             numpy.logical_not(one_tht_shd_b_2_lttrs)
         )[0]
-
 
         # get ones that are one-letter elements
         fix_element_names[indices_of_one_letter_elements] = (
@@ -714,7 +717,7 @@ class Information():
         if frame == None:
             frame = self.__default_frame
 
-        if selection is None: 
+        if selection is None:
             selection = self.__parent_molecule.select_all()
 
         # make sure the masses have been asigned
@@ -751,10 +754,10 @@ class Information():
                           If ommitted, all atoms of the scoria.Molecule object
                           will be considered.
 
-        :param int frame: The timestep at which the geometric center 
+        :param int frame: The timestep at which the geometric center
                       should be calculated. If ommitted, it defaults to the first
                       frame of the trajectory.
-        
+
         :returns: The x, y, and z coordinates of the geometric center.
 
         :rtype: *numpy.array*
@@ -811,15 +814,15 @@ class Information():
     def get_total_number_of_atoms(self, selection = None, frame = None):
         """
         Counts the number of atoms.
-        
-        Wrapper function for 
+
+        Wrapper function for
         :meth:`~scoria.Molecule.Molecule.get_total_number_of_atoms`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
                     the atoms to count. If ommitted, all atoms of the
                     scoria.Molecule object will be considered.
         :param int frame: An integer indicating at which timestep the center of
-                    mass should be calculated. If ommitted, it defaults to the 
+                    mass should be calculated. If ommitted, it defaults to the
                     first frame of the trajectory.
 
         :returns:  The total number of atoms.
@@ -841,9 +844,9 @@ class Information():
     def get_total_number_of_heavy_atoms(self, selection = None):
         """
         Counts the number of heavy atoms (i.e., atoms that are not
-        hydrogens). 
+        hydrogens).
 
-        Wrapper function for 
+        Wrapper function for
         :meth:`~scoria.Molecule.Molecule.get_total_number_of_heavy_atoms`
 
         :param numpy.array selection: An optional numpy.array containing the indices of
@@ -878,7 +881,7 @@ class Information():
         :param float padding: An optional float. The bounding box will extend this
                     many angstroms beyond the atoms being considered.
         :param int frame: An integer indicating at which timestep the center of
-                    mass should be calculated. If ommitted, it defaults to the 
+                    mass should be calculated. If ommitted, it defaults to the
                     first frame of the trajectory.
 
         :returns: A numpy array representing two 3D points, (min_x, min_y, min_z)
@@ -889,7 +892,7 @@ class Information():
         if frame == None:
             frame = self.__default_frame
 
-        if selection is None: 
+        if selection is None:
             selection = self.__parent_molecule.select_all()
 
         return numpy.vstack(
@@ -910,7 +913,7 @@ class Information():
         :param float padding: An optional float. The bounding sphere will extend
                     this many angstroms beyond the atoms being considered.
         :param int frame: An integer indicating at which timestep the center of
-                    mass should be calculated. If ommitted, it defaults to the 
+                    mass should be calculated. If ommitted, it defaults to the
                     first frame of the trajectory.
 
         :returns: A tuple containing two elements. The first is a numpy.array
@@ -951,7 +954,7 @@ class Information():
 
         Requires the :any:`numpy` and :any:`scipy<scipy.spatial>` libraries.
 
-        Wrapper function for 
+        Wrapper function for
         :meth:`~scoria.Molecule.Molecule.define_molecule_chain_residue_spherical_boundaries`
         """
 
@@ -1034,7 +1037,7 @@ class Information():
         """
         Reindexes the serial field of the atoms in the molecule, starting
         with 1.
-        
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.serial_reindex`
         """
 
@@ -1068,7 +1071,7 @@ class Information():
         index_of_change = numpy.nonzero(numpy.logical_not(keys == keys2))[0]
         index_of_change = numpy.append(index_of_change,
                                        len(self.__atom_information))
-        
+
 
         count = 1
         for t in range(len(index_of_change[:-1])):
@@ -1098,7 +1101,7 @@ class Information():
     def delete_trajectory_frame(self, index):
         """
         Removes a given frame from the trajectory.
-  
+
         Wrapper function for :meth:`~scoria.Molecule.Molecule.delete_trajectory_frame`
 
         :param int index: Integer of the frame to remove.
@@ -1132,7 +1135,7 @@ class Information():
 
     def set_default_trajectory_frame(self, frame):
         """
-        Se's the default trajectory frame index for various calculations. 
+        Se's the default trajectory frame index for various calculations.
 
         :param int frame: The default frame for coordinate selection.
         """
