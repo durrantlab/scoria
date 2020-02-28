@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-## [1.0.2] 2020-02-27
+## [1.0.4] 2020-02-27
 ### Changed
 - Fixed Python3 bug in `assign_elements_from_atom_names()` function.
 

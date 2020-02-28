@@ -17,9 +17,9 @@ from setuptools import setup, find_packages
 
 setup(
     name="scoria",
-    version="1.0.2",
+    version="1.0.4",
     author="Jacob Durrant",
-    author_email="durrantj@gmail.com",
+    author_email="durrantj@pitt.edu",
     description="A lightweight molecule manipulation codebase.",
     url="https://git.durrantlab.com/jdurrant/scoria",
     download_url="https://git.durrantlab.com/jdurrant/scoria/repository/archive.tar.gz",

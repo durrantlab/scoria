@@ -4,3 +4,4 @@
 scoria_tests_tmp
 rsync_htc.bash
 .DS_Store
+upload_to_pip.sh
