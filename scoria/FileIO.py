@@ -62,7 +62,7 @@ class FileIO():
             return
 
         if filename[-1:] != os.sep: filename = filename + os.sep
-    
+
         if numpy.python_version == 2:
             # first, get the files that must exist
             self.__parent_molecule.set_atom_information(
@@ -83,7 +83,7 @@ class FileIO():
 
             if os.path.exists(filename + 'filename'):
                 prnt.set_filename(pickle.load(open(filename + 'filename', "rb")))
-            
+
             if prnt.get_filename() == []:  # If still no filename, set it to the one used as a parameter.
                 prnt.set_filename(filename)
 
@@ -129,7 +129,7 @@ class FileIO():
 
 
     def load_pdbqt_trajectory_into(self, filename, bonds_by_distance = False,
-                                   serial_reindex = True, 
+                                   serial_reindex = True,
                                    resseq_reindex = False):
         """
         Loads the molecular data contained in a pdbqt trajectoy file (e.g., an
@@ -192,7 +192,7 @@ class FileIO():
         incomplete. It doesn't save atomic charges, for example. The atom
         types are stored in the "element_padded" and "element" columns.
 
-        Should be called via the wrapper function 
+        Should be called via the wrapper function
         :meth:`~scoria.Molecule.Molecule.load_pdbqt_into`
 
         :param str filename: A string, the filename of the pdbqt file.
@@ -271,7 +271,7 @@ class FileIO():
         self.__parent_molecule.set_atom_information(atom_inf)
 
     def load_pdb_trajectory_into(self, filename, bonds_by_distance = False,
-                                 serial_reindex = True, 
+                                 serial_reindex = True,
                                  resseq_reindex = False):
         """
         Loads the molecular data contained in a pdb trajectory file into the
@@ -359,14 +359,14 @@ class FileIO():
                     continue
 
                 lines.append(line)
-            
+
             # In rare cases, it could be that the PDB file doesn't end in END
             # or ENDMDL. so consider any remaining lines in the lines list.
             while len(lines) > 0 and (lines[0] == " " or lines[0] == ""):
                 lines = lines[1:]
             if len(lines) > 0:
                 yield "".join(lines)
-        
+
         # Get the information from each frame and place it in the current Molecule object.
         # Note that this could be parallelized in the future...
         first_line = True
@@ -390,14 +390,14 @@ class FileIO():
                 # the coordinates.
                 tmp_mol = scoria.Molecule()
                 tmp_mol.load_pdb_into_using_file_object(
-                    str_file_obj, bonds_by_distance = False, 
+                    str_file_obj, bonds_by_distance = False,
                     serial_reindex = False, resseq_reindex = False,
                     is_trajectory = False
                 )
-                
+
                 trajectoryList.append(tmp_mol.get_coordinates())
 
-        self.__parent_molecule.set_trajectory_coordinates(trajectoryList)        
+        self.__parent_molecule.set_trajectory_coordinates(trajectoryList)
 
     def load_pdb_into(self, filename, bonds_by_distance = False,
                       serial_reindex = True, resseq_reindex = False,
@@ -440,7 +440,7 @@ class FileIO():
         to use the load_pdb_into() function instead, which is identical except
         that it accepts a filename string instead of a python file object.
 
-        Should be called via the wrapper function 
+        Should be called via the wrapper function
         :meth:`~scoria.Molecule.Molecule.load_pdb_into_using_file_object`
 
         :param file file_obj: A python file object, containing pdb-formatted
@@ -655,7 +655,7 @@ class FileIO():
 
         Requires the :any:`numpy` library.
 
-        Should be called via the wrapper function 
+        Should be called via the wrapper function
         :meth:`~scoria.Molecule.Molecule.save_pym`
 
         :param str filename: An string, the filename to use for saving. (Note
@@ -762,7 +762,7 @@ class FileIO():
                     text instead of writing to a file. If True, the filename
                     variable is ignored.
         :param int frame: If specified, a single-frame PDB will be generated.
-                    If not specified, a multi-frame PDB will be generated if 
+                    If not specified, a multi-frame PDB will be generated if
                     the Molecule has multiple frames. Otherwise, the single
                     existing frame will be used.
 
@@ -776,11 +776,11 @@ class FileIO():
 
             # Quick check if it has more than one frame. If so, switch to a
             # multi-frame output function.
-            if (self.__parent_molecule.get_trajectory_frame_count() > 1 and 
+            if (self.__parent_molecule.get_trajectory_frame_count() > 1 and
                 frame is None):
                 # It has multiple frames and the user hasn't specified a
                 # specific frame, so generate the whole trajectory.
-                return self._save_pdb_trajectory(filename, serial_reindex, 
+                return self._save_pdb_trajectory(filename, serial_reindex,
                                                  resseq_reindex, return_text)
 
             # If you get to this point, set the frame to 0.
@@ -808,9 +808,9 @@ class FileIO():
             atom_information = self.__parent_molecule.get_atom_information()
             coordinates = self.__parent_molecule.get_coordinates(frame)
 
-            #if numpy.python_version == 2: 
+            #if numpy.python_version == 2:
             dtype_to_use = '|S5'
-            #else: 
+            #else:
             #    dtype_to_use = '|U5'  # python3 needs this instead
 
             printout = numpy.defchararray_add(
@@ -829,7 +829,7 @@ class FileIO():
             printout = numpy.defchararray_add(printout,
                                               atom_information['chainid_padded'].astype('|S1'))
 
-            #if numpy.python_version == 2: 
+            #if numpy.python_version == 2:
             dtype_to_use = '|S4'
             #else: dtype_to_use = '|U4'  # python3 needs this instead
 
@@ -905,14 +905,14 @@ class FileIO():
 
             if return_text == False:
                 if printout_string[0][-1:] == "\n":
-                    afile.write("".join(printout_string) + "\n")
+                    afile.write("".join([l.decode("utf-8") for l in printout]) + "\n")
                 else:
-                    afile.write("\n".join(printout_string) + "\n")
+                    afile.write("\n".join([l.decode("utf-8") for l in printout]) + "\n")
             else:
                 if printout_string[0][-1:] == "\n":
-                    return_string += "".join(printout) + "\n"
+                    return_string += "".join([l.decode("utf-8") for l in printout]) + "\n"
                 else:
-                    return_string += "\n".join(printout) + "\n"
+                    return_string += "\n".join([l.decode("utf-8") for l in printout]) + "\n"
 
             # print out connect
             prnt = self.__parent_molecule
@@ -982,18 +982,18 @@ class FileIO():
                 all_txt = ""
             else:
                 out = open(filename, 'w')
-    
+
 
             for frame in range(num_frames):
                 pdb_txt = self.save_pdb(
-                    filename, serial_reindex, resseq_reindex, 
+                    filename, serial_reindex, resseq_reindex,
                     True, frame = frame
                 )
 
                 # Remove the CONECT and REMARK information. I don't know how
                 # to deal with that when it's multiple frames.
                 pdb_txt = "\n".join(l for l in pdb_txt.split("\n") if not l.startswith("CONECT") and not l.startswith("REMARK"))
-                
+
                 # Add start and end tags
                 pdb_txt = "MODEL" + str(frame + 1).rjust(9) + "\n" + pdb_txt.strip() + "\nENDMDL\n"
 
@@ -1015,29 +1015,29 @@ class FileIO():
         ***Note this function is only functional in Scoria_MDA***
 
         Allows import of molecular structure with MDAnalysis.
-    
+
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
-    
+
         Should be called via the wrapper function
         :meth:`~scoria.Molecule.Molecule.load_MDAnalysis_into`
-    
+
         :params \*args: Filename, filenames, or list of file names. Used to
             inizalize a MDAnalysis.Universe object.
-    
+
         """
         print("Compatibility with MDAnalysis objects is not supported in this version.")
-    
+
     def load_MDAnalysis_into_using_universe_object(self, universe):
         """
         ***Note this function is only functional in Scoria_MDA***
-        
+
         Allows import of molecular structure from an MDAnalysis object.
-    
+
         Requires the :any:`MDAnalysis <MDAnalysis.core.AtomGroup>` library.
-    
+
         Should be called via the wrapper function
         :meth:`~scoria.Molecule.Molecule.load_MDAnalysis_into`
-    
+
         :param mdanalysis.universe universe: An MDAnalysis universe object to
             import.
         """
