@@ -21,7 +21,6 @@ import sys
 from scoria import dumbpy as np
 
 import scoria
-from ..six.moves import range
 
 
 class OtherMoleculeTests(unittest.TestCase):

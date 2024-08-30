@@ -15,7 +15,6 @@
 from __future__ import absolute_import
 from __future__ import print_function
 from scoria import dumbpy as numpy
-from .six.moves import range
 
 
 class AtomsAndBonds():

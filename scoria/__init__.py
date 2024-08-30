@@ -28,4 +28,4 @@ from scoria.Selections import Selections
 # compatibility. Just uncomment when you want to test.
 from scoria.unittests.UnitTests import UnitTests
 
-__version__ = "1.0.4"
+__version__ = "1.0.6"

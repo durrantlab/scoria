@@ -22,11 +22,6 @@ import copy
 from .DType import dtype as dtypeClass
 from .Support import to_list
 from .Support import var_type
-from scoria.six.moves import range
-from scoria.six.moves import zip
-import scoria.six as six
-
-#from .six import string_types as six_string_types 
 
 def array(lst, dtype=""):
     """Determines whether or not a 1D or 2D array should be used.
