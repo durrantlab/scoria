@@ -2,7 +2,13 @@
 
 ## [Unreleased]
 
-## [1.0.5] DATE
+## [1.0.6] 2024-08-30
+
+### Removed
+
+- Removed python 2 compatibility. No longer supported.
+
+## [1.0.5] 2020-03-25
 
 ### Fixed
 

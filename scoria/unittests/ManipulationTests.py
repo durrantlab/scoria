@@ -22,8 +22,6 @@ import copy
 from scoria import dumbpy as np
 
 import scoria
-from ..six.moves import range
-
 
 class ManipulationTests(unittest.TestCase):
     """

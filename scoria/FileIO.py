@@ -16,18 +16,11 @@ from __future__ import absolute_import
 from __future__ import print_function
 from scoria import dumbpy as numpy
 import os
-import sys
-from .six.moves import range
-from .six.moves import zip
-
-try: from .six.moves import cPickle as pickle  # python2
-except: import pickle  # python3
+import pickle  # python3
 
 import shutil
-import tempfile
 
-try: import cStringIO as StringIO  # python2
-except: from io import StringIO  # python3
+from io import StringIO  # python3
 
 import scoria
 

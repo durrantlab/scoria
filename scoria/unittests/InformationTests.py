@@ -23,9 +23,6 @@ from scoria import dumbpy as np
 
 import scoria
 
-from scoria.six.moves import range
-
-
 class InformationTests(unittest.TestCase):
     """
     Base Test Suite
