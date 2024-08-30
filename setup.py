@@ -17,7 +17,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="scoria",
-    version="1.0.6",
+    version="1.0.4",
     author="Jacob Durrant",
     author_email="durrantj@pitt.edu",
     description="A lightweight molecule manipulation codebase.",
